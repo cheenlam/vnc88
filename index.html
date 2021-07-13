@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/router.js"></script>
+    <title>VNC88</title>
+</head>
+
+<body>
+
+
+    <!-- ===== header start ===== -->
+    <div class="header">
+        <!-- hd_top start -->
+        <div class="hd_top">
+            <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
+            <div class="hd_tool">
+                <div class="hd_link">
+                    <ul>
+                        <li class="hd_service">
+                            <div class="hd_icon">
+                                <img src="images/icon-service.png" lt="icon_service">
+                            </div>
+                            <p>在線客服</p>
+                        </li>
+                        <li>
+                            <div class="hd_icon">
+                                <img src="images/icon-fb.png" alt="icon_facebook">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hd_icon">
+                                <img src="images/icon-zalo.png" alt="icon_zalo">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hd_icon">
+                                <img src="images/icon-tg.png" alt="icon_telegram">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hd_signIn" data-signIn="0" id="hd_signIn">
+                    <div data-signIn="0">
+                        <form class="signIn_ipt">
+                            <label>
+                                <span>帳號</span>
+                                <input type="text">
+                            </label>
+
+                            <label>
+                                <span>密碼</span>
+                                <input type="password">
+                            </label>
+
+                            <div class="signIn_code">
+                                <label>
+                                    <span>驗證碼</span>
+                                    <input type="number">
+                                </label>
+                                <div class="nbCode">
+                                    <img src="images/nbCode.jpg" alt="nbCode">
+                                </div>
+                            </div>
+
+                            <div class="signIn_btn">
+                                <button data-btn="signIn">登入</button>
+                                <button data-btn="regd">註冊</button>
+                            </div>
+                        </form>
+                    </div>
+                   
+                    <div data-signIn="1">
+                        <div class="signIn_msg">
+                            <div>
+                                <div class="signIn_icon member"></div>
+                                <p>test123456789123456</p>
+                            </div>
+                            <div>
+                                <div class="signIn_icon chip"></div>
+                                <p>1,000,000,000.00</p>
+                            </div>
+                            <div>
+                                <div class="signIn_icon mail"></div>
+                                <p>99+</p>
+                            </div>
+                        </div>
+                        <div class="signIn_btn">
+                            <button data-btn="signOut">登出</button>
+                            <button data-btn="mbrMsg">帳戶資料</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
+
+        <!-- hd_menu start -->
+        <div class="hd_menu"> 
+            <ul>
+                <li class="on"><a href="#/home">主頁</a></li>
+                <li><a href="#/lottery">博彩推薦</a></a></li>
+                <li><a href="#/news">新聞</a></li>
+                <li><a href="#/broadcast">足球轉播</a></li>
+                <li><a href="#/forum">討論區</a></li>
+                <li><a href="#/resources">資源</a></li>
+                <li><a href="#/game">
+                        <div class="menu_game">
+                            <img src="images/menu_gameBtn.png" alt="meun_gameBtn">
+                        </div>
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===== content start ===== -->
+    <div class="content" id="content"></div>
+
+    <!-- ===== footer start ===== -->
+    <div class="footer">
+        <!-- ft_top -->
+        <div class="ft_top">
+            <div>
+                <div class="ft_msg">
+                    <p>在越南現場直播第一質量足球</p>
+                    <p>TOP PRESTIGE BEAUTIFUL 100% </p>
+                    <p>SUPER HIGH SUPER HOT SUPER HOT CAMERA</p>
+                </div>
+    
+                <div class="ft_link">
+                    <ul>
+                        <li>
+                            <div class="ft_icon">
+                                <img src="images/icon-18up.png" alt="icon-18up">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ft_icon">
+                                <img src="images/icon-f-fb.png" alt="link-facebook">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ft_icon">
+                                <img src="images/icon-f-yt.png" alt="link-youtube">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           
+        </div>
+
+        <!-- ft_bottom -->
+        <div class="ft_bottom">
+            <div>
+                <div class="copyright">
+                    <p>&copy; Copyright 2021 keobongco.com | </p>
+                </div>
+                <div class="ft_menu">
+                    <ul>
+                        <li><a href="#/home">主頁</a></li>
+                        <li><a href="#/lottery">博彩推薦</a></a></li>
+                        <li><a href="#/news">新聞</a></li>
+                        <li><a href="#/broadcast">足球轉播</a></li>
+                        <li><a href="#/forum">討論區</a></li>
+                        <li><a href="#/resources">資源</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <script>
+        // header按鈕動作
+        $('#hd_signIn button').click(function(){
+            let getData = $(this).attr('data-btn')
+            switch(getData){
+                case 'signIn': 
+                    $('#hd_signIn').attr('data-signIn',1);break;
+                case 'regd': break;
+                case 'signOut': 
+                    $('#hd_signIn').attr('data-signIn',0);break;
+                case 'mbrMsg': break;
+            }
+        })
+
+    </script>
+
+
+</body>
+
+</html>

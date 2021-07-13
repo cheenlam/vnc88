@@ -1,0 +1,50 @@
+
+// 定位position參數
+@mixin pos($direction, $val...) {
+    $result: ();
+    $data: to-upper-case($direction);
+    @for $i from 1 through str-length($data) {
+        $result: append($result, str-slice($data, $i, $i));
+        #{pos-chtext(nth($result, $i))}: #{if(length($val) ==1, $val, nth($val, $i))};
+    }
+}
+
+@function pos-chtext($data) {
+    @if $data== "T" {
+        @return top;
+    } @else if $data== "R" {
+        @return right;
+    } @else if $data== "B" {
+        @return bottom;
+    } @else if $data== "L" {
+        @return left;
+    }
+}
+
+// 判斷是否能hover(手機或Pc)
+@mixin hover {
+    @media (any-hover: hover) {
+        @content;
+    }
+}
+
+// 圖片替換文字
+@mixin imgToTxt {
+    text-indent: 101%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+// 取消預設樣式
+@mixin fullNone {
+    background: transparent;
+    outline: none;
+    border: none;
+}
+
+// 工具按鈕顏色
+@mixin toolColor($shadow, $bgc...) {
+    background: linear-gradient(0deg, nth($bgc, 1), nth($bgc, 2));
+    box-shadow: -1px 1px 1px $shadow inset;
+    border-radius: 5px;
+}
