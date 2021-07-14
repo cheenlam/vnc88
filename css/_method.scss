@@ -1,4 +1,3 @@
-
 // 定位position參數
 @mixin pos($direction, $val...) {
     $result: ();
@@ -47,4 +46,15 @@
     background: linear-gradient(0deg, nth($bgc, 1), nth($bgc, 2));
     box-shadow: -1px 1px 1px $shadow inset;
     border-radius: 5px;
+}
+
+// 文字斷行顯示點點點(參數輸入行數)
+@mixin txtChip($row) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $row;
+    -webkit-box-orient: vertical;
+    white-space: normal;
 }

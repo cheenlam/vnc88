@@ -109,7 +109,7 @@ img {
 }
 
 body {
-  background-color: #102e4e;
+  background-color: #0b2d53;
 }
 
 .header {
@@ -230,18 +230,20 @@ body {
   margin-left: 10px;
 }
 
-.header .hd_top .hd_signIn[data-signIn="1"] > div[data-signIn="0"] {
-  display: none;
-}
-
-.header .hd_top .hd_signIn[data-signIn="0"] > div[data-signIn="1"] {
-  display: none;
-}
-
-.header .hd_top .hd_signIn > div {
+.header .hd_top .hd_signIn[data-signIn="0"] > div[data-signIn="0"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.header .hd_top .hd_signIn[data-signIn="1"] > div[data-signIn="1"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header .hd_top .hd_signIn > div {
+  display: none;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -490,6 +492,35 @@ body {
   }
 }
 
+.content {
+  max-width: 1920px;
+  min-width: 1280px;
+  min-height: calc(100vh - 463px);
+  margin: auto;
+  padding-bottom: 20px;
+  color: #fff;
+  position: relative;
+}
+
+.content::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: url(../images/bodyBg.jpg) no-repeat center bottom;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.contentBox {
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 20px;
+}
+
 .footer {
   width: 100%;
   min-width: 1280px;
@@ -591,11 +622,1078 @@ body {
   margin-left: 30px;
 }
 
-.content {
-  max-width: 1920px;
-  min-width: 1280px;
-  min-height: calc(100vh - 463px);
-  margin: auto;
+.marquee {
+  margin-bottom: 20px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#000), to(transparent));
+  background: linear-gradient(90deg, transparent, #000, transparent);
   color: #fff;
+  font-size: 0.95rem;
+}
+
+.marquee .marqueeBox {
+  max-width: 1280px;
+  margin: auto;
+}
+
+.marquee .marqueeBox > div {
+  max-width: 1050px;
+  height: 35px;
+  padding: 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.marquee .marqueeBox span {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 20px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.marquee .marqueeBox button {
+  height: 23px;
+  padding: 0 10px;
+  margin-left: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  background: -webkit-gradient(linear, left bottom, left top, from(#f14c0a), to(#f8b107));
+  background: linear-gradient(0deg, #f14c0a, #f8b107);
+  -webkit-box-shadow: -1px 1px 1px #ffff00 inset;
+          box-shadow: -1px 1px 1px #ffff00 inset;
+  border-radius: 5px;
+}
+
+.marquee .marqueeBox button:active {
+  background: -webkit-gradient(linear, left bottom, left top, from(#f8b107), to(#f14c0a));
+  background: linear-gradient(0deg, #f8b107, #f14c0a);
+  -webkit-box-shadow: -1px 1px 1px #ffff00 inset;
+          box-shadow: -1px 1px 1px #ffff00 inset;
+  border-radius: 5px;
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+}
+
+@media (any-hover: hover) {
+  .marquee .marqueeBox button:hover {
+    background: -webkit-gradient(linear, left bottom, left top, from(#f8b107), to(#f14c0a));
+    background: linear-gradient(0deg, #f8b107, #f14c0a);
+    -webkit-box-shadow: -1px 1px 1px #ffff00 inset;
+            box-shadow: -1px 1px 1px #ffff00 inset;
+    border-radius: 5px;
+  }
+}
+
+.flexAd {
+  margin-bottom: 40px;
+}
+
+.flexAd ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flexAd li {
+  width: calc(50% - 5px);
+  margin-bottom: 10px;
+}
+
+.flexAd li:last-child:nth-child(odd) {
+  width: 100%;
+}
+
+.betList {
+  margin-bottom: 20px;
+}
+
+.betList .betTitle {
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  color: #f7e6be;
+}
+
+.betList .betTitle .icon {
+  width: 22px;
+  height: 22px;
+  background: url(../images/icon-darts.png) no-repeat center/cover;
+}
+
+.betList .betTitle span {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.betList table {
+  width: 100%;
+  background-color: #444;
+  border-radius: 10px;
+}
+
+.betList tr {
+  width: 100%;
+  position: relative;
+}
+
+.betList tr .betNb {
+  width: 81px;
+  height: 57px;
+  position: relative;
+  margin-right: 20px;
+}
+
+.betList tr:nth-child(1) .betNb::after {
+  content: "1";
+  position: absolute;
+  font-weight: bold;
+  z-index: 1;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-shadow: -2px 0 3px #000;
+}
+
+.betList tr:nth-child(2) .betNb::after {
+  content: "2";
+  position: absolute;
+  font-weight: bold;
+  z-index: 1;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-shadow: -2px 0 3px #000;
+}
+
+.betList tr:nth-child(3) .betNb::after {
+  content: "3";
+  position: absolute;
+  font-weight: bold;
+  z-index: 1;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-shadow: -2px 0 3px #000;
+}
+
+.betList tr:nth-child(4) .betNb::after {
+  content: "4";
+  position: absolute;
+  font-weight: bold;
+  z-index: 1;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-shadow: -2px 0 3px #000;
+}
+
+.betList tr:nth-child(5) .betNb::after {
+  content: "5";
+  position: absolute;
+  font-weight: bold;
+  z-index: 1;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-shadow: -2px 0 3px #000;
+}
+
+.betList tr:nth-child(6) .betNb::after {
+  content: "6";
+  position: absolute;
+  font-weight: bold;
+  z-index: 1;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-shadow: -2px 0 3px #000;
+}
+
+.betList tr:nth-child(7) .betNb::after {
+  content: "7";
+  position: absolute;
+  font-weight: bold;
+  z-index: 1;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-shadow: -2px 0 3px #000;
+}
+
+.betList tr:nth-child(8) .betNb::after {
+  content: "8";
+  position: absolute;
+  font-weight: bold;
+  z-index: 1;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-shadow: -2px 0 3px #000;
+}
+
+.betList tr:nth-child(9) .betNb::after {
+  content: "9";
+  position: absolute;
+  font-weight: bold;
+  z-index: 1;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-shadow: -2px 0 3px #000;
+}
+
+.betList tr:nth-child(10) .betNb::after {
+  content: "10";
+  position: absolute;
+  font-weight: bold;
+  z-index: 1;
+  font-size: 1.6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-shadow: -2px 0 3px #000;
+}
+
+.betList tr:nth-child(1) .betNb {
+  background-image: url(../images/betNb-1.png);
+}
+
+.betList tr:nth-child(1) .betNb::after {
+  padding-bottom: 5px;
+}
+
+.betList tr:nth-child(2) .betNb {
+  background-image: url(../images/betNb-2.png);
+}
+
+.betList tr:nth-child(2) .betNb::after {
+  padding-bottom: 5px;
+}
+
+.betList tr:nth-child(3) .betNb {
+  background-image: url(../images/betNb-3.png);
+}
+
+.betList tr:nth-child(3) .betNb::after {
+  padding-bottom: 5px;
+}
+
+.betList tr:nth-child(4) .betNb::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  background-color: #1b1b1b;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.betList tr:nth-child(5) .betNb::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  background-color: #1b1b1b;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.betList tr:nth-child(6) .betNb::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  background-color: #1b1b1b;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.betList tr:nth-child(7) .betNb::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  background-color: #1b1b1b;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.betList tr:nth-child(8) .betNb::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  background-color: #1b1b1b;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.betList tr:nth-child(9) .betNb::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  background-color: #1b1b1b;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.betList tr:nth-child(10) .betNb::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  background-color: #1b1b1b;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.betList tr + tr::before {
+  content: "";
+  width: calc(100% - 40px);
+  height: 1px;
+  margin: auto;
+  background-color: #1b1b1b;
+  -webkit-box-shadow: 0 1px 1px #626262;
+          box-shadow: 0 1px 1px #626262;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.betList th {
+  height: 110px;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.betList th::before {
+  content: "";
+  width: 1px;
+  height: calc(100% - 20px);
+  margin: auto;
+  background-color: #000;
+  -webkit-box-shadow: 1px 0 1px #626262;
+          box-shadow: 1px 0 1px #626262;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.betList th .betLogo {
+  width: 125px;
+}
+
+.betList td {
+  width: 25%;
+  height: 110px;
+  padding: 0 20px;
+  position: relative;
+}
+
+.betList td::before {
+  content: "";
+  width: 1px;
+  height: calc(100% - 20px);
+  margin: auto;
+  background-color: #000;
+  -webkit-box-shadow: 1px 0 1px #626262;
+          box-shadow: 1px 0 1px #626262;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.betList td:last-child {
+  width: 100%;
+}
+
+.betList td:last-child::before {
+  display: none;
+}
+
+.betList td span {
+  color: #8d8d8d;
+  font-size: 0.9rem;
+}
+
+.betList td .price {
+  padding-top: 5px;
+  font-size: 1.9rem;
+  font-weight: 400;
+  text-align: right;
+}
+
+.betList td .price::after {
+  content: attr(data-currency);
+  margin-left: 10px;
+}
+
+.betList td .betScore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.betList td .betScore .scoreIcon {
+  padding-left: 25px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.betList td .betScore .scoreIcon .ball {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: auto;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #ffbb00;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.betList td .betScore .scoreIcon .ball::before {
+  color: #2b2b2b;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.betList td .betScore .scoreIcon .star {
+  width: 160px;
+  height: 40px;
+  background-color: #2b2b2b;
+  background-repeat: no-repeat;
+  background-position: 60% center;
+  border-radius: 35px;
+  -webkit-box-shadow: -2px -2px 1px #626262 inset;
+          box-shadow: -2px -2px 1px #626262 inset;
+}
+
+.betList td .betScore .scoreIcon[data-nb="0"] .star {
+  background-image: url(../images/betStar-0.png);
+}
+
+.betList td .betScore .scoreIcon[data-nb="0"] .ball::before {
+  content: "0";
+}
+
+.betList td .betScore .scoreIcon[data-nb="0.5"] .star {
+  background-image: url(../images/betStar-0.5.png);
+}
+
+.betList td .betScore .scoreIcon[data-nb="0.5"] .ball::before {
+  content: "0.5";
+}
+
+.betList td .betScore .scoreIcon[data-nb="1"] .star {
+  background-image: url(../images/betStar-1.png);
+}
+
+.betList td .betScore .scoreIcon[data-nb="1"] .ball::before {
+  content: "1";
+}
+
+.betList td .betScore .scoreIcon[data-nb="1.5"] .star {
+  background-image: url(../images/betStar-1.5.png);
+}
+
+.betList td .betScore .scoreIcon[data-nb="1.5"] .ball::before {
+  content: "1.5";
+}
+
+.betList td .betScore .scoreIcon[data-nb="2"] .star {
+  background-image: url(../images/betStar-2.png);
+}
+
+.betList td .betScore .scoreIcon[data-nb="2"] .ball::before {
+  content: "2";
+}
+
+.betList td .betScore .scoreIcon[data-nb="2.5"] .star {
+  background-image: url(../images/betStar-2.5.png);
+}
+
+.betList td .betScore .scoreIcon[data-nb="2.5"] .ball::before {
+  content: "2.5";
+}
+
+.betList td .betScore .scoreIcon[data-nb="3"] .star {
+  background-image: url(../images/betStar-3.png);
+}
+
+.betList td .betScore .scoreIcon[data-nb="3"] .ball::before {
+  content: "3";
+}
+
+.betList td .betScore .scoreIcon[data-nb="3.5"] .star {
+  background-image: url(../images/betStar-3.5.png);
+}
+
+.betList td .betScore .scoreIcon[data-nb="3.5"] .ball::before {
+  content: "3.5";
+}
+
+.betList td .betScore .scoreIcon[data-nb="4"] .star {
+  background-image: url(../images/betStar-4.png);
+}
+
+.betList td .betScore .scoreIcon[data-nb="4"] .ball::before {
+  content: "4";
+}
+
+.betList td .betScore .scoreIcon[data-nb="4.5"] .star {
+  background-image: url(../images/betStar-4.5.png);
+}
+
+.betList td .betScore .scoreIcon[data-nb="4.5"] .ball::before {
+  content: "4.5";
+}
+
+.betList td .betScore .scoreIcon[data-nb="5"] .star {
+  background-image: url(../images/betStar-5.png);
+}
+
+.betList td .betScore .scoreIcon[data-nb="5"] .ball::before {
+  content: "5";
+}
+
+.betList td .betScore span {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.betList td .betBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+
+.betList td .betBtn > div {
+  height: 40px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: -webkit-gradient(linear, left bottom, left top, from(#f14c0a), to(#f8b107));
+  background: linear-gradient(0deg, #f14c0a, #f8b107);
+  -webkit-box-shadow: -1px 1px 1px #ffff00 inset;
+          box-shadow: -1px 1px 1px #ffff00 inset;
+  border-radius: 5px;
+  border-radius: 40px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.betList td .betBtn > div:active {
+  background: -webkit-gradient(linear, left bottom, left top, from(#f8b107), to(#f14c0a));
+  background: linear-gradient(0deg, #f8b107, #f14c0a);
+  -webkit-box-shadow: -1px 1px 1px #ffff00 inset;
+          box-shadow: -1px 1px 1px #ffff00 inset;
+  border-radius: 5px;
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+  border-radius: 40px;
+}
+
+@media (any-hover: hover) {
+  .betList td .betBtn > div:hover {
+    background: -webkit-gradient(linear, left bottom, left top, from(#f8b107), to(#f14c0a));
+    background: linear-gradient(0deg, #f8b107, #f14c0a);
+    -webkit-box-shadow: -1px 1px 1px #ffff00 inset;
+            box-shadow: -1px 1px 1px #ffff00 inset;
+    border-radius: 5px;
+    border-radius: 40px;
+  }
+}
+
+.betList td .betBtn > div + div {
+  margin-left: 10px;
+}
+
+.betList td .betBtn > div:last-child span {
+  color: #fff;
+}
+
+.betList td .betBtn span {
+  font-size: 1.1rem;
+  color: #990000;
+  padding-right: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.mainMsg {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.mainMsg .mainMsg-title {
+  min-width: 100px;
+  padding: 0 10px;
+  height: 36px;
+  background: transparent;
+  outline: none;
+  border: none;
+  background: -webkit-gradient(linear, left bottom, left top, from(#e60012), to(#ec6941));
+  background: linear-gradient(0deg, #e60012, #ec6941);
+  -webkit-box-shadow: -1px 1px 1px #f39700 inset;
+          box-shadow: -1px 1px 1px #f39700 inset;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.mainMsg .flexAd {
+  margin-bottom: 20px;
+}
+
+.mainNews {
+  margin-bottom: 20px;
+}
+
+.mainNews .mainNews_t {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.mainNews .mainNews_t .news_main .news_mainImg {
+  width: 750px;
+  position: relative;
+  margin-right: 20px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.mainNews .mainNews_t .news_main .news_mainImg p {
+  padding: 15px;
+  font-size: 1.6rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mainNews .mainNews_t .news_list {
+  height: 412px;
+}
+
+.mainNews .mainNews_t .news_list .newsList_cnt {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.mainNews .mainNews_t .news_list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mainNews .mainNews_t .news_list li .newsList_img {
+  width: 100px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.mainNews .mainNews_t .news_list li p {
+  padding: 0 10px;
+  height: 100%;
+  color: #000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.mainNews .mainNews_t .news_list li + li {
+  margin-top: 10px;
+}
+
+.mainNews .mainNews_b ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mainNews .mainNews_b li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.mainNews .mainNews_b li p {
+  padding-top: 10px;
+  color: #000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.mainNews .mainNews_b li + li {
+  margin-left: 20px;
+}
+
+.mainScore {
+  margin-bottom: 20px;
+}
+
+.mainScore .scoreCnt {
+  width: 100%;
+  height: 800px;
+}
+
+.mainScore .scoreCnt iframe {
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.mainRec {
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mainRec > div {
+  width: calc(50% - 10px);
+}
+
+.mainRec .recCount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.mainRec .recCount .list {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mainRec .recCount .list > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #000;
+}
+
+.mainRec .recCount .list .listImg {
+  width: calc(50% - 10px);
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.mainRec .recCount .list .listMsg {
+  padding: 0 20px;
+  position: relative;
+}
+
+.mainRec .recCount .list .listMsg .title {
+  margin-bottom: 10px;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.mainRec .recCount .list .listMsg p {
+  font-size: 0.9rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.mainRec .recCount .list .moreBtn {
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #e00e0e;
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.mainRec .recCount .list .moreBtn span {
+  position: relative;
+  z-index: 1;
+}
+
+.mainRec .recCount .list .moreBtn::before {
+  content: "";
+  width: 150%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  -webkit-transform: translateX(-150%) skew(30deg);
+          transform: translateX(-150%) skew(30deg);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.mainRec .recCount .list .moreBtn:hover::before {
+  -webkit-transform: translateX(-10%) skew(30deg);
+          transform: translateX(-10%) skew(30deg);
+}
+
+.wsDict > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.wsDict .wsDict_msg {
+  width: calc(100% - 380px);
+  padding-right: 30px;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+.wsDict .wsDict_msg .title {
+  font-size: 1.8rem;
+  color: #ff2453;
+  padding-bottom: 15px;
+}
+
+.wsDict .wsDict_msg p {
+  line-height: 30px;
+}
+
+.wsDict .wsDictImg {
+  width: 380px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 /*# sourceMappingURL=all.css.map */

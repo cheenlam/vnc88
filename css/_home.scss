@@ -1,0 +1,495 @@
+// marquee start
+.marquee {
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, transparent, #000, transparent);
+    color: $color_02;
+    font-size: 0.95rem;
+    .marqueeBox {
+        max-width: $count-minW;
+        margin: auto;
+        & > div {
+            max-width: 1050px;
+            height: 35px;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+        }
+        span {
+            flex-shrink: 0;
+            margin-right: 20px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        button {
+            height: 23px;
+            padding: 0 10px;
+            margin-left: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: $color_02;
+            flex-shrink: 0;
+            cursor: pointer;
+            @include fullNone;
+            @include toolColor(#ffff00, #f14c0a, #f8b107);
+            &:active {
+                @include toolColor(#ffff00, #f8b107, #f14c0a);
+                transform: translateY(2px);
+            }
+            @include hover {
+                &:hover {
+                    @include toolColor(#ffff00, #f8b107, #f14c0a);
+                }
+            }
+        }
+    }
+}
+
+// flexAd start
+.flexAd {
+    margin-bottom: 40px;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    li {
+        width: calc(50% - 5px);
+        margin-bottom: 10px;
+        &:last-child:nth-child(odd) {
+            width: 100%;
+        }
+    }
+}
+
+// betList start
+.betList {
+    margin-bottom: 20px;
+    .betTitle {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-end;
+        color: #f7e6be;
+        .icon {
+            width: 22px;
+            height: 22px;
+            background: url(../images/icon-darts.png) no-repeat center / cover;
+        }
+        span {
+            display: inline-block;
+            padding: 0 10px;
+        }
+    }
+
+    table {
+        width: 100%;
+        background-color: #444;
+        border-radius: 10px;
+    }
+    tr {
+        width: 100%;
+        position: relative;
+
+        & .betNb {
+            width: 81px;
+            height: 57px;
+            position: relative;
+            margin-right: 20px;
+        }
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) .betNb::after {
+                content: "#{$i}";
+                position: absolute;
+                font-weight: bold;
+                z-index: 1;
+                font-size: 1.6rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include pos(tblr, 0);
+                text-shadow: -2px 0 3px #000;
+            }
+        }
+
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) .betNb {
+                background-image: url(../images/betNb-#{$i}.png);
+            }
+            &:nth-child(#{$i}) .betNb::after {
+                padding-bottom: 5px;
+            }
+        }
+
+        @for $i from 4 through 10 {
+            &:nth-child(#{$i}) .betNb::before {
+                content: "";
+                width: 50px;
+                height: 50px;
+                margin: auto;
+                background-color: $color_03;
+                border-radius: 50%;
+                position: absolute;
+                @include pos(tblr, 0);
+            }
+        }
+    }
+    tr + tr::before {
+        content: "";
+        width: calc(100% - 40px);
+        height: 1px;
+        margin: auto;
+        background-color: $color_03;
+        box-shadow: 0 1px 1px #626262;
+        position: absolute;
+        @include pos(tlr, 0);
+    }
+
+    th {
+        height: 110px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        &::before {
+            content: "";
+            width: 1px;
+            height: calc(100% - 20px);
+            margin: auto;
+            background-color: #000;
+            box-shadow: 1px 0 1px #626262;
+            position: absolute;
+            @include pos(tbr, 0);
+        }
+
+        .betLogo {
+            width: 125px;
+        }
+    }
+
+    td {
+        width: 25%;
+        height: 110px;
+        padding: 0 20px;
+        position: relative;
+        &::before {
+            content: "";
+            width: 1px;
+            height: calc(100% - 20px);
+            margin: auto;
+            background-color: #000;
+            box-shadow: 1px 0 1px #626262;
+            position: absolute;
+            @include pos(tbr, 0);
+        }
+        &:last-child {
+            width: 100%;
+            &::before {
+                display: none;
+            }
+        }
+        span {
+            color: $clr_ftTxt;
+            font-size: 0.9rem;
+        }
+        .price {
+            padding-top: 5px;
+            font-size: 1.9rem;
+            font-weight: 400;
+            text-align: right;
+            &::after {
+                content: attr(data-currency);
+                margin-left: 10px;
+            }
+        }
+        .betScore {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .scoreIcon {
+                padding-left: 25px;
+                margin-bottom: 10px;
+                position: relative;
+
+                .ball {
+                    width: 50px;
+                    height: 50px;
+                    line-height: 50px;
+                    margin: auto;
+                    text-align: center;
+                    border-radius: 50%;
+                    background-color: #ffbb00;
+                    position: absolute;
+                    @include pos(tbl, 0);
+                    &::before {
+                        color: #2b2b2b;
+                        font-size: 1.4rem;
+                        font-weight: 600;
+                    }
+                }
+                .star {
+                    width: 160px;
+                    height: 40px;
+                    background-color: #2b2b2b;
+                    background-repeat: no-repeat;
+                    background-position: 60% center;
+                    border-radius: 35px;
+                    box-shadow: -2px -2px 1px #626262 inset;
+                }
+                @for $i from 0 through 10 {
+                    &[data-nb="#{$i*0.5}"] .star {
+                        background-image: url(../images/betStar-#{$i*0.5}.png);
+                    }
+                    &[data-nb="#{$i*0.5}"] .ball::before {
+                        content: "#{$i*0.5}";
+                    }
+                }
+            }
+            span {
+                width: 100%;
+                display: inline-block;
+                text-align: center;
+            }
+        }
+        .betBtn {
+            display: flex;
+            cursor: pointer;
+            & > div {
+                height: 40px;
+                flex: 1;
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include toolColor(#ffff00, #f14c0a, #f8b107);
+                border-radius: 40px;
+                transition: 0.3s;
+                &:active {
+                    @include toolColor(#ffff00, #f8b107, #f14c0a);
+                    transform: translateY(2px);
+                    border-radius: 40px;
+                }
+                @include hover {
+                    &:hover {
+                        @include toolColor(#ffff00, #f8b107, #f14c0a);
+                        border-radius: 40px;
+                    }
+                }
+            }
+
+            & > div + div {
+                margin-left: 10px;
+            }
+            & > div:last-child span {
+                color: #fff;
+            }
+            span {
+                font-size: 1.1rem;
+                color: #990000;
+                padding-right: 10px;
+                font-weight: bold;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}
+
+// ==== mainMsg start ====
+.mainMsg {
+    padding: 20px;
+    background-color: #fff;
+    .mainMsg-title {
+        min-width: 100px;
+        padding: 0 10px;
+        height: 36px;
+        @include fullNone;
+        @include toolColor(#f39700, #e60012, #ec6941);
+        color: #fff;
+        font-size: 1rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+
+    .flexAd {
+        margin-bottom: 20px;
+    }
+}
+
+// mainNews start
+.mainNews {
+    margin-bottom: 20px;
+    .mainNews_t {
+        display: flex;
+        margin-bottom: 20px;
+        .news_main {
+            .news_mainImg {
+                width: 750px;
+                position: relative;
+                margin-right: 20px;
+                flex-shrink: 0;
+                p {
+                    padding: 15px;
+                    font-size: 1.6rem;
+                    background-color: rgba(0, 0, 0, 0.75);
+                    position: absolute;
+                    @include pos(blr, 0);
+                }
+            }
+        }
+        .news_list {
+            height: 412px;
+            .newsList_cnt {
+                height: 100%;
+                overflow-y: scroll;
+            }
+            li {
+                display: flex;
+                .newsList_img {
+                    width: 100px;
+                    flex-shrink: 0;
+                }
+                p {
+                    padding: 0 10px;
+                    height: 100%;
+                    color: #000;
+                    @include txtChip(3);
+                }
+            }
+            li + li {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .mainNews_b {
+        ul {
+            display: flex;
+        }
+
+        li {
+            flex: 1;
+            p {
+                padding-top: 10px;
+                color: #000;
+                @include txtChip(3);
+            }
+        }
+
+        li + li {
+            margin-left: 20px;
+        }
+    }
+}
+
+// mainScore start
+.mainScore {
+    margin-bottom: 20px;
+    .scoreCnt {
+        width: 100%;
+        height: 800px;
+        iframe {
+            transform: scale(2);
+            transform-origin: top left;
+            // height: 800px;
+        }
+    }
+}
+
+// mainRec start
+.mainRec {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    & > div {
+        width: calc(50% - 10px);
+    }
+    .recCount {
+        display: flex;
+        flex-direction: column;
+        .list {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            & > div {
+                display: flex;
+                color: #000;
+            }
+            .listImg {
+                width: calc(50% - 10px);
+                flex-shrink: 0;
+            }
+            .listMsg {
+                padding: 0 20px;
+                position: relative;
+                .title {
+                    margin-bottom: 10px;
+                    display: inline-block;
+                    font-weight: bold;
+                    font-size: 1.1rem;
+                    @include txtChip(2);
+                }
+                p {
+                    font-size: 0.9rem;
+                    @include txtChip(3);
+                }
+            }
+            .moreBtn {
+                @include fullNone;
+                padding: 10px;
+                font-size: 0.9rem;
+                font-weight: bold;
+                color: #fff;
+                background-color: #e00e0e;
+                position: absolute;
+                bottom: 0;
+                overflow: hidden;
+                cursor: pointer;
+                span {
+                    position: relative;
+                    z-index: 1;
+                }
+                &::before {
+                    content: "";
+                    width: 150%;
+                    height: 100%;
+                    position: absolute;
+                    @include pos(tl, 0);
+                    background-color: #000;
+                    transform: translateX(-150%) skew(30deg);
+                    transition: 0.5s;
+                }
+
+                &:hover::before {
+                    transform: translateX(-10%) skew(30deg);
+                }
+            }
+        }
+    }
+}
+
+// wsDict start
+.wsDict {
+    & > div {
+        display: flex;
+    }
+    .wsDict_msg {
+        width: calc(100% - 380px);
+        padding-right: 30px;
+        color: #000;
+        font-size: 1.2rem;
+        .title {
+            font-size: 1.8rem;
+            color: #ff2453;
+            padding-bottom: 15px;
+        }
+        p {
+            line-height: 30px;
+        }
+    }
+    .wsDictImg {
+        width: 380px;
+        flex-shrink: 0;
+    }
+}
+
+// ff2453
