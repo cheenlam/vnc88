@@ -22,7 +22,7 @@ body {
             width: 478px;
             height: 86px;
             margin-bottom: 10px;
-            background-image: url(./images/hd_logo.png);
+            background-image: url(../images/hd_logo.png);
             cursor: pointer;
             @include imgToTxt;
             a {
@@ -139,13 +139,13 @@ body {
                     background-position: center;
                     background-size: cover;
                     &.member {
-                        background: url(./images/icon-member.png);
+                        background: url(../images/icon-member.png);
                     }
                     &.chip {
-                        background: url(./images/icon-chip.png);
+                        background: url(../images/icon-chip.png);
                     }
                     &.mail {
-                        background: url(./images/icon-mail.png);
+                        background: url(../images/icon-mail.png);
                     }
                 }
             }
@@ -271,7 +271,7 @@ body {
         content: "";
         width: 100%;
         height: 100%;
-        background: url(./images/bodyBg.jpg) no-repeat center bottom;
+        background: url(../images/bodyBg.jpg) no-repeat center bottom;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -294,7 +294,7 @@ body {
     min-height: 275px;
     margin: auto;
     color: $clr_ftTxt;
-    // background: url(./images/ftTestbg.jpg) no-repeat center;
+    // background: url(../images/ftTestbg.jpg) no-repeat center;
 
     // ft_top
     .ft_top {

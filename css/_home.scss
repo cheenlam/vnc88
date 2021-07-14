@@ -72,7 +72,7 @@
         .icon {
             width: 22px;
             height: 22px;
-            background: url(./images/icon-darts.png) no-repeat center / cover;
+            background: url(../images/icon-darts.png) no-repeat center / cover;
         }
         span {
             display: inline-block;
@@ -112,7 +112,7 @@
 
         @for $i from 1 through 3 {
             &:nth-child(#{$i}) .betNb {
-                background-image: url(./images/betNb-#{$i}.png);
+                background-image: url(../images/betNb-#{$i}.png);
             }
             &:nth-child(#{$i}) .betNb::after {
                 padding-bottom: 5px;
@@ -236,7 +236,7 @@
                 }
                 @for $i from 0 through 10 {
                     &[data-nb="#{$i*0.5}"] .star {
-                        background-image: url(./images/betStar-#{$i*0.5}.png);
+                        background-image: url(../images/betStar-#{$i*0.5}.png);
                     }
                     &[data-nb="#{$i*0.5}"] .ball::before {
                         content: "#{$i*0.5}";
