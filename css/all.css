@@ -1935,9 +1935,8 @@ body {
 .dialogBox .dialog_cnt01 {
   width: 100%;
   max-width: 779px;
-  height: 435px;
   margin: auto;
-  padding: 34px 20px 0;
+  padding: 34px 20px;
   position: relative;
   z-index: 5;
   background: -webkit-gradient(linear, left bottom, left top, from(#091422), to(#0e263c));
