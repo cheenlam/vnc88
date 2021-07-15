@@ -257,13 +257,48 @@ body {
   display: flex;
 }
 
+.header .hd_top .hd_signIn .signIn_forget {
+  width: 155px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 5px;
+  margin-right: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #111;
+  border: 1px solid #646774;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.header .hd_top .hd_signIn .signIn_forget label {
+  width: 100%;
+  margin-right: 0;
+  border: none;
+  padding: 0;
+}
+
+.header .hd_top .hd_signIn .signIn_forget .hd_forget {
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  background: #212121 url(../images/icon-Q.png) no-repeat center;
+  border: 1px solid #898989;
+  cursor: pointer;
+}
+
 .header .hd_top .hd_signIn label {
   width: 155px;
-  height: 34px;
+  height: 100%;
   padding: 0 5px;
   margin-right: 10px;
   border: 1px solid #646774;
-  background-color: #393946;
+  background-color: #111;
   color: #c5c5c5;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -447,7 +482,7 @@ body {
 
 .header .hd_menu ul {
   height: 100%;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: bold;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1863,5 +1898,109 @@ body {
   width: 380px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+}
+
+.dialogBox {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.dialogBox.on {
+  display: block;
+}
+
+.dialogBox .dialog_close {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.dialogBox .dialog_cnt01 {
+  width: 100%;
+  max-width: 779px;
+  height: 435px;
+  margin: auto;
+  padding: 34px 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(../images/testBg.jpg) no-repeat center/cover;
+  -webkit-box-shadow: 5px 5px 10px #000;
+          box-shadow: 5px 5px 10px #000;
+  border: 1px solid #f6bf3d;
+}
+
+.dialogBox .dialog_cnt01.on {
+  display: block;
+}
+
+.dialogBox .dialog_cnt01 .title {
+  padding-bottom: 21px;
+  margin-bottom: 47px;
+  margin-bottom: 5px;
+  color: #e9b21a;
+  font-size: 2.1rem;
+  font-weight: 400;
+  letter-spacing: 5px;
+  text-align: center;
+  position: relative;
+}
+
+.dialogBox .dialog_cnt01 .title::before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#71784C), to(transparent));
+  background: linear-gradient(90deg, transparent, #71784C, transparent);
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+}
+
+.dialogBox .dialog_cnt01 .innerBox {
+  width: 100%;
+  max-width: 485px;
+  margin: auto;
+}
+
+.dialogBox .dialog_cnt01 .innerBox > div {
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.dialogBox .dialog_cnt01 .innerBox .iptBox {
+  width: 100%;
+  max-width: 390px;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #100F1F;
+  -webkit-box-shadow: 0 0 8px #000 inset,0 1px 1px #374268;
+          box-shadow: 0 0 8px #000 inset,0 1px 1px #374268;
+}
+
+.dialogBox .dialog_cnt01 .innerBox .iptBox input {
+  width: 100%;
 }
 /*# sourceMappingURL=all.css.map */

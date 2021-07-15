@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/all.css">
+    <title>VNC88</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/router.js"></script>
-    <title>VNC88</title>
+    <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -52,10 +53,14 @@
                                 <input type="text">
                             </label>
 
-                            <label>
-                                <span>密碼</span>
-                                <input type="password">
-                            </label>
+                            <div class="signIn_forget">
+                                <label>
+                                    <span>密碼</span>
+                                    <input type="password">         
+                                </label>
+                                <div class="hd_forget" id="hd_forget"></div>
+                            </div>
+                            
 
                             <div class="signIn_code">
                                 <label>
@@ -69,7 +74,7 @@
 
                             <div class="signIn_btn">
                                 <button data-btn="signIn">登入</button>
-                                <button data-btn="regd">註冊</button>
+                                <button data-btn="regd" id="hd_regd">註冊</button>
                             </div>
                         </div>
                     </div>
@@ -101,7 +106,9 @@
         <!-- hd_menu start -->
         <div class="hd_menu" id="hd_menu">
             <ul>
-                <li class="on"><a href="#/home">主頁</a></li>
+                <li class="on">
+                    <a href="#/home">主頁</a>
+                </li>
                 <li><a href="#/lottery">博彩推薦</a></a></li>
                 <li><a href="#/news">新聞</a></li>
                 <li><a href="#/broadcast">足球轉播</a></li>
@@ -212,25 +219,12 @@
         </div>
     </div>
 
+    <div class="dialogCnt" id="dialogCnt"></div>
+        
     <script>
-        // header按鈕動作
-        $('#hd_signIn button').click(function () {
-            let getData = $(this).attr('data-btn')
-            switch (getData) {
-                case 'signIn':
-                    $('#hd_signIn').attr('data-signIn', 1); break;
-                case 'regd': break;
-                case 'signOut':
-                    $('#hd_signIn').attr('data-signIn', 0); break;
-                case 'mbrMsg': break;
-            }
-        })
-
-
-   
+        
+        
     </script>
-
-
 </body>
 
 </html>

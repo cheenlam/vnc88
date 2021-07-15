@@ -40,24 +40,31 @@ window.Router.init();
 // 路由呼叫路徑
 Router.route('/home', function() {
     mainInclude('page/home.html');
+    menuList_on(0);
 });
 Router.route('/lottery', function() {
     mainInclude('page/lottery.html');
+    menuList_on(1);
 });
 Router.route('/news', function() {
     mainInclude('page/news.html');
+    menuList_on(2);
 });
 Router.route('/broadcast', function() {
     mainInclude('page/broadcast.html');
+    menuList_on(3);
 });
 Router.route('/forum', function() {
     mainInclude('page/forum.html');
+    menuList_on(4);
 });
 Router.route('/resources', function() {
     mainInclude('page/resources.html');
+    menuList_on(5);
 });
 Router.route('/game', function() {
     mainInclude('page/game.html');
+    menuList_on(6);
 });
 
 // home lottery news broadcast forum resources game
@@ -69,4 +76,9 @@ function mainInclude(src) {
             $("#content").html(html);
         }
     });
+}
+
+function menuList_on(index) {
+    $('#hd_menu li').removeClass('on')
+    $(`#hd_menu li:eq(${index})`).addClass('on')
 }

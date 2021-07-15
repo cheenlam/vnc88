@@ -1,0 +1,80 @@
+.dialogBox{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    // display: none;
+    &.on{
+        display: block;
+    }
+    .dialog_close{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        @include pos(tblr,0);
+    }  
+    .dialog_cnt01{
+        width: 100%;
+        max-width: 779px;
+        height: 435px;
+        margin: auto;
+        padding: 34px 20px;
+        // display: none;
+        position: absolute;
+        @include pos(tblr,0);
+        // background: linear-gradient(0deg,#091422,#0e263c);
+        background: url(../images/testBg.jpg) no-repeat center / cover;
+        box-shadow: 5px 5px 10px #000;
+        border: 1px solid #f6bf3d;
+        &.on{
+            display: block;
+        }
+        .title{
+            padding-bottom: 21px;
+            margin-bottom: 47px;
+            margin-bottom: 5px;
+            color: #e9b21a;
+            font-size: 2.1rem;
+            font-weight: 400;
+            letter-spacing: 5px;
+            text-align: center;
+            position: relative;
+            &::before{
+                content: '';
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(90deg,transparent,#71784C,transparent);
+                position: absolute;
+                margin: auto;
+                @include pos(blr,0);
+                border-radius: 50%;
+            }
+        }
+        .innerBox{
+            width: 100%;
+            max-width: 485px;
+            margin: auto;
+            &>div{
+                height: 35px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+            .iptBox{
+                width: 100%;
+                max-width: 390px;
+                height: 100%;
+                border-radius: 5px;
+                background-color: #100F1F;
+                box-shadow: 0 0 8px #000 inset,0 1px 1px #374268;
+
+                input{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

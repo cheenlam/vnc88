@@ -93,18 +93,44 @@ body {
                 display: none;
                 justify-content: flex-end;
             }
-
+            
             .signIn_ipt {
                 display: flex;
             }
-
+            .signIn_forget{
+                width: 155px;
+                display: flex;
+                padding: 0 5px;
+                margin-right: 10px;
+                align-items: center;
+                background-color: #111;
+                border: 1px solid #646774;
+                box-sizing: border-box;
+                border-radius: 5px;
+                label{
+                    width: 100%;
+                    margin-right: 0;
+                    border: none;
+                    padding: 0;
+                }
+                .hd_forget {
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 4px;
+                    flex-shrink: 0;
+                    background: #212121 url(../images/icon-Q.png) no-repeat center ;
+                    border: 1px solid #898989;
+                    cursor: pointer;
+                }
+            }
+            
             label {
                 width: 155px;
-                height: 34px;
+                height: 100%;
                 padding: 0 5px;
                 margin-right: 10px;
                 border: 1px solid #646774;
-                background-color: #393946;
+                background-color: #111;
                 color: $color_01;
                 align-items: center;
                 border-radius: 5px;
@@ -225,7 +251,7 @@ body {
         ul {
             height: 100%;
 
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: bold;
             display: flex;
             justify-content: center;
@@ -462,7 +488,7 @@ body {
             position: relative;
             pointer-events: auto;
             &.on {
-                visibility:hidden;
+                visibility: hidden;
                 pointer-events: none;
             }
         }
@@ -474,14 +500,13 @@ body {
             position: absolute;
             cursor: pointer;
             opacity: 0.7;
-            transition: opacity 0.3s ;
+            transition: opacity 0.3s;
             @include pos(tr, -10px);
-            @include hover{
-                &:hover{
-                   
+            @include hover {
+                &:hover {
                     opacity: 1;
                 }
-            };
+            }
             &::after,
             &::before {
                 content: "";
