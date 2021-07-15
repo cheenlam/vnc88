@@ -1907,6 +1907,7 @@ body {
   top: 0;
   left: 0;
   z-index: 999;
+  display: none;
 }
 
 .dialogBox.on {
@@ -1930,12 +1931,14 @@ body {
   height: 435px;
   margin: auto;
   padding: 34px 20px;
+  display: none;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: url(../images/testBg.jpg) no-repeat center/cover;
+  background: -webkit-gradient(linear, left bottom, left top, from(#091422), to(#0e263c));
+  background: linear-gradient(0deg, #091422, #0e263c);
   -webkit-box-shadow: 5px 5px 10px #000;
           box-shadow: 5px 5px 10px #000;
   border: 1px solid #f6bf3d;
@@ -1948,7 +1951,6 @@ body {
 .dialogBox .dialog_cnt01 .title {
   padding-bottom: 21px;
   margin-bottom: 47px;
-  margin-bottom: 5px;
   color: #e9b21a;
   font-size: 2.1rem;
   font-weight: 400;
@@ -1988,6 +1990,13 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  margin-bottom: 31px;
+}
+
+.dialogBox .dialog_cnt01 .innerBox span {
+  font-weight: bold;
+  color: #869BAE;
+  margin-right: 6px;
 }
 
 .dialogBox .dialog_cnt01 .innerBox .iptBox {
@@ -1996,11 +2005,19 @@ body {
   height: 100%;
   border-radius: 5px;
   background-color: #100F1F;
-  -webkit-box-shadow: 0 0 8px #000 inset,0 1px 1px #374268;
-          box-shadow: 0 0 8px #000 inset,0 1px 1px #374268;
+  -webkit-box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+          box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
 }
 
 .dialogBox .dialog_cnt01 .innerBox .iptBox input {
   width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 0 20px;
+  color: #737882;
+  font-weight: bold;
+  font-size: 1rem;
 }
 /*# sourceMappingURL=all.css.map */
