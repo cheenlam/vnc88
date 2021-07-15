@@ -456,6 +456,7 @@
     $(document).ready(function () {
         let contH = $('.contBox-max').height();
         $('#leftTool,#rightTool').css('top', contH + 20)
+        window.scrollTo({top: 0});
     })
 
     var scroll = $(window).scroll(function () {
@@ -465,6 +466,7 @@
 
     $(window).resize(function () {
         floatTool();
+        window.scrollTo({top: 0});
     })
 
     function floatMenu() {
@@ -483,7 +485,7 @@
 
         if (scroll.scrollTop() > allH - menuH) {
             $('#leftTool,#rightTool').css('position', 'fixed').css('top', menuH + 10)
-        }else{
+        } else {
             $('#leftTool,#rightTool').css('position', 'absolute').css('top', contH + 20)
         }
     }
@@ -496,9 +498,7 @@
         });
     });
 
-    $('.ftAd_close').click(function(){
+    $('.ftAd_close').click(function () {
         $(this).parents('div').addClass('on')
     })
-
-
 </script>
