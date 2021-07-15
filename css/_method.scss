@@ -58,3 +58,9 @@
     -webkit-box-orient: vertical;
     white-space: normal;
 }
+
+@mixin rwd($data){
+    @media screen and (max-width: #{$data}px){
+        @content;
+    }
+}

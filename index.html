@@ -13,34 +13,33 @@
 
 <body>
 
-
     <!-- ===== header start ===== -->
     <div class="header">
         <!-- hd_top start -->
-        <div class="hd_top">
+        <div class="hd_top" id="hd_top">
             <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
             <div class="hd_tool">
                 <div class="hd_link">
                     <ul>
                         <li class="hd_service">
                             <div class="hd_icon">
-                                <img src="images/icon-service.png" lt="icon_service">
+                                <img src="images/icon-service.png">
                             </div>
                             <p>在線客服</p>
                         </li>
                         <li>
                             <div class="hd_icon">
-                                <img src="images/icon-fb.png" alt="icon_facebook">
+                                <img src="images/icon-fb.png">
                             </div>
                         </li>
                         <li>
                             <div class="hd_icon">
-                                <img src="images/icon-zalo.png" alt="icon_zalo">
+                                <img src="images/icon-zalo.png">
                             </div>
                         </li>
                         <li>
                             <div class="hd_icon">
-                                <img src="images/icon-tg.png" alt="icon_telegram">
+                                <img src="images/icon-tg.png">
                             </div>
                         </li>
                     </ul>
@@ -64,7 +63,7 @@
                                     <input type="number">
                                 </label>
                                 <div class="nbCode">
-                                    <img src="images/nbCode.jpg" alt="nbCode">
+                                    <img src="images/nbCode.jpg">
                                 </div>
                             </div>
 
@@ -74,7 +73,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <div data-signIn="1">
                         <div class="signIn_msg">
                             <div>
@@ -97,10 +96,10 @@
                     </div>
                 </div>
             </div>
-        </div>   
+        </div>
 
         <!-- hd_menu start -->
-        <div class="hd_menu"> 
+        <div class="hd_menu" id="hd_menu">
             <ul>
                 <li class="on"><a href="#/home">主頁</a></li>
                 <li><a href="#/lottery">博彩推薦</a></a></li>
@@ -110,7 +109,7 @@
                 <li><a href="#/resources">資源</a></li>
                 <li><a href="#/game">
                         <div class="menu_game">
-                            <img src="images/menu_gameBtn.png" alt="meun_gameBtn">
+                            <img src="images/menu_gameBtn.png">
                         </div>
                     </a></li>
             </ul>
@@ -118,7 +117,30 @@
     </div>
 
     <!-- ===== content start ===== -->
-    <div class="content" id="content"></div>
+    <div class="mainCnt">
+        <div class="content" id="content"></div>
+        <div class="leftTool" id="leftTool">
+            <div class="floatAd">
+                <img src="images/floatAd-01.jpg">
+                <img src="images/floatAd-02.jpg">
+            </div>
+            <div class="getGift">
+                <img src="images/gift.png">
+            </div>
+            
+        </div>
+
+        <div class="rightTool" id="rightTool">
+            <div class="floatAd">
+                <img src="images/floatAd-03.jpg">
+                <img src="images/floatAd-04.jpg">
+            </div>
+            <div class="goTop" id="goTop">
+                <img src="./images/arrow-top.png">
+                <span>TOP</span>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== footer start ===== -->
     <div class="footer">
@@ -130,30 +152,29 @@
                     <p>TOP PRESTIGE BEAUTIFUL 100% </p>
                     <p>SUPER HIGH SUPER HOT SUPER HOT CAMERA</p>
                 </div>
-    
+
                 <div class="ft_link">
                     <ul>
                         <li>
                             <div class="ft_icon">
-                                <img src="images/icon-18up.png" alt="icon-18up">
+                                <img src="images/icon-18up.png">
                             </div>
                         </li>
                         <li>
                             <div class="ft_icon">
-                                <img src="images/icon-f-fb.png" alt="link-facebook">
+                                <img src="images/icon-f-fb.png">
                             </div>
                         </li>
                         <li>
                             <div class="ft_icon">
-                                <img src="images/icon-f-yt.png" alt="link-youtube">
+                                <img src="images/icon-f-yt.png">
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-           
-        </div>
 
+        </div>
         <!-- ft_bottom -->
         <div class="ft_bottom">
             <div>
@@ -171,25 +192,42 @@
                     </ul>
                 </div>
             </div>
-            
+
+        </div>
+
+        <!-- ftAd  -->
+        <div class="ftAd">
+            <div>
+                <div class="ftAd_close"></div>
+                <img src="./images/floatAd-05.jpg">
+            </div>
+            <div>
+                <div class="ftAd_close"></div>
+                <img src="./images/floatAd-07.jpg">
+            </div>
+            <div>
+                <div class="ftAd_close"></div>
+                <img src="./images/floatAd-06.jpg">
+            </div>     
         </div>
     </div>
 
-
     <script>
         // header按鈕動作
-        $('#hd_signIn button').click(function(){
+        $('#hd_signIn button').click(function () {
             let getData = $(this).attr('data-btn')
-            switch(getData){
-                case 'signIn': 
-                    $('#hd_signIn').attr('data-signIn',1);break;
+            switch (getData) {
+                case 'signIn':
+                    $('#hd_signIn').attr('data-signIn', 1); break;
                 case 'regd': break;
-                case 'signOut': 
-                    $('#hd_signIn').attr('data-signIn',0);break;
+                case 'signOut':
+                    $('#hd_signIn').attr('data-signIn', 0); break;
                 case 'mbrMsg': break;
             }
         })
 
+
+        
     </script>
 
 

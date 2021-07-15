@@ -110,6 +110,7 @@ img {
 
 body {
   background-color: #0b2d53;
+  position: relative;
 }
 
 .header {
@@ -118,6 +119,7 @@ body {
   margin: auto;
   min-height: 188px;
   background-color: #0b2139;
+  position: relative;
 }
 
 .header .hd_top {
@@ -436,6 +438,13 @@ body {
   background: linear-gradient(90deg, transparent 10%, #000, transparent 90%);
 }
 
+.header .hd_menu.on {
+  background: rgba(0, 0, 0, 0.85);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
 .header .hd_menu ul {
   height: 100%;
   font-size: 0.9rem;
@@ -492,6 +501,90 @@ body {
   }
 }
 
+.mainCnt {
+  position: relative;
+}
+
+.mainCnt .leftTool,
+.mainCnt .rightTool {
+  position: absolute;
+  z-index: 10;
+}
+
+.mainCnt .leftTool {
+  width: 97px;
+  right: 1365px;
+  left: 0;
+  margin: auto;
+}
+
+@media screen and (max-width: 1490px) {
+  .mainCnt .leftTool {
+    right: 10px;
+    left: unset;
+  }
+}
+
+.mainCnt .rightTool {
+  width: 99px;
+  right: 0;
+  left: 1365px;
+  margin: auto;
+}
+
+@media screen and (max-width: 1490px) {
+  .mainCnt .rightTool {
+    right: 10px;
+    left: unset;
+    margin-top: 100px;
+  }
+}
+
+.mainCnt .floatAd > img {
+  display: block;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1490px) {
+  .mainCnt .floatAd {
+    display: none;
+  }
+}
+
+.mainCnt .getGift {
+  width: 95%;
+  height: 95%;
+  margin: auto;
+  padding: 20px;
+  background-color: #282828;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mainCnt .goTop {
+  height: 30px;
+  background-color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.mainCnt .goTop img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
 .content {
   max-width: 1920px;
   min-width: 1280px;
@@ -514,11 +607,17 @@ body {
   opacity: 0.4;
 }
 
-.contentBox {
+.content .contBox-min {
   width: 100%;
   max-width: 1280px;
   margin: auto;
   padding: 0 20px;
+}
+
+.content .contBox-max {
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
 }
 
 .footer {
@@ -527,6 +626,7 @@ body {
   min-height: 275px;
   margin: auto;
   color: #8d8d8d;
+  position: relative;
 }
 
 .footer .ft_top {
@@ -620,6 +720,74 @@ body {
 
 .footer .ft_bottom .ft_menu li + li {
   margin-left: 30px;
+}
+
+.footer .ftAd {
+  width: 100%;
+  pointer-events: none;
+  position: absolute;
+  padding: 0 20px;
+  bottom: 40px;
+  z-index: 9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer .ftAd > div {
+  position: relative;
+  pointer-events: auto;
+}
+
+.footer .ftAd > div.on {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.footer .ftAd .ftAd_close {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #000;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0.7;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  top: -10px;
+  right: -10px;
+}
+
+@media (any-hover: hover) {
+  .footer .ftAd .ftAd_close:hover {
+    opacity: 1;
+  }
+}
+
+.footer .ftAd .ftAd_close::after, .footer .ftAd .ftAd_close::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  margin: auto;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer .ftAd .ftAd_close::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.footer .ftAd .ftAd_close::before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .marquee {
