@@ -1,18 +1,19 @@
 <div class="dialogBox" id="dialogBox">
-    <div class="dialog_close" id="dialog_close"></div>
-    <div class="dialog_cnt01 forget">
+    <div class="close"></div>
+    <div class="dialog_cnt_01 forget">
+        <div class="close"></div>
         <div class="title">忘記密碼</div>
         <div class="innerBox">
             <div>
                 <span>帳號：</span>
                 <div class="iptBox">
-                    <input type="text">
+                    <input type="text" placeholder="請輸入帳號">
                 </div>
             </div>
             <div>
                 <span>認證方式：</span>
                 <div class="iptBox">
-                    <input type="text">
+                    <input type="email" placeholder="請輸入電子信箱">
                     <div class="selectBox">
                         <select>
                             <option value="email">電子信箱</option>
@@ -24,27 +25,86 @@
             <div>
                 <span>驗證碼：</span>
                 <div class="iptBox">
-                    <input type="text">
+                    <input type="number" placeholder="請輸入驗證碼">
                 </div>
                 <div class="codeBox">
                     <img src="images/nbCode.jpg" >
                 </div>
             </div>
-            <div class="dialogBtn_01">
-                <button class="dialogBtn_01">提交</button>
+            <div class="btn_linear_c1 btn">
+                <div class="btn_cnt">提交</div>
             </div>
-            
+        </div>
+        
+    </div>
+
+    <div class="dialog_cnt_01 regd">
+        <div class="close"></div>
+        <div class="title">註冊</div>
+        <div class="innerBox">
+            <div>
+                <span>帳號：</span>
+                <div class="iptBox">
+                    <input type="email" placeholder="請輸入電子信箱">
+                </div>
+            </div>
+            <div>
+                <span>密碼：</span>
+                <div class="iptBox">
+                    <input type="password" minlength="6" maxlength="12" placeholder="請輸入6~12個英/數字組合">
+                </div>
+            </div>
+            <div>
+                <span>手機：</span>
+                <div class="iptBox">
+                    <input type="phone" placeholder="請輸入手機號碼">
+                </div>
+            </div>
+            <div>
+                <span>驗證碼：</span>
+                <div class="iptBox">
+                    <input type="number" placeholder="請輸入驗證碼">
+                </div>
+                <div class="codeBox">
+                    <img src="images/nbCode.jpg" >
+                </div>
+            </div>
+            <div class="check_cnt">
+                <label class="ckBox">
+                    <input type="checkbox">
+                    <div></div>
+                </label>
+               <p>我已滿合法年齡且同意並願意遵守 
+                   <a>使用者規章</a>。
+                </p>
+            </div>
+            <div class="regd_btn">
+                <div class="btn_linear_c1 btn">
+                    <div class="btn_cnt">註冊</div>
+                </div>
+                <div class="btn_linear_c2 btn">
+                    <div class="btn_cnt">取消</div>
+                </div>
+            </div>
+            <p>------ 使用第三方登入 ------</p>
+            <div class="btn_linear_c4 btn">
+                <div class="btn_cnt">FaceBook 登入</div>
+            </div>
+            <div class="btn_linear_c4 btn">
+                <div class="btn_cnt">Zalo 登入</div>
+            </div>
+            <div class="btn_linear_c4 btn">
+                <div class="btn_cnt">Telegram 登入</div>
+            </div>
         </div>
     </div>
-    <!-- <div class="b dialog_cnt01">註冊</div> -->
 </div>
 
 
 <script>
-    $("#dialog_close").click(function () {
-        $("#dialogBox").removeClass('on')
-        $("#dialogBox>div").removeClass('on')
+    $("#dialogBox .close").click(function () {
+        $("#dialogBox>div").removeClass('on');
+        $("#dialogBox").removeClass('on');  
     })
     
-
 </script>

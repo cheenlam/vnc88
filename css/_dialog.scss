@@ -1,37 +1,76 @@
 .dialogBox {
     width: 100%;
     height: 100vh;
+    padding: 0 10px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 999;
-    display: flex;
     align-items: center;
+    display: flex;
     display: none;
     &.on {
         display: flex;
     }
-    .dialog_close {
+    &>.close {
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.8);
         position: absolute;
         @include pos(tblr, 0);
     }
-    .dialog_cnt01 {
+    .dialog_cnt_01 {
         width: 100%;
         max-width: 779px;
         margin: auto;
-        padding: 34px 20px ;
+        padding: 34px 20px;
         position: relative;
         z-index: 5;
         background: linear-gradient(0deg, #091422, #0e263c);
         // background: url(../images/testBg.jpg) no-repeat center/cover;
         box-shadow: 5px 5px 10px #000;
         border: 1px solid #f6bf3d;
+        display: none;
         &.on {
             display: block;
         }
+        .close {
+            width: 38px;
+            height: 38px;
+            // #818b99
+            // ffd200
+            z-index: 1;
+            position: absolute;
+            @include pos(tr, 15px);
+            cursor: pointer;
+            &::before,
+            &::after {
+                content: "";
+                width: 100%;
+                height: 1px;
+                margin: auto;
+                position: absolute;
+                @include pos(tblr, 0);
+                background-color: #818b99;
+            }
+            &::before {
+                transform: rotate(45deg);
+            }
+            &::after {
+                transform: rotate(-45deg);
+            }
+            &:active::before,
+            &:active::after {
+                background-color: #ffd200;
+            }
+            @include hover {
+                &:hover::before,
+                &:hover::after {
+                    background-color: #ffd200;
+                }
+            }
+        }
+
         .title {
             padding-bottom: 21px;
             margin-bottom: 47px;
@@ -85,8 +124,7 @@
                     height: 100%;
                     @include fullNone;
                     padding: 0 20px;
-                    color: #737882;
-                    font-weight: bold;
+                    color: #d5d5d5;
                     font-size: 1rem;
                 }
                 .selectBox {
@@ -130,34 +168,69 @@
                 margin-left: 10px;
             }
         }
-        .dialogBtn_01 {
-            margin-top: 50px;
-            cursor: pointer;
-            button {
-                height: 40px;
-                padding: 0 30px;
-                margin: auto;
-                @include fullNone;
-                color: #fff;
-                font-size: 1.1rem;
+        .check_cnt {
+            color: #626262;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            a {
+                color: #00a0e9;
                 font-weight: bold;
-                letter-spacing: 1px;
-                background: linear-gradient(0deg, #4674c8, #304f8a, #4674c8);
-                border-radius: 40px;
-                box-shadow: 0 1px 1px #3d4046, 0px 0px 2px #35383d inset;
-                border: 2px solid #616772;
-                opacity: 0.7;
-                transition: .3s;
-                &:active{
-                    opacity: 1;
-                    transform: translateY(2px);
-                }
-                @include hover {
-                    &:hover {
-                        opacity: 1;
-                    }
-                }
             }
+        }
+        .ckBox {
+            margin-right: 10px;
+            cursor: pointer;
+            & > div {
+                width: 25px;
+                height: 25px;
+                background: #100f1f;
+                box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+                border-radius: 5px;
+            }
+            input {
+                display: none;
+            }
+            input:checked + div {
+                background: url(../images/icon-tick.png) no-repeat center / 90%;
+            }
+        }
+    }
+
+    // 忘記密碼
+    .forget {
+        .btn {
+            max-width: 150px;
+            margin: 50px auto;
+        }
+    }
+
+    // 註冊會員
+    .regd {
+        .regd_btn {
+            display: flex;
+            .btn {
+                flex: 1;
+                height: 45px;
+                line-height: 45px;
+            }
+            .btn + .btn {
+                margin-left: 15px;
+            }
+        }
+        div.btn {
+            height: 45px;
+            line-height: 45px;
+            margin-bottom: 15px;
+        }
+
+        & .innerBox>p {
+            padding: 20px 0px;
+            color: #fff;
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-align: center;
         }
     }
 }

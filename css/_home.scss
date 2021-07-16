@@ -20,25 +20,14 @@
             letter-spacing: 1px;
             font-weight: bold;
         }
-        button {
+        .btn {
             height: 23px;
+            line-height: 23px;
             padding: 0 10px;
             margin-left: 20px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            color: $color_02;
             flex-shrink: 0;
-            cursor: pointer;
-            @include fullNone;
-            @include toolColor(#ffff00, #f14c0a, #f8b107);
-            &:active {
-                @include toolColor(#ffff00, #f8b107, #f14c0a);
-                transform: translateY(2px);
-            }
-            @include hover {
-                &:hover {
-                    @include toolColor(#ffff00, #f8b107, #f14c0a);
-                }
+            .btn_cnt {
+                font-size: 0.9rem;
             }
         }
     }
@@ -252,41 +241,31 @@
         .betBtn {
             display: flex;
             cursor: pointer;
-            & > div {
+            & > .btn {
                 height: 40px;
+                border-radius: 20px;
                 flex: 1;
-                padding: 5px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                @include toolColor(#ffff00, #f14c0a, #f8b107);
-                border-radius: 40px;
-                transition: 0.3s;
-                &:active {
-                    @include toolColor(#ffff00, #f8b107, #f14c0a);
-                    transform: translateY(2px);
-                    border-radius: 40px;
+                .btn_cnt {
+                    font-size: 1rem;
+                    font-weight: bold;
+                    letter-spacing: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .icon{
+                        width: 22px;
+                        margin-right: 8px;
+                    }
                 }
-                @include hover {
-                    &:hover {
-                        @include toolColor(#ffff00, #f8b107, #f14c0a);
-                        border-radius: 40px;
+                &:first-child {
+                    .btn_cnt {
+                        color: #990000;
                     }
                 }
             }
-
-            & > div + div {
+           
+            & > .btn + .btn {
                 margin-left: 10px;
-            }
-            & > div:last-child span {
-                color: #fff;
-            }
-            span {
-                font-size: 1.1rem;
-                color: #990000;
-                padding-right: 10px;
-                font-weight: bold;
-                letter-spacing: 1px;
             }
         }
     }
@@ -491,5 +470,3 @@
         flex-shrink: 0;
     }
 }
-
-

@@ -3,6 +3,25 @@ body {
     position: relative;
 }
 
+// 預設按鈕樣式
+.btn_linear_c1{
+    @include btn_linear(#fff, #ffff00, #f14c0a, #f8b107);
+}
+
+.btn_linear_c2{
+    @include btn_linear(#fff, #898989, #212121, #676767);
+}
+
+.btn_linear_c3{
+    @include btn_linear(#fff, #fe4436, #8e041d, #da001a);
+}
+
+.btn_linear_c4{
+    @include btn_linear(#fff, #fff, #3F67C0, #5e89e4);
+}
+
+
+
 // ===== header start =====
 .header {
     width: 100%;
@@ -41,39 +60,25 @@ body {
 
         .hd_link {
             margin-bottom: 12px;
-            .hd_icon {
-                width: 35px;
-                height: 34px;
-            }
             ul {
                 width: 100%;
                 display: flex;
                 justify-content: flex-end;
             }
-            li {
-                transition: 0.3s;
-                cursor: pointer;
-                @include toolColor(#ffff00, #f14c0a, #f8b107);
-                &:active {
-                    @include toolColor(#ffff00, #f8b107, #f14c0a);
-                    transform: translateY(2px);
-                }
-                @include hover {
-                    &:hover {
-                        @include toolColor(#ffff00, #f8b107, #f14c0a);
-                    }
-                }
-            }
-
+           
             .hd_service {
                 display: flex;
                 align-items: center;
                 padding: 0 15px 0 5px;
                 font-size: 1.1rem;
                 font-weight: bold;
-                color: $color_02;
                 p {
                     margin-left: 15px;
+                    position: relative;
+                }
+                .btn_cnt{
+                    width: 34px;
+                    height: 34px;
                 }
             }
 
@@ -114,13 +119,13 @@ body {
                     padding: 0;
                 }
                 .hd_forget {
+                    @include btn_linear(#fff, #898989, #212121, #676767);
                     width: 25px;
                     height: 25px;
-                    border-radius: 4px;
                     flex-shrink: 0;
-                    background: #212121 url(../images/icon-Q.png) no-repeat center;
-                    border: 1px solid #898989;
-                    cursor: pointer;
+                    & .btn_cnt{
+                        background:url(../images/icon-Q.png) no-repeat center;
+                    }
                 }
             }
 
@@ -193,45 +198,11 @@ body {
 
         .signIn_btn {
             display: flex;
-            button {
-                min-width: 80px;
-                height: 34px;
-                padding: 0 5px;
-                flex-shrink: 0;
-                color: $color_01;
-                font-weight: bold;
-                font-size: 1rem;
-                letter-spacing: 1px;
-                @include fullNone;
-                transition: 0.3s;
-                cursor: pointer;
-                &:nth-child(odd) {
-                    @include toolColor(#898989, #212121, #676767);
-                    &:active {
-                        @include toolColor(#898989, #676767, #212121);
-                        transform: translateY(2px);
-                    }
-                    @include hover {
-                        &:hover {
-                            @include toolColor(#898989, #676767, #212121);
-                        }
-                    }
-                }
-                &:nth-child(even) {
-                    @include toolColor(#fe4436, #8e041d, #da001a);
-                    &:active {
-                        @include toolColor(#fe4436, #da001a, #8e041d);
-                        transform: translateY(2px);
-                    }
-                    @include hover {
-                        &:hover {
-                            @include toolColor(#fe4436, #da001a, #8e041d);
-                        }
-                    }
-                }
+            .btn {   
+                min-width: 80px;   
             }
 
-            button + button {
+            .btn + .btn{
                 margin-left: 5px;
             }
         }

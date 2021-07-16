@@ -1,10 +1,13 @@
 // header按鈕動作
-$('#hd_signIn button').click(function () {
+$('#hd_signIn .btn').click(function () {
     let getData = $(this).attr('data-btn')
     switch (getData) {
         case 'signIn':
             $('#hd_signIn').attr('data-signIn', 1); break;
-        case 'regd': break;
+        case 'regd':
+            $("#dialogBox").addClass('on');
+            $("#dialogBox .regd").addClass('on');
+            break;
         case 'signOut':
             $('#hd_signIn').attr('data-signIn', 0); break;
         case 'mbrMsg': break;
@@ -15,7 +18,7 @@ $('#hd_signIn button').click(function () {
 $(document).ready(function () {
     let contH = $('.contBox-max').height();
     $('#leftTool,#rightTool').css('top', contH + 20)
-    window.scrollTo({top: 0}); 
+    window.scrollTo({ top: 0 });
     dialog()
 })
 
@@ -26,7 +29,7 @@ var scroll = $(window).scroll(function () {
 
 $(window).resize(function () {
     floatTool();
-    window.scrollTo({top: 0});
+    window.scrollTo({ top: 0 });
 })
 
 function floatMenu() {
@@ -65,21 +68,16 @@ $('.ftAd_close').click(function () {
 
 
 // 彈跳視窗
-function dialog(){
+function dialog() {
     $.ajax({
         url: 'page/dialog.html',
-        success: function(html) {
+        success: function (html) {
             $("#dialogCnt").html(html);
         }
     });
 }
 
-$('#hd_forget').click(function(){
+$('#hd_forget').click(function () {
     $("#dialogBox").addClass('on');
     $("#dialogBox .forget").addClass('on');
-})
-
-$('#hd_regd').click(function(){
-    $("#dialogBox").addClass('on');
-    $("#dialogBox .b").addClass('on');
 })
