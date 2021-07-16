@@ -153,7 +153,7 @@
                         appearance: none;
                         -moz-appearance: none;
                         -webkit-appearance: none;
-                        background: url("../images/arrow-bottom.png") no-repeat right center transparent;
+                        background: url("../images/icon/arrow-bottom.png") no-repeat right center transparent;
                         cursor: pointer;
                     }
                     option {
@@ -193,7 +193,7 @@
                 display: none;
             }
             input:checked + div {
-                background: url(../images/icon-tick.png) no-repeat center / 90%;
+                background: url(../images/icon/icon-tick.png) no-repeat center / 90%;
             }
         }
     }

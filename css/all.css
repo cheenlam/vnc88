@@ -389,7 +389,7 @@ body {
   width: 478px;
   height: 86px;
   margin-bottom: 10px;
-  background-image: url(../images/hd_logo.png);
+  background: url(../images/logo/hd_logo.png) no-repeat center/cover;
   cursor: pointer;
   text-indent: 101%;
   overflow: hidden;
@@ -564,7 +564,7 @@ body {
 }
 
 .header .hd_top .hd_signIn .signIn_forget .hd_forget .btn_cnt {
-  background: url(../images/icon-Q.png) no-repeat center;
+  background: url(../images/icon/icon-Q.png) no-repeat center;
 }
 
 .header .hd_top .hd_signIn label {
@@ -630,15 +630,15 @@ body {
 }
 
 .header .hd_top .hd_signIn .signIn_msg .signIn_icon.member {
-  background: url(../images/icon-member.png);
+  background: url(../images/icon/icon-member.png);
 }
 
 .header .hd_top .hd_signIn .signIn_msg .signIn_icon.chip {
-  background: url(../images/icon-chip.png);
+  background: url(../images/icon/icon-chip.png);
 }
 
 .header .hd_top .hd_signIn .signIn_msg .signIn_icon.mail {
-  background: url(../images/icon-mail.png);
+  background: url(../images/icon/icon-mail.png);
 }
 
 .header .hd_top .signIn_code {
@@ -780,6 +780,13 @@ body {
     left: unset;
     margin-top: 100px;
   }
+}
+
+.mainCnt .rightTool .god {
+  width: 250px;
+  position: absolute;
+  left: -70px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1920px) {
@@ -1127,7 +1134,7 @@ body {
 .betList .betTitle .icon {
   width: 22px;
   height: 22px;
-  background: url(../images/icon-darts.png) no-repeat center/cover;
+  background: url(../images/icon/icon-darts.png) no-repeat center/cover;
 }
 
 .betList .betTitle span {
@@ -1374,7 +1381,7 @@ body {
 }
 
 .betList tr:nth-child(1) .betNb {
-  background-image: url(../images/betNb-1.png);
+  background-image: url(../images/logo/betNb-1.png);
 }
 
 .betList tr:nth-child(1) .betNb::after {
@@ -1382,7 +1389,7 @@ body {
 }
 
 .betList tr:nth-child(2) .betNb {
-  background-image: url(../images/betNb-2.png);
+  background-image: url(../images/logo/betNb-2.png);
 }
 
 .betList tr:nth-child(2) .betNb::after {
@@ -1390,7 +1397,7 @@ body {
 }
 
 .betList tr:nth-child(3) .betNb {
-  background-image: url(../images/betNb-3.png);
+  background-image: url(../images/logo/betNb-3.png);
 }
 
 .betList tr:nth-child(3) .betNb::after {
@@ -1636,7 +1643,7 @@ body {
 }
 
 .betList td .betScore .scoreIcon[data-nb="0"] .star {
-  background-image: url(../images/betStar-0.png);
+  background-image: url(../images/icon/betStar-0.png);
 }
 
 .betList td .betScore .scoreIcon[data-nb="0"] .ball::before {
@@ -1644,7 +1651,7 @@ body {
 }
 
 .betList td .betScore .scoreIcon[data-nb="0.5"] .star {
-  background-image: url(../images/betStar-0.5.png);
+  background-image: url(../images/icon/betStar-0.5.png);
 }
 
 .betList td .betScore .scoreIcon[data-nb="0.5"] .ball::before {
@@ -1652,7 +1659,7 @@ body {
 }
 
 .betList td .betScore .scoreIcon[data-nb="1"] .star {
-  background-image: url(../images/betStar-1.png);
+  background-image: url(../images/icon/betStar-1.png);
 }
 
 .betList td .betScore .scoreIcon[data-nb="1"] .ball::before {
@@ -1660,7 +1667,7 @@ body {
 }
 
 .betList td .betScore .scoreIcon[data-nb="1.5"] .star {
-  background-image: url(../images/betStar-1.5.png);
+  background-image: url(../images/icon/betStar-1.5.png);
 }
 
 .betList td .betScore .scoreIcon[data-nb="1.5"] .ball::before {
@@ -1668,7 +1675,7 @@ body {
 }
 
 .betList td .betScore .scoreIcon[data-nb="2"] .star {
-  background-image: url(../images/betStar-2.png);
+  background-image: url(../images/icon/betStar-2.png);
 }
 
 .betList td .betScore .scoreIcon[data-nb="2"] .ball::before {
@@ -1676,7 +1683,7 @@ body {
 }
 
 .betList td .betScore .scoreIcon[data-nb="2.5"] .star {
-  background-image: url(../images/betStar-2.5.png);
+  background-image: url(../images/icon/betStar-2.5.png);
 }
 
 .betList td .betScore .scoreIcon[data-nb="2.5"] .ball::before {
@@ -1684,7 +1691,7 @@ body {
 }
 
 .betList td .betScore .scoreIcon[data-nb="3"] .star {
-  background-image: url(../images/betStar-3.png);
+  background-image: url(../images/icon/betStar-3.png);
 }
 
 .betList td .betScore .scoreIcon[data-nb="3"] .ball::before {
@@ -1692,7 +1699,7 @@ body {
 }
 
 .betList td .betScore .scoreIcon[data-nb="3.5"] .star {
-  background-image: url(../images/betStar-3.5.png);
+  background-image: url(../images/icon/betStar-3.5.png);
 }
 
 .betList td .betScore .scoreIcon[data-nb="3.5"] .ball::before {
@@ -1700,7 +1707,7 @@ body {
 }
 
 .betList td .betScore .scoreIcon[data-nb="4"] .star {
-  background-image: url(../images/betStar-4.png);
+  background-image: url(../images/icon/betStar-4.png);
 }
 
 .betList td .betScore .scoreIcon[data-nb="4"] .ball::before {
@@ -1708,7 +1715,7 @@ body {
 }
 
 .betList td .betScore .scoreIcon[data-nb="4.5"] .star {
-  background-image: url(../images/betStar-4.5.png);
+  background-image: url(../images/icon/betStar-4.5.png);
 }
 
 .betList td .betScore .scoreIcon[data-nb="4.5"] .ball::before {
@@ -1716,7 +1723,7 @@ body {
 }
 
 .betList td .betScore .scoreIcon[data-nb="5"] .star {
-  background-image: url(../images/betStar-5.png);
+  background-image: url(../images/icon/betStar-5.png);
 }
 
 .betList td .betScore .scoreIcon[data-nb="5"] .ball::before {
@@ -2274,7 +2281,7 @@ body {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  background: url("../images/arrow-bottom.png") no-repeat right center transparent;
+  background: url("../images/icon/arrow-bottom.png") no-repeat right center transparent;
   cursor: pointer;
 }
 
@@ -2325,7 +2332,7 @@ body {
 }
 
 .dialogBox .dialog_cnt_01 .ckBox input:checked + div {
-  background: url(../images/icon-tick.png) no-repeat center/90%;
+  background: url(../images/icon/icon-tick.png) no-repeat center/90%;
 }
 
 .dialogBox .forget .btn {

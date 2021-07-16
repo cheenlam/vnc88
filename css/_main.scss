@@ -20,8 +20,6 @@ body {
     @include btn_linear(#fff, #fff, #3F67C0, #5e89e4);
 }
 
-
-
 // ===== header start =====
 .header {
     width: 100%;
@@ -43,7 +41,7 @@ body {
             width: 478px;
             height: 86px;
             margin-bottom: 10px;
-            background-image: url(../images/hd_logo.png);
+            background: url(../images/logo/hd_logo.png)no-repeat center / cover;
             cursor: pointer;
             @include imgToTxt;
             a {
@@ -124,7 +122,7 @@ body {
                     height: 25px;
                     flex-shrink: 0;
                     & .btn_cnt{
-                        background:url(../images/icon-Q.png) no-repeat center;
+                        background:url(../images/icon/icon-Q.png) no-repeat center;
                     }
                 }
             }
@@ -172,13 +170,13 @@ body {
                     background-position: center;
                     background-size: cover;
                     &.member {
-                        background: url(../images/icon-member.png);
+                        background: url(../images/icon/icon-member.png);
                     }
                     &.chip {
-                        background: url(../images/icon-chip.png);
+                        background: url(../images/icon/icon-chip.png);
                     }
                     &.mail {
-                        background: url(../images/icon-mail.png);
+                        background: url(../images/icon/icon-mail.png);
                     }
                 }
             }
@@ -293,6 +291,12 @@ body {
             right: 10px;
             left: unset;
             margin-top: 100px;
+        }
+        .god{
+            width: 250px;
+            position: absolute;
+            left: -70px;
+            cursor: pointer;
         }
     }
     @media screen and (min-width: 1920px){
@@ -506,3 +510,5 @@ body {
         }
     }
 }
+
+
