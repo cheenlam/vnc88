@@ -93,11 +93,11 @@ body {
                 display: none;
                 justify-content: flex-end;
             }
-            
+
             .signIn_ipt {
                 display: flex;
             }
-            .signIn_forget{
+            .signIn_forget {
                 width: 155px;
                 display: flex;
                 padding: 0 5px;
@@ -107,7 +107,7 @@ body {
                 border: 1px solid #646774;
                 box-sizing: border-box;
                 border-radius: 5px;
-                label{
+                label {
                     width: 100%;
                     margin-right: 0;
                     border: none;
@@ -118,12 +118,12 @@ body {
                     height: 25px;
                     border-radius: 4px;
                     flex-shrink: 0;
-                    background: #212121 url(../images/icon-Q.png) no-repeat center ;
+                    background: #212121 url(../images/icon-Q.png) no-repeat center;
                     border: 1px solid #898989;
                     cursor: pointer;
                 }
             }
-            
+
             label {
                 width: 155px;
                 height: 100%;
@@ -302,6 +302,7 @@ body {
     }
     .leftTool {
         width: 97px;
+        top: calc(100vw * 0.1986 + 55px);
         right: 1365px;
         left: 0;
         margin: auto;
@@ -310,8 +311,10 @@ body {
             left: unset;
         }
     }
+    
     .rightTool {
         width: 99px;
+        top: calc(100vw * 0.1986 + 55px);
         right: 0;
         left: 1365px;
         margin: auto;
@@ -321,6 +324,12 @@ body {
             margin-top: 100px;
         }
     }
+    @media screen and (min-width: 1920px){
+        .rightTool,
+        .leftTool {
+            top: calc(1920px * 0.1986 + 55px );
+        } 
+     }
 
     .floatAd {
         & > img {
