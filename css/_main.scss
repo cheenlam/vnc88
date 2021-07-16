@@ -264,6 +264,7 @@ body {
 // ===== content start =====
 .mainCnt {
     position: relative;
+    overflow: hidden;
     .leftTool,
     .rightTool {
         position: absolute;
@@ -292,11 +293,15 @@ body {
             left: unset;
             margin-top: 100px;
         }
-        .god{
-            width: 250px;
+        .todayGame{
+            width: 100%;
             position: absolute;
-            left: -70px;
-            cursor: pointer;
+            .god{
+                width: 220px;
+                left: -60px;
+                cursor: pointer;
+                position: relative;
+            }
         }
     }
     @media screen and (min-width: 1920px){

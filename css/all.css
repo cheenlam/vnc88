@@ -743,6 +743,7 @@ body {
 
 .mainCnt {
   position: relative;
+  overflow: hidden;
 }
 
 .mainCnt .leftTool,
@@ -782,11 +783,16 @@ body {
   }
 }
 
-.mainCnt .rightTool .god {
-  width: 250px;
+.mainCnt .rightTool .todayGame {
+  width: 100%;
   position: absolute;
-  left: -70px;
+}
+
+.mainCnt .rightTool .todayGame .god {
+  width: 220px;
+  left: -60px;
   cursor: pointer;
+  position: relative;
 }
 
 @media screen and (min-width: 1920px) {
