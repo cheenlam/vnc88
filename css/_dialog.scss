@@ -12,7 +12,7 @@
     &.on {
         display: flex;
     }
-    &>.close {
+    & > .close {
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.8);
@@ -25,9 +25,8 @@
         margin: auto;
         padding: 34px 20px;
         position: relative;
-        z-index: 5;
+        z-index: 2;
         background: linear-gradient(0deg, #091422, #0e263c);
-        // background: url(../images/testBg.jpg) no-repeat center/cover;
         box-shadow: 5px 5px 10px #000;
         border: 1px solid #f6bf3d;
         display: none;
@@ -37,8 +36,6 @@
         .close {
             width: 38px;
             height: 38px;
-            // #818b99
-            // ffd200
             z-index: 1;
             position: absolute;
             @include pos(tr, 15px);
@@ -70,7 +67,6 @@
                 }
             }
         }
-
         .title {
             padding-bottom: 21px;
             margin-bottom: 47px;
@@ -197,7 +193,6 @@
             }
         }
     }
-
     // 忘記密碼
     .forget {
         .btn {
@@ -205,7 +200,6 @@
             margin: 50px auto;
         }
     }
-
     // 註冊會員
     .regd {
         .regd_btn {
@@ -224,13 +218,287 @@
             line-height: 45px;
             margin-bottom: 15px;
         }
-
-        & .innerBox>p {
+        & .innerBox > p {
             padding: 20px 0px;
             color: #fff;
             letter-spacing: 2px;
             font-weight: bold;
             text-align: center;
         }
+    }
+    // 新註冊獎金
+    .newGift {
+        width: 100%;
+        max-width: 700px;
+        position: relative;
+        margin: auto;
+        background-color: #c43f40;
+        border-radius: 10px;
+        box-shadow: 0 0 30px #cea7a2 inset;
+        border: 2px solid #cd6e3e;
+        border-radius: 175px 10px 10px 175px;
+        z-index: 2;
+        display: none;
+        &.on {
+            display: flex;
+        }
+        .roulette {
+            width: 350px;
+            height: 350px;
+            position: relative;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            &::before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: url(../images/roulette/rou_boder.png) no-repeat center/cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+            &::after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: url(../images/roulette/rou_light.png) no-repeat center/cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                animation: opacity 1s infinite;
+                z-index: 1;
+            }
+            .rou_body {
+                width: 98%;
+                height: 98%;
+                background: url(../images/roulette/rou_body.png) no-repeat center/cover;
+                transition: 4s;
+            }
+            .rou_pointer {
+                width: 10%;
+                margin: auto;
+                position: absolute;
+                top: 1%;
+                left: 0;
+                right: 0;
+                z-index: 1;
+            }
+        }
+        .newGift_cnt {
+            width: 100%;
+            height: 350px;
+            padding: 30px 20px;
+            color: $color_02;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            display: flex;
+            .close {
+                width: 38px;
+                height: 38px;
+                z-index: 1;
+                position: absolute;
+                @include pos(tr, 10px);
+                cursor: pointer;
+                &::before,
+                &::after {
+                    content: "";
+                    width: 100%;
+                    height: 1px;
+                    margin: auto;
+                    position: absolute;
+                    @include pos(tblr, 0);
+                    background-color: #fff;
+                }
+                &::before {
+                    transform: rotate(45deg);
+                }
+                &::after {
+                    transform: rotate(-45deg);
+                }
+                &:active::before,
+                &:active::after {
+                    background-color: #ffd200;
+                }
+                @include hover {
+                    &:hover::before,
+                    &:hover::after {
+                        background-color: #ffd200;
+                    }
+                }
+            }
+            .title {
+                margin-bottom: 20px;
+                span {
+                    font-size: 1.8rem;
+                    letter-spacing: 1px;
+                    font-weight: bold;
+                }
+                p {
+                    font-size: 0.8rem;
+                    padding-top: 5px;
+                }
+            }
+            input {
+                width: 100%;
+                height: 40px;
+                @include fullNone;
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 0 10px;
+                margin-bottom: 10px;
+                font-size: 1rem;
+            }
+            .btn {
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                button {
+                    cursor: pointer;
+                    @include fullNone;
+                    background-color: transparent;
+                    &:disabled {
+                        text-shadow: 1px 1px 1px #fff;
+                        background-color: #a5a5a5;
+                        color: #888;
+                    }
+                }
+            }
+            .rule {
+                font-size: 0.85rem;
+                line-height: 20px;
+            }
+        }
+    }
+    // 今日遊戲
+    .todayGame {
+        margin: auto;
+        z-index: 2;
+        position: relative;
+        display: none;
+        &.on{
+            display: block;
+        }
+        .close{
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            border-radius: 50%;
+            position: absolute;
+            @include pos(tr,-20px);
+            cursor: pointer;
+            border: 1px solid #c43f40;
+            z-index: 2;
+            &::after,
+            &::before{
+                content: '';
+                width: 25px;
+                height: 4px;
+                margin: auto;
+                border-radius: 4px;
+                background-color: #fff;
+                position: absolute;
+                @include pos(tblr,0);
+            }
+            &::after{
+                transform: rotate(45deg);
+            }
+            &::before{
+                transform: rotate(-45deg);
+            }
+        }
+        .todayGame_actor{
+            width: 90%;
+            margin: auto;
+            position: absolute;
+            @include pos(bl,-13%,-50%);
+            z-index: 1;  
+        }
+        .firework{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: 55% 60% ; 
+            animation: firework 1s cubic-bezier(0, 0, 0, 1.13) infinite;
+        }
+        .todayGame_cnt{
+            width: 350px;
+            padding: 90px 0 20px;
+            background-color: #c43f40;
+            border-radius: 10px;
+            box-shadow: 0 0 30px #cea7a2 inset;
+            border: 2px solid #cd6e3e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            &::before{
+                content: '';
+                width: 115%;
+                padding-bottom: 24%;
+                background: url(../images//todayGame/todayGame_title.png)no-repeat center/ cover;
+                position: absolute;
+                top: -15px;
+                left: -7.7%;
+            }
+            &::after{
+                content: '';
+                width: 10%;
+                padding-bottom: 20%;
+                background: url(../images//todayGame/todayGame_ribbon.png)no-repeat center/ cover;
+                position: absolute;
+                top: 50px;
+                right: -4.5%;
+            }
+            .todayGame_msg{
+                width: 80%;
+                margin-bottom: 20px;
+                padding: 10px 0;
+                text-align: center;
+                background: #960F0D;
+                box-shadow: 0 0 10px #d64d4b inset;
+                color: #fff;
+                font-weight: bold;
+                font-size: 2.2em;
+                letter-spacing: 1px;
+                border-radius: 5px;
+                line-height: 50px;
+            }
+            .btn{
+                width: 60%;
+                cursor: pointer;
+                transition: .3s;
+                transform: scale(0.95);
+                &:active{
+                    transform: scale(1) translateY(2px);
+                }
+            }
+        }
+    }
+}
+
+@keyframes opacity {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes firework{
+    0%{
+        transform: scale(1);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(2);
+        opacity: 1;
     }
 }

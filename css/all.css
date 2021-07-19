@@ -793,6 +793,8 @@ body {
   left: -60px;
   cursor: pointer;
   position: relative;
+  -webkit-animation: pudding 1s infinite linear;
+          animation: pudding 1s infinite linear;
 }
 
 @media screen and (min-width: 1920px) {
@@ -1050,6 +1052,76 @@ body {
 .footer .ftAd .ftAd_close::before {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+
+@-webkit-keyframes pudding {
+  0% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  30% {
+    -webkit-transform: scale3d(0.95, 1.1, 1);
+            transform: scale3d(0.95, 1.1, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(1.11, 0.85, 1);
+            transform: scale3d(1.11, 0.85, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(1.11, 0.85, 1);
+            transform: scale3d(1.11, 0.85, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(0.95, 1.1, 1);
+            transform: scale3d(0.95, 1.1, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(1.05, 1, 1);
+            transform: scale3d(1.05, 1, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1, 1.05, 1);
+            transform: scale3d(1, 1.05, 1);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+@keyframes pudding {
+  0% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  30% {
+    -webkit-transform: scale3d(0.95, 1.1, 1);
+            transform: scale3d(0.95, 1.1, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(1.11, 0.85, 1);
+            transform: scale3d(1.11, 0.85, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(1.11, 0.85, 1);
+            transform: scale3d(1.11, 0.85, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(0.95, 1.1, 1);
+            transform: scale3d(0.95, 1.1, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(1.05, 1, 1);
+            transform: scale3d(1.05, 1, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1, 1.05, 1);
+            transform: scale3d(1, 1.05, 1);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
 }
 
 .marquee {
@@ -2113,7 +2185,7 @@ body {
   margin: auto;
   padding: 34px 20px;
   position: relative;
-  z-index: 5;
+  z-index: 2;
   background: -webkit-gradient(linear, left bottom, left top, from(#091422), to(#0e263c));
   background: linear-gradient(0deg, #091422, #0e263c);
   -webkit-box-shadow: 5px 5px 10px #000;
@@ -2376,5 +2448,385 @@ body {
   letter-spacing: 2px;
   font-weight: bold;
   text-align: center;
+}
+
+.dialogBox .newGift {
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+  margin: auto;
+  background-color: #c43f40;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 30px #cea7a2 inset;
+          box-shadow: 0 0 30px #cea7a2 inset;
+  border: 2px solid #cd6e3e;
+  border-radius: 175px 10px 10px 175px;
+  z-index: 2;
+  display: none;
+}
+
+.dialogBox .newGift.on {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dialogBox .newGift .roulette {
+  width: 350px;
+  height: 350px;
+  position: relative;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.dialogBox .newGift .roulette::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: url(../images/roulette/rou_boder.png) no-repeat center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.dialogBox .newGift .roulette::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: url(../images/roulette/rou_light.png) no-repeat center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: opacity 1s infinite;
+          animation: opacity 1s infinite;
+  z-index: 1;
+}
+
+.dialogBox .newGift .roulette .rou_body {
+  width: 98%;
+  height: 98%;
+  background: url(../images/roulette/rou_body.png) no-repeat center/cover;
+  -webkit-transition: 4s;
+  transition: 4s;
+}
+
+.dialogBox .newGift .roulette .rou_pointer {
+  width: 10%;
+  margin: auto;
+  position: absolute;
+  top: 1%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.dialogBox .newGift .newGift_cnt {
+  width: 100%;
+  height: 350px;
+  padding: 30px 20px;
+  color: #fff;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dialogBox .newGift .newGift_cnt .close {
+  width: 38px;
+  height: 38px;
+  z-index: 1;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.dialogBox .newGift .newGift_cnt .close::before, .dialogBox .newGift .newGift_cnt .close::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+}
+
+.dialogBox .newGift .newGift_cnt .close::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.dialogBox .newGift .newGift_cnt .close::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.dialogBox .newGift .newGift_cnt .close:active::before, .dialogBox .newGift .newGift_cnt .close:active::after {
+  background-color: #ffd200;
+}
+
+@media (any-hover: hover) {
+  .dialogBox .newGift .newGift_cnt .close:hover::before, .dialogBox .newGift .newGift_cnt .close:hover::after {
+    background-color: #ffd200;
+  }
+}
+
+.dialogBox .newGift .newGift_cnt .title {
+  margin-bottom: 20px;
+}
+
+.dialogBox .newGift .newGift_cnt .title span {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.dialogBox .newGift .newGift_cnt .title p {
+  font-size: 0.8rem;
+  padding-top: 5px;
+}
+
+.dialogBox .newGift .newGift_cnt input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.dialogBox .newGift .newGift_cnt .btn {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+
+.dialogBox .newGift .newGift_cnt .btn button {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.dialogBox .newGift .newGift_cnt .btn button:disabled {
+  text-shadow: 1px 1px 1px #fff;
+  background-color: #a5a5a5;
+  color: #888;
+}
+
+.dialogBox .newGift .newGift_cnt .rule {
+  font-size: 0.85rem;
+  line-height: 20px;
+}
+
+.dialogBox .todayGame {
+  margin: auto;
+  z-index: 2;
+  position: relative;
+  display: none;
+}
+
+.dialogBox .todayGame.on {
+  display: block;
+}
+
+.dialogBox .todayGame .close {
+  width: 40px;
+  height: 40px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  cursor: pointer;
+  border: 1px solid #c43f40;
+  z-index: 2;
+}
+
+.dialogBox .todayGame .close::after, .dialogBox .todayGame .close::before {
+  content: '';
+  width: 25px;
+  height: 4px;
+  margin: auto;
+  border-radius: 4px;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.dialogBox .todayGame .close::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.dialogBox .todayGame .close::before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.dialogBox .todayGame .todayGame_actor {
+  width: 90%;
+  margin: auto;
+  position: absolute;
+  bottom: -13%;
+  left: -50%;
+  z-index: 1;
+}
+
+.dialogBox .todayGame .firework {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: 55% 60%;
+          transform-origin: 55% 60%;
+  -webkit-animation: firework 1s cubic-bezier(0, 0, 0, 1.13) infinite;
+          animation: firework 1s cubic-bezier(0, 0, 0, 1.13) infinite;
+}
+
+.dialogBox .todayGame .todayGame_cnt {
+  width: 350px;
+  padding: 90px 0 20px;
+  background-color: #c43f40;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 30px #cea7a2 inset;
+          box-shadow: 0 0 30px #cea7a2 inset;
+  border: 2px solid #cd6e3e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.dialogBox .todayGame .todayGame_cnt::before {
+  content: '';
+  width: 115%;
+  padding-bottom: 24%;
+  background: url(../images//todayGame/todayGame_title.png) no-repeat center/cover;
+  position: absolute;
+  top: -15px;
+  left: -7.7%;
+}
+
+.dialogBox .todayGame .todayGame_cnt::after {
+  content: '';
+  width: 10%;
+  padding-bottom: 20%;
+  background: url(../images//todayGame/todayGame_ribbon.png) no-repeat center/cover;
+  position: absolute;
+  top: 50px;
+  right: -4.5%;
+}
+
+.dialogBox .todayGame .todayGame_cnt .todayGame_msg {
+  width: 80%;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  text-align: center;
+  background: #960F0D;
+  -webkit-box-shadow: 0 0 10px #d64d4b inset;
+          box-shadow: 0 0 10px #d64d4b inset;
+  color: #fff;
+  font-weight: bold;
+  font-size: 2.2em;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  line-height: 50px;
+}
+
+.dialogBox .todayGame .todayGame_cnt .btn {
+  width: 60%;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.dialogBox .todayGame .todayGame_cnt .btn:active {
+  -webkit-transform: scale(1) translateY(2px);
+          transform: scale(1) translateY(2px);
+}
+
+@-webkit-keyframes opacity {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes opacity {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@-webkit-keyframes firework {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 1;
+  }
+}
+
+@keyframes firework {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=all.css.map */

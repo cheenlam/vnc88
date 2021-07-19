@@ -17,9 +17,9 @@ $('#hd_signIn .btn').click(function () {
 // 初始偵測上方滿版容器高度,設定浮動欄位位置
 $(document).ready(function () {
     let contH = $('.contBox-max').height();
-    $('#leftTool,#rightTool').css('top', contH + 20)
+    $('#leftTool,#rightTool').css('top', contH + 20);
     window.scrollTo({ top: 0 });
-    dialog()
+    dialog();
 })
 
 var scroll = $(window).scroll(function () {
@@ -80,4 +80,14 @@ function dialog() {
 $('#hd_forget').click(function () {
     $("#dialogBox").addClass('on');
     $("#dialogBox .forget").addClass('on');
+})
+
+$('#getGift').click(function () {
+    $("#dialogBox").addClass('on');
+    $("#dialogBox .newGift").addClass('on');
+})
+
+$('#todayGame').click(function () {
+    $("#dialogBox").addClass('on');
+    $("#dialogBox .todayGame").addClass('on');
 })

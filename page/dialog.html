@@ -1,5 +1,6 @@
 <div class="dialogBox" id="dialogBox">
     <div class="close"></div>
+    <!-- 忘記密碼 -->
     <div class="dialog_cnt_01 forget">
         <div class="close"></div>
         <div class="title">忘記密碼</div>
@@ -28,16 +29,16 @@
                     <input type="number" placeholder="請輸入驗證碼">
                 </div>
                 <div class="codeBox">
-                    <img src="images/nbCode.jpg" >
+                    <img src="images/nbCode.jpg">
                 </div>
             </div>
             <div class="btn_linear_c1 btn">
                 <div class="btn_cnt">提交</div>
             </div>
         </div>
-        
-    </div>
 
+    </div>
+    <!-- 註冊會員 -->
     <div class="dialog_cnt_01 regd">
         <div class="close"></div>
         <div class="title">註冊</div>
@@ -45,7 +46,7 @@
             <div>
                 <span>帳號：</span>
                 <div class="iptBox">
-                    <input type="email" placeholder="請輸入電子信箱">
+                    <input type="email" placeholder="請輸入電子信箱" >
                 </div>
             </div>
             <div>
@@ -66,7 +67,7 @@
                     <input type="number" placeholder="請輸入驗證碼">
                 </div>
                 <div class="codeBox">
-                    <img src="images/nbCode.jpg" >
+                    <img src="images/nbCode.jpg">
                 </div>
             </div>
             <div class="check_cnt">
@@ -74,8 +75,8 @@
                     <input type="checkbox">
                     <div></div>
                 </label>
-               <p>我已滿合法年齡且同意並願意遵守 
-                   <a>使用者規章</a>。
+                <p>我已滿合法年齡且同意並願意遵守
+                    <a>使用者規章</a>。
                 </p>
             </div>
             <div class="regd_btn">
@@ -98,13 +99,88 @@
             </div>
         </div>
     </div>
+    <!-- 新註冊獎金 -->
+    <div class="newGift">
+        <div class="roulette">
+            <div class="rou_body" id="rou_body"></div>
+            <div class="rou_pointer">
+                <img src="images/roulette/rou_pointer.png">
+            </div>
+        </div>
+
+        <div class="newGift_cnt" id="newGift_cnt">
+            <div class="close"></div>
+            <div class="title">
+                <span>新註冊獎金</span>
+                <p>在下面輸入您的SDT碼，然後用命運之輪試試運氣</p>
+            </div>
+
+            <div>
+                <input type="text" placeholder="請輸入您的SDT碼">
+                <div class="btn_linear_c1 btn">
+                    <button class="btn_cnt">開始抽獎</button>
+                </div>
+            </div>
+
+            <div class="rule">
+                <span>規則</span>
+                <p>- 填寫帳號SDT碼</p>
+                <p>- 一組帳號僅限1次旋轉</p>
+            </div>
+        </div>
+    </div>
+    <!-- 今日遊戲 -->
+    <div class="todayGame">   
+        <div class="close"></div>
+        <div class="todayGame_actor">
+            <img src="images/god2.gif">
+        </div>
+        <div class="firework">
+            <img src="../images//todayGame/firework.png">
+        </div>
+        <div class="todayGame_cnt">
+            <div class="todayGame_msg">
+                <p>VNC88送您</p>
+                <p>3000金幣</p>
+            </div>
+            <div class="btn">
+                <img src="../images//todayGame/todayGame_btn.png">
+            </div>
+        </div>
+    </div>
+
 </div>
 
 
 <script>
-    $("#dialogBox .close").click(function () {
+    $("#dialogBox .close").click(function() {
         $("#dialogBox>div").removeClass('on');
-        $("#dialogBox").removeClass('on');  
+        $("#dialogBox").removeClass('on');
+        reGift();
     })
-    
+
+    $('#newGift_cnt .btn').click(function() {
+        let getCode = ($('#newGift_cnt input').val()).toUpperCase()
+        let data = parseInt(Math.random() * 12 + 1); 
+
+        if (getCode == 'VNC88') {
+            $('#newGift_cnt button,#newGift_cnt input').attr('disabled',true)
+            $('#newGift_cnt input').val('')
+            $('#rou_body').css('transform', `rotate(${(30*data + 3600)}deg)`).css('transition','4s');
+            setTimeout(function(){
+                $('#newGift_cnt button,#newGift_cnt input').attr('disabled',false)
+            },4000)
+        }
+    })
+
+    $('#newGift_cnt input').on('focus',function(){
+        reGift()
+    })
+
+    function reGift(){
+        $('#newGift_cnt input').val('')
+        $('#rou_body').css('transform', `rotate(0deg)`).css('transition','0s')
+        $('#newGift_cnt button,#newGift_cnt input').attr('disabled',false);
+    }
+
 </script>
