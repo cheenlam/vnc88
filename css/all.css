@@ -488,8 +488,8 @@ body {
   line-height: 34px;
   text-align: center;
   display: inline-block;
-  background: -webkit-gradient(linear, left bottom, left top, from(#3F67C0), to(#5e89e4));
-  background: linear-gradient(0deg, #3F67C0, #5e89e4);
+  background: -webkit-gradient(linear, left bottom, left top, from(#3f67c0), to(#5e89e4));
+  background: linear-gradient(0deg, #3f67c0, #5e89e4);
   -webkit-box-shadow: -1px 1px 1px #fff inset;
           box-shadow: -1px 1px 1px #fff inset;
   border-radius: 5px;
@@ -524,8 +524,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#3F67C0), to(#5e89e4));
-  background: linear-gradient(180deg, #3F67C0, #5e89e4);
+  background: -webkit-gradient(linear, left top, left bottom, from(#3f67c0), to(#5e89e4));
+  background: linear-gradient(180deg, #3f67c0, #5e89e4);
   -webkit-box-shadow: -1px 1px 1px #fff inset;
           box-shadow: -1px 1px 1px #fff inset;
   opacity: 0;
@@ -867,7 +867,7 @@ body {
   background: rgba(0, 0, 0, 0.85);
   position: fixed;
   top: 0;
-  z-index: 10;
+  z-index: 20;
 }
 
 .header .hd_menu ul {
@@ -931,49 +931,126 @@ body {
   overflow: hidden;
 }
 
-.mainCnt .leftTool,
-.mainCnt .rightTool {
+.mainCnt .contBox-full {
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
+}
+
+.mainCnt .contBox-full .marquee {
+  margin-bottom: 20px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#000), to(transparent));
+  background: linear-gradient(90deg, transparent, #000, transparent);
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.mainCnt .contBox-full .marquee .marqueeBox {
+  max-width: 1280px;
+  margin: auto;
+}
+
+.mainCnt .contBox-full .marquee .marqueeBox .marquee_body {
+  max-width: 1050px;
+  cursor: pointer;
+}
+
+.mainCnt .contBox-full .marquee .marqueeBox > div {
+  max-width: 1050px;
+  height: 35px;
+  padding: 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainCnt .contBox-full .marquee .marqueeBox span {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 20px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.mainCnt .contBox-full .marquee .marqueeBox .btn {
+  height: 23px;
+  line-height: 23px;
+  padding: 0 10px;
+  margin-left: 20px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.mainCnt .contBox-full .marquee .marqueeBox .btn .btn_cnt {
+  font-size: 0.9rem;
+}
+
+.mainCnt .contBox-full .contBox-min {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.mainCnt .contBox-full .leftTool,
+.mainCnt .contBox-full .rightTool {
+  width: 97px;
   position: absolute;
+  top: 0;
   z-index: 10;
 }
 
-.mainCnt .leftTool {
-  width: 97px;
-  top: calc(100vw * 0.1986 + 55px);
-  right: 1365px;
-  left: 0;
+.mainCnt .contBox-full .leftTool {
+  left: -90px;
+}
+
+.mainCnt .contBox-full .leftTool.on {
+  position: fixed;
+  top: 60px;
+  right: 1273px;
   margin: auto;
 }
 
 @media screen and (max-width: 1490px) {
-  .mainCnt .leftTool {
+  .mainCnt .contBox-full .leftTool, .mainCnt .contBox-full .leftTool.on {
+    position: fixed;
     right: 10px;
     left: unset;
+    top: unset;
+    bottom: 300px;
   }
 }
 
-.mainCnt .rightTool {
-  width: 99px;
-  top: calc(100vw * 0.1986 + 55px);
-  right: 0;
-  left: 1365px;
+.mainCnt .contBox-full .rightTool {
+  right: -90px;
+}
+
+.mainCnt .contBox-full .rightTool.on {
+  position: fixed;
+  top: 60px;
+  left: 1273px;
   margin: auto;
 }
 
 @media screen and (max-width: 1490px) {
-  .mainCnt .rightTool {
+  .mainCnt .contBox-full .rightTool, .mainCnt .contBox-full .rightTool.on {
+    position: fixed;
     right: 10px;
     left: unset;
-    margin-top: 100px;
+    top: unset;
+    bottom: 260px;
   }
 }
 
-.mainCnt .rightTool .todayGame {
+.mainCnt .contBox-full .rightTool .todayGame {
   width: 100%;
   position: absolute;
 }
 
-.mainCnt .rightTool .todayGame .god {
+.mainCnt .contBox-full .rightTool .todayGame .god {
   width: 220px;
   left: -60px;
   cursor: pointer;
@@ -982,25 +1059,18 @@ body {
           animation: pudding 1s infinite linear;
 }
 
-@media screen and (min-width: 1920px) {
-  .mainCnt .rightTool,
-  .mainCnt .leftTool {
-    top: calc(1920px * 0.1986 + 55px);
-  }
-}
-
-.mainCnt .floatAd > img {
+.mainCnt .contBox-full .floatAd > img {
   display: block;
   margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1490px) {
-  .mainCnt .floatAd {
+  .mainCnt .contBox-full .floatAd {
     display: none;
   }
 }
 
-.mainCnt .getGift {
+.mainCnt .contBox-full .getGift {
   width: 95%;
   height: 95%;
   margin: auto;
@@ -1010,7 +1080,7 @@ body {
   cursor: pointer;
 }
 
-.mainCnt .goTop {
+.mainCnt .contBox-full .goTop {
   height: 30px;
   background-color: #000;
   display: -webkit-box;
@@ -1028,23 +1098,13 @@ body {
   cursor: pointer;
 }
 
-.mainCnt .goTop img {
+.mainCnt .contBox-full .goTop img {
   width: 20px;
   height: 20px;
   margin-right: 5px;
 }
 
-.content {
-  max-width: 1920px;
-  min-width: 1280px;
-  min-height: calc(100vh - 463px);
-  margin: auto;
-  padding-bottom: 20px;
-  color: #fff;
-  position: relative;
-}
-
-.content::before {
+.mainCnt::before {
   content: "";
   width: 100%;
   height: 100%;
@@ -1056,17 +1116,21 @@ body {
   opacity: 0.4;
 }
 
-.content .contBox-min {
+.contBox-min {
   width: 100%;
   max-width: 1280px;
   margin: auto;
   padding: 0 20px;
 }
 
-.content .contBox-max {
-  width: 100%;
+.content {
   max-width: 1920px;
+  min-width: 1280px;
+  min-height: calc(100vh - 463px);
   margin: auto;
+  padding-bottom: 20px;
+  color: #fff;
+  position: relative;
 }
 
 .footer {
@@ -1177,7 +1241,7 @@ body {
   position: absolute;
   padding: 0 20px;
   bottom: 40px;
-  z-index: 9;
+  z-index: 5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1309,57 +1373,6 @@ body {
   }
 }
 
-.marquee {
-  margin-bottom: 20px;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#000), to(transparent));
-  background: linear-gradient(90deg, transparent, #000, transparent);
-  color: #fff;
-  font-size: 0.95rem;
-}
-
-.marquee .marqueeBox {
-  max-width: 1280px;
-  margin: auto;
-}
-
-.marquee .marqueeBox .marquee_body {
-  max-width: 1050px;
-  cursor: pointer;
-}
-
-.marquee .marqueeBox > div {
-  max-width: 1050px;
-  height: 35px;
-  padding: 0 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.marquee .marqueeBox span {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  margin-right: 20px;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-
-.marquee .marqueeBox .btn {
-  height: 23px;
-  line-height: 23px;
-  padding: 0 10px;
-  margin-left: 20px;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-}
-
-.marquee .marqueeBox .btn .btn_cnt {
-  font-size: 0.9rem;
-}
-
 .flexAd {
   margin-bottom: 40px;
 }
@@ -1385,7 +1398,7 @@ body {
 }
 
 .betList {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .betList .betTitle {
@@ -2071,12 +2084,8 @@ body {
   margin-bottom: 15px;
 }
 
-.mainMsg .flexAd {
-  margin-bottom: 20px;
-}
-
-.mainNews {
-  margin-bottom: 20px;
+.mainMsg > div + div {
+  margin-top: 40px;
 }
 
 .mainNews .mainNews_t {
@@ -2170,10 +2179,6 @@ body {
   margin-left: 20px;
 }
 
-.mainScore {
-  margin-bottom: 20px;
-}
-
 .mainScore .scoreCnt {
   width: 100%;
   height: 800px;
@@ -2187,7 +2192,6 @@ body {
 }
 
 .mainRec {
-  margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2333,6 +2337,134 @@ body {
   width: 380px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+}
+
+.fullDict {
+  color: #000;
+}
+
+.fullDict .title {
+  padding-bottom: 20px;
+  color: #ff0d18;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.fullDict .lotteryList {
+  padding-left: 10px;
+}
+
+.fullDict .lotteryList > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.fullDict .lotteryList > li .icon {
+  width: 21px;
+  height: 21px;
+  background: url("../images/icon/icon-football.png") no-repeat center/cover;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 15px;
+}
+
+.fullDict .lotteryList > li + li {
+  margin-top: 20px;
+}
+
+.fullDict .lotteryMsg li {
+  line-height: 25px;
+}
+
+.fullList li {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.fullList li .fullList_img {
+  width: 260px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.fullList li .fullList_msg {
+  padding: 0 30px;
+  color: #a8a7a7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.1rem;
+}
+
+.fullList li .fullList_msg .title {
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.fullList li .fullList_msg p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  line-height: 22px;
+}
+
+.fullList li .fullList_msg .fullList_tool {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.fullList li .fullList_msg .fullList_tool span {
+  font-size: 1rem;
+}
+
+.fullList li .fullList_msg .fullList_tool span + span {
+  margin-left: 10px;
+}
+
+.fullList li .fullList_msg .more {
+  color: #ff0000;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+@media (any-hover: hover) {
+  .fullList li .fullList_msg .more:hover {
+    color: #000;
+  }
+}
+
+.fullList li + li::before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #c5c4c4;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .dialogBox {

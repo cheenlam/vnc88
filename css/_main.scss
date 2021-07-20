@@ -17,7 +17,7 @@ body {
 }
 
 .btn_linear_c4 {
-    @include btn_linear(#fff, #fff, #3F67C0, #5e89e4);
+    @include btn_linear(#fff, #fff, #3f67c0, #5e89e4);
 }
 
 // ===== header start =====
@@ -41,7 +41,7 @@ body {
             width: 478px;
             height: 86px;
             margin-bottom: 10px;
-            background: url(../images/logo/hd_logo.png)no-repeat center / cover;
+            background: url(../images/logo/hd_logo.png) no-repeat center / cover;
             cursor: pointer;
             @include imgToTxt;
             a {
@@ -77,18 +77,18 @@ body {
                     height: 34px;
                 }
             }
-            li+li {
+            li + li {
                 margin-left: 10px;
             }
         }
         .hd_signIn {
-            &[data-signIn="0"]>div[data-signIn="0"] {
+            &[data-signIn="0"] > div[data-signIn="0"] {
                 display: flex;
             }
-            &[data-signIn="1"]>div[data-signIn="1"] {
+            &[data-signIn="1"] > div[data-signIn="1"] {
                 display: flex;
             }
-            &>div {
+            & > div {
                 display: none;
                 justify-content: flex-end;
             }
@@ -150,7 +150,7 @@ body {
                 display: flex;
                 color: $clr_Txt;
                 font-size: 0.9rem;
-                &>div {
+                & > div {
                     display: flex;
                     align-items: center;
                     margin-right: 10px;
@@ -190,7 +190,7 @@ body {
             .btn {
                 min-width: 80px;
             }
-            .btn+.btn {
+            .btn + .btn {
                 margin-left: 5px;
             }
         }
@@ -204,7 +204,7 @@ body {
             background: rgba(0, 0, 0, 0.85);
             position: fixed;
             top: 0;
-            z-index: 10;
+            z-index: 20;
         }
         ul {
             height: 100%;
@@ -229,7 +229,7 @@ body {
                 }
             }
         }
-        li+li {
+        li + li {
             margin-left: 75px;
         }
         .menu_game {
@@ -252,95 +252,144 @@ body {
 .mainCnt {
     position: relative;
     overflow: hidden;
-    .leftTool,
-    .rightTool {
-        position: absolute;
-        z-index: 10;
-    }
-    .leftTool {
-        width: 97px;
-        top: calc(100vw * 0.1986 + 55px);
-        right: 1365px;
-        left: 0;
+    .contBox-full {
+        width: 100%;
+        max-width: $count-maxW;
         margin: auto;
-        @include rwd(1490) {
-            right: 10px;
-            left: unset;
+        // 跑馬燈
+        .marquee {
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, transparent, #000, transparent);
+            color: $color_02;
+            font-size: 0.95rem;
+            .marqueeBox {
+                max-width: $count-minW;
+                margin: auto;
+
+                .marquee_body {
+                    max-width: 1050px;
+                    cursor: pointer;
+                }
+                & > div {
+                    max-width: 1050px;
+                    height: 35px;
+                    padding: 0 15px;
+                    display: flex;
+                    align-items: center;
+                }
+                span {
+                    flex-shrink: 0;
+                    margin-right: 20px;
+                    letter-spacing: 1px;
+                    font-weight: bold;
+                }
+                .btn {
+                    height: 23px;
+                    line-height: 23px;
+                    padding: 0 10px;
+                    margin-left: 20px;
+                    flex-shrink: 0;
+                    .btn_cnt {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
         }
-    }
-    .rightTool {
-        width: 99px;
-        top: calc(100vw * 0.1986 + 55px);
-        right: 0;
-        left: 1365px;
-        margin: auto;
-        @include rwd(1490) {
-            right: 10px;
-            left: unset;
-            margin-top: 100px;
+
+        .contBox-min {
+            display: flex;
+            position: relative;
         }
-        .todayGame {
-            width: 100%;
+        .leftTool,
+        .rightTool {
+            width: 97px;
             position: absolute;
-            .god {
-                width: 220px;
-                left: -60px;
-                cursor: pointer;
-                position: relative;
-                animation: pudding 1s infinite linear;
+            top: 0;
+            z-index: 10;
+        }
+        .leftTool {
+            left: -90px;
+            &.on{
+                position: fixed;
+                top: 60px;
+                right: 1273px;
+                margin: auto;
+            }
+            @include rwd(1490) {
+                &,&.on{
+                    position: fixed;
+                    right: 10px;
+                    left: unset;
+                    top: unset;
+                    bottom: 300px;
+                }    
+            }
+        }
+        .rightTool {
+            right: -90px;
+            &.on{
+                position: fixed;
+                top: 60px;
+                left: 1273px;
+                margin: auto;
+            }
+            @include rwd(1490) {
+                &,&.on{
+                    position: fixed;
+                    right: 10px;
+                    left: unset;
+                    top: unset;
+                    bottom: 260px;
+                }     
+            }
+            
+            .todayGame {
+                width: 100%;
+                position: absolute;
+                .god {
+                    width: 220px;
+                    left: -60px;
+                    cursor: pointer;
+                    position: relative;
+                    animation: pudding 1s infinite linear;
+                }
+            }
+        }
+        .floatAd {
+            & > img {
+                display: block;
+                margin-bottom: 10px;
+            }
+            @include rwd(1490) {
+                display: none;
+            }
+        }
+        .getGift {
+            width: 95%;
+            height: 95%;
+            margin: auto;
+            padding: 20px;
+            background-color: #282828;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .goTop {
+            height: 30px;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 300;
+            cursor: pointer;
+            img {
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
             }
         }
     }
-    @media screen and (min-width: 1920px) {
-        .rightTool,
-        .leftTool {
-            top: calc(1920px * 0.1986 + 55px);
-        }
-    }
-    .floatAd {
-        &>img {
-            display: block;
-            margin-bottom: 10px;
-        }
-        @include rwd(1490) {
-            display: none;
-        }
-    }
-    .getGift {
-        width: 95%;
-        height: 95%;
-        margin: auto;
-        padding: 20px;
-        background-color: #282828;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-    .goTop {
-        height: 30px;
-        background-color: #000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: 1.2rem;
-        font-weight: 300;
-        cursor: pointer;
-        img {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-        }
-    }
-}
-
-.content {
-    max-width: $count-maxW;
-    min-width: $count-minW;
-    min-height: calc(100vh - 463px);
-    margin: auto;
-    padding-bottom: 20px;
-    color: #fff;
-    position: relative;
     &::before {
         content: "";
         width: 100%;
@@ -352,17 +401,24 @@ body {
         z-index: -1;
         opacity: 0.4;
     }
-    .contBox-min {
-        width: 100%;
-        max-width: $count-minW;
-        margin: auto;
-        padding: 0 20px;
-    }
-    .contBox-max {
-        width: 100%;
-        max-width: $count-maxW;
-        margin: auto;
-    }
+}
+
+.contBox-min {
+    width: 100%;
+    max-width: $count-minW;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.content {
+    max-width: $count-maxW;
+    min-width: $count-minW;
+    min-height: calc(100vh - 463px);
+    margin: auto;
+    padding-bottom: 20px;
+    color: #fff;
+    position: relative;
+    
 }
 
 // ===== footer start =====
@@ -376,7 +432,7 @@ body {
     // ft_top
     .ft_top {
         background-color: #313131;
-        &>div {
+        & > div {
             width: 100%;
             max-width: 1800px;
             min-width: $count-minW;
@@ -394,7 +450,7 @@ body {
             ul {
                 display: flex;
             }
-            li+li {
+            li + li {
                 margin-left: 20px;
             }
             .ft_icon {
@@ -406,7 +462,7 @@ body {
     // ft_bottom
     .ft_bottom {
         background-color: #121210;
-        &>div {
+        & > div {
             max-width: 1800px;
             min-width: $count-minW;
             min-height: calc(275px - 160px);
@@ -436,7 +492,7 @@ body {
                     }
                 }
             }
-            li+li {
+            li + li {
                 margin-left: 30px;
             }
         }
@@ -448,10 +504,10 @@ body {
         position: absolute;
         padding: 0 20px;
         bottom: 40px;
-        z-index: 9;
+        z-index: 5;
         display: flex;
         justify-content: space-between;
-        &>div {
+        & > div {
             position: relative;
             pointer-events: auto;
             &.on {
@@ -497,26 +553,26 @@ body {
 @keyframes pudding {
     0% {
         transform: scaleX(1);
-      }
-      30% {
+    }
+    30% {
         transform: scale3d(0.95, 1.1, 1);
-      }
-      40% {
+    }
+    40% {
         transform: scale3d(1.11, 0.85, 1);
-      }
-      40% {
+    }
+    40% {
         transform: scale3d(1.11, 0.85, 1);
-      }
-      50% {
+    }
+    50% {
         transform: scale3d(0.95, 1.1, 1);
-      }
-      65% {
+    }
+    65% {
         transform: scale3d(1.05, 1, 1);
-      }
-      75% {
+    }
+    75% {
         transform: scale3d(1, 1.05, 1);
-      }
-      100% {
+    }
+    100% {
         transform: scaleX(1);
-      }
-  }
+    }
+}

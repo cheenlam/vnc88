@@ -1,37 +1,38 @@
 // header按鈕動作
-$('#hd_signIn .btn').click(function () {
+$('#hd_signIn .btn').click(function() {
     let getData = $(this).attr('data-btn')
     switch (getData) {
         case 'signIn':
-            $('#hd_signIn').attr('data-signIn', 1); break;
+            $('#hd_signIn').attr('data-signIn', 1);
+            break;
         case 'regd':
             $("#dialogBox").addClass('on');
             $("#dialogBox .regd").addClass('on');
             break;
         case 'signOut':
-            $('#hd_signIn').attr('data-signIn', 0); break;
-        case 'mbrMsg': break;
+            $('#hd_signIn').attr('data-signIn', 0);
+            break;
+        case 'mbrMsg':
+            break;
     }
 })
 
-// 初始偵測上方滿版容器高度,設定浮動欄位位置
-$(document).ready(function () {
-    let contH = $('.contBox-max').height();
-    $('#leftTool,#rightTool').css('top', contH + 20);
+$(document).ready(function() {
     window.scrollTo({ top: 0 });
     dialog();
 })
 
-var scroll = $(window).scroll(function () {
+var scroll = $(window).scroll(function() {
     floatMenu();
-    floatTool();
+    floatAd() 
 });
 
-$(window).resize(function () {
-    floatTool();
+$(window).resize(function() {
+    floatAd() 
     window.scrollTo({ top: 0 });
 })
 
+// 上方menu浮動
 function floatMenu() {
     let topH = $('#hd_top').height();
     if (scroll.scrollTop() > topH) {
@@ -41,20 +42,19 @@ function floatMenu() {
     }
 }
 
-function floatTool() {
-    let allH = $('.contBox-max').height() + $('.header').height()
-    let menuH = $('#hd_menu').height();
-    let contH = $('.contBox-max').height();
-
-    if (scroll.scrollTop() > allH - menuH) {
-        $('#leftTool,#rightTool').css('position', 'fixed').css('top', menuH + 10)
-    } else {
-        $('#leftTool,#rightTool').css('position', 'absolute').css('top', contH + 20)
+// 側邊浮動廣告
+function floatAd() {
+    let getH = $('.contBox-full .contBox-min').offset().top -$('#hd_menu').height();
+    console.log(getH)
+    if(scroll.scrollTop() > getH){
+        $('#leftTool,#rightTool').addClass('on')
+    }else{
+        $('#leftTool,#rightTool').removeClass('on')
     }
 }
 
 //置頂按扭滑動
-$('#goTop').click(function () {
+$('#goTop').click(function() {
     window.scrollTo({
         top: 0,
         behavior: "smooth"
@@ -62,7 +62,7 @@ $('#goTop').click(function () {
 });
 
 // 頁尾廣告關閉
-$('.ftAd_close').click(function () {
+$('.ftAd_close').click(function() {
     $(this).parents('div').addClass('on')
 })
 
@@ -71,23 +71,23 @@ $('.ftAd_close').click(function () {
 function dialog() {
     $.ajax({
         url: 'page/dialog.html',
-        success: function (html) {
+        success: function(html) {
             $("#dialogCnt").html(html);
         }
     });
 }
 
-$('#hd_forget').click(function () {
+$('#hd_forget').click(function() {
     $("#dialogBox").addClass('on');
     $("#dialogBox .forget").addClass('on');
 })
 
-$('#getGift').click(function () {
+$('#getGift').click(function() {
     $("#dialogBox").addClass('on');
     $("#dialogBox .newGift").addClass('on');
 })
 
-$('#todayGame').click(function () {
+$('#todayGame').click(function() {
     $("#dialogBox").addClass('on');
     $("#dialogBox .todayGame").addClass('on');
 })

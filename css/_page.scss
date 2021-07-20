@@ -1,43 +1,3 @@
-// marquee start
-.marquee {
-    margin-bottom: 20px;
-    background: linear-gradient(90deg, transparent, #000, transparent);
-    color: $color_02;
-    font-size: 0.95rem;
-    .marqueeBox {
-        max-width: $count-minW;
-        margin: auto;
-
-        .marquee_body{
-            max-width: 1050px;
-            cursor: pointer;
-        }
-        & > div {
-            max-width: 1050px;
-            height: 35px;
-            padding: 0 15px;
-            display: flex;
-            align-items: center;
-        }
-        span {
-            flex-shrink: 0;
-            margin-right: 20px;
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
-        .btn {
-            height: 23px;
-            line-height: 23px;
-            padding: 0 10px;
-            margin-left: 20px;
-            flex-shrink: 0;
-            .btn_cnt {
-                font-size: 0.9rem;
-            }
-        }
-    }
-}
-
 // flexAd start
 .flexAd {
     margin-bottom: 40px;
@@ -57,7 +17,7 @@
 
 // betList start
 .betList {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     .betTitle {
         margin-bottom: 15px;
         display: flex;
@@ -292,15 +252,13 @@
         letter-spacing: 1px;
         margin-bottom: 15px;
     }
-
-    .flexAd {
-        margin-bottom: 20px;
+    &>div+div{
+        margin-top: 40px;
     }
 }
 
 // mainNews start
 .mainNews {
-    margin-bottom: 20px;
     .mainNews_t {
         display: flex;
         margin-bottom: 20px;
@@ -366,7 +324,6 @@
 
 // mainScore start
 .mainScore {
-    margin-bottom: 20px;
     .scoreCnt {
         width: 100%;
         height: 800px;
@@ -380,7 +337,6 @@
 
 // mainRec start
 .mainRec {
-    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
     & > div {
@@ -475,3 +431,102 @@
         flex-shrink: 0;
     }
 }
+
+// fullDict start 
+.fullDict{
+    color: #000;
+    .title{
+        padding-bottom: 20px;
+        color: #ff0d18;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .lotteryList{
+       padding-left: 10px;
+        &> li{
+            display: flex;
+            .icon{
+                width: 21px;
+                height: 21px;
+                background: url('../images/icon/icon-football.png') no-repeat center /cover;
+                flex-shrink: 0;
+                margin-right: 15px;
+            }
+        }
+        &>li+li{
+            margin-top: 20px;
+        }
+    }
+
+    .lotteryMsg{
+        li{
+            line-height: 25px;
+        }
+    } 
+}
+
+// fullList start
+.fullList{
+    li{
+        padding: 10px;
+        display: flex;
+        position: relative;
+        .fullList_img{
+            width: 260px;
+            flex-shrink: 0;
+        }
+        .fullList_msg{
+            padding: 0 30px;
+            color: #a8a7a7;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            .title{
+                color: #000;
+                font-size: 1.6rem;
+                font-weight: bold;
+                padding-bottom: 10px;
+            }
+            p{
+                @include txtChip(2);
+                line-height: 22px;
+            }
+            .fullList_tool{
+                display: flex;
+                justify-content: space-between; 
+                span{
+                    font-size: 1rem;
+                }      
+                span+span{
+                    margin-left: 10px;
+                }
+            }
+            .more{
+                color: #ff0000;
+                cursor: pointer;
+                transition: .3s;
+                @include hover{
+                    &:hover{
+                        color: #000;
+                    }
+                   
+                }
+            }
+        }
+    }
+    li+li{
+        &::before{
+            content: '';
+            width: 100%;
+            height: 1px;
+            background-color: #c5c4c4;
+            transform: scaleY(0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+// b6b5b5
