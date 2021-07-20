@@ -7,6 +7,11 @@
     .marqueeBox {
         max-width: $count-minW;
         margin: auto;
+
+        .marquee_body{
+            max-width: 1050px;
+            cursor: pointer;
+        }
         & > div {
             max-width: 1050px;
             height: 35px;
