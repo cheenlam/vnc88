@@ -69,11 +69,20 @@ Router.route('/game', function() {
 
 // home lottery news broadcast forum resources game
 
-function mainInclude(src) {
+function mainInclude(src) { 
+    
     $.ajax({
         url: src,
         success: function(html) {
             $("#content").html(html);
+        },
+        // 發送前
+        beforeSend:function(){
+               
+        },
+        // 完成
+        complete: function(){
+        
         }
     });
 }

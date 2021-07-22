@@ -217,7 +217,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    .icon{
+                    .icon {
                         width: 22px;
                         margin-right: 8px;
                     }
@@ -228,7 +228,7 @@
                     }
                 }
             }
-           
+
             & > .btn + .btn {
                 margin-left: 10px;
             }
@@ -244,6 +244,9 @@
         min-width: 100px;
         padding: 0 10px;
         height: 36px;
+        line-height: 36px;
+        text-align: center;
+        display: block;
         @include fullNone;
         @include toolColor(#f39700, #e60012, #ec6941);
         color: #fff;
@@ -251,8 +254,9 @@
         font-weight: bold;
         letter-spacing: 1px;
         margin-bottom: 15px;
+        display: inline-block;
     }
-    &>div+div{
+    & > div + div {
         margin-top: 40px;
     }
 }
@@ -432,92 +436,91 @@
     }
 }
 
-// fullDict start 
-.fullDict{
+// fullDict start
+.fullDict {
     color: #000;
-    .title{
+    .title {
         padding-bottom: 20px;
         color: #ff0d18;
         font-size: 1.5rem;
         font-weight: bold;
     }
-    .lotteryList{
-       padding-left: 10px;
-        &> li{
+    .lotteryList {
+        padding-left: 10px;
+        & > li {
             display: flex;
-            .icon{
+            .icon {
                 width: 21px;
                 height: 21px;
-                background: url('../images/icon/icon-football.png') no-repeat center /cover;
+                background: url("../images/icon/icon-football.png") no-repeat center / cover;
                 flex-shrink: 0;
                 margin-right: 15px;
             }
         }
-        &>li+li{
+        & > li + li {
             margin-top: 20px;
         }
     }
 
-    .lotteryMsg{
-        li{
+    .lotteryMsg {
+        li {
             line-height: 25px;
         }
-    } 
+    }
 }
 
 // fullList start
-.fullList{
-    li{
+.fullList {
+    li {
         padding: 10px;
         display: flex;
         position: relative;
-        .fullList_img{
+        .fullList_img {
             width: 260px;
             flex-shrink: 0;
         }
-        .fullList_msg{
+        .fullList_msg {
             padding: 0 30px;
             color: #a8a7a7;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             font-size: 1.1rem;
-            .title{
+            .title {
                 color: #000;
                 font-size: 1.6rem;
                 font-weight: bold;
                 padding-bottom: 10px;
             }
-            p{
+            p {
                 @include txtChip(2);
                 line-height: 22px;
             }
-            .fullList_tool{
+            .fullList_tool {
                 display: flex;
-                justify-content: space-between; 
-                span{
+                justify-content: space-between;
+                span {
                     font-size: 1rem;
-                }      
-                span+span{
+                }
+                span + span {
                     margin-left: 10px;
                 }
             }
-            .more{
+            .more {
                 color: #ff0000;
                 cursor: pointer;
-                transition: .3s;
-                @include hover{
-                    &:hover{
+                transition: 0.3s;
+                @include hover {
+                    &:hover {
                         color: #000;
                     }
-                   
                 }
             }
         }
     }
-    li+li{
-        &::before{
-            content: '';
+    li + li {
+        &::before {
+            content: "";
             width: 100%;
             height: 1px;
             background-color: #c5c4c4;
@@ -529,4 +532,197 @@
     }
 }
 
-// b6b5b5
+// broadcast start(轉播)
+.broadcast {
+    // liveBox start
+    .liveBox {
+        padding: 40px 10px 20px;
+        background-color: #242424;
+        .liveTitle {
+            width: 150px;
+            padding: 5px 0;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            background-color: #fff;
+            color: #000;
+            display: inline-block;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img {
+                width: 66px;
+                padding-bottom: 3px;
+            }
+        }
+        .liveList {
+            margin-bottom: 40px;
+            ul {
+                display: flex;
+            }
+            li {
+                flex: 1;
+                padding: 0 10px;
+                & > div {
+                    height: 100%;
+                    padding-bottom: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    box-shadow: 2px 2px 10px #000;
+                    transition: 0.5s;
+                }
+                &:hover > div {
+                    transform: translateY(-4px);
+                    background-color: #fff;
+                    color: #000;
+                }
+            }
+            .liveList_mv {
+                width: 100%;
+                height: 0;
+                padding-bottom: calc(100% / 1.775);
+                position: relative;
+                margin-bottom: 10px;
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+            .liveList_msg {
+                padding: 0 10px;
+                font-size: 0.95rem;
+                line-height: 24px;
+                font-weight: bold;
+                @include txtChip(2);
+            }
+        }
+        .liveBtn {
+            text-align: center;
+            .btn {
+                width: 150px;
+                height: 40px;
+                line-height: 40px;
+                border-radius: 40px;
+            }
+        }
+    }
+    // videoBox start
+    .videoBox {
+        display: flex;
+    }
+    .gameShow {
+        width: calc(100% - 250px);
+        margin-right: 20px;
+
+        .main {
+            width: calc(100% - 10px);
+            height: 0;
+            padding-bottom: calc(100% / 1.775);
+            position: relative;
+            margin: 0 auto 10px;
+            iframe {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        .list {
+            position: relative;
+            min-height: 50px;
+            .arrow_l,
+            .arrow_r {
+                width: 40px;
+                height: 40px;
+                margin: auto;
+                background-color: #fff;
+                border-radius: 50%;
+                position: absolute;
+                top: calc(100% / 1.775 / 3);
+                opacity: 0.7;
+                z-index: 2;
+                cursor: pointer;
+                transition: 0.3s;
+                &:active {
+                    opacity: 1;
+                }
+                @media (any-hover: hover) {
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+            .arrow_l::before,
+            .arrow_r::before {
+                content: "";
+                width: 70%;
+                height: 70%;
+                margin: auto;
+                background: url(../images/icon/arrow-r.png) no-repeat center / cover;
+                position: absolute;
+                @include pos(tblr, 0);
+            }
+
+            .arrow_l::before {
+                transform: rotate(180deg);
+            }
+
+            .arrow_l {
+                left: 0;
+                box-shadow: -1px 2px 3px #000;
+            }
+            .arrow_r {
+                right: 0;
+                box-shadow: 1px 2px 3px #000;
+            }
+            .listArray{          
+                overflow: hidden;
+                ul {
+                    width: 250%;
+                    display: flex;
+                    transition: .3s;
+                }
+                li {
+                    width: 10%;
+                    padding: 0 5px;
+                    flex: 1;
+                    cursor: pointer;
+                    & > div {
+                        height: 100%;
+                        padding-bottom: 20px;
+                        color: #333;
+                    }
+                }
+            }  
+            .listArray_img {
+                margin-bottom: 10px;
+            }
+            .listArray_msg {
+                color: #000; 
+                padding: 0 10px;   
+                font-size: 1rem;
+                line-height: 22px;
+                font-weight: bold;
+                span {
+                    color: #888;
+                    font-weight: normal;
+                    font-size: 0.95rem;  
+                }
+                p {   
+                    padding-top: 5px;
+                    @include txtChip(3);
+                }
+            }
+        }
+    }
+
+    .gameResults {
+        width: 250px;
+        background-color: #0af;
+    }
+}

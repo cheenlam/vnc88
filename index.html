@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/all.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- 外掛插件 -->
     <script src="js/swipeslider.js"></script>
@@ -310,7 +311,6 @@
 
     <!-- ===== dialogCnt start ===== -->
     <div class="dialogCnt" id="dialogCnt"></div>
-
 </body>
 
 <script>
@@ -319,5 +319,24 @@
     $("#marquee").marquee({
         pauseOnHover: true
     });
+
+    let firebaseConfig = {
+        apiKey: "AIzaSyAgZwvI140YQ0w-nLzg2NMHGD7LT8xA0ig",
+        authDomain: "login-a4c56.firebaseapp.com",
+        projectId: "login-a4c56",
+        storageBucket: "login-a4c56.appspot.com",
+        messagingSenderId: "446192149335",
+        appId: "1:446192149335:web:c1bbb2ba15206bb5921412",
+        measurementId: "G-2ZYH9PZFK0"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    let db = firebase.firestore();
+    let docRef = db.collection("showLive");
+    let docRef2 = db.collection("ytMovie");
+   
 </script>
+
 </html>

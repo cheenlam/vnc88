@@ -1,1 +1,97 @@
-<p>broadcast</p>
+<div class="contBox-min broadcast">
+    <!-- liveBox start -->
+    <div class="liveBox">
+        <div class="liveTitle">
+            <img src="images/icon/hot.jpg">
+            <span>現場直播</span>
+        </div>
+        <div class="liveList" id="liveList">
+            <ul></ul>
+        </div>
+        <div class="liveBtn">
+            <div class="btn_linear_c2 btn">
+                <div class="btn_cnt">查看全部</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="videoBanner">
+        <img src="../images/videoBanner-01.jpg">
+    </div>
+    <div class="mainMsg">
+        <!-- videoBox start -->
+        <div class="videoBox">
+            <div class="gameShow" id="gameShow">
+                <div class="main">
+                    <iframe src="https://www.youtube.com/embed/pCbg-eeHHg8" frameborder="0" id="showMv"></iframe>
+                </div>
+                <div class="list">
+                    <div class="arrow_l"></div>
+                    <div class="arrow_r"></div>
+                    <div class="listArray" id="listArray">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="gameResults"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+   
+    docRef.get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            let data = doc.data();
+            let liData = `<li>
+                            <div>
+                                <div class="liveList_mv">
+                                    <iframe src="https://www.youtube.com/embed/${data.videoId}" frameborder="0"></iframe>
+                                </div>
+                                <div class="liveList_msg">${data.title}</div>
+                            </div>
+                        </li>`
+            $('#liveList ul').append(liData);
+        });
+
+        getMovie()  
+    })
+    // var movieArray = []
+    function getMovie() {
+        docRef2.get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                let data = doc.data();
+                let liData = `<li videoId="${data.videoId}" onclick="chMovie(this)">
+                            <div>
+                                <div class="listArray_img">
+                                    <img src="${data.imgUrl}">
+                                </div>
+                                <div class="listArray_msg">
+                                    <span>${data.time}</span>
+                                    <p>${data.title}</p>     
+                                </div>
+                            </div>
+                        </li>`
+
+                $('#listArray ul').append(liData);
+                // movieArray.push(data.videoId);
+            });
+        })
+    }
+
+    // function chMovie(e) {
+    //     let getId = $(e).attr('videoid')
+    //     $('#gameShow iframe').attr('src', `https://www.youtube.com/embed/${getId}`)
+    // }
+
+    // let arrayNum = 0;
+    // $('#gameShow .arrow_l').click(function(){
+    //     arrayNum == 0 ? 0 : arrayNum--;
+    //     $('#listArray ul').css('transform', `translateX(-${arrayNum*20}%)`)
+    // })
+
+    // $('#gameShow .arrow_r').click(function(){
+    //     arrayNum == 3 ? 3 : arrayNum++;
+    //     $('#listArray ul').css('transform', `translateX(-${arrayNum*20}%)`)
+    // })
+</script>

@@ -45,7 +45,6 @@ function floatMenu() {
 // 側邊浮動廣告
 function floatAd() {
     let getH = $('.contBox-full .contBox-min').offset().top -$('#hd_menu').height();
-    console.log(getH)
     if(scroll.scrollTop() > getH){
         $('#leftTool,#rightTool').addClass('on')
     }else{
@@ -91,3 +90,5 @@ $('#todayGame').click(function() {
     $("#dialogBox").addClass('on');
     $("#dialogBox .todayGame").addClass('on');
 })
+
+

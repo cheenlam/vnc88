@@ -550,6 +550,30 @@ body {
     }
 }
 
+
+.onloading{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;   
+    align-items: center;
+    justify-content: center;
+    display: none;
+    &.on{
+        display: flex;
+    }
+    &>div{
+        width: 100px;
+        height: 100px;
+        background-color: #fff;
+        border-radius: 50%;
+    }
+}
+
+
 @keyframes pudding {
     0% {
         transform: scaleX(1);
