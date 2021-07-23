@@ -33,7 +33,6 @@
             padding: 0 10px;
         }
     }
-
     table {
         width: 100%;
         background-color: #444;
@@ -42,7 +41,6 @@
     tr {
         width: 100%;
         position: relative;
-
         & .betNb {
             width: 81px;
             height: 57px;
@@ -63,7 +61,6 @@
                 text-shadow: -2px 0 3px #000;
             }
         }
-
         @for $i from 1 through 3 {
             &:nth-child(#{$i}) .betNb {
                 background-image: url(../images/logo/betNb-#{$i}.png);
@@ -72,7 +69,6 @@
                 padding-bottom: 5px;
             }
         }
-
         @for $i from 4 through 10 {
             &:nth-child(#{$i}) .betNb::before {
                 content: "";
@@ -86,7 +82,7 @@
             }
         }
     }
-    tr + tr::before {
+    tr+tr::before {
         content: "";
         width: calc(100% - 40px);
         height: 1px;
@@ -96,7 +92,6 @@
         position: absolute;
         @include pos(tlr, 0);
     }
-
     th {
         height: 110px;
         padding: 0 20px;
@@ -113,12 +108,10 @@
             position: absolute;
             @include pos(tbr, 0);
         }
-
         .betLogo {
             width: 125px;
         }
     }
-
     td {
         width: 25%;
         height: 110px;
@@ -162,7 +155,6 @@
                 padding-left: 25px;
                 margin-bottom: 10px;
                 position: relative;
-
                 .ball {
                     width: 50px;
                     height: 50px;
@@ -206,7 +198,7 @@
         .betBtn {
             display: flex;
             cursor: pointer;
-            & > .btn {
+            &>.btn {
                 height: 40px;
                 border-radius: 20px;
                 flex: 1;
@@ -228,8 +220,7 @@
                     }
                 }
             }
-
-            & > .btn + .btn {
+            &>.btn+.btn {
                 margin-left: 10px;
             }
         }
@@ -256,7 +247,7 @@
         margin-bottom: 15px;
         display: inline-block;
     }
-    & > div + div {
+    &>div+div {
         margin-top: 40px;
     }
 }
@@ -300,17 +291,15 @@
                     @include txtChip(3);
                 }
             }
-            li + li {
+            li+li {
                 margin-top: 10px;
             }
         }
     }
-
     .mainNews_b {
         ul {
             display: flex;
         }
-
         li {
             flex: 1;
             p {
@@ -319,8 +308,7 @@
                 @include txtChip(3);
             }
         }
-
-        li + li {
+        li+li {
             margin-left: 20px;
         }
     }
@@ -330,7 +318,7 @@
 .mainScore {
     .scoreCnt {
         width: 100%;
-        height: 800px;
+        height: 580px;
         iframe {
             transform: scale(2);
             transform-origin: top left;
@@ -343,7 +331,7 @@
 .mainRec {
     display: flex;
     justify-content: space-between;
-    & > div {
+    &>div {
         width: calc(50% - 10px);
     }
     .recCount {
@@ -354,7 +342,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            & > div {
+            &>div {
                 display: flex;
                 color: #000;
             }
@@ -402,7 +390,6 @@
                     transform: translateX(-150%) skew(30deg);
                     transition: 0.5s;
                 }
-
                 &:hover::before {
                     transform: translateX(-10%) skew(30deg);
                 }
@@ -413,7 +400,7 @@
 
 // wsDict start
 .wsDict {
-    & > div {
+    &>div {
         display: flex;
     }
     .wsDict_msg {
@@ -447,7 +434,7 @@
     }
     .lotteryList {
         padding-left: 10px;
-        & > li {
+        &>li {
             display: flex;
             .icon {
                 width: 21px;
@@ -457,11 +444,10 @@
                 margin-right: 15px;
             }
         }
-        & > li + li {
+        &>li+li {
             margin-top: 20px;
         }
     }
-
     .lotteryMsg {
         li {
             line-height: 25px;
@@ -502,7 +488,7 @@
                 span {
                     font-size: 1rem;
                 }
-                span + span {
+                span+span {
                     margin-left: 10px;
                 }
             }
@@ -518,7 +504,7 @@
             }
         }
     }
-    li + li {
+    li+li {
         &::before {
             content: "";
             width: 100%;
@@ -564,7 +550,7 @@
             li {
                 flex: 1;
                 padding: 0 10px;
-                & > div {
+                &>div {
                     height: 100%;
                     padding-bottom: 20px;
                     display: flex;
@@ -572,7 +558,7 @@
                     box-shadow: 2px 2px 10px #000;
                     transition: 0.5s;
                 }
-                &:hover > div {
+                &:hover>div {
                     transform: translateY(-4px);
                     background-color: #fff;
                     color: #000;
@@ -616,8 +602,8 @@
         margin-top: 0;
     }
     .gameShow {
-        width: calc(100% - 350px);
-        padding-right: 20px;
+        width: calc(100% - 250px);
+        margin-right: 20px;
         .main {
             height: 0;
             padding-bottom: calc(100% / 1.775);
@@ -665,13 +651,12 @@
                 margin: auto;
                 background: url(../images/icon/arrow-r.png) no-repeat center / cover;
                 position: absolute;
-                @include pos(tblr, 0);
+                @include pos(tblr,
+                0);
             }
-
             .arrow_l::before {
                 transform: rotate(180deg);
             }
-
             .arrow_l {
                 left: 0;
                 box-shadow: -1px 2px 3px #000;
@@ -681,8 +666,6 @@
                 box-shadow: 1px 2px 3px #000;
             }
             .listArray {
-                padding: 0 10px;
-                margin: auto;
                 overflow: hidden;
                 ul {
                     width: calc(100% / 3 * 10);
@@ -694,7 +677,7 @@
                     padding: 0 5px;
                     flex: 1;
                     cursor: pointer;
-                    & > div {
+                    &>div {
                         height: 100%;
                         padding-bottom: 20px;
                         color: #333;
@@ -723,143 +706,8 @@
             }
         }
     }
-
-    .gameMsg {
-        width: 350px;
-        display: flex;
-        flex-direction: column;
-        & > div {
-            flex: 1;
-        }
-        & > div + div {
-            margin-top: 10px;
-        }
-        .gameChart {
-            select {
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 5px;
-                color: #495057;
-                font-size: 1rem;
-                font-weight: 400;
-                border: 1px solid #ced4da;
-                border-radius: 3px;
-                &:focus {
-                    outline: 2px solid#80bdff;
-                }
-            }
-            .gameChart_tb {
-                max-height: 310px;
-                overflow-y: scroll;
-                border: 1px solid #eaeaea;
-                table {
-                    width: 100%;
-                    color: #181c27;
-                    font-size: 0.9rem;
-                }
-                tr + tr {
-                    border-top: 1px solid #dee2e6;
-                }
-                th {
-                    height: 40px;
-                    line-height: 40px;
-                    padding: 0 5px;
-                    font-weight: 600;
-                    background-color: #d6d8db;
-                    border-bottom: 2px solid #dee2e6;
-                    text-align: center;
-                    &:nth-child(2) {
-                        text-align: left;
-                    }
-                }
-                td {
-                    height: 40px;
-                    line-height: 40px;
-                    padding: 0 5px;
-                    position: relative;
-                    text-align: center;
-                    &:nth-child(1) {
-                        font-weight: bold;
-                    }
-                    &:nth-child(2) {
-                        text-align: left;
-                    }
-                    span:first-letter {
-                        text-transform: uppercase;
-                    }
-                }
-                .sort {
-                    background-color: #9fcdff;
-                    font-size: 1.1rem;
-                    font-weight: bold;
-                    text-align: center;
-                }
-                .flag {
-                    width: 20px;
-                    margin-right: 5px;
-                    display: inline-block;
-                }
-            }
-        }
-        .gameSchedule {       
-            .gameSchedule_tb{
-                max-height: 360px;
-                border: 1px solid #eaeaea;
-                overflow-y: scroll;
-                table {
-                    width: 100%;
-                    color: #181c27;
-                    font-size: 0.9rem;
-                }
-                tr + tr {
-                    border-top: 1px solid #dee2e6;
-                }
-                th{
-                    height: 40px;
-                    line-height: 40px;
-                    font-weight: 600;
-                    padding: 0 5px;  
-                    background: #dee2e6;
-                    font-size: 0.95rem;
-                }
-                td{
-                    padding: 10px 5px;  
-                    &:nth-child(1),
-                    &:nth-child(3){
-                        width: 40%;
-                    }   
-                    &:nth-child(2){
-                        width: 20%;
-                        text-align: center;
-                    }  
-                    &>div{
-                        display: flex;
-                        align-items: center;
-                    }
-                    span{
-                        width: 100%;
-                    }
-                    .club_1{
-                        justify-content: flex-end;
-                        text-align: right;
-                    }
-                    .club_1{
-                        justify-content: flex-start;
-                    }
-                }
-    
-                .badge {
-                    width: 20px;
-                    display: inline-block;
-                    flex-shrink: 0;
-                }
-                .time {
-                    padding: 2px 5px;
-                    background: #dbdbdb;
-                    font-weight: bold;  
-                    border-radius: 3px;
-                }
-            }
-        }
+    .gameResults {
+        width: 250px;
+        background-color: #0af;
     }
 }
