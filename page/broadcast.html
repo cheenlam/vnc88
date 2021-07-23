@@ -19,11 +19,12 @@
         <img src="../images/videoBanner-01.jpg">
     </div>
     <div class="mainMsg">
+        <div class="mainMsg-title">VIDEO</div>
         <!-- videoBox start -->
         <div class="videoBox">
             <div class="gameShow" id="gameShow">
                 <div class="main">
-                    <iframe src="https://www.youtube.com/embed/pCbg-eeHHg8" frameborder="0" id="showMv"></iframe>
+                    <iframe src="" frameborder="0" id="showMv"></iframe>
                 </div>
                 <div class="list">
                     <div class="arrow_l"></div>
@@ -33,29 +34,54 @@
                     </div>
                 </div>
             </div>
-            <div class="gameResults"></div>
+            <div class="gameMsg" id="gameMsg">
+                <div class="gameChart">
+                    <select>
+                        <option value="1">Chọn giải đấu</option>
+                        <option value="2">Cúp C1</option>
+                    </select>
+                    <div class="gameChart_tb" id="gameChart_tb">
+                        <table>
+                            <tr>
+                                <th>TT</th>
+                                <th>Đội</th>
+                                <th>Trận</th>
+                                <th>HS</th>
+                                <th>Điểm</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="gameSchedule">
+                    <div class="gameSchedule_tb" id="gameSchedule_tb">
+                        <table></table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 </div>
+
 
 <script>
     var arrayNum = 0;
     var movieArray = []
     $('#gameShow .arrow_l').click(function() {
         arrayNum == 0 ? 0 : arrayNum--;
-        $('#listArray ul').css('transform', `translateX(-${arrayNum*20}%)`)
+        $('#listArray ul').css('transform', `translateX(-${arrayNum*23}%)`)
     })
 
     $('#gameShow .arrow_r').click(function() {
         arrayNum == 3 ? 3 : arrayNum++;
-        $('#listArray ul').css('transform', `translateX(-${arrayNum*20}%)`)
+        $('#listArray ul').css('transform', `translateX(-${arrayNum*23}%)`)
     })
 
 
     docRef.get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                let data = doc.data();
-                let liData = `<li>
+        querySnapshot.forEach((doc) => {
+            let data = doc.data();
+            let liData = `<li>
                             <div>
                                 <div class="liveList_mv">
                                     <iframe src="https://www.youtube.com/embed/${data.videoId}" frameborder="0"></iframe>
@@ -63,12 +89,12 @@
                                 <div class="liveList_msg">${data.title}</div>
                             </div>
                         </li>`
-                $('#liveList ul').append(liData);
-            });
+            $('#liveList ul').append(liData);
+        });
 
-            getMovie()
-        })
-       
+        getMovie()
+    })
+
     function getMovie() {
         docRef2.get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
@@ -86,7 +112,8 @@
                         </li>`
 
                 $('#listArray ul').append(liData);
-                // movieArray.push(data.videoId);
+                movieArray.push(data.videoId);
+                $('#gameShow iframe').attr('src', `https://www.youtube.com/embed/${movieArray[0]}`)
             });
         })
     }
@@ -95,4 +122,147 @@
         let getId = $(e).attr('videoid')
         $('#gameShow iframe').attr('src', `https://www.youtube.com/embed/${getId}`)
     }
+
+
+    var chartData = [{
+        sort: 'Bảng A',
+        list: [{
+            flagUrl: 'images/flag/italy.png',
+            name: 'Italy',
+            num: [3, 7, 9]
+        }, {
+            flagUrl: 'images/flag/wales.png',
+            name: 'Wales',
+            num: [3, 1, 4]
+        }, {
+            flagUrl: 'images/flag/switzerland.png',
+            name: 'Switzerland',
+            num: [3, -1, 4]
+        }, {
+            flagUrl: 'images/flag/turkey.png',
+            name: 'Turkey',
+            num: [3, -7, 0]
+        }]
+    }, {
+        sort: 'Bảng B',
+        list: [{
+            flagUrl: 'images/flag/belgium.png',
+            name: 'Belgium',
+            num: [3, 6, 9]
+        }, {
+            flagUrl: 'images/flag/denmark.png',
+            name: 'Denmark',
+            num: [3, 1, 3]
+        }, {
+            flagUrl: 'images/flag/finland.png',
+            name: 'Finland',
+            num: [3, -2, 3]
+        }, {
+            flagUrl: 'images/flag/russia.png',
+            name: 'Russia',
+            num: [3, -5, 3]
+        }]
+    }, ];
+
+    var scheduleData = [{
+        sort: 'Premier League 24/07/2021',
+        list: [{
+            club_1_name: 'CSKA Moscow',
+            club_1_badge: 'images/badge/cska-moscow.png',
+            club_2_name: 'Ufa',
+            club_2_badge: 'images/badge/ufa.png',
+            time: '22:00'
+        }, {
+            club_1_name: 'FK Krylya Sovetov Samara',
+            club_1_badge: 'images/badge/FK-Krylya-Sovetov-Samara.png',
+            club_2_name: 'Akhmat Grozny',
+            club_2_badge: 'images/badge/akhmat-grozny.png',
+            time: '22:00'
+        }, {
+            club_1_name: 'FK Rostov',
+            club_1_badge: 'images/badge/fk-rostov.png',
+            club_2_name: 'Dynamo Moscow',
+            club_2_badge: 'images/badge/dynamo-moscow.png',
+            time: '22:00'
+        }, {
+            club_1_name: 'Khimki',
+            club_1_badge: 'images/badge/khimk.png',
+            club_2_name: 'Zenit',
+            club_2_badge: 'images/badge/zenit.png',
+            time: '22:00'
+        }, ]
+    }]
+
+
+    function dataEach_1(){
+        chartData.forEach(function(data) {
+            let combination = ''
+            combination += `<tr>
+                            <td colspan="5" class="sort">${data.sort}</td>
+                        </tr>`
+            let getData = data;
+            for (let i = 0; i < getData.list.length; i++) {
+                let data = getData.list[i];
+
+                combination += `<tr>
+                                <td>${i+1}</td>
+                                <td>
+                                    <div class="flag">
+                                        <img src="${data.flagUrl}">
+                                    </div>
+                                    <span>${data.name}</span>
+                                </td>
+                                <td>${data.num[0]}</td>
+                                <td>${data.num[1]}</td>
+                                <td>${data.num[2]}</td>
+                            </tr>`
+            }
+
+            $('#gameChart_tb table').append(combination);
+        })
+    }
+    function dataEach_2(){
+        scheduleData.forEach(function(data) {
+            console.log(data.sort)
+            let combination = ''
+            combination += `<tr>
+                            <th colspan="3">${data.sort}</th>
+                        </tr>`
+            let getData = data;
+            for (let i = 0; i < getData.list.length; i++) {
+                let data = getData.list[i];
+                combination += ` <tr>
+                                <td>
+                                    <div class="club_1">
+                                        <span>${data.club_1_name}</span>
+                                        <div class="badge">
+                                            <img src="${data.club_1_badge}">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="time">${data.time}</span>
+                                </td>
+                                <td>
+                                    <div class="club_2">
+                                        <div class="badge">
+                                            <img src="${data.club_2_badge}">
+                                        </div>
+                                        <span>${data.club_2_name}</span>
+                                    </div>
+                                </td>
+                            </tr>`
+            }
+            $('#gameSchedule_tb table').append(combination);
+        })
+
+    }
+
+
+    for (let i = 0; i < 5; i++) {
+        dataEach_1()
+        dataEach_2()
+    }
 </script>
+
+<script src="js/index.js"></script>

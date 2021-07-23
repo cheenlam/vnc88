@@ -613,13 +613,12 @@
     // videoBox start
     .videoBox {
         display: flex;
+        margin-top: 0;
     }
     .gameShow {
-        width: calc(100% - 250px);
-        margin-right: 20px;
-
+        width: calc(100% - 350px);
+        padding-right: 20px;
         .main {
-            width: calc(100% - 10px);
             height: 0;
             padding-bottom: calc(100% / 1.775);
             position: relative;
@@ -633,6 +632,7 @@
             }
         }
         .list {
+            padding: 0 10px;
             position: relative;
             min-height: 50px;
             .arrow_l,
@@ -680,15 +680,17 @@
                 right: 0;
                 box-shadow: 1px 2px 3px #000;
             }
-            .listArray{          
+            .listArray {
+                padding: 0 10px;
+                margin: auto;
                 overflow: hidden;
                 ul {
-                    width: 250%;
+                    width: calc(100% / 3 * 10);
                     display: flex;
-                    transition: .3s;
+                    transition: 0.3s;
                 }
                 li {
-                    width: 10%;
+                    width: calc(100% / 3);
                     padding: 0 5px;
                     flex: 1;
                     cursor: pointer;
@@ -696,24 +698,25 @@
                         height: 100%;
                         padding-bottom: 20px;
                         color: #333;
+                        transition: 0.5s;
                     }
                 }
-            }  
+            }
             .listArray_img {
                 margin-bottom: 10px;
             }
             .listArray_msg {
-                color: #000; 
-                padding: 0 10px;   
+                color: #000;
+                padding: 0 10px;
                 font-size: 1rem;
                 line-height: 22px;
                 font-weight: bold;
                 span {
                     color: #888;
                     font-weight: normal;
-                    font-size: 0.95rem;  
+                    font-size: 0.95rem;
                 }
-                p {   
+                p {
                     padding-top: 5px;
                     @include txtChip(3);
                 }
@@ -721,8 +724,142 @@
         }
     }
 
-    .gameResults {
-        width: 250px;
-        background-color: #0af;
+    .gameMsg {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        & > div {
+            flex: 1;
+        }
+        & > div + div {
+            margin-top: 10px;
+        }
+        .gameChart {
+            select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 5px;
+                color: #495057;
+                font-size: 1rem;
+                font-weight: 400;
+                border: 1px solid #ced4da;
+                border-radius: 3px;
+                &:focus {
+                    outline: 2px solid#80bdff;
+                }
+            }
+            .gameChart_tb {
+                max-height: 310px;
+                overflow-y: scroll;
+                border: 1px solid #eaeaea;
+                table {
+                    width: 100%;
+                    color: #181c27;
+                    font-size: 0.9rem;
+                }
+                tr + tr {
+                    border-top: 1px solid #dee2e6;
+                }
+                th {
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 5px;
+                    font-weight: 600;
+                    background-color: #d6d8db;
+                    border-bottom: 2px solid #dee2e6;
+                    text-align: center;
+                    &:nth-child(2) {
+                        text-align: left;
+                    }
+                }
+                td {
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 5px;
+                    position: relative;
+                    text-align: center;
+                    &:nth-child(1) {
+                        font-weight: bold;
+                    }
+                    &:nth-child(2) {
+                        text-align: left;
+                    }
+                    span:first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+                .sort {
+                    background-color: #9fcdff;
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                    text-align: center;
+                }
+                .flag {
+                    width: 20px;
+                    margin-right: 5px;
+                    display: inline-block;
+                }
+            }
+        }
+        .gameSchedule {       
+            .gameSchedule_tb{
+                max-height: 360px;
+                border: 1px solid #eaeaea;
+                overflow-y: scroll;
+                table {
+                    width: 100%;
+                    color: #181c27;
+                    font-size: 0.9rem;
+                }
+                tr + tr {
+                    border-top: 1px solid #dee2e6;
+                }
+                th{
+                    height: 40px;
+                    line-height: 40px;
+                    font-weight: 600;
+                    padding: 0 5px;  
+                    background: #dee2e6;
+                    font-size: 0.95rem;
+                }
+                td{
+                    padding: 10px 5px;  
+                    &:nth-child(1),
+                    &:nth-child(3){
+                        width: 40%;
+                    }   
+                    &:nth-child(2){
+                        width: 20%;
+                        text-align: center;
+                    }  
+                    &>div{
+                        display: flex;
+                        align-items: center;
+                    }
+                    span{
+                        width: 100%;
+                    }
+                    .club_1{
+                        justify-content: flex-end;
+                        text-align: right;
+                    }
+                    .club_1{
+                        justify-content: flex-start;
+                    }
+                }
+    
+                .badge {
+                    width: 20px;
+                    display: inline-block;
+                    flex-shrink: 0;
+                }
+                .time {
+                    padding: 2px 5px;
+                    background: #dbdbdb;
+                    font-weight: bold;  
+                    border-radius: 3px;
+                }
+            }
+        }
     }
 }
