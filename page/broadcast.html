@@ -39,11 +39,23 @@
 </div>
 
 <script>
-   
+    var arrayNum = 0;
+    var movieArray = []
+    $('#gameShow .arrow_l').click(function() {
+        arrayNum == 0 ? 0 : arrayNum--;
+        $('#listArray ul').css('transform', `translateX(-${arrayNum*20}%)`)
+    })
+
+    $('#gameShow .arrow_r').click(function() {
+        arrayNum == 3 ? 3 : arrayNum++;
+        $('#listArray ul').css('transform', `translateX(-${arrayNum*20}%)`)
+    })
+
+
     docRef.get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            let data = doc.data();
-            let liData = `<li>
+            querySnapshot.forEach((doc) => {
+                let data = doc.data();
+                let liData = `<li>
                             <div>
                                 <div class="liveList_mv">
                                     <iframe src="https://www.youtube.com/embed/${data.videoId}" frameborder="0"></iframe>
@@ -51,12 +63,12 @@
                                 <div class="liveList_msg">${data.title}</div>
                             </div>
                         </li>`
-            $('#liveList ul').append(liData);
-        });
+                $('#liveList ul').append(liData);
+            });
 
-        getMovie()  
-    })
-    // var movieArray = []
+            getMovie()
+        })
+       
     function getMovie() {
         docRef2.get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
@@ -79,19 +91,8 @@
         })
     }
 
-    // function chMovie(e) {
-    //     let getId = $(e).attr('videoid')
-    //     $('#gameShow iframe').attr('src', `https://www.youtube.com/embed/${getId}`)
-    // }
-
-    // let arrayNum = 0;
-    // $('#gameShow .arrow_l').click(function(){
-    //     arrayNum == 0 ? 0 : arrayNum--;
-    //     $('#listArray ul').css('transform', `translateX(-${arrayNum*20}%)`)
-    // })
-
-    // $('#gameShow .arrow_r').click(function(){
-    //     arrayNum == 3 ? 3 : arrayNum++;
-    //     $('#listArray ul').css('transform', `translateX(-${arrayNum*20}%)`)
-    // })
+    function chMovie(e) {
+        let getId = $(e).attr('videoid')
+        $('#gameShow iframe').attr('src', `https://www.youtube.com/embed/${getId}`)
+    }
 </script>
