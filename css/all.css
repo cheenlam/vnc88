@@ -2215,7 +2215,7 @@ body {
 
 .mainScore .scoreCnt {
   width: 100%;
-  height: 580px;
+  height: 600px;
 }
 
 .mainScore .scoreCnt iframe {
@@ -2622,8 +2622,8 @@ body {
 }
 
 .broadcast .gameShow {
-  width: calc(100% - 250px);
-  margin-right: 20px;
+  width: calc(100% - 350px);
+  padding-right: 20px;
 }
 
 .broadcast .gameShow .main {
@@ -2707,6 +2707,8 @@ body {
 }
 
 .broadcast .gameShow .list .listArray {
+  padding: 0 10px;
+  margin: auto;
   overflow: hidden;
 }
 
@@ -2765,9 +2767,181 @@ body {
   white-space: normal;
 }
 
-.broadcast .gameResults {
-  width: 250px;
-  background-color: #0af;
+.broadcast .gameMsg {
+  width: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.broadcast .gameMsg > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.broadcast .gameMsg > div + div {
+  margin-top: 10px;
+}
+
+.broadcast .gameMsg .gameChart select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  color: #495057;
+  font-size: 1rem;
+  font-weight: 400;
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+}
+
+.broadcast .gameMsg .gameChart select:focus {
+  outline: 2px solid #80bdff;
+}
+
+.broadcast .gameMsg .gameChart .gameChart_tb {
+  max-height: 310px;
+  overflow-y: scroll;
+  border: 1px solid #eaeaea;
+}
+
+.broadcast .gameMsg .gameChart .gameChart_tb table {
+  width: 100%;
+  color: #181c27;
+  font-size: 0.9rem;
+}
+
+.broadcast .gameMsg .gameChart .gameChart_tb tr + tr {
+  border-top: 1px solid #dee2e6;
+}
+
+.broadcast .gameMsg .gameChart .gameChart_tb th {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 5px;
+  font-weight: 600;
+  background-color: #d6d8db;
+  border-bottom: 2px solid #dee2e6;
+  text-align: center;
+}
+
+.broadcast .gameMsg .gameChart .gameChart_tb th:nth-child(2) {
+  text-align: left;
+}
+
+.broadcast .gameMsg .gameChart .gameChart_tb td {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 5px;
+  position: relative;
+  text-align: center;
+}
+
+.broadcast .gameMsg .gameChart .gameChart_tb td:nth-child(1) {
+  font-weight: bold;
+}
+
+.broadcast .gameMsg .gameChart .gameChart_tb td:nth-child(2) {
+  text-align: left;
+}
+
+.broadcast .gameMsg .gameChart .gameChart_tb td span:first-letter {
+  text-transform: uppercase;
+}
+
+.broadcast .gameMsg .gameChart .gameChart_tb .sort {
+  background-color: #9fcdff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.broadcast .gameMsg .gameChart .gameChart_tb .flag {
+  width: 20px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb {
+  max-height: 360px;
+  border: 1px solid #eaeaea;
+  overflow-y: scroll;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb table {
+  width: 100%;
+  color: #181c27;
+  font-size: 0.9rem;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb tr + tr {
+  border-top: 1px solid #dee2e6;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb th {
+  height: 40px;
+  line-height: 40px;
+  font-weight: 600;
+  padding: 0 5px;
+  background: #dee2e6;
+  font-size: 0.95rem;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb td {
+  padding: 10px 5px;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb td:nth-child(1), .broadcast .gameMsg .gameSchedule .gameSchedule_tb td:nth-child(3) {
+  width: 40%;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb td:nth-child(2) {
+  width: 20%;
+  text-align: center;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb td > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb td span {
+  width: 100%;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb td .club_1 {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: right;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb td .club_1 {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb .badge {
+  width: 20px;
+  display: inline-block;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb .time {
+  padding: 2px 5px;
+  background: #dbdbdb;
+  font-weight: bold;
+  border-radius: 3px;
 }
 
 .dialogBox {
