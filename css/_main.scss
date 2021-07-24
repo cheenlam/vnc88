@@ -296,14 +296,9 @@ body {
             }
         }
 
-        &>.contBox-min {
-            padding: 0;
+        .contBox-min {
             display: flex;
-            flex-direction: column;
             position: relative;
-            .flexAd{
-                padding: 0 20px;
-            }
         }
         .leftTool,
         .rightTool {
@@ -417,7 +412,8 @@ body {
 }
 
 .content {
-    width: 100%;
+    max-width: $count-maxW;
+    min-width: $count-minW;
     min-height: calc(100vh - 463px);
     margin: auto;
     padding-bottom: 20px;
