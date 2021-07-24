@@ -61,11 +61,11 @@ function floatAd() {
     let w = $(document).width()+17
     if(scroll.scrollTop() >= getH2 & w >1490){
         $('#leftTool,#rightTool').css('top',getH3)
-        $('.todayGame').css('display','none')
+        $('.mainCnt .todayGame').css('display','none')
     }
     else{
         $('#leftTool,#rightTool').removeAttr("style")
-        $('.todayGame').css('display','block')
+        $('.mainCnt .todayGame').css('display','block')
     }
 }
 

@@ -988,11 +988,20 @@ body {
   font-size: 0.9rem;
 }
 
-.mainCnt .contBox-full .contBox-min {
+.mainCnt .contBox-full > .contBox-min {
+  padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: relative;
+}
+
+.mainCnt .contBox-full > .contBox-min > .flexAd {
+  padding: 0 20px;
 }
 
 .mainCnt .contBox-full .leftTool,
@@ -1124,8 +1133,7 @@ body {
 }
 
 .content {
-  max-width: 1920px;
-  min-width: 1280px;
+  width: 100%;
   min-height: calc(100vh - 463px);
   margin: auto;
   padding-bottom: 20px;
