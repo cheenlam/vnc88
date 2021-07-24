@@ -315,6 +315,7 @@ body {
                 right: 1273px;
                 margin: auto;
             }
+
             @include rwd(1490) {
                 &,&.on{
                     position: fixed;
