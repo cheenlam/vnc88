@@ -77,18 +77,18 @@ body {
                     height: 34px;
                 }
             }
-            li + li {
+            li+li {
                 margin-left: 10px;
             }
         }
         .hd_signIn {
-            &[data-signIn="0"] > div[data-signIn="0"] {
+            &[data-signIn="0"]>div[data-signIn="0"] {
                 display: flex;
             }
-            &[data-signIn="1"] > div[data-signIn="1"] {
+            &[data-signIn="1"]>div[data-signIn="1"] {
                 display: flex;
             }
-            & > div {
+            &>div {
                 display: none;
                 justify-content: flex-end;
             }
@@ -150,7 +150,7 @@ body {
                 display: flex;
                 color: $clr_Txt;
                 font-size: 0.9rem;
-                & > div {
+                &>div {
                     display: flex;
                     align-items: center;
                     margin-right: 10px;
@@ -163,13 +163,13 @@ body {
                     background-position: center;
                     background-size: cover;
                     &.member {
-                        background: url(../images/icon/icon-member.png);
+                        background: url(../images/icon/icon-member.svg);
                     }
                     &.chip {
-                        background: url(../images/icon/icon-chip.png);
+                        background: url(../images/icon/icon-chip.svg);
                     }
                     &.mail {
-                        background: url(../images/icon/icon-mail.png);
+                        background: url(../images/icon/icon-mail.svg);
                     }
                 }
             }
@@ -190,7 +190,7 @@ body {
             .btn {
                 min-width: 80px;
             }
-            .btn + .btn {
+            .btn+.btn {
                 margin-left: 5px;
             }
         }
@@ -229,7 +229,7 @@ body {
                 }
             }
         }
-        li + li {
+        li+li {
             margin-left: 75px;
         }
         .menu_game {
@@ -265,12 +265,11 @@ body {
             .marqueeBox {
                 max-width: $count-minW;
                 margin: auto;
-
                 .marquee_body {
                     max-width: 1050px;
                     cursor: pointer;
                 }
-                & > div {
+                &>div {
                     max-width: 1050px;
                     height: 35px;
                     padding: 0 15px;
@@ -295,13 +294,12 @@ body {
                 }
             }
         }
-
         &>.contBox-min {
             padding: 0;
             display: flex;
             flex-direction: column;
             position: relative;
-            &>.flexAd{
+            &>.flexAd {
                 padding: 0 20px;
             }
         }
@@ -314,41 +312,41 @@ body {
         }
         .leftTool {
             left: -90px;
-            &.on{
+            &.on {
                 position: fixed;
                 top: 60px;
                 right: 1273px;
                 margin: auto;
             }
-
             @include rwd(1490) {
-                &,&.on{
+                &,
+                &.on {
                     position: fixed;
                     right: 10px;
                     left: unset;
                     top: unset;
                     bottom: 300px;
-                }    
+                }
             }
         }
         .rightTool {
             right: -90px;
-            &.on{
+            &.on {
                 position: fixed;
                 top: 60px;
                 left: 1273px;
                 margin: auto;
             }
             @include rwd(1490) {
-                &,&.on{
+                &,
+                &.on {
                     position: fixed;
                     right: 10px;
                     left: unset;
                     top: unset;
                     bottom: 260px;
-                }     
+                }
             }
-            
             .todayGame {
                 width: 100%;
                 position: absolute;
@@ -362,7 +360,7 @@ body {
             }
         }
         .floatAd {
-            & > img {
+            &>img {
                 display: block;
                 margin-bottom: 10px;
             }
@@ -420,10 +418,9 @@ body {
     width: 100%;
     min-height: calc(100vh - 463px);
     margin: auto;
-    padding-bottom: 20px;
+    // padding-bottom: 20px;
     color: #fff;
     position: relative;
-    
 }
 
 // ===== footer start =====
@@ -437,7 +434,7 @@ body {
     // ft_top
     .ft_top {
         background-color: #313131;
-        & > div {
+        &>div {
             width: 100%;
             max-width: 1800px;
             min-width: $count-minW;
@@ -455,7 +452,7 @@ body {
             ul {
                 display: flex;
             }
-            li + li {
+            li+li {
                 margin-left: 20px;
             }
             .ft_icon {
@@ -467,7 +464,7 @@ body {
     // ft_bottom
     .ft_bottom {
         background-color: #121210;
-        & > div {
+        &>div {
             max-width: 1800px;
             min-width: $count-minW;
             min-height: calc(275px - 160px);
@@ -497,7 +494,7 @@ body {
                     }
                 }
             }
-            li + li {
+            li+li {
                 margin-left: 30px;
             }
         }
@@ -512,7 +509,7 @@ body {
         z-index: 5;
         display: flex;
         justify-content: space-between;
-        & > div {
+        &>div {
             position: relative;
             pointer-events: auto;
             &.on {
@@ -555,29 +552,27 @@ body {
     }
 }
 
-
-.onloading{
+.onloading {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 999;
     position: fixed;
     top: 0;
-    left: 0;   
+    left: 0;
     align-items: center;
     justify-content: center;
     display: none;
-    &.on{
+    &.on {
         display: flex;
     }
-    &>div{
+    &>div {
         width: 100px;
         height: 100px;
         background-color: #fff;
         border-radius: 50%;
     }
 }
-
 
 @keyframes pudding {
     0% {

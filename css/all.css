@@ -815,15 +815,15 @@ body {
 }
 
 .header .hd_top .hd_signIn .signIn_msg .signIn_icon.member {
-  background: url(../images/icon/icon-member.png);
+  background: url(../images/icon/icon-member.svg);
 }
 
 .header .hd_top .hd_signIn .signIn_msg .signIn_icon.chip {
-  background: url(../images/icon/icon-chip.png);
+  background: url(../images/icon/icon-chip.svg);
 }
 
 .header .hd_top .hd_signIn .signIn_msg .signIn_icon.mail {
-  background: url(../images/icon/icon-mail.png);
+  background: url(../images/icon/icon-mail.svg);
 }
 
 .header .hd_top .signIn_code {
@@ -1136,7 +1136,6 @@ body {
   width: 100%;
   min-height: calc(100vh - 463px);
   margin: auto;
-  padding-bottom: 20px;
   color: #fff;
   position: relative;
 }
