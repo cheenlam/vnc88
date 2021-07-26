@@ -2103,7 +2103,11 @@ body {
   background-color: #fff;
 }
 
-.mainMsg .mainMsg-title {
+.mainMsg > div + div {
+  margin-top: 40px;
+}
+
+.mainMsg-title {
   min-width: 100px;
   padding: 0 10px;
   height: 36px;
@@ -2124,10 +2128,6 @@ body {
   letter-spacing: 1px;
   margin-bottom: 15px;
   display: inline-block;
-}
-
-.mainMsg > div + div {
-  margin-top: 40px;
 }
 
 .mainNews .mainNews_t {
@@ -2950,6 +2950,300 @@ body {
   background: #dbdbdb;
   font-weight: bold;
   border-radius: 3px;
+}
+
+.broadcast .scheduleList {
+  color: #000;
+}
+
+.broadcast .scheduleList .dateList {
+  margin-bottom: 20px;
+}
+
+.broadcast .scheduleList .dateList .today {
+  padding-bottom: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.broadcast .scheduleList .dateList ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #bfbfbf;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.broadcast .scheduleList .dateList li {
+  padding: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #626262;
+  font-weight: bold;
+  font-size: 0.95rem;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.broadcast .scheduleList .dateList li:active {
+  background-color: #bfbfbf;
+}
+
+@media (any-hover: hover) {
+  .broadcast .scheduleList .dateList li:hover {
+    background-color: #bfbfbf;
+  }
+}
+
+.broadcast .scheduleList .dateList li + li::before {
+  content: "";
+  width: 1px;
+  height: calc(100% - 20px);
+  margin: auto;
+  background-color: #bfbfbf;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.broadcast .scheduleList .dateList .date_num {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.broadcast .scheduleList .dateList .date_week {
+  text-align: right;
+}
+
+.broadcast .scheduleList .matchList table {
+  width: 100%;
+}
+
+.broadcast .scheduleList .matchList tr + tr {
+  border-top: 1px solid #bfbfbf;
+}
+
+.broadcast .scheduleList .matchList td {
+  padding: 20px 10px;
+}
+
+.broadcast .scheduleList .matchList td:first-child {
+  white-space: nowrap;
+}
+
+.broadcast .scheduleList .matchList td:last-child {
+  width: 100%;
+}
+
+.broadcast .scheduleList .matchList .match_title {
+  font-size: 0.85rem;
+}
+
+.broadcast .scheduleList .matchList .match_title > p {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.broadcast .scheduleList .matchList .match_title.on .match_live {
+  display: block;
+}
+
+.broadcast .scheduleList .matchList .match_time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 4px;
+}
+
+.broadcast .scheduleList .matchList .match_time p {
+  padding-right: 10px;
+}
+
+.broadcast .scheduleList .matchList .match_live {
+  padding: 1px 4px;
+  border-radius: 2px;
+  color: #f00;
+  border: 1px solid #f00;
+  text-align: center;
+  -webkit-animation: match_live 1s infinite;
+          animation: match_live 1s infinite;
+  display: none;
+}
+
+.broadcast .scheduleList .matchList .match_teams {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.broadcast .scheduleList .matchList .match_teams .vs {
+  width: 40px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.broadcast .scheduleList .matchList .match_teams .team {
+  width: calc((100% - 40px)/2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.broadcast .scheduleList .matchList .match_teams .team_flag {
+  width: 30px;
+  margin: 0 10px;
+}
+
+.broadcast .scheduleList .matchList .match_teams .team_L {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+@-webkit-keyframes match_live {
+  0%, 49% {
+    color: #fff;
+    background-color: #f00;
+  }
+  50% {
+    color: #f00;
+    background-color: transparent;
+  }
+}
+
+@keyframes match_live {
+  0%, 49% {
+    color: #fff;
+    background-color: #f00;
+  }
+  50% {
+    color: #f00;
+    background-color: transparent;
+  }
+}
+
+.newsRef_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 40px 40px 150px;
+  color: #000;
+  background-color: #fff;
+}
+
+.newsRef_cnt {
+  width: calc(100% - 300px);
+  margin-right: 20px;
+}
+
+.newsRef_cnt > div + div {
+  margin-top: 30px;
+}
+
+.newsRef_cnt .newsRef_title p {
+  padding-bottom: 10px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 35px;
+}
+
+.newsRef_cnt .newsRef_title .txtDate {
+  padding: 10px;
+  font-size: 0.85rem;
+  text-align: right;
+  color: #999999;
+  background-color: #e5e5e5;
+}
+
+.newsRef_cnt .color-b {
+  color: #00a0e9;
+}
+
+.newsRef_cnt .newsRef_txt {
+  font-size: 1.2rem;
+}
+
+.newsRef_cnt .newsRef_txt .selfTxt {
+  padding: 3px 5px;
+  background-color: #ea0000;
+  color: #fff;
+}
+
+.newsRef_cnt .newsRef_txt li {
+  line-height: 28px;
+}
+
+.newsRef_cnt .newsRef_txt li + li {
+  margin-top: 25px;
+}
+
+.newsRef_cnt .newsRef_list {
+  font-size: 1.2rem;
+  color: #00a0e9;
+}
+
+.newsRef_cnt .newsRef_list ul {
+  list-style: inside;
+}
+
+.newsRef_cnt .newsRef_list li {
+  line-height: 28px;
+}
+
+.newsRef_cnt .newsRef_img p {
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.newsRef_cnt .newsRef_mv div {
+  width: 100%;
+  height: 0;
+  padding-bottom: calc(100% / 1.775);
+  position: relative;
+}
+
+.newsRef_cnt .newsRef_mv div iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.newsRef_cnt .newsRef_mv p {
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+.newsRef_menu {
+  width: 300px;
+}
+
+.newsRef_menu > div + div {
+  margin-top: 50px;
+}
+
+.newsRef_menu p {
+  padding-top: 10px;
+}
+
+.newsRef_menu li + li {
+  margin-top: 20px;
 }
 
 .dialogBox {

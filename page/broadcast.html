@@ -18,6 +18,7 @@
     <div class="videoBanner">
         <img src="images/videoBanner-01.jpg">
     </div>
+
     <div class="mainMsg">
         <div class="mainMsg-title">VIDEO</div>
         <!-- videoBox start -->
@@ -59,9 +60,24 @@
                 </div>
             </div>
         </div>
-    </div>
 
+        <!-- scheduleList start (時程表) -->
+        <div class="scheduleList" id="scheduleList">
+            <div class="mainMsg-title">LỊCH THI ĐẤU</div>
+            <!-- dateList -->
+            <div class="dateList">
+                <div class="today">14/07/2021</div>
+                <ul></ul>
+            </div>
+            <!-- matchList -->
+            <div class="matchList">
+                <table></table>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 
 <script>
@@ -124,6 +140,7 @@
     }
 
 
+    // 靜態假資料
     var chartData = [{
         sort: 'Bảng A',
         list: [{
@@ -163,7 +180,6 @@
             num: [3, -5, 3]
         }]
     }, ];
-
     var scheduleData = [{
         sort: 'Premier League 24/07/2021',
         list: [{
@@ -171,30 +187,42 @@
             club_1_badge: 'images/badge/cska-moscow.png',
             club_2_name: 'Ufa',
             club_2_badge: 'images/badge/ufa.png',
-            time: '22:00'
+            saibe: 'CONCACAF Gold Cup',
+            time: '19:30',
+            day: '24/07/2021',
+            live: true,
         }, {
             club_1_name: 'FK Krylya Sovetov Samara',
             club_1_badge: 'images/badge/FK-Krylya-Sovetov-Samara.png',
             club_2_name: 'Akhmat Grozny',
             club_2_badge: 'images/badge/akhmat-grozny.png',
-            time: '22:00'
+            saibe: 'Liga Mexico',
+            time: '20:00',
+            day: '24/07/2021',
+            live: true,
         }, {
             club_1_name: 'FK Rostov',
             club_1_badge: 'images/badge/fk-rostov.png',
             club_2_name: 'Dynamo Moscow',
             club_2_badge: 'images/badge/dynamo-moscow.png',
-            time: '22:00'
+            saibe: 'Giao Hữu CLB',
+            time: '20:00',
+            day: '24/07/2021',
+            live: false,
         }, {
             club_1_name: 'Khimki',
             club_1_badge: 'images/badge/khimk.png',
             club_2_name: 'Zenit',
             club_2_badge: 'images/badge/zenit.png',
-            time: '22:00'
+            saibe: 'Ngoại Hạng Banglades',
+            time: '22:00',
+            day: '24/07/2021',
+            live: false,
         }, ]
     }]
 
-
-    function dataEach_1(){
+    // 影片區側邊比賽訊息
+    function dataEach_1() {
         chartData.forEach(function(data) {
             let combination = ''
             combination += `<tr>
@@ -221,7 +249,8 @@
             $('#gameChart_tb table').append(combination);
         })
     }
-    function dataEach_2(){
+
+    function dataEach_2() {
         scheduleData.forEach(function(data) {
             let combination = ''
             combination += `<tr>
@@ -257,11 +286,96 @@
 
     }
 
-
     for (let i = 0; i < 5; i++) {
         dataEach_1()
         dataEach_2()
+        dataEach_3()
     }
+
+    // 日程表今日日期
+    var scheduleToday = new Date();
+
+    function formatDate(date) {
+        let formatted_date = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+        return formatted_date;
+    }
+    $('#scheduleList .dateList .today').html(formatDate(scheduleToday));
+
+    // 日程表清單日期(抓今日時間更新); 
+    var scheduleWeek = []
+    var scheduleNum = []
+    var weekTxt = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    scheduleWeek[3] = weekTxt[new Date().getDay()];
+    scheduleNum[3] = new Date().getDate();
+
+    for (let i = 1; i < 4; i++) {
+        let week = [];
+        for (let k = 0; k < 4; k++) {
+            week[k] = new Date()
+        };
+        let getWeek_cut = weekTxt[new Date(week[0].setDate(week[0].getDate() - i)).getDay()];
+        let getWeek_plus = weekTxt[new Date(week[1].setDate(week[1].getDate() + i)).getDay()];
+        let getNum_cut = new Date(week[2].setDate(week[2].getDate() - i)).getDate();
+        let getNum_plus = new Date(week[3].setDate(week[3].getDate() + i)).getDate();
+        scheduleWeek[3 - i] = getWeek_cut;
+        scheduleWeek[3 + i] = getWeek_plus;
+        scheduleNum[3 - i] = getNum_cut;
+        scheduleNum[3 + i] = getNum_plus;
+    }
+
+    for (let i = 0; i < scheduleWeek.length; i++) {
+        let dateList = `<li>
+                       <div class="date_num">${scheduleNum[i]}</div>
+                       <div class="date_week">${scheduleWeek[i]}</div>
+                    </li>`
+        $('#scheduleList .dateList ul').append(dateList);
+    }
+
+
+    function dataEach_3() {
+        scheduleData.forEach(function(data) {
+            let combination = ''
+            let getData = data;
+            for (let i = 0; i < getData.list.length; i++) {
+                let data = getData.list[i];
+
+                combination += ` <tr>
+                                    <td>
+                                        <div class="match_title ${data.live == true?'on':''}">
+                                            <div class="match_time">
+                                                <p>${data.time} - ${data.day}</p>
+                                                <div class="match_live">live</div>
+                                            </div>
+                                            <p>${data.saibe}</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="match_teams">
+                                            <div class="team team_L">
+                                                <span>${data.club_1_name}</span>
+                                                <div class="team_flag">
+                                                    <img src="${data.club_1_badge}">
+                                                </div>                            
+                                            </div>
+                                            <div class="vs">VS</div>
+                                            <div class="team team_R">
+                                                <div class="team_flag">
+                                                    <img src="${data.club_2_badge}">
+                                                </div>
+                                                <span>${data.club_2_name}</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>`
+            }
+
+            $('#scheduleList .matchList table').append(combination);
+        })
+    }
+
+  
 </script>
+
+<!-- matchList -->
 
 <script src="js/index.js"></script>

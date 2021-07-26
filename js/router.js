@@ -9,17 +9,16 @@ Router.prototype.route = function (path, callback) {
 };
 Router.prototype.refresh = function () {
     // 路由清單
-    let routerList = ['','home','lottery','news','broadcast','forum','resources','game']
+    let routerList = ['','home','lottery','news','broadcast','forum','resources','game','newsRef'];
     // console.log(location.hash.slice(1)); 
     //获取到相应的hash值
     let index = routerList.indexOf(location.hash.slice(2))
     if (index == -1) {
-        this.currentUrl = '/home'
-        location.href = "#/home"
+        // this.currentUrl = '/home'
+        // location.href = "#/home"
     } else {
         this.currentUrl = location.hash.slice(1) || '/home';
     }
-
     // this.currentUrl = location.hash.slice(1) || '/home'; 
     //如果存在hash值则获取到，否则设置hash值为/
     // console.log(this.currentUrl);
@@ -50,6 +49,7 @@ Router.route('/news', function() {
     mainInclude('page/news.html');
     menuList_on(2);
 });
+
 Router.route('/broadcast', function() {
     mainInclude('page/broadcast.html');
     menuList_on(3);
@@ -67,10 +67,16 @@ Router.route('/game', function() {
     menuList_on(6);
 });
 
+Router.route('/newsRef', function() {
+    location=location 
+    mainInclude('page/newsRef.html');
+    menuList_on(2);  
+});
+
+
 // home lottery news broadcast forum resources game
 
-function mainInclude(src) { 
-    
+function mainInclude(src) {    
     $.ajax({
         url: src,
         success: function(html) {

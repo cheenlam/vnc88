@@ -24,15 +24,11 @@ $(document).ready(function() {
 
 var scroll = $(window).scroll(function() {
     floatMenu();
-    floatAd() 
-
-    // console.log(scroll.scrollTop())
-    // console.log($('.footer').offset().top)
-    // console.log($(window).height())
+    floatAd()
 });
 
 $(window).resize(function() {
-    floatAd() 
+    floatAd()
     window.scrollTo({ top: 0 });
 })
 
@@ -48,24 +44,22 @@ function floatMenu() {
 
 // 側邊浮動廣告
 function floatAd() {
-    let getH = $('.contBox-full .contBox-min').offset().top -$
-    ('#hd_menu').height();
-    let getH2 = $('.footer').offset().top - $(window).height() + 30 +$('#hd_top').height()
-    if(scroll.scrollTop() > getH && scroll.scrollTop()<getH2){
+    let getH = $('.contBox-full .contBox-min').offset().top - $('#hd_menu').height();
+    let getH2 = $('.footer').offset().top - $(window).height() + 30 + $('#hd_top').height()
+    if (scroll.scrollTop() > getH && scroll.scrollTop() < getH2) {
         $('#leftTool,#rightTool').addClass('on')
-    }else{
+    } else {
         $('#leftTool,#rightTool').removeClass('on')
     }
 
-    let getH3 = $('.content').height() - $('#leftTool').height()/2
-    let w = $(document).width()+17
-    if(scroll.scrollTop() >= getH2 & w >1490){
-        $('#leftTool,#rightTool').css('top',getH3)
-        $('.mainCnt .todayGame').css('display','none')
-    }
-    else{
+    let getH3 = $('.content').height() - $('#leftTool').height() / 2
+    let w = $(document).width() + 17
+    if (scroll.scrollTop() >= getH2 & w > 1490) {
+        $('#leftTool,#rightTool').css('top', getH3)
+        $('.mainCnt .todayGame').css('display', 'none')
+    } else {
         $('#leftTool,#rightTool').removeAttr("style")
-        $('.mainCnt .todayGame').css('display','block')
+        $('.mainCnt .todayGame').css('display', 'block')
     }
 }
 
@@ -109,3 +103,18 @@ $('#todayGame').click(function() {
 })
 
 
+// 新聞內頁跳頁
+$('.newsRef').click(function() {
+    let data = $(this).data('news');
+    var newsRef_src = `newsRef/news_${data}.html`;
+    $.ajax({
+        url: newsRef_src,
+        success: function(html) {
+            $("#newsRef_cnt").html(html);
+            window.scrollTo({ top: 0 });
+        },
+        error: function(error) {
+            location.href = "#/home"
+        }
+    });
+})
