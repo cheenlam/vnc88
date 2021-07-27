@@ -1129,7 +1129,7 @@
         ul{
             display: flex;
             flex-wrap: wrap;
-            &:nth-child(even){
+            &:nth-child(odd){
                 background-color: #c1d6fb;
             }
         }

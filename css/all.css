@@ -3295,7 +3295,7 @@ body {
       flex-wrap: wrap;
 }
 
-.resourcesBox .resList-list ul:nth-child(even) {
+.resourcesBox .resList-list ul:nth-child(odd) {
   background-color: #c1d6fb;
 }
 
