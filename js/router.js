@@ -3,13 +3,18 @@ function Router() {
     this.currentUrl = '';
 }
 
-Router.prototype.route = function (path, callback) {
-    this.routes[path] = callback || function () { };
+Router.prototype.route = function(path, callback) {
+    this.routes[path] = callback || function() {};
     //给不同的hash设置不同的回调函数
 };
-Router.prototype.refresh = function () {
+Router.prototype.refresh = function() {
     // 路由清單
-    let routerList = ['','home','lottery','news','broadcast','forum','resources','game','newsRef'];
+    let routerList = ['', 'home', 'lottery', 'news', 'broadcast', 'forum', 'resources', 'game', 'newsRef'];
+
+    for (let i = 0; i < 99; i++) {
+        routerList.push(`newsRef?p=${i}`)
+    }
+
     // console.log(location.hash.slice(1)); 
     //获取到相应的hash值
     let index = routerList.indexOf(location.hash.slice(2))
@@ -27,7 +32,7 @@ Router.prototype.refresh = function () {
     }
 
 };
-Router.prototype.init = function () {
+Router.prototype.init = function() {
     window.addEventListener('load', this.refresh.bind(this), false);
     window.addEventListener('hashchange', this.refresh.bind(this), false);
 }
@@ -68,27 +73,40 @@ Router.route('/game', function() {
 });
 
 Router.route('/newsRef', function() {
-    location=location 
+    location = location
     mainInclude('page/newsRef.html');
-    menuList_on(2);  
+    menuList_on(2);
 });
+
+
+for (let i = 1; i < 99; i++) {
+    Router.route(`/newsRef?p=${i}`, function() {
+        location = location
+        mainInclude(`newsRef/news_${i}.html`);
+        menuList_on(2);
+    });
+}
+
 
 
 // home lottery news broadcast forum resources game
 
-function mainInclude(src) {    
+function mainInclude(src) {
     $.ajax({
         url: src,
         success: function(html) {
             $("#content").html(html);
         },
         // 發送前
-        beforeSend:function(){
-               
+        beforeSend: function() {
+
         },
         // 完成
-        complete: function(){
-        
+        complete: function() {
+
+        },
+        error: function(error) {
+            location.href = "#/home"
         }
     });
 }

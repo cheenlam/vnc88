@@ -1219,6 +1219,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   font-size: 1rem;
   font-weight: bold;
 }
@@ -3243,6 +3246,70 @@ body {
 
 .newsRef_menu li + li {
   margin-top: 20px;
+}
+
+.resourcesBox .res-Title {
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #f7e6be;
+}
+
+.resourcesBox .res-Title span {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.resourcesBox .resList-img {
+  max-width: 120px;
+  margin: auto;
+}
+
+.resourcesBox .resList-tb {
+  background-color: #fff;
+}
+
+.resourcesBox .resList-tb table {
+  width: 100%;
+}
+
+.resourcesBox .resList-tb td {
+  height: 95px;
+  border: 1px solid #ccc;
+}
+
+.resourcesBox .resList-list {
+  color: #000;
+  background-color: #fff;
+}
+
+.resourcesBox .resList-list ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.resourcesBox .resList-list ul:nth-child(even) {
+  background-color: #c1d6fb;
+}
+
+.resourcesBox .resList-list li {
+  width: calc(100%/6);
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+}
+
+.resourcesBox .bank-icon {
+  width: 22px;
+  height: 22px;
+  background: url(../images/icon/icon-bank.svg) no-repeat center/cover;
 }
 
 .dialogBox {

@@ -106,15 +106,5 @@ $('#todayGame').click(function() {
 // 新聞內頁跳頁
 $('.newsRef').click(function() {
     let data = $(this).data('news');
-    var newsRef_src = `newsRef/news_${data}.html`;
-    $.ajax({
-        url: newsRef_src,
-        success: function(html) {
-            $("#newsRef_cnt").html(html);
-            window.scrollTo({ top: 0 });
-        },
-        error: function(error) {
-            location.href = "#/home"
-        }
-    });
+    localStorage.setItem('newsRef',data)
 })
