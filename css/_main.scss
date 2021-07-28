@@ -211,13 +211,15 @@ body {
             font-size: 1rem;
             font-weight: bold;
             display: flex;
+            align-items: center;
             justify-content: center;
         }
         li {
             height: 100%;
             display: flex;
-            color: $clr_Txt;
             align-items: center;
+            color: $clr_Txt;
+            line-height: 48px;
             transition: 0.3s;
             &.on,
             &:active {
@@ -482,8 +484,7 @@ body {
                 display: flex;
                 align-items: flex-end;
                 font-size: 1rem;
-                font-weight: bold;
-                
+                font-weight: bold;       
             }
             li {
                 transition: 0.3s;

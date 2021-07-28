@@ -1,0 +1,187 @@
+// resourcesBox start 資源頁(銀行&投注連結)
+.resourcesBox {
+    .res-Title {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        color: #f7e6be;
+        span {
+            display: inline-block;
+            padding: 0 10px;
+        }
+    }
+    .resList-list {
+        color: #000;
+        background-color: #eee;
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            &:nth-child(odd) {
+                background-color: #c1d6fb;
+            }
+        }
+        li {
+            width: calc(100% / 6);
+            height: 55px;
+            line-height: 55px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            &:active {
+                background-color: #adbfdf;
+            }
+            @include hover {
+                &:hover {
+                    background-color: #adbfdf;
+                }
+            }
+        }
+    }
+
+    .resMsg {
+        padding: 20px;
+        background-color: #fff;
+    }
+
+    .bank-List {
+        margin-bottom: 40px;
+    }
+
+    .bank-icon {
+        width: 22px;
+        height: 22px;
+        background: url(../images/icon/icon-bank.svg) no-repeat center / cover;
+    }
+
+    .bank-tb {
+        background-color: #eee;
+        table {
+            width: 100%;
+        }
+        td {
+            width: 10%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .bankTb-img {
+            max-width: 120px;
+            margin: auto;
+        }
+    }
+
+    .lottory-icon {
+        width: 36px;
+        height: 22px;
+        background: url(../images/icon/icon-lottory.svg) no-repeat center / cover;
+    }
+
+    .lottory-tb {
+        background-color: #eee;
+        table {
+            width: 100%;
+        }
+        td {
+            width: 10%;
+            padding: 20px 20px;
+            border: 1px solid #ccc;
+            color: #000;
+            font-size: 1.1rem;
+            cursor: pointer;
+            & > div {
+                display: flex;
+                align-items: center;
+            }
+        }
+        .lottoryTb-img {
+            max-width: 70px;
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+    }
+
+    .flexAd {
+        margin-bottom: 0;
+    }
+
+    .resQa {
+        color: #000;
+        .icon {
+            width: 25px;
+            height: 25px;
+            margin-right: 20px;
+            line-height: 25px;
+            text-align: center;
+            border-radius: 2px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        li + li {
+            margin-top: 40px;
+        }
+        li > div + div {
+            margin-top: 10px;
+        }
+
+        @at-root .question {
+            padding-right: 30px;
+            display: flex;
+            .icon {
+                color: #f1cb80;
+                background-color: #292727;
+            }
+            p {
+                line-height: 25px;
+                font-size: 1.2rem;
+            }
+        }
+        @at-root .Answer {
+            padding-right: 40px;
+            display: flex;
+            .icon {
+                color: #151412;
+                background-color: #cf9d1e;
+            }
+            p {
+                padding-right: 30px;
+                line-height: 25px;
+                @include txtChip(2);
+                color: #58595b;
+                position: relative;
+                transition: 1s;
+                &.on {
+                    overflow: unset;
+                    white-space: wrap;
+                    text-overflow: unset;
+                    display: unset;
+                    white-space: unset;
+                }
+                &.on .switch::before {
+                    content: "-";
+                }
+            }
+            .switch{
+                width: 25px;
+                height: 25px; 
+                display: inline-block;
+                cursor: pointer;
+                position: absolute;
+                @include pos(br,0);
+                &::before {
+                    content: "+";
+                    width: 25px;
+                    height: 25px;
+                    line-height: 25px;
+                    text-align: center;
+                    border-radius: 2px;
+                    font-size: 1.2rem;
+                    color: #fff;
+                    background-color: #58595b;
+                    position: absolute;
+                    @include pos(br,0);
+                  
+                }
+            }
+        }
+    }
+}

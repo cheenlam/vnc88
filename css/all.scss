@@ -6,9 +6,12 @@
 @import "swipeslider"; // 輪播
 @import "marquee";     // 跑馬燈
 
-// === 頁面設定 ===
-@import "main";
-@import "page";
-
 // === 彈跳視窗 ===
 @import "dialog";
+
+// === 頁面設定 ===
+@import "main";  //主頁
+@import "page";  //內頁共通設定
+@import "broadcast";  //足球轉播頁
+@import "newsRef";  //新聞內頁
+@import "resources";  //資源頁(銀行&投注連結)

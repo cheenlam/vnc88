@@ -292,6 +292,691 @@ img {
           align-items: center;
 }
 
+.dialogBox {
+  width: 100%;
+  height: 100vh;
+  padding: 0 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: none;
+}
+
+.dialogBox.on {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dialogBox > .close {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.dialogBox .dialog_cnt_01 {
+  width: 100%;
+  max-width: 779px;
+  margin: auto;
+  padding: 34px 20px;
+  position: relative;
+  z-index: 2;
+  background: -webkit-gradient(linear, left bottom, left top, from(#091422), to(#0e263c));
+  background: linear-gradient(0deg, #091422, #0e263c);
+  -webkit-box-shadow: 5px 5px 10px #000;
+          box-shadow: 5px 5px 10px #000;
+  border: 1px solid #f6bf3d;
+  display: none;
+}
+
+.dialogBox .dialog_cnt_01.on {
+  display: block;
+}
+
+.dialogBox .dialog_cnt_01 .close {
+  width: 38px;
+  height: 38px;
+  z-index: 1;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.dialogBox .dialog_cnt_01 .close::before, .dialogBox .dialog_cnt_01 .close::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #818b99;
+}
+
+.dialogBox .dialog_cnt_01 .close::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.dialogBox .dialog_cnt_01 .close::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.dialogBox .dialog_cnt_01 .close:active::before, .dialogBox .dialog_cnt_01 .close:active::after {
+  background-color: #ffd200;
+}
+
+@media (any-hover: hover) {
+  .dialogBox .dialog_cnt_01 .close:hover::before, .dialogBox .dialog_cnt_01 .close:hover::after {
+    background-color: #ffd200;
+  }
+}
+
+.dialogBox .dialog_cnt_01 .title {
+  padding-bottom: 21px;
+  margin-bottom: 47px;
+  color: #e9b21a;
+  font-size: 2.1rem;
+  font-weight: 400;
+  letter-spacing: 5px;
+  text-align: center;
+  position: relative;
+}
+
+.dialogBox .dialog_cnt_01 .title::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#71784c), to(transparent));
+  background: linear-gradient(90deg, transparent, #71784c, transparent);
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+}
+
+.dialogBox .dialog_cnt_01 .innerBox {
+  width: 100%;
+  max-width: 485px;
+  margin: auto;
+}
+
+.dialogBox .dialog_cnt_01 .innerBox > div {
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 31px;
+}
+
+.dialogBox .dialog_cnt_01 .innerBox span {
+  width: 90px;
+  text-align: right;
+  font-weight: bold;
+  color: #869bae;
+  margin-right: 6px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.dialogBox .dialog_cnt_01 .innerBox .iptBox {
+  width: 100%;
+  max-width: 390px;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #100f1f;
+  -webkit-box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+          box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dialogBox .dialog_cnt_01 .innerBox .iptBox input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 0 20px;
+  color: #d5d5d5;
+  font-size: 1rem;
+}
+
+.dialogBox .dialog_cnt_01 .innerBox .iptBox .selectBox {
+  width: 140px;
+  height: 100%;
+  padding: 0 15px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.dialogBox .dialog_cnt_01 .innerBox .iptBox .selectBox::before {
+  content: "";
+  width: 1px;
+  height: calc(100% - 10px);
+  margin: auto;
+  background-color: #172a5a;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.dialogBox .dialog_cnt_01 .innerBox .iptBox .selectBox select {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: url("../images/icon/arrow-bottom.png") no-repeat right center transparent;
+  cursor: pointer;
+}
+
+.dialogBox .dialog_cnt_01 .innerBox .iptBox .selectBox option {
+  height: 32px;
+  line-height: 32px;
+  background-color: #193452;
+}
+
+.dialogBox .dialog_cnt_01 .innerBox .codeBox {
+  width: 120px;
+  margin-left: 10px;
+}
+
+.dialogBox .dialog_cnt_01 .check_cnt {
+  color: #626262;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dialogBox .dialog_cnt_01 .check_cnt a {
+  color: #00a0e9;
+  font-weight: bold;
+}
+
+.dialogBox .dialog_cnt_01 .ckBox {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.dialogBox .dialog_cnt_01 .ckBox > div {
+  width: 25px;
+  height: 25px;
+  background: #100f1f;
+  -webkit-box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+          box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+  border-radius: 5px;
+}
+
+.dialogBox .dialog_cnt_01 .ckBox input {
+  display: none;
+}
+
+.dialogBox .dialog_cnt_01 .ckBox input:checked + div {
+  background: url(../images/icon/icon-tick.png) no-repeat center/90%;
+}
+
+.dialogBox .forget .btn {
+  max-width: 150px;
+  margin: 50px auto;
+}
+
+.dialogBox .regd .regd_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dialogBox .regd .regd_btn .btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 45px;
+  line-height: 45px;
+}
+
+.dialogBox .regd .regd_btn .btn + .btn {
+  margin-left: 15px;
+}
+
+.dialogBox .regd div.btn {
+  height: 45px;
+  line-height: 45px;
+  margin-bottom: 15px;
+}
+
+.dialogBox .regd .innerBox > p {
+  padding: 20px 0px;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.dialogBox .newGift {
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+  margin: auto;
+  background-color: #c43f40;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 30px #cea7a2 inset;
+          box-shadow: 0 0 30px #cea7a2 inset;
+  border: 2px solid #cd6e3e;
+  border-radius: 175px 10px 10px 175px;
+  z-index: 2;
+  display: none;
+}
+
+.dialogBox .newGift.on {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dialogBox .newGift .roulette {
+  width: 350px;
+  height: 350px;
+  position: relative;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.dialogBox .newGift .roulette::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: url(../images/roulette/rou_boder.png) no-repeat center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.dialogBox .newGift .roulette::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: url(../images/roulette/rou_light.png) no-repeat center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: opacity 1s infinite;
+          animation: opacity 1s infinite;
+  z-index: 1;
+}
+
+.dialogBox .newGift .roulette .rou_body {
+  width: 98%;
+  height: 98%;
+  background: url(../images/roulette/rou_body.png) no-repeat center/cover;
+  -webkit-transition: 4s;
+  transition: 4s;
+}
+
+.dialogBox .newGift .roulette .rou_pointer {
+  width: 10%;
+  margin: auto;
+  position: absolute;
+  top: 1%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.dialogBox .newGift .newGift_cnt {
+  width: 100%;
+  height: 350px;
+  padding: 30px 20px;
+  color: #fff;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dialogBox .newGift .newGift_cnt .close {
+  width: 38px;
+  height: 38px;
+  z-index: 1;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.dialogBox .newGift .newGift_cnt .close::before, .dialogBox .newGift .newGift_cnt .close::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+}
+
+.dialogBox .newGift .newGift_cnt .close::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.dialogBox .newGift .newGift_cnt .close::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.dialogBox .newGift .newGift_cnt .close:active::before, .dialogBox .newGift .newGift_cnt .close:active::after {
+  background-color: #ffd200;
+}
+
+@media (any-hover: hover) {
+  .dialogBox .newGift .newGift_cnt .close:hover::before, .dialogBox .newGift .newGift_cnt .close:hover::after {
+    background-color: #ffd200;
+  }
+}
+
+.dialogBox .newGift .newGift_cnt .title {
+  margin-bottom: 20px;
+}
+
+.dialogBox .newGift .newGift_cnt .title span {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.dialogBox .newGift .newGift_cnt .title p {
+  font-size: 0.8rem;
+  padding-top: 5px;
+}
+
+.dialogBox .newGift .newGift_cnt input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.dialogBox .newGift .newGift_cnt .btn {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+
+.dialogBox .newGift .newGift_cnt .btn button {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.dialogBox .newGift .newGift_cnt .btn button:disabled {
+  text-shadow: 1px 1px 1px #fff;
+  background-color: #a5a5a5;
+  color: #888;
+}
+
+.dialogBox .newGift .newGift_cnt .rule {
+  font-size: 0.85rem;
+  line-height: 20px;
+}
+
+.dialogBox .todayGame {
+  margin: auto;
+  z-index: 2;
+  position: relative;
+  display: none;
+}
+
+.dialogBox .todayGame.on {
+  display: block;
+}
+
+.dialogBox .todayGame .close {
+  width: 40px;
+  height: 40px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  cursor: pointer;
+  border: 1px solid #c43f40;
+  z-index: 2;
+}
+
+.dialogBox .todayGame .close::after, .dialogBox .todayGame .close::before {
+  content: '';
+  width: 25px;
+  height: 4px;
+  margin: auto;
+  border-radius: 4px;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.dialogBox .todayGame .close::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.dialogBox .todayGame .close::before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.dialogBox .todayGame .todayGame_actor {
+  width: 90%;
+  margin: auto;
+  position: absolute;
+  bottom: -13%;
+  left: -50%;
+  z-index: 1;
+}
+
+.dialogBox .todayGame .firework {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: 55% 60%;
+          transform-origin: 55% 60%;
+  -webkit-animation: firework 1s cubic-bezier(0, 0, 0, 1.13) infinite;
+          animation: firework 1s cubic-bezier(0, 0, 0, 1.13) infinite;
+}
+
+.dialogBox .todayGame .todayGame_cnt {
+  width: 350px;
+  padding: 90px 0 20px;
+  background-color: #c43f40;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 30px #cea7a2 inset;
+          box-shadow: 0 0 30px #cea7a2 inset;
+  border: 2px solid #cd6e3e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.dialogBox .todayGame .todayGame_cnt::before {
+  content: '';
+  width: 115%;
+  padding-bottom: 24%;
+  background: url(../images//todayGame/todayGame_title.png) no-repeat center/cover;
+  position: absolute;
+  top: -15px;
+  left: -7.7%;
+}
+
+.dialogBox .todayGame .todayGame_cnt::after {
+  content: '';
+  width: 10%;
+  padding-bottom: 20%;
+  background: url(../images//todayGame/todayGame_ribbon.png) no-repeat center/cover;
+  position: absolute;
+  top: 50px;
+  right: -4.5%;
+}
+
+.dialogBox .todayGame .todayGame_cnt .todayGame_msg {
+  width: 80%;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  text-align: center;
+  background: #960F0D;
+  -webkit-box-shadow: 0 0 10px #d64d4b inset;
+          box-shadow: 0 0 10px #d64d4b inset;
+  color: #fff;
+  font-weight: bold;
+  font-size: 2.2em;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  line-height: 50px;
+}
+
+.dialogBox .todayGame .todayGame_cnt .btn {
+  width: 60%;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.dialogBox .todayGame .todayGame_cnt .btn:active {
+  -webkit-transform: scale(1) translateY(2px);
+          transform: scale(1) translateY(2px);
+}
+
+@-webkit-keyframes opacity {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes opacity {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@-webkit-keyframes firework {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 1;
+  }
+}
+
+@keyframes firework {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 1;
+  }
+}
+
 body {
   background-color: #0b2d53;
   position: relative;
@@ -877,6 +1562,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -887,10 +1575,11 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #caa653;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: #caa653;
+  line-height: 48px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -2195,19 +2884,19 @@ body {
   margin-top: 10px;
 }
 
-.mainNews .mainNews_b ul {
+.mainNews_b ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.mainNews .mainNews_b li {
+.mainNews_b li {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.mainNews .mainNews_b li p {
+.mainNews_b li p {
   padding-top: 10px;
   color: #000;
   overflow: hidden;
@@ -2219,7 +2908,7 @@ body {
   white-space: normal;
 }
 
-.mainNews .mainNews_b li + li {
+.mainNews_b li + li {
   margin-left: 20px;
 }
 
@@ -2509,6 +3198,318 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.forumBox .mainMsg {
+  border-radius: 5px;
+}
+
+.forum_obvious {
+  margin-bottom: 15px;
+}
+
+.forum_obvious ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.forum_obvious li {
+  width: calc(100% / 3);
+  padding: 10px 30px;
+  border-radius: 5px;
+  color: #8fc31f;
+  font-size: 1.1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.8) inset;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.8) inset;
+}
+
+.forum_obvious li + li {
+  margin-left: 10px;
+}
+
+.forum_obvious span {
+  color: #00479d;
+  padding-right: 5px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  font-weight: bold;
+}
+
+.forum_obvious p {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.forum_link {
+  margin-bottom: 15px;
+  color: #00479d;
+}
+
+.forum_link ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.forum_link li {
+  padding: 0 10px;
+  position: relative;
+  cursor: pointer;
+  font-weight: bold;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.forum_link li + li::before {
+  content: "";
+  width: 1px;
+  height: 100%;
+  background-color: #00479d;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.forum_link li:active, .forum_link li.on {
+  color: #f25d0a;
+}
+
+@media (any-hover: hover) {
+  .forum_link li:hover {
+    color: #f25d0a;
+  }
+}
+
+.forum_search {
+  text-align: right;
+}
+
+.forum_search > div {
+  width: 50%;
+  max-width: 425px;
+  display: inline-block;
+  height: 35px;
+  padding-top: 4px;
+  -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3) inset;
+          box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3) inset;
+  border-radius: 5px;
+  border-bottom: 1px solid #626262;
+  position: relative;
+}
+
+.forum_search input {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  padding-right: 35px;
+  background: transparent;
+  outline: none;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.forum_search .icon {
+  width: 32px;
+  height: 32px;
+  margin: auto;
+  background: url(../images/icon/icon-search.svg) no-repeat center/50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.forum_tool {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #000;
+}
+
+.forum_tool > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.forum_tool .title {
+  padding: 2px 8px;
+  background-color: #7d7d7d;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.forum_tool ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.forum_tool li {
+  padding: 0 10px;
+  position: relative;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.forum_tool li.on, .forum_tool li:active {
+  color: #a40000;
+}
+
+@media (any-hover: hover) {
+  .forum_tool li:hover {
+    color: #a40000;
+  }
+}
+
+.forum_tool li + li::before {
+  content: "";
+  width: 1px;
+  height: 100%;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.forum_tool .btn {
+  padding: 0 10px;
+}
+
+.forum_sort {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.forum_array {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 30px;
+}
+
+.forum_list table {
+  width: 100%;
+  color: #626262;
+}
+
+.forum_list tr:nth-child(odd) {
+  background-color: #c9c9c9;
+}
+
+.forum_list th {
+  width: 20%;
+  height: 50px;
+  background-color: #000;
+  position: relative;
+  font-weight: bold;
+}
+
+.forum_list th:first-child {
+  width: 40%;
+}
+
+.forum_list th + th {
+  border-left: 1px solid #dcdcdc;
+}
+
+.forum_list td {
+  padding: 0 15px;
+}
+
+.forum_list td .title {
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.forum_list td .title p {
+  color: #0068b7;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.forum_list td .sort {
+  margin-right: 10px;
+  color: #000;
+  position: relative;
+  letter-spacing: 1px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.forum_list td .sort::before {
+  content: "[";
+}
+
+.forum_list td .sort::after {
+  content: "]";
+}
+
+.forum_list td .author {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.forum_list td .author .avatar {
+  width: 40px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.forum_list td .msg {
+  text-align: center;
+}
+
+.forum_list td .msg p {
+  padding-top: 2px;
+}
+
+.forum_list td .num {
+  text-align: center;
+  letter-spacing: 1px;
 }
 
 .broadcast .liveBox {
@@ -3097,7 +4098,7 @@ body {
 }
 
 .broadcast .scheduleList .matchList .match_teams .team {
-  width: calc((100% - 40px)/2);
+  width: calc((100% - 40px) / 2);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3118,7 +4119,8 @@ body {
 }
 
 @-webkit-keyframes match_live {
-  0%, 49% {
+  0%,
+  49% {
     color: #fff;
     background-color: #f00;
   }
@@ -3129,7 +4131,8 @@ body {
 }
 
 @keyframes match_live {
-  0%, 49% {
+  0%,
+  49% {
     color: #fff;
     background-color: #f00;
   }
@@ -3264,27 +4267,9 @@ body {
   padding: 0 10px;
 }
 
-.resourcesBox .resList-img {
-  max-width: 120px;
-  margin: auto;
-}
-
-.resourcesBox .resList-tb {
-  background-color: #fff;
-}
-
-.resourcesBox .resList-tb table {
-  width: 100%;
-}
-
-.resourcesBox .resList-tb td {
-  height: 95px;
-  border: 1px solid #ccc;
-}
-
 .resourcesBox .resList-list {
   color: #000;
-  background-color: #fff;
+  background-color: #eee;
 }
 
 .resourcesBox .resList-list ul {
@@ -3300,10 +4285,32 @@ body {
 }
 
 .resourcesBox .resList-list li {
-  width: calc(100%/6);
+  width: calc(100% / 6);
   height: 55px;
   line-height: 55px;
   text-align: center;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.resourcesBox .resList-list li:active {
+  background-color: #adbfdf;
+}
+
+@media (any-hover: hover) {
+  .resourcesBox .resList-list li:hover {
+    background-color: #adbfdf;
+  }
+}
+
+.resourcesBox .resMsg {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.resourcesBox .bank-List {
+  margin-bottom: 40px;
 }
 
 .resourcesBox .bank-icon {
@@ -3312,688 +4319,172 @@ body {
   background: url(../images/icon/icon-bank.svg) no-repeat center/cover;
 }
 
-.dialogBox {
+.resourcesBox .bank-tb {
+  background-color: #eee;
+}
+
+.resourcesBox .bank-tb table {
   width: 100%;
-  height: 100vh;
-  padding: 0 10px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  display: none;
 }
 
-.dialogBox.on {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.dialogBox > .close {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.dialogBox .dialog_cnt_01 {
-  width: 100%;
-  max-width: 779px;
-  margin: auto;
-  padding: 34px 20px;
-  position: relative;
-  z-index: 2;
-  background: -webkit-gradient(linear, left bottom, left top, from(#091422), to(#0e263c));
-  background: linear-gradient(0deg, #091422, #0e263c);
-  -webkit-box-shadow: 5px 5px 10px #000;
-          box-shadow: 5px 5px 10px #000;
-  border: 1px solid #f6bf3d;
-  display: none;
-}
-
-.dialogBox .dialog_cnt_01.on {
-  display: block;
-}
-
-.dialogBox .dialog_cnt_01 .close {
-  width: 38px;
-  height: 38px;
-  z-index: 1;
-  position: absolute;
-  top: 15px;
-  right: 15px;
+.resourcesBox .bank-tb td {
+  width: 10%;
+  padding: 20px;
+  border: 1px solid #ccc;
   cursor: pointer;
 }
 
-.dialogBox .dialog_cnt_01 .close::before, .dialogBox .dialog_cnt_01 .close::after {
-  content: "";
-  width: 100%;
-  height: 1px;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #818b99;
-}
-
-.dialogBox .dialog_cnt_01 .close::before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.dialogBox .dialog_cnt_01 .close::after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-
-.dialogBox .dialog_cnt_01 .close:active::before, .dialogBox .dialog_cnt_01 .close:active::after {
-  background-color: #ffd200;
-}
-
-@media (any-hover: hover) {
-  .dialogBox .dialog_cnt_01 .close:hover::before, .dialogBox .dialog_cnt_01 .close:hover::after {
-    background-color: #ffd200;
-  }
-}
-
-.dialogBox .dialog_cnt_01 .title {
-  padding-bottom: 21px;
-  margin-bottom: 47px;
-  color: #e9b21a;
-  font-size: 2.1rem;
-  font-weight: 400;
-  letter-spacing: 5px;
-  text-align: center;
-  position: relative;
-}
-
-.dialogBox .dialog_cnt_01 .title::before {
-  content: "";
-  width: 100%;
-  height: 2px;
-  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#71784c), to(transparent));
-  background: linear-gradient(90deg, transparent, #71784c, transparent);
-  position: absolute;
-  margin: auto;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 50%;
-}
-
-.dialogBox .dialog_cnt_01 .innerBox {
-  width: 100%;
-  max-width: 485px;
+.resourcesBox .bank-tb .bankTb-img {
+  max-width: 120px;
   margin: auto;
 }
 
-.dialogBox .dialog_cnt_01 .innerBox > div {
-  height: 35px;
+.resourcesBox .lottory-icon {
+  width: 36px;
+  height: 22px;
+  background: url(../images/icon/icon-lottory.svg) no-repeat center/cover;
+}
+
+.resourcesBox .lottory-tb {
+  background-color: #eee;
+}
+
+.resourcesBox .lottory-tb table {
+  width: 100%;
+}
+
+.resourcesBox .lottory-tb td {
+  width: 10%;
+  padding: 20px 20px;
+  border: 1px solid #ccc;
+  color: #000;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.resourcesBox .lottory-tb td > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  margin-bottom: 31px;
 }
 
-.dialogBox .dialog_cnt_01 .innerBox span {
-  width: 90px;
-  text-align: right;
-  font-weight: bold;
-  color: #869bae;
-  margin-right: 6px;
+.resourcesBox .lottory-tb .lottoryTb-img {
+  max-width: 70px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+  margin-right: 20px;
 }
 
-.dialogBox .dialog_cnt_01 .innerBox .iptBox {
-  width: 100%;
-  max-width: 390px;
-  height: 100%;
-  border-radius: 5px;
-  background-color: #100f1f;
-  -webkit-box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
-          box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.resourcesBox .flexAd {
+  margin-bottom: 0;
 }
 
-.dialogBox .dialog_cnt_01 .innerBox .iptBox input {
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  outline: none;
-  border: none;
-  padding: 0 20px;
-  color: #d5d5d5;
-  font-size: 1rem;
+.resourcesBox .resQa {
+  color: #000;
 }
 
-.dialogBox .dialog_cnt_01 .innerBox .iptBox .selectBox {
-  width: 140px;
-  height: 100%;
-  padding: 0 15px;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-}
-
-.dialogBox .dialog_cnt_01 .innerBox .iptBox .selectBox::before {
-  content: "";
-  width: 1px;
-  height: calc(100% - 10px);
-  margin: auto;
-  background-color: #172a5a;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.dialogBox .dialog_cnt_01 .innerBox .iptBox .selectBox select {
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  background: transparent;
-  outline: none;
-  border: none;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background: url("../images/icon/arrow-bottom.png") no-repeat right center transparent;
-  cursor: pointer;
-}
-
-.dialogBox .dialog_cnt_01 .innerBox .iptBox .selectBox option {
-  height: 32px;
-  line-height: 32px;
-  background-color: #193452;
-}
-
-.dialogBox .dialog_cnt_01 .innerBox .codeBox {
-  width: 120px;
-  margin-left: 10px;
-}
-
-.dialogBox .dialog_cnt_01 .check_cnt {
-  color: #626262;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.dialogBox .dialog_cnt_01 .check_cnt a {
-  color: #00a0e9;
-  font-weight: bold;
-}
-
-.dialogBox .dialog_cnt_01 .ckBox {
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.dialogBox .dialog_cnt_01 .ckBox > div {
+.resourcesBox .resQa .icon {
   width: 25px;
   height: 25px;
-  background: #100f1f;
-  -webkit-box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
-          box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
-  border-radius: 5px;
-}
-
-.dialogBox .dialog_cnt_01 .ckBox input {
-  display: none;
-}
-
-.dialogBox .dialog_cnt_01 .ckBox input:checked + div {
-  background: url(../images/icon/icon-tick.png) no-repeat center/90%;
-}
-
-.dialogBox .forget .btn {
-  max-width: 150px;
-  margin: 50px auto;
-}
-
-.dialogBox .regd .regd_btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.dialogBox .regd .regd_btn .btn {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  height: 45px;
-  line-height: 45px;
-}
-
-.dialogBox .regd .regd_btn .btn + .btn {
-  margin-left: 15px;
-}
-
-.dialogBox .regd div.btn {
-  height: 45px;
-  line-height: 45px;
-  margin-bottom: 15px;
-}
-
-.dialogBox .regd .innerBox > p {
-  padding: 20px 0px;
-  color: #fff;
-  letter-spacing: 2px;
-  font-weight: bold;
+  margin-right: 20px;
+  line-height: 25px;
   text-align: center;
-}
-
-.dialogBox .newGift {
-  width: 100%;
-  max-width: 700px;
-  position: relative;
-  margin: auto;
-  background-color: #c43f40;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 0 30px #cea7a2 inset;
-          box-shadow: 0 0 30px #cea7a2 inset;
-  border: 2px solid #cd6e3e;
-  border-radius: 175px 10px 10px 175px;
-  z-index: 2;
-  display: none;
-}
-
-.dialogBox .newGift.on {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.dialogBox .newGift .roulette {
-  width: 350px;
-  height: 350px;
-  position: relative;
-  left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  border-radius: 2px;
+  font-size: 1.2rem;
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
 
-.dialogBox .newGift .roulette::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: url(../images/roulette/rou_boder.png) no-repeat center/cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
+.resourcesBox .resQa li + li {
+  margin-top: 40px;
 }
 
-.dialogBox .newGift .roulette::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: url(../images/roulette/rou_light.png) no-repeat center/cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-animation: opacity 1s infinite;
-          animation: opacity 1s infinite;
-  z-index: 1;
+.resourcesBox .resQa li > div + div {
+  margin-top: 10px;
 }
 
-.dialogBox .newGift .roulette .rou_body {
-  width: 98%;
-  height: 98%;
-  background: url(../images/roulette/rou_body.png) no-repeat center/cover;
-  -webkit-transition: 4s;
-  transition: 4s;
-}
-
-.dialogBox .newGift .roulette .rou_pointer {
-  width: 10%;
-  margin: auto;
-  position: absolute;
-  top: 1%;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
-
-.dialogBox .newGift .newGift_cnt {
-  width: 100%;
-  height: 350px;
-  padding: 30px 20px;
-  color: #fff;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  position: relative;
+.question {
+  padding-right: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.dialogBox .newGift .newGift_cnt .close {
-  width: 38px;
-  height: 38px;
-  z-index: 1;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
+.question .icon {
+  color: #f1cb80;
+  background-color: #292727;
 }
 
-.dialogBox .newGift .newGift_cnt .close::before, .dialogBox .newGift .newGift_cnt .close::after {
-  content: "";
-  width: 100%;
-  height: 1px;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #fff;
+.question p {
+  line-height: 25px;
+  font-size: 1.2rem;
 }
 
-.dialogBox .newGift .newGift_cnt .close::before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+.Answer {
+  padding-right: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.dialogBox .newGift .newGift_cnt .close::after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+.Answer .icon {
+  color: #151412;
+  background-color: #cf9d1e;
 }
 
-.dialogBox .newGift .newGift_cnt .close:active::before, .dialogBox .newGift .newGift_cnt .close:active::after {
-  background-color: #ffd200;
-}
-
-@media (any-hover: hover) {
-  .dialogBox .newGift .newGift_cnt .close:hover::before, .dialogBox .newGift .newGift_cnt .close:hover::after {
-    background-color: #ffd200;
-  }
-}
-
-.dialogBox .newGift .newGift_cnt .title {
-  margin-bottom: 20px;
-}
-
-.dialogBox .newGift .newGift_cnt .title span {
-  font-size: 1.8rem;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-
-.dialogBox .newGift .newGift_cnt .title p {
-  font-size: 0.8rem;
-  padding-top: 5px;
-}
-
-.dialogBox .newGift .newGift_cnt input {
-  width: 100%;
-  height: 40px;
-  background: transparent;
-  outline: none;
-  border: none;
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 0 10px;
-  margin-bottom: 10px;
-  font-size: 1rem;
-}
-
-.dialogBox .newGift .newGift_cnt .btn {
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-}
-
-.dialogBox .newGift .newGift_cnt .btn button {
-  cursor: pointer;
-  background: transparent;
-  outline: none;
-  border: none;
-  background-color: transparent;
-}
-
-.dialogBox .newGift .newGift_cnt .btn button:disabled {
-  text-shadow: 1px 1px 1px #fff;
-  background-color: #a5a5a5;
-  color: #888;
-}
-
-.dialogBox .newGift .newGift_cnt .rule {
-  font-size: 0.85rem;
-  line-height: 20px;
-}
-
-.dialogBox .todayGame {
-  margin: auto;
-  z-index: 2;
+.Answer p {
+  padding-right: 30px;
+  line-height: 25px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  color: #58595b;
   position: relative;
-  display: none;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
-.dialogBox .todayGame.on {
-  display: block;
+.Answer p.on {
+  overflow: unset;
+  white-space: wrap;
+  text-overflow: unset;
+  display: unset;
+  white-space: unset;
 }
 
-.dialogBox .todayGame .close {
-  width: 40px;
-  height: 40px;
-  background-color: #000;
-  border-radius: 50%;
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  cursor: pointer;
-  border: 1px solid #c43f40;
-  z-index: 2;
+.Answer p.on .switch::before {
+  content: "-";
 }
 
-.dialogBox .todayGame .close::after, .dialogBox .todayGame .close::before {
-  content: '';
+.Answer .switch {
   width: 25px;
-  height: 4px;
-  margin: auto;
-  border-radius: 4px;
-  background-color: #fff;
+  height: 25px;
+  display: inline-block;
+  cursor: pointer;
   position: absolute;
-  top: 0;
   bottom: 0;
-  left: 0;
   right: 0;
 }
 
-.dialogBox .todayGame .close::after {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.dialogBox .todayGame .close::before {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-
-.dialogBox .todayGame .todayGame_actor {
-  width: 90%;
-  margin: auto;
-  position: absolute;
-  bottom: -13%;
-  left: -50%;
-  z-index: 1;
-}
-
-.dialogBox .todayGame .firework {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-transform-origin: 55% 60%;
-          transform-origin: 55% 60%;
-  -webkit-animation: firework 1s cubic-bezier(0, 0, 0, 1.13) infinite;
-          animation: firework 1s cubic-bezier(0, 0, 0, 1.13) infinite;
-}
-
-.dialogBox .todayGame .todayGame_cnt {
-  width: 350px;
-  padding: 90px 0 20px;
-  background-color: #c43f40;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 0 30px #cea7a2 inset;
-          box-shadow: 0 0 30px #cea7a2 inset;
-  border: 2px solid #cd6e3e;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-}
-
-.dialogBox .todayGame .todayGame_cnt::before {
-  content: '';
-  width: 115%;
-  padding-bottom: 24%;
-  background: url(../images//todayGame/todayGame_title.png) no-repeat center/cover;
-  position: absolute;
-  top: -15px;
-  left: -7.7%;
-}
-
-.dialogBox .todayGame .todayGame_cnt::after {
-  content: '';
-  width: 10%;
-  padding-bottom: 20%;
-  background: url(../images//todayGame/todayGame_ribbon.png) no-repeat center/cover;
-  position: absolute;
-  top: 50px;
-  right: -4.5%;
-}
-
-.dialogBox .todayGame .todayGame_cnt .todayGame_msg {
-  width: 80%;
-  margin-bottom: 20px;
-  padding: 10px 0;
+.Answer .switch::before {
+  content: "+";
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
   text-align: center;
-  background: #960F0D;
-  -webkit-box-shadow: 0 0 10px #d64d4b inset;
-          box-shadow: 0 0 10px #d64d4b inset;
+  border-radius: 2px;
+  font-size: 1.2rem;
   color: #fff;
-  font-weight: bold;
-  font-size: 2.2em;
-  letter-spacing: 1px;
-  border-radius: 5px;
-  line-height: 50px;
-}
-
-.dialogBox .todayGame .todayGame_cnt .btn {
-  width: 60%;
-  cursor: pointer;
-  -webkit-transition: .3s;
-  transition: .3s;
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
-}
-
-.dialogBox .todayGame .todayGame_cnt .btn:active {
-  -webkit-transform: scale(1) translateY(2px);
-          transform: scale(1) translateY(2px);
-}
-
-@-webkit-keyframes opacity {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.4;
-  }
-}
-
-@keyframes opacity {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.4;
-  }
-}
-
-@-webkit-keyframes firework {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: scale(2);
-            transform: scale(2);
-    opacity: 1;
-  }
-}
-
-@keyframes firework {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: scale(2);
-            transform: scale(2);
-    opacity: 1;
-  }
+  background-color: #58595b;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 /*# sourceMappingURL=all.css.map */
