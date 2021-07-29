@@ -5,21 +5,23 @@
         padding: 40px 10px 20px;
         background-color: #242424;
         .liveTitle {
-            width: 150px;
-            padding: 5px 0;
-            margin: 0 auto 20px;
-            border-radius: 10px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            background-color: #fff;
-            color: #000;
-            display: inline-block;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            & > div {
+                padding: 10px;
+                margin: 0 auto 20px;
+                border-radius: 10px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                background-color: #fff;
+                color: #000;
+                display: inline-block;
+            }
             img {
-                width: 66px;
-                padding-bottom: 3px;
+                width: 70px;
+                padding-bottom: 5px;
+                display: block;
+                margin: auto;
             }
         }
         .liveList {
@@ -69,8 +71,9 @@
         .liveBtn {
             text-align: center;
             .btn {
-                width: 150px;
+                min-width: 150px;
                 height: 40px;
+                padding: 0 20px;
                 line-height: 40px;
                 border-radius: 40px;
             }
