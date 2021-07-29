@@ -102,15 +102,3 @@ $('#todayGame').click(function() {
     $("#dialogBox .todayGame").addClass('on');
 })
 
-
-// 新聞內頁跳頁
-$('.newsRef').click(function() {
-    let data = $(this).data('news');
-    localStorage.setItem('newsRef',data)
-})
-
-// 博彩內頁跳頁
-$('.lotteryRef').click(function() {
-    let data = $(this).data('news');
-    localStorage.setItem('lotteryRef',data)
-})

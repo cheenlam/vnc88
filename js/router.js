@@ -112,11 +112,9 @@ function mainInclude(src) {
         },
         // 發送前
         beforeSend: function() {
-
         },
         // 完成
         complete: function() {
-
         },
         error: function(error) {
             location.href = "#/home"

@@ -19,7 +19,7 @@
         position: absolute;
         @include pos(tblr, 0);
     }
-    .dialog_cnt_01 {
+    @at-root .dialog_cnt_01 {
         width: 100%;
         max-width: 779px;
         margin: auto;

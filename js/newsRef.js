@@ -1,3 +1,6 @@
+$('#newsRef_hot .mainMsg-title').text('Tin hot');
+$('#newsRef_imp .mainMsg-title').text('Tin quan trọng');
+
 var newsRef_Data = [{
     img: 'images/newsRef/newsRef15-01.jpg',
     txt: 'Xác nhận phí chuyển nhượng của Saul, Man Utd đối đầu 2 ông lớn EPL',
@@ -19,14 +22,12 @@ var newsRef_Data = [{
 
 newsRef_Data.forEach(function(data) {
     let combination = `<li>
-                        <a href="#/newsRef" class="newsRef" data-news="${data.href}">
+                        <a href="#/newsRef?p=${data.href}">
                             <img src="${data.img}">
                             <p>${data.txt}</p>
                         </a>  
                      </li>`
     $('#newsRef_hot ul,#newsRef_imp ul').append(combination);
 })
-
-
 
 
