@@ -9,10 +9,11 @@ Router.prototype.route = function(path, callback) {
 };
 Router.prototype.refresh = function() {
     // 路由清單
-    let routerList = ['', 'home', 'lottery', 'news', 'broadcast', 'forum', 'resources', 'game', 'newsRef'];
+    let routerList = ['', 'home', 'lottery', 'news', 'broadcast', 'forum', 'resources', 'game', 'newsRef','lotteryRef'];
 
     for (let i = 0; i < 99; i++) {
         routerList.push(`newsRef?p=${i}`)
+        routerList.push(`lotteryRef?p=${i}`)
     }
 
     // console.log(location.hash.slice(1)); 
@@ -78,12 +79,24 @@ Router.route('/newsRef', function() {
     menuList_on(2);
 });
 
+Router.route('/lotteryRef', function() {
+    location = location
+    mainInclude('page/lotteryRef.html');
+    menuList_on(1);
+});
+
 
 for (let i = 1; i < 99; i++) {
     Router.route(`/newsRef?p=${i}`, function() {
         location = location
         mainInclude(`newsRef/news_${i}.html`);
         menuList_on(2);
+    });
+
+    Router.route(`/lotteryRef?p=${i}`, function() {
+        location = location
+        mainInclude(`lotteryRef/lottery_${i}.html`);
+        menuList_on(1);
     });
 }
 

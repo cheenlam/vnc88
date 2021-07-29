@@ -1,7 +1,7 @@
 // newsRef start(新聞內頁)
 .newsRef_box {
     display: flex;
-    padding: 40px 40px 150px;
+    padding: 40px 40px 100px;
     color: #000;
     background-color: #fff;
 }
@@ -9,14 +9,15 @@
     width: calc(100% - 300px);
     margin-right: 20px;
     & > div + div {
-        margin-top: 30px;
+        margin-top: 40px;
     }
     .newsRef_title {
         p {
             padding-bottom: 10px;
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: bold;
             line-height: 35px;
+            color: #282828;
         }
         .txtDate {
             padding: 10px;
@@ -38,6 +39,13 @@
         }
         li {
             line-height: 28px;
+            span{
+                font-weight: bold;
+                display: block;
+            }
+            p+p{
+                margin-top: 10px;
+            }
         }
         li + li {
             margin-top: 25px;
@@ -51,6 +59,22 @@
         }
         li {
             line-height: 28px;
+        }
+    }
+    .newsRef_list2{
+        font-size: 1.2rem;
+        .title{
+            font-weight: bold;
+        }
+        ul{
+            list-style-type: decimal;
+            padding-left: 22px;
+        }
+        li{
+            line-height: 28px;
+        }
+        li+li{
+            margin-top: 30px;
         }
     }
     .newsRef_img {
@@ -77,6 +101,40 @@
             padding-top: 10px;
             font-weight: bold;
         }
+    }
+    .newsRef_tb{
+        table{
+            width: 100%;
+        }
+        tr+tr{
+            border-top: 1px solid #bfbfbf;
+        }
+        th{
+            width: 10%;
+            padding: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            line-height: 25px;
+            text-align: left;
+           &:nth-child(1),
+           &:nth-child(3){
+               width: 20%;
+           }
+        }
+       
+        td{
+            padding: 10px;
+            color: #3f3f3f;
+            line-height: 25px;
+        }
+    }
+
+    .newsRef_btn{
+      display: flex;
+      justify-content: flex-start;
+      .btn{
+          padding: 0 15px;
+      }
     }
 }
 .newsRef_menu {
