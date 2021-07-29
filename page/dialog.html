@@ -3,10 +3,10 @@
     <!-- 忘記密碼 -->
     <div class="dialog_cnt_01 forget">
         <div class="close"></div>
-        <div class="title">忘記密碼</div>
+        <div class="title">Quên mật khẩu</div>
         <div class="innerBox">
             <div>
-                <span>帳號：</span>
+                <span>Tài khoản：</span>
                 <div class="iptBox">
                     <input type="text" placeholder="請輸入帳號">
                 </div>
@@ -17,14 +17,14 @@
                     <input type="email" placeholder="請輸入電子信箱">
                     <div class="selectBox">
                         <select>
-                            <option value="email">電子信箱</option>
-                            <option value="phone">手機號碼</option>
+                            <option value="email">Thư điện tử</option>
+                            <option value="phone">Số điện thoại di động</option>
                         </select>
                     </div>
                 </div>
             </div>
             <div>
-                <span>驗證碼：</span>
+                <span>Mã xác minh：</span>
                 <div class="iptBox">
                     <input type="number" placeholder="請輸入驗證碼">
                 </div>
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="btn_linear_c1 btn">
-                <div class="btn_cnt">提交</div>
+                <div class="btn_cnt">Gửi đi</div>
             </div>
         </div>
 
@@ -41,28 +41,28 @@
     <!-- 註冊會員 -->
     <div class="dialog_cnt_01 regd">
         <div class="close"></div>
-        <div class="title">註冊</div>
+        <div class="title">Đăng kí</div>
         <div class="innerBox">
             <div>
-                <span>帳號：</span>
+                <span>Tài khoản：</span>
                 <div class="iptBox">
-                    <input type="email" placeholder="請輸入電子信箱" >
+                    <input type="email" placeholder="請輸入電子信箱">
                 </div>
             </div>
             <div>
-                <span>密碼：</span>
+                <span>Mật khẩu：</span>
                 <div class="iptBox">
                     <input type="password" minlength="6" maxlength="12" placeholder="請輸入6~12個英/數字組合">
                 </div>
             </div>
             <div>
-                <span>手機：</span>
+                <span>Số điện thoại di động：</span>
                 <div class="iptBox">
                     <input type="phone" placeholder="請輸入手機號碼">
                 </div>
             </div>
             <div>
-                <span>驗證碼：</span>
+                <span>Mã xác minh：</span>
                 <div class="iptBox">
                     <input type="number" placeholder="請輸入驗證碼">
                 </div>
@@ -75,27 +75,27 @@
                     <input type="checkbox">
                     <div></div>
                 </label>
-                <p>我已滿合法年齡且同意並願意遵守
+                <p>Tôi đủ tuổi hợp pháp và đồng ý cũng như sẵn sàng tuân thủ các quy định
                     <a>使用者規章</a>。
                 </p>
             </div>
             <div class="regd_btn">
                 <div class="btn_linear_c1 btn">
-                    <div class="btn_cnt">註冊</div>
+                    <div class="btn_cnt">Đăng kí</div>
                 </div>
                 <div class="btn_linear_c2 btn">
-                    <div class="btn_cnt">取消</div>
+                    <div class="btn_cnt">Hủy</div>
                 </div>
             </div>
-            <p>------ 使用第三方登入 ------</p>
+            <p>------ Sử dụng thông tin đăng nhập của bên thứ ba ------</p>
             <div class="btn_linear_c4 btn">
-                <div class="btn_cnt">FaceBook 登入</div>
+                <div class="btn_cnt">Đăng nhập Facebook</div>
             </div>
             <div class="btn_linear_c4 btn">
-                <div class="btn_cnt">Zalo 登入</div>
+                <div class="btn_cnt">Đăng nhập Zalo</div>
             </div>
             <div class="btn_linear_c4 btn">
-                <div class="btn_cnt">Telegram 登入</div>
+                <div class="btn_cnt">Đăng nhập Telegram</div>
             </div>
         </div>
     </div>
@@ -130,7 +130,7 @@
         </div>
     </div>
     <!-- 今日遊戲 -->
-    <div class="todayGame">   
+    <div class="todayGame">
         <div class="close"></div>
         <div class="todayGame_actor">
             <img src="./images/god2.gif">
@@ -161,26 +161,25 @@
 
     $('#newGift_cnt .btn').click(function() {
         let getCode = ($('#newGift_cnt input').val()).toUpperCase()
-        let data = parseInt(Math.random() * 12 + 1); 
+        let data = parseInt(Math.random() * 12 + 1);
 
         if (getCode == 'VNC88') {
-            $('#newGift_cnt button,#newGift_cnt input').attr('disabled',true)
+            $('#newGift_cnt button,#newGift_cnt input').attr('disabled', true)
             $('#newGift_cnt input').val('')
-            $('#rou_body').css('transform', `rotate(${(30*data + 3600)}deg)`).css('transition','4s');
-            setTimeout(function(){
-                $('#newGift_cnt button,#newGift_cnt input').attr('disabled',false)
-            },4000)
+            $('#rou_body').css('transform', `rotate(${(30*data + 3600)}deg)`).css('transition', '4s');
+            setTimeout(function() {
+                $('#newGift_cnt button,#newGift_cnt input').attr('disabled', false)
+            }, 4000)
         }
     })
 
-    $('#newGift_cnt input').on('focus',function(){
+    $('#newGift_cnt input').on('focus', function() {
         reGift()
     })
 
-    function reGift(){
+    function reGift() {
         $('#newGift_cnt input').val('')
-        $('#rou_body').css('transform', `rotate(0deg)`).css('transition','0s')
-        $('#newGift_cnt button,#newGift_cnt input').attr('disabled',false);
+        $('#rou_body').css('transform', `rotate(0deg)`).css('transition', '0s')
+        $('#newGift_cnt button,#newGift_cnt input').attr('disabled', false);
     }
-
 </script>
