@@ -14,7 +14,7 @@
     @media screen and (max-width: 1280px) {
         height: 230px;
     }
-    .sw-slides {
+    @at-root .sw-slides {
         display: block;
         padding: 0;
         list-style: none;
@@ -27,7 +27,7 @@
         position: absolute;
         bottom: 0;
     }
-    .sw-slide {
+    @at-root .sw-slide {
         width: 100%;
         height: 100%;
         margin: auto;
@@ -41,7 +41,7 @@
             font-size: 14px;
         }
     }
-    .sw-slide>img {
+    @at-root .sw-slide>img {
         position: absolute;
         top: 50%;
         left: 50%;
