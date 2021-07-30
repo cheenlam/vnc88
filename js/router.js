@@ -14,6 +14,9 @@ Router.prototype.refresh = function() {
     for (let i = 0; i < 99; i++) {
         routerList.push(`newsRef?p=${i}`)
         routerList.push(`lotteryRef?p=${i}`)
+
+        routerList.push(`news?p=${i}`)
+        routerList.push(`lottery?p=${i}`)
     }
 
     // console.log(location.hash.slice(1)); 
@@ -77,13 +80,25 @@ Router.route('/game', function() {
 for (let i = 1; i < 99; i++) {
     Router.route(`/newsRef?p=${i}`, function() {
         location = location
-        mainInclude(`newsRef/news_${i}.html`);
-        menuList_on(2);
+        mainInclude(`newsRef/newsRef_${i}.html`);
+        menuList_on(0);
     });
 
     Router.route(`/lotteryRef?p=${i}`, function() {
         location = location
-        mainInclude(`lotteryRef/lottery_${i}.html`);
+        mainInclude(`lotteryRef/lotteryRef_${i}.html`);
+        menuList_on(0);
+    });
+
+    Router.route(`/news?p=${i}`, function() {
+        location = location
+        mainInclude(`page/news/news_${i}.html`);
+        menuList_on(2);
+    });
+
+    Router.route(`/lottery?p=${i}`, function() {
+        location = location
+        mainInclude(`page/lottery/lottery_${i}.html`);
         menuList_on(1);
     });
 }
