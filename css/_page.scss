@@ -365,11 +365,15 @@
             flex-direction: column;
             justify-content: space-between;
             & > div {
+                height: calc(50% - 5px);
                 display: flex;
                 color: #000;
+                background-color: #0af;
             }
             .listImg {
                 width: calc(50% - 10px);
+                height: 100%;
+                background: #000 no-repeat center top/cover;
                 flex-shrink: 0;
             }
             .listMsg {
