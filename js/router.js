@@ -83,7 +83,7 @@ for (let i = 1; i < 99; i++) {
 
     Router.route(`/lotteryRef?p=${i}`, function() {
         location = location
-        mainInclude(`lotteryRef/lottery_${i}.html`);
+        mainInclude(`lotteryRef/lotteryRef_${i}.html`);
         menuList_on(1);
     });
 }
