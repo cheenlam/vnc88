@@ -77,7 +77,7 @@ Router.route('/game', function() {
 for (let i = 1; i < 99; i++) {
     Router.route(`/newsRef?p=${i}`, function() {
         location = location
-        mainInclude(`newsRef/news_${i}.html`);
+        mainInclude(`newsRef/newsRef_${i}.html`);
         menuList_on(2);
     });
 
