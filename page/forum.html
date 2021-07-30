@@ -22,18 +22,18 @@
             <div class="forum_top">
                 <div class="forum_link">
                     <ul>
-                        <li class="on">足球</li>
-                        <li>英超</li>
-                        <li>西甲</li>
-                        <li>世界盃</li>
-                        <li>歐洲杯</li>
-                        <li>法甲</li>
-                        <li>其他賽事</li>
+                        <li class="on">Bóng đá</li>
+                        <li>Premier League</li>
+                        <li>La Liga (Campeonato Nacional de Liga de Primera División)</li>
+                        <li>World Cup ( FIFA World Cup )</li>
+                        <li>C1 ( UEFA Champions League )</li>
+                        <li>Ligue 1 ( Ligue 1 Uber Eats )</li>
+                        <li>Các giải bóng đá khác</li>
                     </ul>
                 </div>
                 <div class="forum_search">
                     <div>
-                        <input type="text" placeholder="請輸入關鍵字">
+                        <input type="text" placeholder="Vui lòng nhập từ khóa">
                         <div class="icon"></div>
                     </div>
                 </div>
@@ -43,28 +43,28 @@
             <div class="forum_tool">
                 <div>
                     <div class="forum_sort">
-                        <div class="title">分類</div>
+                        <div class="title">Phân loại</div>
                         <ul>
-                            <li class="on">全部</li>
-                            <li>分析</li>
-                            <li>感謝</li>
-                            <li>Live</li>
-                            <li>亮單</li>
-                            <li>新聞</li>
+                            <li class="on">Toàn bộ</li>
+                            <li>Phân tích</li>
+                            <li>Cảm ơn</li>
+                            <li>Trực tiếp</li>
+                            <li>List đặt cược</li>
+                            <li>Tin tức</li>
                         </ul>
                     </div>
                     <div class="forum_array">
-                        <div class="title">排序</div>
+                        <div class="title">Sắp xếp</div>
                         <ul>
-                            <li class="on">最新回覆</li>
-                            <li>最新文章</li>
+                            <li class="on">Trả lời mới</li>
+                            <li>Bài viết mới</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="btn_linear_c1 btn">
                     <div class="btn_cnt">
-                        發表文章
+                        Phát biểu mới
                     </div>
                 </div>
             </div>
@@ -73,10 +73,10 @@
             <div class="forum_list" id="forum_list">
                 <table>
                     <tr>
-                        <th>主題</th>
-                        <th>作者</th>
-                        <th>最新回覆</th>
-                        <th>回覆/推/瀏覽</th>
+                        <th>Chủ đề</th>
+                        <th>Tác giả</th>
+                        <th>Trả lời mới</th>
+                        <th>Trả lời/ đấy/ duyệt</th>
                     </tr>
                 </table>
             </div>
@@ -100,7 +100,7 @@
 
 <script>
     var forumList_data = [{
-        sort: '新聞',
+        sort: 'Tin tức',
         title: '6/28 記得掃廁所...',
         avatar_img: 'images/avatar_01.png',
         releaseName: '發大財',
@@ -111,7 +111,7 @@
         pushNum: 4,
         browseNum: 35,
     }, {
-        sort: '足球',
+        sort: 'Bóng đá',
         title: '6/15 吃米粉湯配足球賽',
         avatar_img: 'images/avatar_01.png',
         releaseName: '發大財',
@@ -121,9 +121,8 @@
         replyNum: 20,
         pushNum: 0,
         browseNum: 100,
-    },
-    {
-        sort: '閒聊',
+    }, {
+        sort: 'Trò chuyện',
         title: '請幫我集氣!',
         avatar_img: 'images/avatar_02.png',
         releaseName: 'Wigi',
@@ -133,9 +132,8 @@
         replyNum: 9527,
         pushNum: 79979,
         browseNum: 66666,
-    }, 
-    {
-        sort: '閒聊',
+    }, {
+        sort: 'Trò chuyện',
         title: '中午要去吃什麼',
         avatar_img: 'images/avatar_03.png',
         releaseName: '小高',
@@ -145,11 +143,11 @@
         replyNum: 15,
         pushNum: 65535,
         browseNum: 16888,
-    },  ];
+    }, ];
 
-    for(let i =0;i<3;i++){
-        forumList_data.forEach(function(data){
-        let combination = `<tr>
+    for (let i = 0; i < 3; i++) {
+        forumList_data.forEach(function(data) {
+            let combination = `<tr>
                                 <td>
                                     <div class="title">
                                         <div class="sort">${data.sort}</div>
@@ -177,11 +175,10 @@
                                     <p class="num">${data.replyNum}/${data.pushNum}/${data.browseNum}</p>
                                 </td>
                             </tr>`
-                            $('#forum_list table').append(combination);
+            $('#forum_list table').append(combination);
 
-    })
+        })
     }
-    
 </script>
 
 <script src="js/index.js"></script>
