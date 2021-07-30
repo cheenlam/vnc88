@@ -2981,13 +2981,12 @@ body {
   display: -ms-flexbox;
   display: flex;
   color: #000;
-  background-color: #0af;
 }
 
 .mainRec .recCount .list .listImg {
   width: calc(50% - 10px);
   height: 100%;
-  background: #000 no-repeat center top/cover;
+  background: no-repeat center top/cover;
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
@@ -3012,7 +3011,8 @@ body {
 }
 
 .mainRec .recCount .list .listMsg p {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  line-height: 22px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

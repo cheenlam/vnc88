@@ -368,12 +368,11 @@
                 height: calc(50% - 5px);
                 display: flex;
                 color: #000;
-                background-color: #0af;
             }
             .listImg {
                 width: calc(50% - 10px);
                 height: 100%;
-                background: #000 no-repeat center top/cover;
+                background: no-repeat center top/cover;
                 flex-shrink: 0;
             }
             .listMsg {
@@ -387,7 +386,8 @@
                     @include txtChip(2);
                 }
                 p {
-                    font-size: 0.9rem;
+                    font-size: 1rem;
+                    line-height: 22px;
                     @include txtChip(3);
                 }
             }
