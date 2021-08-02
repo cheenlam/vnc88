@@ -4920,6 +4920,7 @@ body {
   cursor: pointer;
 }
 
+.resourcesBox .lottory-tb td a > div,
 .resourcesBox .lottory-tb td > div {
   display: -webkit-box;
   display: -ms-flexbox;
