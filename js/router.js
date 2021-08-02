@@ -114,10 +114,12 @@ function mainInclude(src) {
             $("#content").html(html);
         },
         // 發送前
-        beforeSend: function() {
+        beforeSend: function() {   
+                 
         },
         // 完成
-        complete: function() {
+        complete: function() { 
+            $('#loading').addClass('on') 
         },
         error: function(error) {
             location.href = "#/home"

@@ -263,6 +263,23 @@ img {
   margin-right: 5px;
 }
 
+.mainCarousel {
+  width: 100%;
+  height: 0;
+  padding-bottom: calc(50% * 0.78);
+  position: relative;
+  overflow: hidden;
+  display: block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.mainCarousel .sw-bullet {
+  display: none;
+}
+
 .marquee_body {
   width: 100%;
   height: 100%;
@@ -313,6 +330,8 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-animation: dialogBox .5s forwards;
+          animation: dialogBox .5s forwards;
 }
 
 .dialogBox > .close {
@@ -435,12 +454,14 @@ img {
 
 .dialog_cnt_01 .innerBox span {
   width: 120px;
+  padding-right: 5px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   text-align: right;
   font-weight: bold;
   color: #869bae;
   margin-right: 6px;
+  position: relative;
 }
 
 .dialog_cnt_01 .innerBox .iptBox {
@@ -841,11 +862,11 @@ img {
 }
 
 .dialogBox .todayGame .todayGame_actor {
-  width: 90%;
+  width: 75%;
   margin: auto;
   position: absolute;
-  bottom: -13%;
-  left: -50%;
+  bottom: -10%;
+  left: -40%;
   z-index: 1;
 }
 
@@ -973,6 +994,24 @@ img {
   100% {
     -webkit-transform: scale(2);
             transform: scale(2);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes dialogBox {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dialogBox {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
   }
 }
@@ -2105,6 +2144,156 @@ body {
   }
 }
 
+.loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 50;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.loading.on {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.loading::before {
+  content: 'loading...';
+  margin: auto;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  font-size: 1.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0.5;
+  -webkit-animation: load_txt 2s linear infinite;
+          animation: load_txt 2s linear infinite;
+}
+
+.loading .load_round {
+  -webkit-animation: load_round 1s linear infinite;
+          animation: load_round 1s linear infinite;
+  width: 160px;
+  height: 160px;
+  top: 20px;
+  left: 20px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 4px 0 0 #fff;
+          box-shadow: 0 4px 0 0 #fff;
+  -webkit-transform-origin: 80px 82px;
+          transform-origin: 80px 82px;
+}
+
+@-webkit-keyframes load_txt {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes load_txt {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes load_round {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-box-shadow: 0 4px 0 0 #fff;
+            box-shadow: 0 4px 0 0 #fff;
+  }
+  25% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    -webkit-box-shadow: 0 4px 0 0 #fa5555;
+            box-shadow: 0 4px 0 0 #fa5555;
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    -webkit-box-shadow: 0 4px 0 0 #4d58f3;
+            box-shadow: 0 4px 0 0 #4d58f3;
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+    -webkit-box-shadow: 0 4px 0 0 #fafd5a;
+            box-shadow: 0 4px 0 0 #fafd5a;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    -webkit-box-shadow: 0 4px 0 0 #fff;
+            box-shadow: 0 4px 0 0 #fff;
+  }
+}
+
+@keyframes load_round {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-box-shadow: 0 4px 0 0 #fff;
+            box-shadow: 0 4px 0 0 #fff;
+  }
+  25% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    -webkit-box-shadow: 0 4px 0 0 #fa5555;
+            box-shadow: 0 4px 0 0 #fa5555;
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    -webkit-box-shadow: 0 4px 0 0 #4d58f3;
+            box-shadow: 0 4px 0 0 #4d58f3;
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+    -webkit-box-shadow: 0 4px 0 0 #fafd5a;
+            box-shadow: 0 4px 0 0 #fafd5a;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    -webkit-box-shadow: 0 4px 0 0 #fff;
+            box-shadow: 0 4px 0 0 #fff;
+  }
+}
+
 .flexAd {
   margin-bottom: 40px;
 }
@@ -2834,6 +3023,7 @@ body {
 .mainNews .mainNews_t .news_main .news_mainImg {
   width: 750px;
   height: 410px;
+  overflow: hidden;
   position: relative;
   background: no-repeat center top /cover;
   margin-right: 20px;
@@ -3662,22 +3852,205 @@ body {
   border-radius: 3px;
 }
 
-.broadcast .scheduleList {
+.chatBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.chatroom {
+  width: calc(100% - 300px);
+  padding-right: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chatroom .chat_title {
+  height: 35px;
+  line-height: 35px;
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #fff;
+  background-color: #000;
+}
+
+.chatroom .chat_list {
+  margin: 10px 0;
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #000;
+  overflow: hidden;
+  position: relative;
+}
+
+.chatroom .chat_list > div {
+  height: 400px;
+  padding: 10px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.chatroom .chat_list > div::-webkit-scrollbar {
+  width: 7px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 4px #000 inset;
+          box-shadow: 0 0 4px #000 inset;
+}
+
+.chatroom .chat_list > div::-webkit-scrollbar-thumb {
+  background: linear-gradient(30deg, #eb518c, #ebebe9, #d35590);
+  border: none;
+}
+
+.chatroom .chat_list::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: url(../images/bodyBg.jpg) no-repeat center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+}
+
+.chatroom .chat_list ul {
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chatroom .chat_list li {
+  width: 65%;
+  padding: 10px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 10px;
+  opacity: 0.75;
+}
+
+.chatroom .chat_list li.self {
+  background-color: #EFFDDE;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.chatroom .chat_list li.self .chat_member {
+  text-align: right;
+}
+
+.chatroom .chat_list li.self::before {
+  border-width: 7.5px 0 7.5px 13.0px;
+  border-color: transparent transparent transparent #EFFDDE;
+  right: -13px;
+  left: unset;
+}
+
+.chatroom .chat_list li::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7.5px 13.0px 7.5px 0;
+  border-color: transparent #fff transparent transparent;
+  position: absolute;
+  top: 8px;
+  left: -13px;
+}
+
+.chatroom .chat_list li + li {
+  margin-top: 15px;
+}
+
+.chatroom .chat_member {
+  margin-right: 10px;
+  padding-bottom: 2px;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.chatroom .chat_name {
+  padding-left: 5px;
+}
+
+.chatroom .chat_ipt {
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.chatroom .chat_ipt .chat_msg {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  font-size: 1.1rem;
+}
+
+.chatroom .chat_ipt .chat_color {
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.chatroom .chat_ipt .chat_color::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #fff url(../images/select_color.png) no-repeat center/60%;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.chatBox .chatAd {
+  width: 300px;
+}
+
+.chatBox .chatAd li + li {
+  margin-top: 5px;
+}
+
+.scheduleList {
   color: #000;
 }
 
-.broadcast .scheduleList .dateList {
+.scheduleList .dateList {
   margin-bottom: 20px;
 }
 
-.broadcast .scheduleList .dateList .today {
+.scheduleList .dateList .today {
   padding-bottom: 10px;
   font-size: 1.1rem;
   font-weight: bold;
   text-align: center;
 }
 
-.broadcast .scheduleList .dateList ul {
+.scheduleList .dateList ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3686,7 +4059,7 @@ body {
           box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-.broadcast .scheduleList .dateList li {
+.scheduleList .dateList li {
   padding: 10px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -3700,17 +4073,17 @@ body {
   transition: 0.3s;
 }
 
-.broadcast .scheduleList .dateList li:active {
+.scheduleList .dateList li:active {
   background-color: #bfbfbf;
 }
 
 @media (any-hover: hover) {
-  .broadcast .scheduleList .dateList li:hover {
+  .scheduleList .dateList li:hover {
     background-color: #bfbfbf;
   }
 }
 
-.broadcast .scheduleList .dateList li + li::before {
+.scheduleList .dateList li + li::before {
   content: "";
   width: 1px;
   height: calc(100% - 20px);
@@ -3722,49 +4095,49 @@ body {
   left: 0;
 }
 
-.broadcast .scheduleList .dateList .date_num {
+.scheduleList .dateList .date_num {
   font-size: 1.8rem;
   margin-bottom: 15px;
 }
 
-.broadcast .scheduleList .dateList .date_week {
+.scheduleList .dateList .date_week {
   text-align: right;
 }
 
-.broadcast .scheduleList .matchList table {
+.scheduleList .matchList table {
   width: 100%;
 }
 
-.broadcast .scheduleList .matchList tr + tr {
+.scheduleList .matchList tr + tr {
   border-top: 1px solid #bfbfbf;
 }
 
-.broadcast .scheduleList .matchList td {
+.scheduleList .matchList td {
   padding: 20px 10px;
 }
 
-.broadcast .scheduleList .matchList td:first-child {
+.scheduleList .matchList td:first-child {
   white-space: nowrap;
 }
 
-.broadcast .scheduleList .matchList td:last-child {
+.scheduleList .matchList td:last-child {
   width: 100%;
 }
 
-.broadcast .scheduleList .matchList .match_title {
+.scheduleList .matchList .match_title {
   font-size: 0.85rem;
 }
 
-.broadcast .scheduleList .matchList .match_title > p {
+.scheduleList .matchList .match_title > p {
   font-size: 0.9rem;
   font-weight: bold;
 }
 
-.broadcast .scheduleList .matchList .match_title.on .match_live {
+.scheduleList .matchList .match_title.on .match_live {
   display: block;
 }
 
-.broadcast .scheduleList .matchList .match_time {
+.scheduleList .matchList .match_time {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3774,11 +4147,11 @@ body {
   padding-bottom: 4px;
 }
 
-.broadcast .scheduleList .matchList .match_time p {
+.scheduleList .matchList .match_time p {
   padding-right: 10px;
 }
 
-.broadcast .scheduleList .matchList .match_live {
+.scheduleList .matchList .match_live {
   padding: 1px 4px;
   border-radius: 2px;
   color: #f00;
@@ -3789,7 +4162,7 @@ body {
   display: none;
 }
 
-.broadcast .scheduleList .matchList .match_teams {
+.scheduleList .matchList .match_teams {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3798,13 +4171,13 @@ body {
           align-items: center;
 }
 
-.broadcast .scheduleList .matchList .match_teams .vs {
+.scheduleList .matchList .match_teams .vs {
   width: 40px;
   font-size: 0.9rem;
   text-align: center;
 }
 
-.broadcast .scheduleList .matchList .match_teams .team {
+.scheduleList .matchList .match_teams .team {
   width: calc((100% - 40px) / 2);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3814,12 +4187,12 @@ body {
           align-items: center;
 }
 
-.broadcast .scheduleList .matchList .match_teams .team_flag {
+.scheduleList .matchList .match_teams .team_flag {
   width: 30px;
   margin: 0 10px;
 }
 
-.broadcast .scheduleList .matchList .match_teams .team_L {
+.scheduleList .matchList .match_teams .team_L {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -4090,13 +4463,13 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .forum_link li {
   padding: 0 10px;
+  margin: 10px 0;
   position: relative;
   cursor: pointer;
   font-weight: bold;

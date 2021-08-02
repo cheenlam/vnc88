@@ -33,8 +33,6 @@
     <!-- <a href="#/lottery?p=1">lottery</a>  -->
 
 
-
-
     <!-- ===== header start ===== -->
     <div class="header">
         <!-- hd_top start -->
@@ -325,6 +323,9 @@
     <!-- ===== dialogCnt start ===== -->
     <div class="dialogCnt" id="dialogCnt"></div>
 
+    <div class="loading" id="loading">
+        <div class="load_round"></div>
+    </div>
 </body>
 
 <script>
@@ -341,7 +342,8 @@
         storageBucket: "login-a4c56.appspot.com",
         messagingSenderId: "446192149335",
         appId: "1:446192149335:web:c1bbb2ba15206bb5921412",
-        measurementId: "G-2ZYH9PZFK0"
+        measurementId: "G-2ZYH9PZFK0",
+        databaseURL: "https://login-a4c56-default-rtdb.asia-southeast1.firebasedatabase.app/"
     };
 
     firebase.initializeApp(firebaseConfig);
@@ -350,6 +352,9 @@
     let db = firebase.firestore();
     let docRef = db.collection("showLive");
     let docRef2 = db.collection("ytMovie");
+    var database = firebase.database().ref().limitToLast(50);
+
+    
 </script>
 
 </html>

@@ -332,8 +332,154 @@
         }
     }
 
+    // chatroom start (聊天室)
+    @at-root .chatBox {
+        display: flex;
+        @at-root .chatroom {
+            width: calc(100% - 300px);
+            padding-right: 15px;
+            display: flex;
+            flex-direction: column;
+
+            .chat_title {
+                height: 35px;
+                line-height: 35px;
+                padding: 0 10px;
+                font-weight: bold;
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+                color: #fff;
+                background-color: #000;
+            }
+
+            .chat_list {
+                margin: 10px 0;  
+                border: 1px solid #333;
+                border-radius: 5px;
+                color: #000;
+                overflow: hidden;
+               position: relative;
+                &>div{
+                    height: 400px;
+                    padding: 10px;
+                    overflow-y: auto;
+                    position: relative;
+                    &::-webkit-scrollbar{
+                        width: 7px;
+                        background-color: #fff;
+                        box-shadow: 0 0 4px #000 inset;
+                    }
+                    &::-webkit-scrollbar-thumb{
+                        background: linear-gradient(30deg,#eb518c,rgb(235, 235, 233),#d35590);
+                        border: none;
+                    }
+                }
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background: url(../images/bodyBg.jpg) no-repeat center / cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0.7;
+                }
+                ul {
+                    padding: 0 20px;
+                    display: flex;
+                    flex-direction: column;
+                }
+                li {
+                    width: 65%;
+                    padding: 10px;
+                    position: relative;
+                    background-color: #fff;
+                    border-radius: 10px;
+                    opacity: 0.75;
+                    &.self {
+                        background-color: #EFFDDE;
+                        align-self: flex-end;
+                        .chat_member {
+                            text-align: right;        
+                        }
+                        &::before{
+                            border-width: 7.5px 0 7.5px 13.0px;
+                            border-color: transparent transparent transparent #EFFDDE; 
+                            right: -13px;
+                            left: unset;
+                        }
+                    }
+                }
+                li::before {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 7.5px 13.0px 7.5px 0;
+                    border-color: transparent #fff transparent transparent;
+                    position: absolute;
+                    top: 8px;
+                    left: -13px;
+                }
+
+                li + li {
+                    margin-top: 15px;
+                }
+            }
+
+            .chat_member {
+                margin-right: 10px;
+                padding-bottom: 2px;
+                font-size: 0.9rem;
+                color: #999;
+            }
+            .chat_name {
+                padding-left: 5px;
+            }
+            .chat_ipt {
+                height: 60px;
+                display: flex;
+                align-items: center;
+                .chat_msg {
+                    width: 100%;
+                    height: 100%;
+                    padding: 0 10px;
+                    border-radius: 5px;
+                    border: 1px solid #333;
+                    font-size: 1.1rem;
+                }
+                .chat_color {
+                    width: 45px;
+                    height: 45px;
+                    margin-left: 10px;
+                    flex-shrink: 0;
+                    @include fullNone;
+                    cursor: pointer;
+                    position: relative;
+
+                    &::before{
+                        content: '';
+                        width: 100%;
+                        height: 100%;
+                        background:#fff url(../images/select_color.png) no-repeat center / 60%;
+                        background-color: #fff;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+            }  
+        }
+        .chatAd {
+            width: 300px;
+            li + li {
+                margin-top: 5px;
+            }
+        }
+    }
+
     // scheduleList start (時程表)
-    .scheduleList {
+    @at-root .scheduleList {
         color: #000;
         .dateList {
             margin-bottom: 20px;

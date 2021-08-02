@@ -355,9 +355,23 @@
 
         <!-- mainRec start -->
         <div class="mainRec">
-            <div class="carousel">
-                <img src="images/carousel/minBanner-01.jpg">
+            <div id="mainCarousel" class="mainCarousel">
+                <ul class="sw-slides">
+                    <li class="sw-slide">
+                        <img src="images/carousel/minBanner-01.jpg">
+                    </li>
+                    <li class="sw-slide">
+                        <img src="images/carousel/minBanner-01.jpg">
+                    </li>
+                    <li class="sw-slide">
+                        <img src="images/carousel/minBanner-01.jpg">
+                    </li>
+                    <li class="sw-slide">
+                        <img src="images/carousel/minBanner-01.jpg">
+                    </li>
+                </ul>
             </div>
+
             <div class="recCount">
                 <div>
                     <div class="mainMsg-title">NHÀ CÁI UY TÍN</div>
@@ -413,3 +427,8 @@
 </div>
 
 <script src="js/index.js"></script>
+
+<script>
+    // 啟動輪播外掛
+    $('#mainCarousel').swipeslider();
+</script>

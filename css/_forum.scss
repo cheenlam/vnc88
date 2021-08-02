@@ -43,10 +43,11 @@
                 color: #00479d;
                 ul {
                     display: flex;
-                    justify-content: flex-end;
+                    flex-wrap: wrap;
                 }
                 li {
                     padding: 0 10px;
+                    margin: 10px 0;
                     position: relative;
                     cursor: pointer;
                     font-weight: bold;

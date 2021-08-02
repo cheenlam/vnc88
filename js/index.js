@@ -17,7 +17,12 @@ $('#hd_signIn .btn').click(function() {
     }
 })
 
+
 $(document).ready(function() {
+    setTimeout(function(){
+        $('#loading').removeClass('on')  
+    },500)
+   
     window.scrollTo({ top: 0 });
     dialog();
 })
@@ -101,4 +106,3 @@ $('#todayGame').click(function() {
     $("#dialogBox").addClass('on');
     $("#dialogBox .todayGame").addClass('on');
 })
-
