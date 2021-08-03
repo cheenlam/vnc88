@@ -73,7 +73,37 @@
                     </div>
                 </div>
                 <div class="chat_ipt" id="chat_ipt">
-                    <input type="text" class="chat_msg" id="chat_msg" placeholder="Type here to send a message">
+                    <div class="chat_txt">
+                        <div class="chat_msg" id="chat_msg" contenteditable="true"></div>
+                        <span class="chat_take" disabled>Message</span>
+                    </div>
+                    <div class="chat_iconBtn" id="chat_iconBtn">
+                        <div class="chat_iconList" id="chat_iconList">
+                            <ul>
+                                <li><img src="images/icon/i_chat_1.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_2.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_3.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_4.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_5.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_6.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_7.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_8.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_9.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_10.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_11.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_12.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_13.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_14.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_15.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_16.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_17.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_18.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_19.png" class="chat_icon"></li>
+                                <li><img src="images/icon/i_chat_20.png" class="chat_icon"></li>
+                            </ul>
+                        </div>
+                    </div>
+
                     <input type="color" class="chat_color" id="chat_color"></input>
                 </div>
             </div>
@@ -413,12 +443,14 @@
         var getData = snapshot.val()
         var txt = ''
         for (let i in getData) {
+            let msg = getData[i].msg.split('<div>').join('').split('</div>').join('').replace('<br>', '');
+
             txt += `<li class="${getData[i].id == 'id' + databaseMs?'self':''}" >
                         <div class="chat_member">
                             <span class="chat_time" id="chat_time">${getData[i].time}</span>
                             <span class="chat_name" id="chat_name">${getData[i].name}</span>
                         </div>
-                        <div class="chat_speak" id="chat_speak" style="color:${getData[i].color}">${getData[i].msg}</div>
+                        <div class="chat_speak" id="chat_speak" style="color:${getData[i].color}">${msg}</div>
                     </li>`
         }
 
@@ -427,6 +459,7 @@
         var chat_sc = document.getElementById('chat_sc');
         chat_sc.scrollTop = chat_sc.scrollHeight;
     });
+
     var chat_ipt = false
     $('#chat_msg').focus(function() {
         chat_ipt = true
@@ -440,6 +473,29 @@
         }
     });
 
+    // 加入icon圖片
+    $('#chat_iconList li').click(function() {
+        let getIndex = $('#chat_iconList li').index(this);
+        $('#chat_msg').append(`<img src="images/icon/i_chat_${getIndex+1}.png" class="chat_icon">`);
+        $('#chat_msg').focus();
+        showTake();
+    })
+
+    $('#chat_msg').focus(function() {
+        $(document).keydown(function(e) {
+            showTake();
+        });
+    })
+
+    function showTake() {
+        let state = $('#chat_msg').html().length;
+        if (state >= 1) {
+            $('.chat_take').css('display', 'none');
+        } else {
+            $('.chat_take').css('display', 'flex');
+        }
+    }
+
     function write() {
         var date = new Date();
         var h = date.getHours();
@@ -452,17 +508,22 @@
             m = '0' + m;
         }
         var now = h + ':' + m
+        var getMsg = $('#chat_msg').html().split('<div>').join('').split('</div>').join('').replace('<br>', '')
         var postData = {
             name: '匿名',
-            msg: $('#chat_msg').val(),
+            msg: getMsg,
             time: now,
             id: 'id' + databaseMs,
             color: $('#chat_color').val()
         };
 
         firebase.database().ref().push(postData);
-        $('#chat_msg').val('')
-        $('#chat_msg').focus();
+        $('#chat_msg').attr('contenteditable', "false")
+        $('#chat_msg').html('')
+        $('#chat_msg').attr('contenteditable', "true");
+        setTimeout(function() {
+            $('#chat_msg').focus();
+        }, 100)
     }
 </script>
 

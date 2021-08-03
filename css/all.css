@@ -3935,16 +3935,19 @@ body {
 }
 
 .chatroom .chat_list li {
-  width: 65%;
+  max-width: 65%;
   padding: 10px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   position: relative;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
-  opacity: 0.75;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .chatroom .chat_list li.self {
-  background-color: #EFFDDE;
+  background-color: #effddeb4;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
@@ -3955,7 +3958,7 @@ body {
 
 .chatroom .chat_list li.self::before {
   border-width: 7.5px 0 7.5px 13.0px;
-  border-color: transparent transparent transparent #EFFDDE;
+  border-color: transparent transparent transparent #effddeb4;
   right: -13px;
   left: unset;
 }
@@ -3966,7 +3969,7 @@ body {
   height: 0;
   border-style: solid;
   border-width: 7.5px 13.0px 7.5px 0;
-  border-color: transparent #fff transparent transparent;
+  border-color: transparent rgba(255, 255, 255, 0.7) transparent transparent;
   position: absolute;
   top: 8px;
   left: -13px;
@@ -3995,21 +3998,54 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+}
+
+.chatroom .chat_ipt .chat_txt {
+  width: 100%;
+  height: 60px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: auto;
+  position: relative;
 }
 
 .chatroom .chat_ipt .chat_msg {
   width: 100%;
-  height: 100%;
+  height: 22px;
+  line-height: 22px;
   padding: 0 10px;
-  border-radius: 5px;
-  border: 1px solid #333;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+}
+
+.chatroom .chat_ipt .chat_take {
+  padding-left: 10px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #eb518c;
+  pointer-events: none;
+  font-size: 1.2rem;
 }
 
 .chatroom .chat_ipt .chat_color {
   width: 45px;
   height: 45px;
-  margin-left: 10px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   background: transparent;
@@ -4019,15 +4055,91 @@ body {
   position: relative;
 }
 
+.chatroom .chat_ipt .chat_color:hover::before {
+  -webkit-filter: grayscale(100%) sepia(100%);
+          filter: grayscale(100%) sepia(100%);
+}
+
 .chatroom .chat_ipt .chat_color::before {
   content: '';
   width: 100%;
   height: 100%;
-  background: #fff url(../images/select_color.png) no-repeat center/60%;
+  background: #fff url(../images/icon/chat_color.svg) no-repeat center/80%;
   background-color: #fff;
   position: absolute;
   top: 0;
   left: 0;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.chatroom .chat_ipt .chat_iconBtn {
+  width: 45px;
+  height: 45px;
+  margin: 0 5px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.chatroom .chat_ipt .chat_iconBtn::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: url(../images/icon/chat_selectImg.svg) no-repeat center/80%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.chatroom .chat_ipt .chat_iconBtn:hover::before {
+  -webkit-filter: grayscale(100%) sepia(100%);
+          filter: grayscale(100%) sepia(100%);
+}
+
+.chatroom .chat_ipt .chat_iconBtn:hover .chat_iconList {
+  display: block;
+}
+
+.chatroom .chat_ipt .chat_iconList {
+  width: 200px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #999;
+  position: absolute;
+  right: 0;
+  bottom: 60%;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 2px 5px #5c5c5c inset;
+          box-shadow: 0px 2px 5px #5c5c5c inset;
+  display: none;
+}
+
+.chatroom .chat_ipt .chat_iconList ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.chatroom .chat_ipt .chat_iconList li {
+  width: calc(100%/5);
+  padding: 2px;
+  cursor: pointer;
+}
+
+.chatroom .chat_ipt .chat_iconList .chat_icon {
+  width: 2rem;
+}
+
+.chatBox .chat_icon {
+  width: 1.25rem;
+  vertical-align: bottom;
+  background-color: transparent !important;
 }
 
 .chatBox .chatAd {
@@ -4920,8 +5032,7 @@ body {
   cursor: pointer;
 }
 
-.resourcesBox .lottory-tb td a > div,
-.resourcesBox .lottory-tb td > div {
+.resourcesBox .lottory-tb .lottoryTb_list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
