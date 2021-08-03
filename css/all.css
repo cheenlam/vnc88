@@ -3096,7 +3096,7 @@ body {
 .mainNews_b li .img {
   width: 100%;
   height: 0;
-  padding-bottom: 80%;
+  padding-bottom: 65%;
   background: no-repeat center top/cover;
 }
 
@@ -3114,6 +3114,12 @@ body {
 
 .mainNews_b li + li {
   margin-left: 20px;
+}
+
+.mainNews_b .newsList_img {
+  height: 0;
+  padding-bottom: 65%;
+  background: no-repeat center/cover;
 }
 
 .mainScore .scoreCnt {
