@@ -9,7 +9,7 @@ Router.prototype.route = function(path, callback) {
 };
 Router.prototype.refresh = function() {
     // 路由清單
-    let routerList = ['', 'home', 'lottery', 'news', 'broadcast', 'forum', 'resources', 'game',];
+    let routerList = ['', 'home', 'lottery', 'news', 'broadcast', 'forum', 'resources', 'game', ];
 
     for (let i = 0; i < 99; i++) {
         routerList.push(`newsRef?p=${i}`)
@@ -17,6 +17,7 @@ Router.prototype.refresh = function() {
 
         routerList.push(`news?p=${i}`)
         routerList.push(`lottery?p=${i}`)
+        routerList.push(`resources?p=${i}`)
     }
 
     // console.log(location.hash.slice(1)); 
@@ -101,6 +102,12 @@ for (let i = 1; i < 99; i++) {
         mainInclude(`page/lottery/lottery_${i}.html`);
         menuList_on(1);
     });
+
+    Router.route(`/resources?p=${i}`, function() {
+        location = location
+        mainInclude(`page/resources/resources_${i}.html`);
+        menuList_on(5);
+    });
 }
 
 
@@ -114,12 +121,12 @@ function mainInclude(src) {
             $("#content").html(html);
         },
         // 發送前
-        beforeSend: function() {   
-                 
+        beforeSend: function() {
+
         },
         // 完成
-        complete: function() { 
-            $('#loading').addClass('on') 
+        complete: function() {
+            $('#loading').addClass('on')
         },
         error: function(error) {
             location.href = "#/home"
