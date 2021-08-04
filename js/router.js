@@ -9,7 +9,7 @@ Router.prototype.route = function(path, callback) {
 };
 Router.prototype.refresh = function() {
     // 路由清單
-    let routerList = ['', 'home', 'lottery', 'news', 'broadcast', 'forum', 'resources', 'game',];
+    let routerList = ['', 'home', 'lottery', 'news', 'broadcast', 'forum', 'resources', 'game','member','member/message','member/changePwd','member/wallet'];
 
     for (let i = 0; i < 99; i++) {
         routerList.push(`newsRef?p=${i}`)
@@ -23,8 +23,8 @@ Router.prototype.refresh = function() {
     //获取到相应的hash值
     let index = routerList.indexOf(location.hash.slice(2))
     if (index == -1) {
-        // this.currentUrl = '/home'
-        // location.href = "#/home"
+        this.currentUrl = '/home'
+        location.href = "#/home"
     } else {
         this.currentUrl = location.hash.slice(1) || '/home';
     }
@@ -58,7 +58,6 @@ Router.route('/news', function() {
     mainInclude('page/news.html');
     menuList_on(2);
 });
-
 Router.route('/broadcast', function() {
     mainInclude('page/broadcast.html');
     menuList_on(3);
@@ -74,6 +73,26 @@ Router.route('/resources', function() {
 Router.route('/game', function() {
     mainInclude('page/game.html');
     menuList_on(6);
+});
+
+Router.route('/member', function() {
+    mainInclude('page/mbrMsg.html');
+    menuList_on(0);
+});
+
+Router.route('/member/message', function() {
+    mainInclude('page/mbrMsg.html');
+    menuList_on(0);
+});
+
+Router.route('/member/changePwd', function() {
+    mainInclude('page/changePwd.html');
+    menuList_on(0);
+});
+
+Router.route('/member/wallet', function() {
+    mainInclude('page/mbrWallet.html');
+    menuList_on(0);
 });
 
 

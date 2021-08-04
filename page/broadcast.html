@@ -484,6 +484,7 @@
     $('#chat_msg').focus(function() {
         $(document).keydown(function(e) {
             showTake();
+            
         });
     })
 
@@ -495,6 +496,8 @@
             $('.chat_take').css('display', 'flex');
         }
     }
+
+
 
     function write() {
         var date = new Date();
