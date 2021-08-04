@@ -5171,7 +5171,7 @@ body {
 }
 
 .mbrSelect {
-  padding-bottom: 40px;
+  padding-bottom: 50px;
 }
 
 .mbrSelect .btn {
@@ -5183,9 +5183,10 @@ body {
 }
 
 .mbrMsg {
-  max-width: 1050px;
+  max-width: 1000px;
+  padding-bottom: 50px;
   margin: auto;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .mbrMsg ul {
@@ -5198,40 +5199,78 @@ body {
 
 .mbrMsg li {
   width: 50%;
-  padding: 0 10px;
+  padding: 10px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.mbrMsg li span {
-  width: 100px;
+.mbrl_title {
+  width: 150px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+  font-weight: bold;
 }
 
-.mbrList {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.mbrIpt {
+.mbrl_content {
   width: 100%;
-  height: 35px;
-  border: 1px solid #999;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-.mbrIpt input {
+.mbrl_ipt {
   width: 100%;
+  height: 40px;
+  border: 1px solid #b5b5b5;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 4px #999 inset;
+          box-shadow: 2px 2px 4px #999 inset;
+}
+
+.mbrl_ipt input {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
   background: transparent;
   outline: none;
   border: none;
+  font-size: 1.2rem;
+}
+
+.mbrl_ipt input:disabled {
+  -webkit-box-shadow: 2px 2px 4px #999 inset;
+          box-shadow: 2px 2px 4px #999 inset;
+  background-color: #ddd;
+  color: #9e9d9d;
+}
+
+.mbrl_txt {
+  padding-left: 5px;
+}
+
+.mbrl_radio input {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.mbrbtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mbrbtn .btn {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+}
+
+.mbrbtn .btn + .btn {
+  margin-left: 10px;
 }
 /*# sourceMappingURL=all.css.map */

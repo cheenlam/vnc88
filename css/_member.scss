@@ -4,7 +4,7 @@
     color: #333;
 
     @at-root .mbrSelect{
-        padding-bottom: 40px;
+        padding-bottom: 50px;
         .btn{
             padding: 0 10px;
             @extend .btn_linear_c2;
@@ -17,36 +17,71 @@
         }
     }
     @at-root .mbrMsg{
-        max-width: 1050px;
+        max-width: 1000px;
+        padding-bottom: 50px;
         margin: auto;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         ul{
             display: flex;
             flex-wrap: wrap;
         }
         li{
             width: 50%;
-            padding: 0 10px;
-            span{
-                width: 100px;
-                flex-shrink: 0;
-            }
-        }
-        @at-root .mbrList{
+            padding: 10px 40px;
             display: flex;
             align-items: center;
-            @at-root .mbrIpt{
+        }
+        @at-root .mbrl_title{
+            width: 150px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        @at-root .mbrl_content{
+            width: 100%;
+        }
+        @at-root .mbrl_ipt{
+            width: 100%;
+            height: 40px;
+            border: 1px solid #b5b5b5;
+            border-radius: 5px;
+            box-shadow: 2px 2px 4px #999 inset;
+            input{
                 width: 100%;
-                height: 35px;
-                border: 1px solid #999;
-                display: flex;
-                align-items: center;
-                input{
-                    width: 100%;
-                    @include fullNone;
+                height: 100%;
+                padding: 0 10px;
+                @include fullNone;
+                font-size: 1.2rem;
+                &:disabled{
+                    box-shadow: 2px 2px 4px #999 inset;
+                    background-color: #ddd;
+                    color: #9e9d9d;
                 }
             }
-            
+        }
+
+        @at-root .mbrl_txt{
+            padding-left: 5px;
+        }
+
+        @at-root .mbrl_radio{
+            input{
+               width: 20px;
+               height: 20px;
+               position: relative;
+            }
+        }
+    }
+
+    @at-root .mbrbtn{
+        display: flex;
+        justify-content: center;
+        .btn{
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+        }
+        .btn+.btn{
+            margin-left: 10px;
         }
     }
 }
