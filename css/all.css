@@ -3119,7 +3119,7 @@ body {
 .mainNews_b .newsList_img {
   height: 0;
   padding-bottom: 65%;
-  background: no-repeat center/cover;
+  background: no-repeat center top/cover;
 }
 
 .mainScore .scoreCnt {
