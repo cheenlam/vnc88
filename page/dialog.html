@@ -29,14 +29,13 @@
                     <input type="number" placeholder="Nhập mã xác minh">
                 </div>
                 <div class="codeBox">
-                    <img src="images/nbCode.jpg">
+                    <canvas id="forgetVerify"></canvas>
                 </div>
             </div>
             <div class="btn_linear_c1 btn">
                 <div class="btn_cnt">Gửi đi</div>
             </div>
         </div>
-
     </div>
     <!-- 註冊會員 -->
     <div class="dialog_cnt_01 regd">
@@ -67,7 +66,7 @@
                     <input type="number" placeholder="Nhập mã xác minh">
                 </div>
                 <div class="codeBox">
-                    <img src="images/nbCode.jpg">
+                    <canvas id="dialogVerify"></canvas>
                 </div>
             </div>
             <div class="check_cnt">
@@ -183,4 +182,50 @@
         $('#rou_body').css('transform', `rotate(0deg)`).css('transition', '0s')
         $('#newGift_cnt button,#newGift_cnt input').attr('disabled', false);
     }
+
+
+    // 驗證碼 (忘記密碼)
+    function forgetVerify() {
+        let codeNum = ''
+        let options = {
+            canvasId: "forgetVerify",
+            txt: `${parseInt(Math.random()*8889+1111)}`,
+            /**傳入驗證碼內容*/
+            height: 34,
+            /**驗證碼高度 */
+            width: 80,
+            /**驗證碼寬度 */
+        };
+        writeAuthCode(options);
+        getVerify_f = function() {
+            return options.txt
+        }
+    }
+    $('#forgetVerify').click(function() {
+        forgetVerify()
+    })
+
+    // 驗證碼 (忘記密碼)
+    function dialogVerify() {
+        let codeNum = ''
+        let options = {
+            canvasId: "dialogVerify",
+            txt: `${parseInt(Math.random()*8889+1111)}`,
+            /**傳入驗證碼內容*/
+            height: 34,
+            /**驗證碼高度 */
+            width: 80,
+            /**驗證碼寬度 */
+        };
+        writeAuthCode(options);
+        getVerify_d = function() {
+            return options.txt
+        }
+    }
+    $('#dialogVerify').click(function() {
+        dialogVerify()
+    })
+
+
 </script>
+

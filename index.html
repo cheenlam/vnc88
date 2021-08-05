@@ -13,6 +13,7 @@
     <script src="js/swipeslider.js"></script>
     <script src="js/marquee.js"></script>
     <script src="js/router.js"></script>
+    <script src="js/verifyCode.js"></script>
     <!-- 自訂義js -->
     <script src="js/index.js"></script>
     <title>VNC88</title>
@@ -31,7 +32,6 @@
     <!-- <a href="#/lottery?p=1">lottery</a> -->
     <!-- 內頁資源頁(範例) -->
     <!-- <a href="#/resources?p=1">resources</a> -->
-
 
 
     <!-- ===== header start ===== -->
@@ -63,6 +63,11 @@
                                 <img src="images/icon/icon-tg.png">
                             </div>
                         </li>
+                        <li class="btn_linear_c1 menuBar" id="menuBar">
+                            <div class="btn_cnt">
+                                <img src="images/icon/menuBar.png">
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div class="hd_signIn" id="hd_signIn" data-signIn="0">
@@ -86,7 +91,7 @@
                                     <input type="number" placeholder="Xác minh">
                                 </label>
                                 <div class="nbCode">
-                                    <img src="images/nbCode.jpg">
+                                    <canvas id='mainVerify'></canvas>
                                 </div>
                             </div>
 
@@ -121,9 +126,9 @@
                                 <div class="btn_cnt">Đăng xuất</div>
                             </div>
                             <div class="btn_linear_c3 btn" data-btn="mbrMsg">
-                                <div class="btn_cnt">
-                                    <a href="#/member"> Thông tin tài khoản</a>
-                                </div>
+                                <a href="#/member">
+                                    <div class="btn_cnt">Thông tin tài khoản</div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -356,6 +361,30 @@
     let docRef = db.collection("showLive");
     let docRef2 = db.collection("ytMovie");
     var database = firebase.database().ref().limitToLast(50);
+
+    // 驗證碼
+    function mainVerify() {
+        let codeNum = ''
+        let options = {
+            canvasId: "mainVerify",
+            txt: `${parseInt(Math.random()*8889+1111)}`,
+            /**傳入驗證碼內容*/
+            height: 34,
+            /**驗證碼高度 */
+            width: 80,
+            /**驗證碼寬度 */
+        };
+        writeAuthCode(options);
+        getVerify_m = function() {
+            return options.txt
+        }
+    }
+    mainVerify()
+
+    $('#mainVerify').click(function(){
+        mainVerify()
+    })
+
 </script>
 
 </html>

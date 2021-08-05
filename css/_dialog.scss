@@ -30,7 +30,9 @@
         z-index: 2;
         background: linear-gradient(0deg, #091422, #0e263c);
         box-shadow: 5px 5px 10px #000;
-        border: 1px solid #f6bf3d;
+        border: 1px solid transparent;
+        border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round;
+
         display: none;
         &.on {
             display: block;
@@ -164,8 +166,10 @@
                 }
             }
             .codeBox {
-                width: 120px;
+                width: 80px;
                 margin-left: 10px;
+                user-select: none;
+                cursor: pointer;
             }
         }
         .check_cnt {
