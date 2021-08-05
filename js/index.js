@@ -8,6 +8,7 @@ $('#hd_signIn .btn').click(function() {
         case 'regd':
             $("#dialogBox").addClass('on');
             $("#dialogBox .regd").addClass('on');
+            dialogVerify();
             break;
         case 'signOut':
             $('#hd_signIn').attr('data-signIn', 0);
@@ -34,16 +35,20 @@ var scroll = $(window).scroll(function() {
 
 $(window).resize(function() {
     floatAd()
+    $('#hd_menu').removeClass('on')
     window.scrollTo({ top: 0 });
 })
 
 // 上方menu浮動
 function floatMenu() {
     let topH = $('#hd_top').height();
-    if (scroll.scrollTop() > topH) {
-        $('#hd_menu').addClass('on');
-    } else {
-        $('#hd_menu').removeClass('on');
+    let winW = $(document).width();
+    if(winW > 1250){
+        if (scroll.scrollTop() > topH ) {
+            $('#hd_menu').addClass('on');
+        } else {
+            $('#hd_menu').removeClass('on');
+        }
     }
 }
 
@@ -95,6 +100,7 @@ function dialog() {
 $('#hd_forget').click(function() {
     $("#dialogBox").addClass('on');
     $("#dialogBox .forget").addClass('on');
+    forgetVerify()
 })
 
 $('#getGift').click(function() {
@@ -105,4 +111,13 @@ $('#getGift').click(function() {
 $('#todayGame').click(function() {
     $("#dialogBox").addClass('on');
     $("#dialogBox .todayGame").addClass('on');
+})
+
+// 小視窗按鈕點擊
+$('#menuBar').click(function(){
+    $('#hd_menu').addClass('on')
+})
+
+$('#hd_menu li').click(function(){
+    $('#hd_menu').removeClass('on')
 })

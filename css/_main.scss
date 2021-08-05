@@ -23,24 +23,29 @@ body {
 // ===== header start =====
 .header {
     width: 100%;
-    min-width: $count-minW;
+    // min-width: $count-minW;
     margin: auto;
     min-height: 188px;
     background-color: $mainBgc;
     position: relative;
     // hd_top start
     .hd_top {
-        width: $count-minW;
+        max-width: $count-minW;
         min-height: 140px;
         margin: auto;
-        padding: 0 20px 0px 28px;
+        padding: 10px 20px 0px 28px;
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
+        @include rwd(1250){
+           flex-direction: column;
+           align-items: flex-start;
+        }
         .hd_logo {
             width: 478px;
             height: 86px;
             margin-bottom: 10px;
+            margin-right: 20px;
             background: url(../images/logo/hd_logo.png) no-repeat center / cover;
             cursor: pointer;
             @include imgToTxt;
@@ -54,6 +59,9 @@ body {
             width: 685px;
             height: 100%;
             padding-bottom: 20px;
+            @include rwd(1250){
+                align-self: flex-end;
+             }
         }
         .hd_link {
             margin-bottom: 12px;
@@ -79,6 +87,12 @@ body {
             }
             li + li {
                 margin-left: 10px;
+            }
+            .menuBar{
+                display: none;
+                @include rwd(1250){
+                    display: block;
+                 }
             }
         }
         .hd_signIn {
@@ -181,7 +195,9 @@ body {
                 margin-right: 5px;
             }
             .nbCode {
-                width: 80px;
+                display: flex;
+                cursor: pointer;
+                user-select: none;
             }
         }
         .signIn_btn {
@@ -199,8 +215,22 @@ body {
     // hd_menu start
     .hd_menu {
         width: 100%;
+        margin: auto;
         height: 48px;
         background: linear-gradient(90deg, transparent 10%, #000, transparent 90%);
+        @include rwd(1250){
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            @include pos(tl,0);
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 20;
+            transform: translateX(-100%);
+            &.on{
+                transform: translateX(0%);
+                transition: .3s;
+            }
+        }
         &.on {
             background: rgba(0, 0, 0, 0.85);
             position: fixed;
@@ -208,12 +238,26 @@ body {
             z-index: 20;
         }
         ul {
+            width: 100%;
+            max-width: $count-minW;
+            margin: auto;
             height: 100%;
             font-size: 1rem;
             font-weight: bold;
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
+            @include rwd(1250){
+                width: 85%;
+                max-width: 300px;
+                min-width: 250px;
+                margin: unset;
+                padding: 20px;
+                background:#0b2139 url(../images/bodyBg.jpg) no-repeat;
+                display: block;
+                border-right: 1px solid #ebba48;
+            }
         }
         li {
             height: 100%;
@@ -222,6 +266,10 @@ body {
             color: $clr_Txt;
             line-height: 48px;
             transition: 0.3s;
+            @include rwd(1250){
+              width: 100%;
+              height: unset;
+            }
             &.on,
             &:active {
                 color: $color_02;
@@ -231,9 +279,6 @@ body {
                     color: $color_02;
                 }
             }
-        }
-        li + li {
-            margin-left: 75px;
         }
         .menu_game {
             width: 171px;
@@ -429,7 +474,7 @@ body {
 // ===== footer start =====
 .footer {
     width: 100%;
-    min-width: $count-minW;
+    // min-width: $count-minW;
     min-height: 275px;
     margin: auto;
     color: $clr_ftTxt;
@@ -440,7 +485,7 @@ body {
         & > div {
             width: 100%;
             max-width: 1800px;
-            min-width: $count-minW;
+            // min-width: $count-minW;
             min-height: 160px;
             margin: auto;
             padding: 0 15px 30px;
@@ -469,7 +514,7 @@ body {
         background-color: #121210;
         & > div {
             max-width: 1800px;
-            min-width: $count-minW;
+            // min-width: $count-minW;
             min-height: calc(275px - 160px);
             margin: auto;
             padding: 0 20px;
@@ -480,15 +525,25 @@ body {
         .copyright {
             font-size: 1.2rem;
         }
-        .ft_menu {
+        .ft_menu { 
+            @include rwd(1120){       
+               max-width: 400px;
+            }
             ul {
                 display: flex;
                 align-items: flex-end;
                 font-size: 1rem;
                 font-weight: bold;
+                @include rwd(1120){       
+                    flex-wrap: wrap;
+                }
             }
             li {
+                padding: 5px 10px;
                 transition: 0.3s;
+                @include rwd(1120){       
+                    width: 50%;
+                }
                 &:active {
                     color: $color_02;
                 }
@@ -498,9 +553,9 @@ body {
                     }
                 }
             }
-            li + li {
-                margin-left: 30px;
-            }
+            // li + li {
+            //     margin-left: 30px;
+            // }
         }
     }
     // ftAd
@@ -513,17 +568,26 @@ body {
         z-index: 5;
         display: flex;
         justify-content: space-between;
+        @include rwd(1000){
+            width: 50%;
+            min-width: 250px;
+            flex-direction: column;
+            padding: 0;
+        }
         & > div {
+            margin: 10px;
             position: relative;
             pointer-events: auto;
+            
             &.on {
                 visibility: hidden;
                 pointer-events: none;
             }
         }
+        
         .ftAd_close {
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background-color: #000;
             position: absolute;

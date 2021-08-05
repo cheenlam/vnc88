@@ -78,22 +78,17 @@ Router.route('/game', function() {
 
 Router.route('/member', function() {
     mainInclude('page/mbrMsg.html');
-    menuList_on(0);
+   $('#hd_menu li').removeClass('on')
 });
 
 Router.route('/member/message', function() {
     mainInclude('page/mbrMsg.html');
-    menuList_on(0);
+   $('#hd_menu li').removeClass('on')
 });
 
 Router.route('/member/changePwd', function() {
     mainInclude('page/changePwd.html');
-    menuList_on(0);
-});
-
-Router.route('/member/wallet', function() {
-    mainInclude('page/mbrWallet.html');
-    menuList_on(0);
+   $('#hd_menu li').removeClass('on')
 });
 
 
@@ -128,7 +123,6 @@ for (let i = 1; i < 99; i++) {
         menuList_on(5);
     });
 }
-
 
 
 // home lottery news broadcast forum resources game

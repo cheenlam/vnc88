@@ -23,7 +23,7 @@
         li {
             width: calc(100% / 6);
             min-height: 55px;
-            padding: 0 10px;
+            padding: 10px;
            
             cursor: pointer;
             transition: 0.3s;
@@ -34,7 +34,7 @@
             }
             span{
                 @include txtChip(2);
-                line-height: 22px;
+                line-height: 25px;
             }
             &:active {
                 background-color: #adbfdf;
