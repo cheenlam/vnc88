@@ -2419,6 +2419,12 @@ body {
   margin-bottom: 10px;
 }
 
+@media screen and (max-width: 800px) {
+  .flexAd li {
+    width: 100%;
+  }
+}
+
 .flexAd li:last-child:nth-child(odd) {
   width: 100%;
 }
@@ -2432,9 +2438,11 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #f7e6be;
 }
 
@@ -2446,18 +2454,54 @@ body {
 
 .betList .betTitle span {
   display: inline-block;
-  padding: 0 10px;
+  padding: 5px 10px;
 }
 
 .betList table {
   width: 100%;
   background-color: #444;
   border-radius: 10px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1250px) {
+  .betList tbody {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 
 .betList tr {
   width: 100%;
   position: relative;
+}
+
+@media screen and (max-width: 1250px) {
+  .betList tr {
+    width: calc(100% / 3);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-shadow: 0px 0px 1px #fff inset;
+            box-shadow: 0px 0px 1px #fff inset;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .betList tr {
+    width: calc(100% / 2);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .betList tr {
+    width: 100%;
+  }
 }
 
 .betList tr .betNb {
@@ -2823,6 +2867,12 @@ body {
   right: 0;
 }
 
+@media screen and (max-width: 1250px) {
+  .betList tr + tr::before {
+    display: none;
+  }
+}
+
 .betList th {
   height: 110px;
   padding: 0 20px;
@@ -2833,6 +2883,21 @@ body {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+}
+
+@media screen and (max-width: 1250px) {
+  .betList th {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .betList th::before {
@@ -2849,6 +2914,12 @@ body {
   right: 0;
 }
 
+@media screen and (max-width: 1250px) {
+  .betList th::before {
+    display: none;
+  }
+}
+
 .betList th .betLogo {
   width: 125px;
 }
@@ -2858,6 +2929,21 @@ body {
   height: 110px;
   padding: 0 20px;
   position: relative;
+}
+
+@media screen and (max-width: 1250px) {
+  .betList td {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .betList td::before {
@@ -2872,6 +2958,21 @@ body {
   top: 0;
   bottom: 0;
   right: 0;
+}
+
+@media screen and (max-width: 1250px) {
+  .betList td::before {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .betList td:nth-child(2) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .betList td:last-child {
@@ -3050,6 +3151,16 @@ body {
   cursor: pointer;
 }
 
+@media screen and (max-width: 1250px) {
+  .betList td .betBtn {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .betList td .betBtn > .btn {
   height: 40px;
   border-radius: 20px;
@@ -3084,6 +3195,13 @@ body {
 
 .betList td .betBtn > .btn + .btn {
   margin-left: 10px;
+}
+
+@media screen and (max-width: 1250px) {
+  .betList td .betBtn > .btn + .btn {
+    margin-left: 0;
+    margin-top: 10px;
+  }
 }
 
 .mainMsg {
@@ -3125,15 +3243,44 @@ body {
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 950px) {
+  .mainNews .mainNews_t {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.mainNews .mainNews_t .news_main {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 950px) {
+  .mainNews .mainNews_t .news_main {
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+}
+
 .mainNews .mainNews_t .news_main .news_mainImg {
-  width: 750px;
+  width: 100%;
   height: 410px;
   overflow: hidden;
   position: relative;
-  background: no-repeat center top /cover;
-  margin-right: 20px;
+  background: no-repeat center top / cover;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+}
+
+@media screen and (max-width: 950px) {
+  .mainNews .mainNews_t .news_main .news_mainImg {
+    height: 0;
+    padding-bottom: 60%;
+  }
 }
 
 .mainNews .mainNews_t .news_main .news_mainImg p {
@@ -3146,12 +3293,21 @@ body {
   right: 0;
 }
 
+@media screen and (max-width: 950px) {
+  .mainNews .mainNews_t .news_main .news_mainImg p {
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+}
+
 .mainNews .mainNews_t .news_list {
-  height: 410px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .mainNews .mainNews_t .news_list .newsList_cnt {
-  height: 100%;
+  max-height: 410px;
   overflow-y: scroll;
 }
 
@@ -3164,7 +3320,7 @@ body {
 .mainNews .mainNews_t .news_list li .newsList_img {
   width: 100px;
   height: 66px;
-  background: no-repeat center top /cover;
+  background: no-repeat center top / cover;
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
@@ -3190,12 +3346,38 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media screen and (max-width: 850px) {
+  .mainNews_b ul {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 
 .mainNews_b li {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+@media screen and (max-width: 850px) {
+  .mainNews_b li {
+    width: calc(50% - 10px);
+    -webkit-box-flex: unset;
+        -ms-flex: unset;
+            flex: unset;
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mainNews_b li {
+    width: 100%;
+  }
 }
 
 .mainNews_b li .img {
@@ -3219,6 +3401,12 @@ body {
 
 .mainNews_b li + li {
   margin-left: 20px;
+}
+
+@media screen and (max-width: 850px) {
+  .mainNews_b li + li {
+    margin-left: 0;
+  }
 }
 
 .mainNews_b .newsList_img {
@@ -3248,8 +3436,23 @@ body {
           justify-content: space-between;
 }
 
+@media screen and (max-width: 1100px) {
+  .mainRec {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .mainRec > div {
   width: calc(50% - 10px);
+}
+
+@media screen and (max-width: 1100px) {
+  .mainRec > div {
+    width: 100%;
+  }
 }
 
 .mainRec .recCount {
@@ -3276,6 +3479,15 @@ body {
           justify-content: space-between;
 }
 
+@media screen and (max-width: 1100px) {
+  .mainRec .recCount .list {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
 .mainRec .recCount .list > div {
   height: calc(50% - 5px);
   display: -webkit-box;
@@ -3284,12 +3496,25 @@ body {
   color: #000;
 }
 
+@media screen and (max-width: 1100px) {
+  .mainRec .recCount .list > div {
+    width: 50%;
+  }
+}
+
 .mainRec .recCount .list .listImg {
   width: calc(50% - 10px);
   height: 100%;
   background: no-repeat center top/cover;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+}
+
+@media screen and (max-width: 1100px) {
+  .mainRec .recCount .list .listImg {
+    height: 0;
+    padding-bottom: 40%;
+  }
 }
 
 .mainRec .recCount .list .listMsg {
@@ -3441,7 +3666,7 @@ body {
   width: 260px;
   height: 0;
   padding-bottom: 13%;
-  background: no-repeat center /cover;
+  background: no-repeat center / cover;
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }

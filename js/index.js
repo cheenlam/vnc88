@@ -36,7 +36,7 @@ var scroll = $(window).scroll(function() {
 $(window).resize(function() {
     floatAd()
     $('#hd_menu').removeClass('on')
-    window.scrollTo({ top: 0 });
+    // window.scrollTo({ top: 0 });
 })
 
 // 上方menu浮動
