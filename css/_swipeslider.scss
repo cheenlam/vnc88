@@ -151,6 +151,9 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    @include rwd(1050){
+        margin-bottom: 20px;
+    }
    .sw-bullet{
        display: none;
    }

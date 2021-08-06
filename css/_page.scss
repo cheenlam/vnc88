@@ -456,7 +456,10 @@
             justify-content: space-between;
             @include rwd(1100){
                 flex-direction: row;
-            }     
+            }   
+            @include rwd(850){
+                flex-direction: column;
+            }  
             & > div {
                 height: calc(50% - 5px);
                 display: flex;
@@ -464,7 +467,16 @@
                 @include rwd(1100){
                    width: 50%;
                 }
+                @include rwd(850){
+                    width: 100%;
+                    padding: 10px 0;
+                }
+
+                @include rwd(500){
+                    flex-direction: column;
+                }
             }
+
             .listImg {
                 width: calc(50% - 10px);
                 height: 100%;
@@ -472,12 +484,20 @@
                 flex-shrink: 0;
                 @include rwd(1100){
                     height: 0;
-                    padding-bottom: 40%;
+                    padding-bottom: 45%;
+                }
+                @include rwd(500){
+                    width: 100%;
+                    padding-bottom: 55%;
+                    margin-bottom: 10px;
                 }
             }
             .listMsg {
                 padding: 0 20px;
                 position: relative;
+                @include rwd(500){
+                    padding: 0 0 20px;
+                }
                 .title {
                     margin-bottom: 10px;
                     display: inline-block;
@@ -502,6 +522,11 @@
                 bottom: 0;
                 overflow: hidden;
                 cursor: pointer;
+                @include rwd(500){
+                   width: 100%;
+                   position: relative;
+                   margin-top: 20px;
+                }
                 span {
                     position: relative;
                     z-index: 1;
