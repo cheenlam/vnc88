@@ -3426,13 +3426,6 @@ body {
   height: 600px;
 }
 
-.mainScore .scoreCnt iframe {
-  -webkit-transform: scale(2);
-          transform: scale(2);
-  -webkit-transform-origin: top left;
-          transform-origin: top left;
-}
-
 .mainRec {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3718,6 +3711,15 @@ body {
 .fullList li .fullList_img {
   width: 260px;
   height: 0;
+  padding-bottom: 13%;
+  background: no-repeat center / cover;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.fullList li .fullList2_img {
+  width: 260px;
+  height: 200px;
   padding-bottom: 13%;
   background: no-repeat center / cover;
   -ms-flex-negative: 0;
