@@ -9,7 +9,7 @@
     li {
         width: calc(50% - 5px);
         margin-bottom: 10px;
-        @include rwd(800){
+        @include rwd(800) {
             width: 100%;
         }
         &:last-child:nth-child(odd) {
@@ -46,7 +46,7 @@
     tbody {
         @include rwd(1250) {
             display: flex;
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
         }
     }
     tr {
@@ -105,7 +105,7 @@
             }
         }
     }
-    tr + tr::before {
+    tr+tr::before {
         content: "";
         width: calc(100% - 40px);
         height: 1px;
@@ -176,7 +176,6 @@
                 flex-direction: column;
             }
         }
-
         &:last-child {
             width: 100%;
             &::before {
@@ -252,7 +251,7 @@
                 width: 100%;
                 flex-direction: column;
             }
-            & > .btn {
+            &>.btn {
                 height: 40px;
                 border-radius: 20px;
                 flex: 1;
@@ -274,7 +273,7 @@
                     }
                 }
             }
-            & > .btn + .btn {
+            &>.btn+.btn {
                 margin-left: 10px;
                 @include rwd(1250) {
                     margin-left: 0;
@@ -289,7 +288,7 @@
 .mainMsg {
     padding: 20px;
     background-color: #fff;
-    & > div + div {
+    &>div+div {
         margin-top: 40px;
     }
 }
@@ -316,13 +315,13 @@
     .mainNews_t {
         display: flex;
         margin-bottom: 20px;
-        @include rwd(950){
-           flex-direction: column;
+        @include rwd(950) {
+            flex-direction: column;
         }
         .news_main {
             flex: 2;
             margin-right: 20px;
-            @include rwd(950){
+            @include rwd(950) {
                 margin-bottom: 20px;
                 margin-right: 0;
             }
@@ -333,9 +332,9 @@
                 position: relative;
                 background: no-repeat center top / cover;
                 flex-shrink: 0;
-                @include rwd(950){
-                   height: 0;
-                   padding-bottom: 60%;
+                @include rwd(950) {
+                    height: 0;
+                    padding-bottom: 60%;
                 }
                 p {
                     padding: 15px;
@@ -343,16 +342,15 @@
                     background-color: rgba(0, 0, 0, 0.75);
                     position: absolute;
                     @include pos(blr, 0);
-                    @include rwd(950){
+                    @include rwd(950) {
                         padding: 10px;
                         font-size: 1.1rem;
                     }
                 }
-               
             }
         }
         .news_list {
-            flex: 1; 
+            flex: 1;
             .newsList_cnt {
                 max-height: 410px;
                 overflow-y: scroll;
@@ -372,7 +370,7 @@
                     @include txtChip(3);
                 }
             }
-            li + li {
+            li+li {
                 margin-top: 10px;
             }
         }
@@ -381,19 +379,19 @@
         ul {
             display: flex;
             flex-wrap: wrap;
-            @include rwd(850){
+            @include rwd(850) {
                 justify-content: space-between;
             }
         }
         li {
             flex: 1;
-            @include rwd(850){
+            @include rwd(850) {
                 width: calc(50% - 10px);
                 flex: unset;
                 padding-bottom: 20px;
             }
-            @include rwd(500){
-               width: 100%;
+            @include rwd(500) {
+                width: 100%;
             }
             .img {
                 width: 100%;
@@ -407,9 +405,9 @@
                 @include txtChip(3);
             }
         }
-        li + li {
+        li+li {
             margin-left: 20px;
-            @include rwd(850){
+            @include rwd(850) {
                 margin-left: 0;
             }
         }
@@ -437,12 +435,12 @@
 .mainRec {
     display: flex;
     justify-content: space-between;
-    @include rwd(1100){
+    @include rwd(1100) {
         flex-direction: column;
     }
-    & > div {
+    &>div {
         width: calc(50% - 10px);
-        @include rwd(1100){
+        @include rwd(1100) {
             width: 100%;
         }
     }
@@ -454,39 +452,37 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            @include rwd(1100){
+            @include rwd(1100) {
                 flex-direction: row;
-            }   
-            @include rwd(850){
+            }
+            @include rwd(850) {
                 flex-direction: column;
-            }  
-            & > div {
+            }
+            &>div {
                 height: calc(50% - 5px);
                 display: flex;
                 color: #000;
-                @include rwd(1100){
-                   width: 50%;
+                @include rwd(1100) {
+                    width: 50%;
                 }
-                @include rwd(850){
+                @include rwd(850) {
                     width: 100%;
                     padding: 10px 0;
                 }
-
-                @include rwd(500){
+                @include rwd(500) {
                     flex-direction: column;
                 }
             }
-
             .listImg {
                 width: calc(50% - 10px);
                 height: 100%;
                 background: no-repeat center top/cover;
                 flex-shrink: 0;
-                @include rwd(1100){
+                @include rwd(1100) {
                     height: 0;
                     padding-bottom: 45%;
                 }
-                @include rwd(500){
+                @include rwd(500) {
                     width: 100%;
                     padding-bottom: 55%;
                     margin-bottom: 10px;
@@ -495,7 +491,7 @@
             .listMsg {
                 padding: 0 20px;
                 position: relative;
-                @include rwd(500){
+                @include rwd(500) {
                     padding: 0 0 20px;
                 }
                 .title {
@@ -522,10 +518,10 @@
                 bottom: 0;
                 overflow: hidden;
                 cursor: pointer;
-                @include rwd(500){
-                   width: 100%;
-                   position: relative;
-                   margin-top: 20px;
+                @include rwd(500) {
+                    width: 100%;
+                    position: relative;
+                    margin-top: 20px;
                 }
                 span {
                     position: relative;
@@ -551,7 +547,7 @@
 
 // wsDict start
 .wsDict {
-    & > div {
+    &>div {
         display: flex;
     }
     .wsDict_msg {
@@ -585,7 +581,7 @@
     }
     .lotteryList {
         padding-left: 10px;
-        & > li {
+        &>li {
             display: flex;
             .icon {
                 width: 21px;
@@ -595,7 +591,7 @@
                 margin-right: 15px;
             }
         }
-        & > li + li {
+        &>li+li {
             margin-top: 20px;
         }
     }
@@ -615,6 +611,13 @@
         .fullList_img {
             width: 260px;
             height: 0;
+            padding-bottom: 13%;
+            background: no-repeat center / cover;
+            flex-shrink: 0;
+        }
+        .fullList2_img {
+            width: 260px;
+            height: 200px;
             padding-bottom: 13%;
             background: no-repeat center / cover;
             flex-shrink: 0;
@@ -642,7 +645,7 @@
                 span {
                     font-size: 1rem;
                 }
-                span + span {
+                span+span {
                     margin-left: 10px;
                 }
             }
@@ -658,7 +661,7 @@
             }
         }
     }
-    li + li {
+    li+li {
         &::before {
             content: "";
             width: 100%;
