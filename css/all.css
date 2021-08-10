@@ -3717,6 +3717,15 @@ body {
       flex-shrink: 0;
 }
 
+.fullList li .fullList2_img {
+  width: 260px;
+  height: 200px;
+  padding-bottom: 13%;
+  background: no-repeat center / cover;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
 .fullList li .fullList_msg {
   padding: 0 30px;
   color: #a8a7a7;
