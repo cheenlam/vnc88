@@ -1415,9 +1415,15 @@ body {
 }
 
 .header .hd_top .hd_tool {
+<<<<<<< HEAD
     width: 685px;
     height: 100%;
     padding-bottom: 20px;
+=======
+  max-width: 685px;
+  height: 100%;
+  padding-bottom: 20px;
+>>>>>>> 927c25d052d2a0cfe1cb7083f2e935c38f33b928
 }
 
 @media screen and (max-width: 1250px) {
@@ -1629,6 +1635,13 @@ body {
 .header .hd_top .hd_signIn label input::-webkit-input-placeholder {
     font-size: 1rem;
     font-weight: bold;
+}
+
+.header .hd_top .hd_signIn .signIn_on {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .header .hd_top .hd_signIn .signIn_msg {
@@ -1904,6 +1917,12 @@ body {
     padding: 0 20px;
 }
 
+@media screen and (max-width: 1280px) {
+  .mainCnt .contBox-full > .contBox-min > .flexAd {
+    padding: 0 10px;
+  }
+}
+
 .mainCnt .contBox-full .leftTool,
 .mainCnt .contBox-full .rightTool {
     width: 97px;
@@ -2032,6 +2051,12 @@ body {
     max-width: 1280px;
     margin: auto;
     padding: 0 20px;
+}
+
+@media screen and (max-width: 1280px) {
+  .contBox-min {
+    padding: 0;
+  }
 }
 
 .content {
@@ -3722,6 +3747,7 @@ body {
     transform: translateX(-10%) skew(30deg);
 }
 
+<<<<<<< HEAD
 .wsDict>div {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3733,6 +3759,11 @@ body {
     padding-right: 30px;
     color: #000;
     font-size: 1.2rem;
+=======
+.wsDict .wsDict_msg {
+  color: #000;
+  font-size: 1.2rem;
+>>>>>>> 927c25d052d2a0cfe1cb7083f2e935c38f33b928
 }
 
 .wsDict .wsDict_msg .title {
@@ -3746,9 +3777,23 @@ body {
 }
 
 .wsDict .wsDictImg {
+<<<<<<< HEAD
     width: 380px;
     -ms-flex-negative: 0;
     flex-shrink: 0;
+=======
+  width: 300px;
+  float: right;
+  margin: 0 0 10px 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .wsDict .wsDictImg {
+    width: 100%;
+    float: unset;
+    margin: 0 0 20px;
+  }
+>>>>>>> 927c25d052d2a0cfe1cb7083f2e935c38f33b928
 }
 
 .fullDict {
