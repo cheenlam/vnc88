@@ -18,6 +18,8 @@ Router.prototype.refresh = function() {
         routerList.push(`news?p=${i}`)
         routerList.push(`lottery?p=${i}`)
         routerList.push(`resources?p=${i}`)
+
+        routerList.push(`betRef?p=${i}`)
     }
 
     // console.log(location.hash.slice(1)); 
@@ -121,6 +123,12 @@ for (let i = 1; i < 99; i++) {
         location = location
         mainInclude(`page/resources/resources_${i}.html`);
         menuList_on(5);
+    });
+
+    Router.route(`/betRef?p=${i}`, function() {
+        location = location
+        mainInclude(`betRef/betRef_${i}.html`);
+        menuList_on(1);
     });
 }
 
