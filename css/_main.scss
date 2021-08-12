@@ -56,7 +56,7 @@ body {
             }
         }
         .hd_tool {
-            width: 685px;
+            max-width: 685px;
             height: 100%;
             padding-bottom: 20px;
             @include rwd(1250){
@@ -96,11 +96,20 @@ body {
             }
         }
         .hd_signIn {
+            // @include rwd(800){
+            //     width: 100vw;
+            //    height: 100vh;
+            //     position: fixed;
+            //     top: 0;
+            //     left: 0;
+            //     background-color: rgba(0, 0, 0, 0.8);
+            //     z-index: 20;
+            // }
             &[data-signIn="0"] > div[data-signIn="0"] {
                 display: flex;
             }
             &[data-signIn="1"] > div[data-signIn="1"] {
-                display: flex;
+                display: flex;   
             }
             & > div {
                 display: none;
@@ -109,6 +118,7 @@ body {
             .signIn_ipt {
                 display: flex;
             }
+
             .signIn_forget {
                 width: 155px;
                 display: flex;
@@ -158,6 +168,10 @@ body {
                         font-weight: bold;
                     }
                 }
+            }
+            .signIn_on{
+                width: 100%;
+                display: flex;
             }
             .signIn_msg {
                 display: flex;
@@ -349,6 +363,9 @@ body {
             position: relative;
             & > .flexAd {
                 padding: 0 20px;
+                @include rwd(1280){
+                    padding: 0 10px;
+                }
             }
         }
         .leftTool,
@@ -460,6 +477,9 @@ body {
     max-width: $count-minW;
     margin: auto;
     padding: 0 20px;
+    @include rwd(1280){
+        padding: 0;
+    }
 }
 
 .content {

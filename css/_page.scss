@@ -543,12 +543,7 @@
 
 // wsDict start
 .wsDict {
-    &>div {
-        display: flex;
-    }
     .wsDict_msg {
-        width: calc(100% - 380px);
-        padding-right: 30px;
         color: #000;
         font-size: 1.2rem;
         .title {
@@ -561,8 +556,14 @@
         }
     }
     .wsDictImg {
-        width: 380px;
-        flex-shrink: 0;
+        width: 300px;
+        float: right;
+        margin: 0 0 10px 10px;
+        @include rwd(600){
+            width: 100%;
+            float: unset;
+            margin: 0 0 20px;
+        }
     }
 }
 
