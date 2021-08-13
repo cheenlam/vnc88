@@ -97,6 +97,47 @@ function dialog() {
     });
 }
 
+var news_h;
+function getNews_h(){
+    $.ajax({
+        url: "https://spurslee.myqnapcloud.com:8081/GetJson.php?json=BongdaNew",
+        dataType: "json",
+        success: function(data) {
+            h_news = data;
+            // 主新聞
+            $('#news_mainImg').css('background-image', `url(${data.mainNews.img})`);
+            $('#news_mainImg p').text(data.mainNews.title);
+
+            // 下方新聞列
+            let news_b = '';
+            for (let i = 0; i < 4; i++) {
+                news_b += `<li>
+                        <a href="#/newsRef?p=${i+2}">
+                            <div class="img" style="background-image: url(${data.leftNews[i].img});"></div>
+                        </a>
+                        <p>${data.leftNews[i].title}</p>
+                    </li>`
+            }
+            $('#mainNews_b ul').html(news_b);
+
+            // 右側新聞列
+            for(let i =0;i<2;i++){
+                data.rightNews.forEach(function(data,index){
+                    let combination = `<li>
+                                    <a href="#/newsRef?p=${index + 6}">
+                                        <div class="newsList_img" style="background-image: url(${data.img});"></div>
+                                    </a>
+                                    <p>${data.title}</p>
+                                </li>` 
+                    $('#newsList_cnt ul').append(combination);
+                });
+            }   
+        },
+    });
+}
+
+
+
 $('#hd_forget').click(function() {
     $("#dialogBox").addClass('on');
     $("#dialogBox .forget").addClass('on');

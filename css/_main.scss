@@ -37,9 +37,9 @@ body {
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
-        @include rwd(1250){
-           flex-direction: column;
-           align-items: flex-start;
+        @include rwd(1250) {
+            flex-direction: column;
+            align-items: flex-start;
         }
         .hd_logo {
             width: 478px;
@@ -59,9 +59,9 @@ body {
             max-width: 685px;
             height: 100%;
             padding-bottom: 20px;
-            @include rwd(1250){
+            @include rwd(1250) {
                 align-self: flex-end;
-             }
+            }
         }
         .hd_link {
             margin-bottom: 12px;
@@ -85,14 +85,14 @@ body {
                     height: 34px;
                 }
             }
-            li + li {
+            li+li {
                 margin-left: 10px;
             }
-            .menuBar{
+            .menuBar {
                 display: none;
-                @include rwd(1250){
+                @include rwd(1250) {
                     display: block;
-                 }
+                }
             }
         }
         .hd_signIn {
@@ -105,20 +105,19 @@ body {
             //     background-color: rgba(0, 0, 0, 0.8);
             //     z-index: 20;
             // }
-            &[data-signIn="0"] > div[data-signIn="0"] {
+            &[data-signIn="0"]>div[data-signIn="0"] {
                 display: flex;
             }
-            &[data-signIn="1"] > div[data-signIn="1"] {
-                display: flex;   
+            &[data-signIn="1"]>div[data-signIn="1"] {
+                display: flex;
             }
-            & > div {
+            &>div {
                 display: none;
                 justify-content: flex-end;
             }
             .signIn_ipt {
                 display: flex;
             }
-
             .signIn_forget {
                 width: 155px;
                 display: flex;
@@ -169,7 +168,7 @@ body {
                     }
                 }
             }
-            .signIn_on{
+            .signIn_on {
                 width: 100%;
                 display: flex;
             }
@@ -177,7 +176,7 @@ body {
                 display: flex;
                 color: $clr_Txt;
                 font-size: 0.9rem;
-                & > div {
+                &>div {
                     display: flex;
                     align-items: center;
                     margin-right: 10px;
@@ -221,7 +220,7 @@ body {
                 min-width: 80px;
                 padding: 0 5px;
             }
-            .btn + .btn {
+            .btn+.btn {
                 margin-left: 5px;
             }
         }
@@ -232,15 +231,15 @@ body {
         margin: auto;
         height: 48px;
         background: linear-gradient(90deg, transparent 10%, #000, transparent 90%);
-        @include rwd(1250){
+        @include rwd(1250) {
             width: 100vw;
             height: 100vh;
             position: fixed;
-            @include pos(tl,0);
+            @include pos(tl, 0);
             background: rgba(0, 0, 0, 0.8);
             z-index: 20;
             transform: translateX(-100%);
-            &.on{
+            &.on {
                 transform: translateX(0%);
                 transition: .3s;
             }
@@ -262,13 +261,13 @@ body {
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-around;
-            @include rwd(1250){
+            @include rwd(1250) {
                 width: 85%;
                 max-width: 300px;
                 min-width: 250px;
                 margin: unset;
                 padding: 20px;
-                background:#0b2139 url(../images/bodyBg.jpg) no-repeat;
+                background: #0b2139 url(../images/bodyBg.jpg) no-repeat;
                 display: block;
                 border-right: 1px solid #ebba48;
             }
@@ -280,9 +279,9 @@ body {
             color: $clr_Txt;
             line-height: 48px;
             transition: 0.3s;
-            @include rwd(1250){
-              width: 100%;
-              height: unset;
+            @include rwd(1250) {
+                width: 100%;
+                height: unset;
             }
             &.on,
             &:active {
@@ -331,7 +330,7 @@ body {
                     max-width: 1050px;
                     cursor: pointer;
                 }
-                & > div {
+                &>div {
                     max-width: 1050px;
                     height: 35px;
                     padding: 0 15px;
@@ -356,14 +355,14 @@ body {
                 }
             }
         }
-        & > .contBox-min {
+        &>.contBox-min {
             padding: 0;
             display: flex;
             flex-direction: column;
             position: relative;
-            & > .flexAd {
+            &>.flexAd {
                 padding: 0 20px;
-                @include rwd(1280){
+                @include rwd(1280) {
                     padding: 0 10px;
                 }
             }
@@ -425,7 +424,7 @@ body {
             }
         }
         .floatAd {
-            & > img {
+            &>img {
                 display: block;
                 margin-bottom: 10px;
             }
@@ -477,7 +476,7 @@ body {
     max-width: $count-minW;
     margin: auto;
     padding: 0 20px;
-    @include rwd(1280){
+    @include rwd(1280) {
         padding: 0;
     }
 }
@@ -502,7 +501,7 @@ body {
     // ft_top
     .ft_top {
         background-color: #313131;
-        & > div {
+        &>div {
             width: 100%;
             max-width: 1800px;
             // min-width: $count-minW;
@@ -520,7 +519,7 @@ body {
             ul {
                 display: flex;
             }
-            li + li {
+            li+li {
                 margin-left: 20px;
             }
             .ft_icon {
@@ -532,7 +531,7 @@ body {
     // ft_bottom
     .ft_bottom {
         background-color: #121210;
-        & > div {
+        &>div {
             max-width: 1800px;
             // min-width: $count-minW;
             min-height: calc(275px - 160px);
@@ -545,23 +544,23 @@ body {
         .copyright {
             font-size: 1.2rem;
         }
-        .ft_menu { 
-            @include rwd(1120){       
-               max-width: 400px;
+        .ft_menu {
+            @include rwd(1120) {
+                max-width: 400px;
             }
             ul {
                 display: flex;
                 align-items: flex-end;
                 font-size: 1rem;
                 font-weight: bold;
-                @include rwd(1120){       
+                @include rwd(1120) {
                     flex-wrap: wrap;
                 }
             }
             li {
                 padding: 5px 10px;
                 transition: 0.3s;
-                @include rwd(1120){       
+                @include rwd(1120) {
                     width: 50%;
                 }
                 &:active {
@@ -588,23 +587,21 @@ body {
         z-index: 5;
         display: flex;
         justify-content: space-between;
-        @include rwd(1000){
+        @include rwd(1000) {
             width: 50%;
             min-width: 250px;
             flex-direction: column;
             padding: 0;
         }
-        & > div {
+        &>div {
             margin: 10px;
             position: relative;
             pointer-events: auto;
-            
             &.on {
                 visibility: hidden;
                 pointer-events: none;
             }
         }
-        
         .ftAd_close {
             width: 30px;
             height: 30px;
@@ -654,7 +651,7 @@ body {
     &.on {
         display: flex;
     }
-    & > div {
+    &>div {
         width: 100px;
         height: 100px;
         background-color: #fff;
@@ -706,12 +703,12 @@ body {
     &.on {
         display: flex;
     }
-    &::before{
+    &::before {
         content: 'loading...';
         margin: auto;
         color: #fff;
         position: absolute;
-        @include pos(tbrl,0);
+        @include pos(tbrl, 0);
         font-size: 1.4rem;
         display: flex;
         align-items: center;
@@ -719,7 +716,6 @@ body {
         opacity: 0.5;
         animation: load_txt 2s linear infinite;
     }
-
     .load_round {
         animation: load_round 1s linear infinite;
         width: 160px;
@@ -732,9 +728,14 @@ body {
     }
 }
 
-@keyframes load_txt{
-    0%,100%{opacity: 0.5;}
-    50%{opacity: 1;}
+@keyframes load_txt {
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 @keyframes load_round {
