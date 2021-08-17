@@ -97,41 +97,49 @@ function dialog() {
     });
 }
 
-var news_h;
 function getNews_h(){
+    // 主新聞
     $.ajax({
-        url: "https://spurslee.myqnapcloud.com:8081/GetJson.php?json=BongdaNew",
+        url: "https://vnc88.awgstudio.com/api/homenews/top",
         dataType: "json",
         success: function(data) {
-            h_news = data;
-            // 主新聞
-            $('#news_mainImg').css('background-image', `url(${data.mainNews.img})`);
-            $('#news_mainImg p').text(data.mainNews.title);
-
-            // 下方新聞列
+            $('#news_mainImg').css('background-image', `url(${data.img})`);
+            $('#news_mainImg p').text(data.title);
+        },
+    });
+    
+     // 下方新聞列
+    $.ajax({
+        url: "https://vnc88.awgstudio.com/api/homenews/bottom",
+        dataType: "json",
+        success: function(data) {   
             let news_b = '';
             for (let i = 0; i < 4; i++) {
                 news_b += `<li>
-                        <a href="#/newsRef?p=${i+2}">
-                            <div class="img" style="background-image: url(${data.leftNews[i].img});"></div>
+                        <a href="#/home/news/list=${i+2}">
+                            <div class="img" style="background-image: url(${data[i].img});"></div>
                         </a>
-                        <p>${data.leftNews[i].title}</p>
+                        <p>${data[i].title}</p>
                     </li>`
             }
             $('#mainNews_b ul').html(news_b);
+        },
+    });
 
-            // 右側新聞列
-            for(let i =0;i<2;i++){
-                data.rightNews.forEach(function(data,index){
-                    let combination = `<li>
-                                    <a href="#/newsRef?p=${index + 6}">
-                                        <div class="newsList_img" style="background-image: url(${data.img});"></div>
-                                    </a>
-                                    <p>${data.title}</p>
-                                </li>` 
-                    $('#newsList_cnt ul').append(combination);
-                });
-            }   
+     // 右側新聞列
+    $.ajax({
+        url: "https://vnc88.awgstudio.com/api/homenews/list",
+        dataType: "json",
+        success: function(data) { 
+            data.forEach(function(data,index){
+                let combination = `<li>
+                                <a href="#/home/news/list=${index + 6}">
+                                    <div class="newsList_img" style="background-image: url(${data.img});"></div>
+                                </a>
+                                <p>${data.title}</p>
+                            </li>` 
+                $('#newsList_cnt ul').append(combination);
+            }); 
         },
     });
 }

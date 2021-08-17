@@ -240,7 +240,7 @@
     <!-- ==== mainMsg start ==== -->   
     <div class="mainMsg">
         <!-- mainNews start -->
-        <div class="mainNews" id="mainNews">
+        <div class="mainNews">
             <div class="mainNews_t">
                 <div class="news_main">
                     <div class="mainMsg-title">TIN TỨC</div>
@@ -340,6 +340,35 @@
                         </a>
                         <p>5 điểm nhấn Bournemouth 1-2 Chelsea: Số 9 mới; 3 cái tên gây thất vọng</p>
                     </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- =============================== -->
+        <div class="mainNews" id="mainNews">
+            <div class="mainNews_t">
+                <div class="news_main">
+                    <div class="mainMsg-title">TIN TỨC</div>
+                    <!-- 足球新聞 -->
+                    <a href="#/home/news/list=1">
+                        <div class="news_mainImg" id="news_mainImg">
+                            <p></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="news_list">
+                    <div class="mainMsg-title">Tin Mới Nhất</div>
+                    <!-- 最新消息 -->
+                    <div class="newsList_cnt" id="newsList_cnt">
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mainNews_b" id="mainNews_b">
+                <ul>
+                    <li></li>
                 </ul>
             </div>
         </div>
@@ -449,11 +478,10 @@
 
 
 
-
 <script src="js/index.js"></script>
 <script>
     // 啟動輪播外掛
     $('#mainCarousel').swipeslider();
-    // getNews_h();
+    getNews_h();
 
 </script>

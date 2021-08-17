@@ -11,6 +11,10 @@ Router.prototype.refresh = function() {
     // 路由清單
     let routerList = ['', 'home', 'lottery', 'news', 'broadcast', 'forum', 'resources', 'game','member','member/message','member/changePwd','member/wallet'];
 
+    for (let i = 0; i < 99; i++){
+        routerList.push(`home/news/list=${i}`)
+    }
+
     for (let i = 0; i < 99; i++) {
         routerList.push(`newsRef?p=${i}`)
         routerList.push(`lotteryRef?p=${i}`)
@@ -93,7 +97,17 @@ Router.route('/member/changePwd', function() {
    $('#hd_menu li').removeClass('on')
 });
 
+// 首頁新聞
+for (let i = 0; i < 99; i++) {
+    Router.route(`/home/news/list=${i}`, function() {
+        mainInclude('page/newsCnt/news_home.html');
+        menuList_on(0);
+        localStorage.setItem('news_h',i)
+    });
+}
 
+
+// ======================================================
 for (let i = 1; i < 99; i++) {
     Router.route(`/newsRef?p=${i}`, function() {
         location = location

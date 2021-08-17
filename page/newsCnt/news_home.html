@@ -1,0 +1,57 @@
+<div class="contBox-min">
+    <div class="newsCnt_h">
+        <div id="newsCnt_title" class="newsCnt_title"></div>
+        <div id="newsCnt_time" class="newsCnt_time"></div>
+        <div id="newsCnt_body" class="newsCnt_body"></div>
+    </div>
+</div>
+
+
+<script src="js/index.js"></script>
+<script>
+    var getLocal_h = localStorage.getItem('news_h');
+    if(getLocal_h == 1){
+        news_t();
+    }else if(getLocal_h > 1 && getLocal_h < 6){
+        news_b()
+    }else{
+        news_l()
+    }
+
+    function news_t() {
+        $.ajax({
+            url: "https://vnc88.awgstudio.com/api/homenews/top",
+            dataType: "json",
+            success: function(data) {
+                $('#newsCnt_title').html(data.detail.title);
+                $('#newsCnt_time').html(data.detail.time);
+                $('#newsCnt_body').html(data.detail.content);
+            },
+        });
+    }
+
+    function news_b() {        
+        $.ajax({
+            url: "https://vnc88.awgstudio.com/api/homenews/bottom",
+            dataType: "json",
+            success: function(data) {
+                $('#newsCnt_title').html(data[getLocal_h-2].detail.title);
+                $('#newsCnt_time').html(data[getLocal_h-2].detail.time);
+                $('#newsCnt_body').html(data[getLocal_h-2].detail.content);
+            },
+        });
+    }
+
+    function news_l() {
+        console.log(getLocal_h)
+        $.ajax({
+            url: "https://vnc88.awgstudio.com/api/homenews/list",
+            dataType: "json",
+            success: function(data) {
+                $('#newsCnt_title').html(data[getLocal_h-6].detail.title);
+                $('#newsCnt_time').html(data[getLocal_h-6].detail.time);
+                $('#newsCnt_body').html(data[getLocal_h-6].detail.content);
+            },
+        });
+    }
+</script>
