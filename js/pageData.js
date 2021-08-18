@@ -134,8 +134,6 @@ var mvLive = {
     ]
 }
 
-var weekTxt = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-
 // 靜態假資料
 var chartData = [{
     sort: 'Bảng A',
