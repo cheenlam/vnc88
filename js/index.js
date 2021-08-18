@@ -97,55 +97,6 @@ function dialog() {
     });
 }
 
-function getNews_h(){
-    // 主新聞
-    $.ajax({
-        url: "https://vnc88.awgstudio.com/api/homenews/top",
-        dataType: "json",
-        success: function(data) {
-            $('#news_mainImg').css('background-image', `url(${data.img})`);
-            $('#news_mainImg p').text(data.title);
-        },
-    });
-    
-     // 下方新聞列
-    $.ajax({
-        url: "https://vnc88.awgstudio.com/api/homenews/bottom",
-        dataType: "json",
-        success: function(data) {   
-            let news_b = '';
-            for (let i = 0; i < 4; i++) {
-                news_b += `<li>
-                        <a href="#/home/news/list=${i+2}">
-                            <div class="img" style="background-image: url(${data[i].img});"></div>
-                        </a>
-                        <p>${data[i].title}</p>
-                    </li>`
-            }
-            $('#mainNews_b ul').html(news_b);
-        },
-    });
-
-     // 右側新聞列
-    $.ajax({
-        url: "https://vnc88.awgstudio.com/api/homenews/list",
-        dataType: "json",
-        success: function(data) { 
-            data.forEach(function(data,index){
-                let combination = `<li>
-                                <a href="#/home/news/list=${index + 6}">
-                                    <div class="newsList_img" style="background-image: url(${data.img});"></div>
-                                </a>
-                                <p>${data.title}</p>
-                            </li>` 
-                $('#newsList_cnt ul').append(combination);
-            }); 
-        },
-    });
-}
-
-
-
 $('#hd_forget').click(function() {
     $("#dialogBox").addClass('on');
     $("#dialogBox .forget").addClass('on');

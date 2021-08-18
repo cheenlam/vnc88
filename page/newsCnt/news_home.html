@@ -1,57 +1,151 @@
 <div class="contBox-min">
-    <div class="newsCnt_h">
-        <div id="newsCnt_title" class="newsCnt_title"></div>
-        <div id="newsCnt_time" class="newsCnt_time"></div>
-        <div id="newsCnt_body" class="newsCnt_body"></div>
+    <div class="newsCnt" id="newsCnt">
+        <div class="newsCnt_main">
+            <div class="newstitle">
+                <p>{{newsMain.newsTitle}}</p>
+                <div class="time">{{newsMain.newsTime}}</div>
+            </div>
+            <div class="newsArticle" v-html="newsMain.newsContent">
+            </div>
+        </div>
+
+        <div class="newsCnt_menu">
+            <div class="newsCnt_menu_hot">
+                <div class="mainMsg-title">Tin hot</div>
+                <ul>
+                    <template v-for="(item,index) in newsMenu.newsHot">
+                        <li v-if="localNum != index+6">
+                            <a :href="reHref(true,index)">
+                                <img :src="item.img">
+                                <p>{{item.title}}</p>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+            <div class="newsCnt_menu_imp">
+                <div class="mainMsg-title">Tin quan trọng</div>
+                <ul>
+                    <li v-if="localNum != 1">
+                        <a href="#/home/news/list=1">
+                            <img :src="newsMenu.newsImp_t.img">
+                            <p>{{newsMenu.newsImp_t.title}}</p>
+                        </a>
+                    </li>
+
+                    <template v-for="(item,index) in newsMenu.newsImp_b">
+                        <li v-if="localNum != index+2">
+                            <a :href="reHref(false,index)">
+                                <img :src="item.img">
+                                <p>{{item.title}}</p>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
-
 <script src="js/index.js"></script>
 <script>
-    var getLocal_h = localStorage.getItem('news_h');
-    if(getLocal_h == 1){
-        news_t();
-    }else if(getLocal_h > 1 && getLocal_h < 6){
-        news_b()
-    }else{
-        news_l()
-    }
+    Vue.createApp({
+        data() {
+            return {
+                newsMain: {
+                    newsTitle: '',
+                    newsTime: '',
+                    newsContent: '',
+                },
+                newsMenu: {
+                    newsHot: '',
+                    newsImp_t: '',
+                    newsImp_b: [],
+                },
+                localNum: 1,
+            };
+        },
+        methods: {
+            reHref(hot, index) {
+                if (hot) {
+                    return `#/home/news/list=${index+6}`
+                } else {
+                    return `#/home/news/list=${index+2}`
+                }
 
-    function news_t() {
-        $.ajax({
-            url: "https://vnc88.awgstudio.com/api/homenews/top",
-            dataType: "json",
-            success: function(data) {
-                $('#newsCnt_title').html(data.detail.title);
-                $('#newsCnt_time').html(data.detail.time);
-                $('#newsCnt_body').html(data.detail.content);
             },
-        });
-    }
+            getData() {
+                let self = this;
+                let getUrl;
+                let getLocal_h = localStorage.getItem('news_h');
+                self.localNum = localStorage.getItem('news_h');
 
-    function news_b() {        
-        $.ajax({
-            url: "https://vnc88.awgstudio.com/api/homenews/bottom",
-            dataType: "json",
-            success: function(data) {
-                $('#newsCnt_title').html(data[getLocal_h-2].detail.title);
-                $('#newsCnt_time').html(data[getLocal_h-2].detail.time);
-                $('#newsCnt_body').html(data[getLocal_h-2].detail.content);
-            },
-        });
-    }
+                if (getLocal_h == 1) {
+                    getUrl = "https://vnc88.awgstudio.com/api/homenews/top";
+                } else if (getLocal_h > 1 && getLocal_h < 6) {
+                    getUrl = "https://vnc88.awgstudio.com/api/homenews/bottom";
+                } else {
+                    getUrl = "https://vnc88.awgstudio.com/api/homenews/list";
+                }
 
-    function news_l() {
-        console.log(getLocal_h)
-        $.ajax({
-            url: "https://vnc88.awgstudio.com/api/homenews/list",
-            dataType: "json",
-            success: function(data) {
-                $('#newsCnt_title').html(data[getLocal_h-6].detail.title);
-                $('#newsCnt_time').html(data[getLocal_h-6].detail.time);
-                $('#newsCnt_body').html(data[getLocal_h-6].detail.content);
+                $.ajax({
+                    url: getUrl,
+                    dataType: "json",
+                    success: function(data) {
+                        if (getLocal_h == 1) {
+                            set(true)
+                        } else if (getLocal_h > 1 && getLocal_h < 6) {
+                            set(false, 2)
+                        } else {
+                            set(false, 6)
+                        }
+
+                        function set(set, num) {
+                            if (set) {
+                                self.newsMain.newsTitle = data.detail.title;
+                                self.newsMain.newsTime = data.detail.time;
+                                self.newsMain.newsContent = data.detail.content;
+                            } else {
+                                self.newsMain.newsTitle = data[getLocal_h - num].detail.title;
+                                self.newsMain.newsTime = data[getLocal_h - num].detail.time;
+                                self.newsMain.newsContent = data[getLocal_h - num].detail.content;
+                            }
+                        }
+                    },
+                });
             },
-        });
-    }
+            getMenu() {
+                let self = this;
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.newsHot = data;
+                    },
+                });
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/homenews/top",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.newsImp_t = data;
+                    },
+                });
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/homenews/bottom",
+                    dataType: "json",
+                    success: function(data) {
+                        for (let i = 0; i < 4; i++) {
+                            self.newsMenu.newsImp_b.push(data[i])
+                        }
+                    },
+                });
+            }
+        },
+        mounted() {
+            this.getData();
+            this.getMenu();
+        },
+    }).mount("#newsCnt");
 </script>

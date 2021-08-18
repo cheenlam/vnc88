@@ -353,13 +353,13 @@
             flex: 1;
             .newsList_cnt {
                 max-height: 410px;
-                overflow-y: scroll;
+                overflow-y: auto;
             }
             li {
                 display: flex;
                 .newsList_img {
-                    width: 109px;
-                    height: 72px;
+                    width: 110px;
+                    height: calc((410px - 40px) /5);
                     background: no-repeat center top / cover;
                     flex-shrink: 0;
                 }
@@ -551,9 +551,6 @@
             color: #ff2453;
             padding-bottom: 15px;
         }
-        p {
-            line-height: 30px;
-        }
     }
     .wsDictImg {
         width: 300px;
@@ -565,6 +562,15 @@
             margin: 0 0 20px;
         }
     }
+    .wsDict_txt{
+        p {
+            line-height: 30px;
+        }
+        p+p{
+            margin-top: 25px;
+        }
+    }
+   
 }
 
 // fullDict start
@@ -672,72 +678,91 @@
     }
 }
 
-// 爬蟲新聞內頁(home)
-.newsCnt_h {
+// api新聞內頁(home)
+.newsCnt {
     padding: 20px;
     margin: auto;
     color: #333;
     background-color: #fff;
+    display: flex;
     @include rwd(1280) {
         width: calc(100% - 20px);
     }
 
-    @at-root .newsCnt_title {
-        font-size: 2rem;
-        line-height: 2.2rem;
-        font-weight: bold;
-        @include rwd(800) {
-            font-size: 1.3rem;
-            line-height: 1.5rem;
+    @at-root .newsCnt_main {
+        width: calc(100% - 300px);
+        margin-right: 20px;
+        .newstitle {
+            p {
+                font-size: 2rem;
+                line-height: 2.2rem;
+                font-weight: bold;
+                @include rwd(800) {
+                    font-size: 1.3rem;
+                    line-height: 1.5rem;
+                }
+            }
+            .time {
+                margin: 10px 0 20px;
+                padding: 8px 5px;
+                text-align: right;
+                background-color: #f2f2f2;
+                color: #999;
+                font-size: 0.85rem;
+                border-top: 1px solid #c5c5c5;
+                border-bottom: 1px solid #c5c5c5;
+            }
+        }
+
+        .newsArticle {
+            p {
+                margin-bottom: 20px;
+                line-height: 24px;
+            }
+            .expNoEdit {
+                padding: 0;
+                margin: 50px 0;
+                h2 {
+                    padding-top: 10px;
+                    line-height: 22px;
+                }
+                img {
+                    width: 100% !important;
+                    height: auto !important;
+                }
+            }
+
+            .dugout-video {
+                display: none;
+            }
+
+            .text-right {
+                padding-top: 50px;
+                font-size: 0.95rem;
+                color: #999;
+                text-align: right;
+            }
+
+            ul {
+                padding-left: 20px;
+                margin: 40px 0;
+                color: #099adb;
+                line-height: 24px;
+                list-style: disc;
+            }
         }
     }
 
-    @at-root .newsCnt_time {
-        margin: 10px 0 20px;
-        padding: 8px 5px;
-        text-align: right;
-        background-color: #f2f2f2;
-        color: #999;
-        font-size: 0.85rem;
-        border-top: 1px solid #c5c5c5;
-        border-bottom: 1px solid #c5c5c5;
-    }
-
-    @at-root .newsCnt_body {
+    @at-root .newsCnt_menu {
+        width: 300px;
+        & > div + div {
+            margin-top: 50px;
+        }
         p {
-            margin-bottom: 20px;
-            line-height: 24px;
+            padding-top: 10px;
         }
-        .expNoEdit {
-            padding: 0;
-            margin: 50px 0;
-            h2 {
-                padding-top: 10px;
-                line-height: 22px;
-            }
-            img {
-                width: 100% !important;
-                height: auto !important;
-            }
-        }
-
-        .dugout-video {
-            display: none;
-        }
-
-        .text-right {
-            padding-top: 50px;
-            font-size: 0.95rem;
-            color: #999;
-            text-align: right;
-        }
-
-        ul {
-            padding-left: 20px;
-            margin: 40px 0;
-            color: #099adb;
-            line-height: 24px;
-            list-style: disc;
+        li + li {
+            margin-top: 20px;
         }
     }
 }

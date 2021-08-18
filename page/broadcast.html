@@ -1,15 +1,26 @@
-<div class="contBox-min broadcast">
+<div class="contBox-min broadcast" id="page">
     <!-- liveBox start -->
     <div class="liveBox">
         <div class="liveTitle">
             <div>
-                <img src="images/icon/hot.gif">
-                <span>Truyền hình trực tiếp</span>
+                <img :src="liveData.title.img">
+                <span>{{liveData.title.txt}}</span>
             </div>
         </div>
-        <div class="liveList" id="liveList">
-            <ul></ul>
+
+        <div class="liveList">
+            <ul>
+                <li v-for="(item,index) in liveList">
+                    <div>
+                        <div class="liveList_mv">
+                            <iframe :src="reMvsrc(item.videoId)" frameborder="0"></iframe>
+                        </div>
+                        <div class="liveList_msg"> {{item.title}}</div>
+                    </div>
+                </li>
+            </ul>
         </div>
+
         <div class="liveBtn">
             <div class="btn_linear_c2 btn">
                 <div class="btn_cnt">Xem tất cả</div>
@@ -18,7 +29,7 @@
     </div>
 
     <div class="videoBanner">
-        <img src="images/videoBanner-01.jpg">
+        <img :src="liveData.banner.main">
     </div>
 
     <div class="mainMsg">
@@ -27,16 +38,31 @@
         <div class="videoBox">
             <div class="gameShow" id="gameShow">
                 <div class="main">
-                    <iframe src="" frameborder="0" id="showMv"></iframe>
+                    <iframe :src="reMvsrc(ytShow)" frameborder="0" id="showMv"></iframe>
                 </div>
                 <div class="list">
                     <div class="arrow_l"></div>
                     <div class="arrow_r"></div>
                     <div class="listArray" id="listArray">
-                        <ul></ul>
+                        <ul>
+                            <template v-for="(item,index) in ytList">
+                                <li  @click="chYT(item)">
+                                    <div>
+                                        <div class="listArray_img">
+                                            <img :src="item.imgUrl">
+                                        </div>
+                                        <div class="listArray_msg">
+                                            <span>{{item.time}}</span>
+                                            <p>{{item.title}}</p>     
+                                        </div>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
                     </div>
                 </div>
             </div>
+
             <div class="gameMsg" id="gameMsg">
                 <div class="mainMsg-title">BẢNG XẾP HẠNG</div>
                 <div class="gameChart">
@@ -44,7 +70,7 @@
                         <option value="1">Chọn giải đấu</option>
                         <option value="2">Cúp C1</option>
                     </select>
-                    <div class="gameChart_tb" id="gameChart_tb">
+                    <div class="gameChart_tb">
                         <table>
                             <tr>
                                 <th>TT</th>
@@ -53,14 +79,57 @@
                                 <th>HS</th>
                                 <th>Điểm</th>
                             </tr>
+
+                            <template v-for="(item,index) in chart">
+                                <tr>
+                                    <td colspan="5" class="sort">{{item.sort}}</td>
+                                </tr>
+                                <tr v-for="(item,index) in item.list">
+                                    <td>{{index+1}}</td>
+                                    <td>
+                                        <div class="flag">
+                                            <img :src="item.flagUrl">
+                                        </div>
+                                        <span>{{item.name}}</span>
+                                    </td>
+                                    <td v-for="(item,index) in item.num">{{item}}</td>
+                                </tr>
+                            </template>
                         </table>
                     </div>
                 </div>
                 <div class="mainMsg-title">Kết quả</div>
 
                 <div class="gameSchedule">
-                    <div class="gameSchedule_tb" id="gameSchedule_tb">
-                        <table></table>
+                    <div class="gameSchedule_tb">
+                        <table>
+                            <template v-for="(item,index) in schedule">
+                                <tr>
+                                    <th colspan="3">{{item.sort}}</th>
+                                </tr>
+                                <tr v-for="(item,index) in item.list">
+                                    <td>
+                                        <div class="club_1">
+                                            <span>{{item.club_1_name}}</span>
+                                            <div class="badge">
+                                                <img :src="item.club_1_badge">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="time">{{item.time}}</span>
+                                    </td>
+                                    <td>
+                                        <div class="club_2">
+                                            <div class="badge">
+                                                <img  :src="item.club_2_badge">
+                                            </div>
+                                            <span>{{item.club_2_name}}</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -83,26 +152,9 @@
                     <div class="chat_iconBtn" id="chat_iconBtn">
                         <div class="chat_iconList" id="chat_iconList">
                             <ul>
-                                <li><img src="images/icon/i_chat_1.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_2.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_3.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_4.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_5.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_6.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_7.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_8.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_9.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_10.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_11.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_12.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_13.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_14.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_15.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_16.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_17.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_18.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_19.png" class="chat_icon"></li>
-                                <li><img src="images/icon/i_chat_20.png" class="chat_icon"></li>
+                                <li v-for="(item,index) in liveData.chatIcon">
+                                    <img :src="item" class="chat_icon">
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -113,42 +165,157 @@
 
             <div class="chatAd">
                 <ul>
-                    <li>
-                        <img src="images/chatAd_01.png">
-                    </li>
-                    <li>
-                        <img src="images/chatAd_02.png">
-                    </li>
-                    <li>
-                        <img src="images/chatAd_03.png">
-                    </li>
-                    <li>
-                        <img src="images/chatAd_04.png">
+                    <li v-for="(item,index) in liveData.banner.ad">
+                        <img :src="item">
                     </li>
                 </ul>
             </div>
         </div>
 
         <!-- scheduleList start (時程表) -->
-        <div class="scheduleList" id="scheduleList">
+        <div class="scheduleList">
             <div class="mainMsg-title">LỊCH THI ĐẤU</div>
             <!-- dateList -->
             <div class="dateList">
-                <div class="today">14/07/2021</div>
-                <ul></ul>
+                <div class="today">{{formatDate(today)}}</div>
+                <ul>
+                    <li v-for="(item,index) in weekList">
+                        <div class="date_num">{{item.num}}</div>
+                        <div class="date_week">{{item.week}}</div>
+                    </li>
+                </ul>
             </div>
+
             <!-- matchList -->
             <div class="matchList">
-                <table></table>
+                <table>
+                    <template v-for="(item,index) in schedule">
+                        <tr v-for="(item,index) in item.list">
+                            <td>
+                                <div class="match_title"  :class="{'on':item.live}">
+                                    <div class="match_time">
+                                        <p>{{item.day}} - {{item.time}}</p>
+                                        <div class="match_live">live</div>
+                                    </div>
+                                    <p>{{item.saibe}}</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="match_teams">
+                                    <div class="team team_L">
+                                        <span>{{item.club_1_name}}</span>
+                                        <div class="team_flag">
+                                            <img :src="item.club_1_badge">
+                                        </div>                            
+                                    </div>
+                                    <div class="vs">VS</div>
+                                    <div class="team team_R">
+                                        <div class="team_flag">
+                                            <img :src="item.club_2_badge">
+                                        </div>
+                                        <span>{{item.club_2_name}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </template>
+                </table>
             </div>
         </div>
     </div>
 </div>
 
-
-
-
+<script src="js/index.js"></script>
 <script>
+    Vue.createApp({
+        data() {
+            return {
+                liveData: mvLive,
+                liveList: [],
+                ytShow: '',
+                ytList: [],
+                today: '',
+                weekList: [],
+
+                // 暫定假資料
+                chart: chartData,
+                schedule: scheduleData,
+            };
+        },
+        methods: {
+
+            reMvsrc(data) {
+                return `https://www.youtube.com/embed/${data}`
+            },
+            getLive() {
+                var self = this;
+                docRef.get().then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        let data = doc.data();
+                        self.liveList.push(data);
+                    });
+                })
+            },
+            getYt() {
+                var self = this;
+                docRef2.get().then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        let data = doc.data();
+                        self.ytList.push(data);
+                        self.ytShow = self.ytList[0].videoId;
+                    });
+                })
+            },
+            chYT(data) {
+                this.ytShow = data.videoId;
+            },
+            showDate() {
+                this.today = new Date();
+                let today = new Date();
+                let scheduleWeek = []
+                let scheduleNum = []
+                var weekTxt = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+                scheduleWeek[3] = weekTxt[new Date().getDay()];
+                scheduleNum[3] = new Date().getDate();
+
+                for (let i = 1; i < 4; i++) {
+                    let week = [];
+                    for (let k = 0; k < 4; k++) {
+                        week[k] = new Date()
+                    };
+                    let getWeek_cut = weekTxt[new Date(week[0].setDate(week[0].getDate() - i)).getDay()];
+                    let getWeek_plus = weekTxt[new Date(week[1].setDate(week[1].getDate() + i)).getDay()];
+                    let getNum_cut = new Date(week[2].setDate(week[2].getDate() - i)).getDate();
+                    let getNum_plus = new Date(week[3].setDate(week[3].getDate() + i)).getDate();
+                    scheduleWeek[3 - i] = getWeek_cut;
+                    scheduleWeek[3 + i] = getWeek_plus;
+                    scheduleNum[3 - i] = getNum_cut;
+                    scheduleNum[3 + i] = getNum_plus;
+                }
+
+                for (let i = 0; i < scheduleWeek.length; i++) {
+                    // console.log(scheduleWeek[i])
+                    this.weekList.push({
+                        week: scheduleWeek[i],
+                        num: scheduleNum[i]
+                    })
+                }
+            },
+            formatDate(data) {
+                let d = new Date(data)
+                let formatd = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+                return formatd;
+            }
+        },
+        mounted() {
+            this.getLive();
+            this.getYt();
+            this.showDate();
+        },
+    }).mount("#page");
+
+    // ==========================================================
+    // yt影片清單控制
     var arrayNum = 0;
     var movieArray = []
     $('#gameShow .arrow_l').click(function() {
@@ -160,285 +327,6 @@
         arrayNum == 3 ? 3 : arrayNum++;
         $('#listArray ul').css('transform', `translateX(-${arrayNum*23}%)`)
     })
-
-
-    docRef.get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            let data = doc.data();
-            let liData = `<li>
-                            <div>
-                                <div class="liveList_mv">
-                                    <iframe src="https://www.youtube.com/embed/${data.videoId}" frameborder="0"></iframe>
-                                </div>
-                                <div class="liveList_msg">${data.title}</div>
-                            </div>
-                        </li>`
-            $('#liveList ul').append(liData);
-        });
-
-        getMovie()
-    })
-
-    function getMovie() {
-        docRef2.get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                let data = doc.data();
-                let liData = `<li videoId="${data.videoId}" onclick="chMovie(this)">
-                            <div>
-                                <div class="listArray_img">
-                                    <img src="${data.imgUrl}">
-                                </div>
-                                <div class="listArray_msg">
-                                    <span>${data.time}</span>
-                                    <p>${data.title}</p>     
-                                </div>
-                            </div>
-                        </li>`
-
-                $('#listArray ul').append(liData);
-                movieArray.push(data.videoId);
-                $('#gameShow iframe').attr('src', `https://www.youtube.com/embed/${movieArray[0]}`)
-            });
-        })
-    }
-
-    function chMovie(e) {
-        let getId = $(e).attr('videoid')
-        $('#gameShow iframe').attr('src', `https://www.youtube.com/embed/${getId}`)
-    }
-
-    // 靜態假資料
-    var chartData = [{
-        sort: 'Bảng A',
-        list: [{
-            flagUrl: 'images/flag/italy.png',
-            name: 'Italy',
-            num: [3, 7, 9]
-        }, {
-            flagUrl: 'images/flag/wales.png',
-            name: 'Wales',
-            num: [3, 1, 4]
-        }, {
-            flagUrl: 'images/flag/switzerland.png',
-            name: 'Switzerland',
-            num: [3, -1, 4]
-        }, {
-            flagUrl: 'images/flag/turkey.png',
-            name: 'Turkey',
-            num: [3, -7, 0]
-        }]
-    }, {
-        sort: 'Bảng B',
-        list: [{
-            flagUrl: 'images/flag/belgium.png',
-            name: 'Belgium',
-            num: [3, 6, 9]
-        }, {
-            flagUrl: 'images/flag/denmark.png',
-            name: 'Denmark',
-            num: [3, 1, 3]
-        }, {
-            flagUrl: 'images/flag/finland.png',
-            name: 'Finland',
-            num: [3, -2, 3]
-        }, {
-            flagUrl: 'images/flag/russia.png',
-            name: 'Russia',
-            num: [3, -5, 3]
-        }]
-    }, ];
-    var scheduleData = [{
-        sort: 'Premier League 24/07/2021',
-        list: [{
-            club_1_name: 'CSKA Moscow',
-            club_1_badge: 'images/badge/cska-moscow.png',
-            club_2_name: 'Ufa',
-            club_2_badge: 'images/badge/ufa.png',
-            saibe: 'CONCACAF Gold Cup',
-            time: '19:30',
-            day: '24/07/2021',
-            live: true,
-        }, {
-            club_1_name: 'FK Krylya Sovetov Samara',
-            club_1_badge: 'images/badge/FK-Krylya-Sovetov-Samara.png',
-            club_2_name: 'Akhmat Grozny',
-            club_2_badge: 'images/badge/akhmat-grozny.png',
-            saibe: 'Liga Mexico',
-            time: '20:00',
-            day: '24/07/2021',
-            live: true,
-        }, {
-            club_1_name: 'FK Rostov',
-            club_1_badge: 'images/badge/fk-rostov.png',
-            club_2_name: 'Dynamo Moscow',
-            club_2_badge: 'images/badge/dynamo-moscow.png',
-            saibe: 'Giao Hữu CLB',
-            time: '20:00',
-            day: '24/07/2021',
-            live: false,
-        }, {
-            club_1_name: 'Khimki',
-            club_1_badge: 'images/badge/khimk.png',
-            club_2_name: 'Zenit',
-            club_2_badge: 'images/badge/zenit.png',
-            saibe: 'Ngoại Hạng Banglades',
-            time: '22:00',
-            day: '24/07/2021',
-            live: false,
-        }, ]
-    }]
-
-    // 影片區側邊比賽訊息
-    function dataEach_1() {
-        chartData.forEach(function(data) {
-            let combination = ''
-            combination += `<tr>
-                            <td colspan="5" class="sort">${data.sort}</td>
-                        </tr>`
-            let getData = data;
-            for (let i = 0; i < getData.list.length; i++) {
-                let data = getData.list[i];
-
-                combination += `<tr>
-                                <td>${i+1}</td>
-                                <td>
-                                    <div class="flag">
-                                        <img src="${data.flagUrl}">
-                                    </div>
-                                    <span>${data.name}</span>
-                                </td>
-                                <td>${data.num[0]}</td>
-                                <td>${data.num[1]}</td>
-                                <td>${data.num[2]}</td>
-                            </tr>`
-            }
-
-            $('#gameChart_tb table').append(combination);
-        })
-    }
-
-    function dataEach_2() {
-        scheduleData.forEach(function(data) {
-            let combination = ''
-            combination += `<tr>
-                            <th colspan="3">${data.sort}</th>
-                        </tr>`
-            let getData = data;
-            for (let i = 0; i < getData.list.length; i++) {
-                let data = getData.list[i];
-                combination += ` <tr>
-                                <td>
-                                    <div class="club_1">
-                                        <span>${data.club_1_name}</span>
-                                        <div class="badge">
-                                            <img src="${data.club_1_badge}">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="time">${data.time}</span>
-                                </td>
-                                <td>
-                                    <div class="club_2">
-                                        <div class="badge">
-                                            <img src="${data.club_2_badge}">
-                                        </div>
-                                        <span>${data.club_2_name}</span>
-                                    </div>
-                                </td>
-                            </tr>`
-            }
-            $('#gameSchedule_tb table').append(combination);
-        })
-
-    }
-
-    for (let i = 0; i < 5; i++) {
-        dataEach_1()
-        dataEach_2()
-        dataEach_3()
-    }
-
-    // 日程表今日日期
-    var scheduleToday = new Date();
-
-    function formatDate(date) {
-        let formatted_date = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
-        return formatted_date;
-    }
-    $('#scheduleList .dateList .today').html(formatDate(scheduleToday));
-
-    // 日程表清單日期(抓今日時間更新); 
-    var scheduleWeek = []
-    var scheduleNum = []
-    var weekTxt = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    scheduleWeek[3] = weekTxt[new Date().getDay()];
-    scheduleNum[3] = new Date().getDate();
-
-    for (let i = 1; i < 4; i++) {
-        let week = [];
-        for (let k = 0; k < 4; k++) {
-            week[k] = new Date()
-        };
-        let getWeek_cut = weekTxt[new Date(week[0].setDate(week[0].getDate() - i)).getDay()];
-        let getWeek_plus = weekTxt[new Date(week[1].setDate(week[1].getDate() + i)).getDay()];
-        let getNum_cut = new Date(week[2].setDate(week[2].getDate() - i)).getDate();
-        let getNum_plus = new Date(week[3].setDate(week[3].getDate() + i)).getDate();
-        scheduleWeek[3 - i] = getWeek_cut;
-        scheduleWeek[3 + i] = getWeek_plus;
-        scheduleNum[3 - i] = getNum_cut;
-        scheduleNum[3 + i] = getNum_plus;
-    }
-
-    for (let i = 0; i < scheduleWeek.length; i++) {
-        let dateList = `<li>
-                       <div class="date_num">${scheduleNum[i]}</div>
-                       <div class="date_week">${scheduleWeek[i]}</div>
-                    </li>`
-        $('#scheduleList .dateList ul').append(dateList);
-    }
-
-    function dataEach_3() {
-        scheduleData.forEach(function(data) {
-            let combination = ''
-            let getData = data;
-            for (let i = 0; i < getData.list.length; i++) {
-                let data = getData.list[i];
-
-                combination += ` <tr>
-                                    <td>
-                                        <div class="match_title ${data.live == true?'on':''}">
-                                            <div class="match_time">
-                                                <p>${data.time} - ${data.day}</p>
-                                                <div class="match_live">live</div>
-                                            </div>
-                                            <p>${data.saibe}</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="match_teams">
-                                            <div class="team team_L">
-                                                <span>${data.club_1_name}</span>
-                                                <div class="team_flag">
-                                                    <img src="${data.club_1_badge}">
-                                                </div>                            
-                                            </div>
-                                            <div class="vs">VS</div>
-                                            <div class="team team_R">
-                                                <div class="team_flag">
-                                                    <img src="${data.club_2_badge}">
-                                                </div>
-                                                <span>${data.club_2_name}</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>`
-            }
-
-            $('#scheduleList .matchList table').append(combination);
-        })
-    }
-
 
     // 聊天室
     var databaseMs = new Date().getTime()
@@ -500,8 +388,6 @@
         }
     }
 
-
-
     function write() {
         var date = new Date();
         var h = date.getHours();
@@ -532,5 +418,3 @@
         }, 100)
     }
 </script>
-
-<script src="js/index.js"></script>

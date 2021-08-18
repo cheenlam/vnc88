@@ -1,4 +1,4 @@
-<div class="contBox-min">
+<div class="contBox-min" id="page">
     <!-- ==== mainMsg start ==== -->
     <div class="mainMsg">
         <!-- mainNews start -->
@@ -116,17 +116,8 @@
         <!-- flexAd start -->
         <div class="flexAd">
             <ul>
-                <li>
-                    <img src="images/adBanner/adBanner-01.jpg">
-                </li>
-                <li>
-                    <img src="images/adBanner/adBanner-02.jpg">
-                </li>
-                <li>
-                    <img src="images/adBanner/adBanner-03.jpg">
-                </li>
-                <li>
-                    <img src="images/adBanner/adBanner-04.jpg">
+                <li v-for="(item,index) in adImg">
+                    <img :src="item.img">
                 </li>
             </ul>
         </div>
@@ -288,38 +279,16 @@
             </ul>
         </div>
 
-        <!-- fullDict start -->
         <div class="fullDict">
             <div class="title"></div>
             <div>
                 <div class="wsDict_msg">
-                    <div class="title">Nhà cái uy tín – Kèo Bóng Cỏ giới thiệu các nhà cái uy tín hàng đầu</div>
+                    <div class="title">{{wsDict.title}}</div>
                     <ul class="lotteryList">
-                        <li>
+                        <li v-for="(item,index) in wsDict.msg">
                             <div class="icon"></div>
                             <ul class="lotteryMsg">
-                                <li>Với những người chơi cá cược việc tìm lựa trọn cho mình một nhà cái uy tín để đặt cược luôn là việc quan trọng nhất cần làm.Với việc lựa trọn đúng nhà cái uy tín người chơi có thể hoàn toàn yên tâm về số tiền mà mình đã
-                                    đầu tư sẽ không bị biến mất, từ đó có thể chú tâm hoàn toàn vào việc đặt cược.
-                                </li>
-                                <li>Những nhà cái uy tín lâu năm luôn đảm bảo cho khách hàng khả năng thanh khoản tiền thưởng thắng cược của người chơi luôn nhanh, đấy đủ, chính xác số tiền mà người chơi muốn rút.Trong thời gia gần đây số lượng nhà cái mới
-                                    ra đời nhiều như nấm mọc sau mưa, đã có rất nhiều người chơi không tìm hiểu nên đã lựa trọn đúng các nhà cái không uy tín dẫn đến tình trạng không rút được tiền thưởng thắng cược hoặc thậm chí bị nhà cái giam tiền,
-                                    nhuốt tiề.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="icon"></div>
-                            <ul class="lotteryMsg">
-                                <li>Với nhu cầu ngày càng cao hiện nay Kèo Bóng Cỏ xin được giới thiệu đến người chơi các nhà cái lớn hoạt động lâu năm trên thị trường, mức độ uy tín lớn để người chơi có thể tin tưởng tuyệt đối nạp tiền vào chơi cho dù số
-                                    tiền đó lớn hay nhỏ. Các nhà cái uy tín được Kèo Bóng Cỏ giới thiệu đã được chính thành viên của Kèo Bóng Cỏ tham ra đăng ký chơi để kiểm tra chính xác mức độ uy tín mà nhà cái có được, đồng thời cũng được rất nhiều
-                                    các thành viên của các diễn đàn lớn về cá cược khác đánh giá tốt.
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="icon"></div>
-                            <ul class="lotteryMsg">
-                                <li>Kèo Bóng Cỏ xin chúc người chơi lựa chọn được nhà cái uy tín để trọn mặt gửi vàng. Xin chân thành cảm ơn!
-                                </li>
+                                <li v-for="(item,index) in item.list">{{item}}</li>
                             </ul>
                         </li>
                     </ul>
@@ -330,3 +299,15 @@
 </div>
 
 <script src="js/index.js"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                adImg:flexAd,
+                wsDict: newsDict,
+            };
+        },
+        methods: {},
+        mounted() {},
+    }).mount("#page");
+</script>
