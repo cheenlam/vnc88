@@ -3837,13 +3837,21 @@ body {
 }
 
 .newsCnt_title {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  line-height: 2.2rem;
   font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  .newsCnt_title {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+  }
 }
 
 .newsCnt_time {
   margin: 10px 0 20px;
-  padding: 10px 5px;
+  padding: 8px 5px;
   text-align: right;
   background-color: #f2f2f2;
   color: #999;
