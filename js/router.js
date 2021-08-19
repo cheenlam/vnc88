@@ -12,7 +12,8 @@ Router.prototype.refresh = function() {
     let routerList = ['', 'home', 'lottery', 'news', 'broadcast', 'forum', 'resources', 'game','member','member/message','member/changePwd','member/wallet'];
 
     for (let i = 0; i < 99; i++){
-        routerList.push(`home/news/list=${i}`)
+        routerList.push(`home/news?list=${i}`)
+        routerList.push(`news/news?list=${i}`)
     }
 
     for (let i = 0; i < 99; i++) {
@@ -97,12 +98,21 @@ Router.route('/member/changePwd', function() {
    $('#hd_menu li').removeClass('on')
 });
 
-// 首頁新聞
+
+// api新聞
 for (let i = 0; i < 99; i++) {
-    Router.route(`/home/news/list=${i}`, function() {
+    // 首頁新聞
+    Router.route(`/home/news?list=${i}`, function() {
         mainInclude('page/newsCnt/news_home.html');
         menuList_on(0);
         localStorage.setItem('news_h',i)
+    });
+
+    // 新聞內頁新聞
+    Router.route(`/news/news?list=${i}`, function() {
+        mainInclude('page/newsCnt/news_news.html');
+        menuList_on(2);
+        localStorage.setItem('news_n',i)
     });
 }
 

@@ -7,70 +7,22 @@
                 <div class="news_main">
                     <div class="mainMsg-title">SOI KÈO BÓNG</div>
                     <!-- 足球新聞 -->
-                    <a href="#/news?p=1">
-                        <div class="news_mainImg" style="background-image: url(images/newsRef/newsList1-01.jpg);">
-                            <p>Dù có thua UAE, Việt Nam cũng sẽ chắc suất vào vòng 3?</p>
+                    <a href="#/news/news?list=1">
+                        <div class="news_mainImg" :style="getbgi(newsMenu.news_t.img)">
+                            <p>{{newsMenu.news_t.title}}</p>
                         </div>
                     </a>
                 </div>
                 <div class="news_list">
                     <div class="mainMsg-title">Tin Mới Nhất</div>
                     <!-- 最新消息 -->
-                    <div class="newsList_cnt">
+                    <div class="newsList_cnt" id="newsList_cnt">
                         <ul>
-                            <li>
-                                <a href="#/newsRef?p=6">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef6-01.jpg);"></div>
+                            <li v-for="(item,index) in newsMenu.news_r">
+                                <a :href="reHref(true,index)">
+                                    <div class="newsList_img" :style="getbgi(item.img)"></div>
                                 </a>
-                                <p>Chelsea đề xuất các điều khoản cá nhân cho tiền đạo 74 triệu bảng</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=7">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef7-01.jpg);"></div>
-                                </a>
-                                <p>Eric Bailly khiến Man Utd lo ngại về Varane</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=8">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef8-01.jpg);"></div>
-                                </a>
-                                <p>Có Ben White, Arsenal lập tức chuyển hướng sang máy quét Bundesliga</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=9">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef9-01.jpg);"></div>
-                                </a>
-                                <p>Arsenal vẫn theo đuổi mục tiêu số 1 </p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=10">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef10-01.jpg);"></div>
-                                </a>
-                                <p>Xong 2 kế hoạch lớn, Man Utd tiếp tục xử lý kế hoạch 3 nan giải</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=11">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef11-01.jpg);"></div>
-                                </a>
-                                <p>Haaland: "Cậu phải kiến tạo cho tôi nhiều, nếu không tôi sẽ giận"</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=12">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef12-01.jpg);"></div>
-                                </a>
-                                <p>Mohamed Salah tái mặt khi đối đầu với quái thú phòng ngự</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=13">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef13-01.jpg);"></div>
-                                </a>
-                                <p>Varane đến Ngoại hạng Anh, chuyên gia lo ngại cho Chelsea</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=14">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef14-01.jpg);"></div>
-                                </a>
-                                <p>Cập bến Chelsea, đá tảng 60 triệu mang áo số mấy?</p>
+                                <p>{{item.title}}</p>
                             </li>
                         </ul>
                     </div>
@@ -78,36 +30,11 @@
             </div>
             <div class="mainNews_b">
                 <ul>
-                    <li>
-                        <a href="#/news?p=2">
-                            <div class="newsList_img" style="background-image: url(images/newsRef/newsList2-02.jpg);"></div>
+                    <li v-for="(item,index) in newsMenu.news_b">
+                        <a :href="reHref(false,index)">
+                            <div class="img" :style="getbgi(item.img)"></div>
                         </a>
-                        <p>Việt Nam vs UAE: Chiến thắng để thể hiện đẳng cấp của thế lực mới nổi châu Á</p>
-                    </li>
-                    <li>
-                        <a href="#/news?p=3">
-                            <div class="newsList_img" style="background-image: url(images/newsRef/newsList3-01.jpg);"></div>
-                        </a>
-                        <p>
-                            Carrasco của Atletico vẫn cay cú vì bị Chelsea loại: 'VAR là trò hề'</p>
-                    </li>
-                    <li>
-                        <a href="#/news?p=4">
-                            <div class="newsList_img" style="background-image: url(images/newsRef/newsList4-01.jpg);"></div>
-                        </a>
-                        <p>ĐT Việt Nam về nước, riêng 5 cầu thủ bay sang Thái Lan</p>
-                    </li>
-                    <li>
-                        <a href="#/news?p=5">
-                            <div class="newsList_img" style="background-image: url(images/newsRef/newsList5-01.jpg);"></div>
-                        </a>
-                        <p>MU - AC Milan và câu nói "Bắt chết Kaka đi, trận chung kết là của chúng ta"</p>
-                    </li>
-                    <li>
-                        <a href="#/news?p=6">
-                            <div class="newsList_img" style="background-image: url(images/newsRef/newsList6-01.jpg);"></div>
-                        </a>
-                        <p>Hà Nội đã trở lại để vượt HAGL</p>
+                        <p>{{item.title}}</p>
                     </li>
                 </ul>
             </div>
@@ -305,9 +232,56 @@
             return {
                 adImg:flexAd,
                 wsDict: newsDict,
+                newsMenu: {
+                    news_t: '',
+                    news_b: [],
+                    news_r: '',
+                },
             };
         },
-        methods: {},
-        mounted() {},
+        methods: {
+            getbgi(data){
+                return  `background-image: url(${data})`;
+            },
+            reHref(hot, index) {
+                if (hot) {
+                    return `#/news/news?list=${index+7}`
+                } else {
+                    return `#/news/news?list=${index+2}`
+                }
+
+            },
+            getMenu() {
+                let self = this;
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    dataType: "json",
+                    success: function(data) {           
+                        self.newsMenu.news_r = data;
+                    },
+                });
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/news/top",
+                    dataType: "json",
+                    success: function(data) {       
+                        self.newsMenu.news_t = data;
+                    },
+                });
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/news/bottom",
+                    dataType: "json",
+                    success: function(data) {               
+                        for (let i = 0; i < 5; i++) {
+                            self.newsMenu.news_b.push(data[i])
+                        }
+                    },
+                });
+            },
+        },
+        mounted() {
+            this.getMenu();
+        },
     }).mount("#page");
 </script>

@@ -296,9 +296,9 @@
             },
             reHref(hot, index) {
                 if (hot) {
-                    return `#/home/news/list=${index+6}`
+                    return `#/home/news?list=${index+6}`
                 } else {
-                    return `#/home/news/list=${index+2}`
+                    return `#/home/news?list=${index+2}`
                 }
 
             },
@@ -329,7 +329,7 @@
                         }
                     },
                 });
-            } 
+            },
         },
         mounted() {
             this.getMenu();

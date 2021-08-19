@@ -15,7 +15,7 @@
                 <div class="newsCnt_scroll">
                     <ul>
                         <template v-for="(item,index) in newsMenu.newsHot">
-                            <li v-if="localNum != index+6">
+                            <li v-if="localNum != index+7">
                                 <a :href="reHref(true,index)">
                                     <img :src="item.img">
                                     <p>{{item.title}}</p>
@@ -23,19 +23,19 @@
                             </li>
                         </template>
                     </ul>
-                </div>    
+                </div>  
             </div>
+            
             <div>
                 <div class="mainMsg-title">Tin quan trọng</div>
                 <div class="newsCnt_scroll">
                     <ul>
                         <li v-if="localNum != 1">
-                            <a href="#/home/news?list=1">
+                            <a href="#/news/news?list=1">
                                 <img :src="newsMenu.newsImp_t.img">
                                 <p>{{newsMenu.newsImp_t.title}}</p>
                             </a>
                         </li>
-    
                         <template v-for="(item,index) in newsMenu.newsImp_b">
                             <li v-if="localNum != index+2">
                                 <a :href="reHref(false,index)">
@@ -45,7 +45,7 @@
                             </li>
                         </template>
                     </ul>
-                </div>  
+                </div>    
             </div>
         </div>
     </div>
@@ -72,22 +72,22 @@
         methods: {
             reHref(hot, index) {
                 if (hot) {
-                    return `#/home/news?list=${index+6}`
+                    return `#/news/news?list=${index+7}`
                 } else {
-                    return `#/home/news?list=${index+2}`
+                    return `#/news/news?list=${index+2}`
                 }
 
             },
             getData() {
                 let self = this;
                 let getUrl;
-                let getLocal_h = localStorage.getItem('news_h');
-                self.localNum = localStorage.getItem('news_h');
+                let getLocal_h = localStorage.getItem('news_n');
+                self.localNum = localStorage.getItem('news_n');
 
                 if (getLocal_h == 1) {
-                    getUrl = "https://vnc88.awgstudio.com/api/homenews/top";
-                } else if (getLocal_h > 1 && getLocal_h < 6) {
-                    getUrl = "https://vnc88.awgstudio.com/api/homenews/bottom";
+                    getUrl = "https://vnc88.awgstudio.com/api/news/top";
+                } else if (getLocal_h > 1 && getLocal_h < 7) {
+                    getUrl = "https://vnc88.awgstudio.com/api/news/bottom";
                 } else {
                     getUrl = "https://vnc88.awgstudio.com/api/homenews/list";
                 }
@@ -98,21 +98,28 @@
                     success: function(data) {
                         if (getLocal_h == 1) {
                             set(true)
-                        } else if (getLocal_h > 1 && getLocal_h < 6) {
+                        } else if (getLocal_h > 1 && getLocal_h < 7) {
                             set(false, 2)
                         } else {
-                            set(false, 6)
+                            set(false, 7)
                         }
 
                         function set(set, num) {
                             if (set) {
-                                self.newsMain.newsTitle = data.detail.title;
-                                self.newsMain.newsTime = data.detail.time;
-                                self.newsMain.newsContent = data.detail.content;
+                                self.newsMain.newsTitle = data.content.title;
+                                self.newsMain.newsTime = data.content.time;
+                                self.newsMain.newsContent = data.content.content;
                             } else {
-                                self.newsMain.newsTitle = data[getLocal_h - num].detail.title;
-                                self.newsMain.newsTime = data[getLocal_h - num].detail.time;
-                                self.newsMain.newsContent = data[getLocal_h - num].detail.content;
+                                if (getLocal_h >= 7) {
+                                    self.newsMain.newsTitle = data[getLocal_h - num].detail.title;
+                                    self.newsMain.newsTime = data[getLocal_h - num].detail.time;
+                                    self.newsMain.newsContent = data[getLocal_h - num].detail.content;
+                                } else {
+                                    self.newsMain.newsTitle = data[getLocal_h - num].content.title;
+                                    self.newsMain.newsTime = data[getLocal_h - num].content.time;
+                                    self.newsMain.newsContent = data[getLocal_h - num].content.content;
+                                }
+
                             }
                         }
                     },
@@ -129,7 +136,7 @@
                 });
 
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/top",
+                    url: "https://vnc88.awgstudio.com/api/news/top",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.newsImp_t = data;
@@ -137,10 +144,10 @@
                 });
 
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/bottom",
+                    url: "https://vnc88.awgstudio.com/api/news/bottom",
                     dataType: "json",
                     success: function(data) {
-                        for (let i = 0; i < 4; i++) {
+                        for (let i = 0; i < 5; i++) {
                             self.newsMenu.newsImp_b.push(data[i])
                         }
                     },

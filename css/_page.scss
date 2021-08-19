@@ -359,7 +359,7 @@
                 display: flex;
                 .newsList_img {
                     width: 110px;
-                    height: calc((410px - 40px) /5);
+                    height: calc((410px - 40px) / 5);
                     background: no-repeat center top / cover;
                     flex-shrink: 0;
                 }
@@ -562,15 +562,14 @@
             margin: 0 0 20px;
         }
     }
-    .wsDict_txt{
+    .wsDict_txt {
         p {
             line-height: 30px;
         }
-        p+p{
+        p + p {
             margin-top: 25px;
         }
     }
-   
 }
 
 // fullDict start
@@ -680,7 +679,7 @@
 
 // api新聞內頁(home)
 .newsCnt {
-    padding: 20px;
+    padding: 20px 20px 50px;
     margin: auto;
     color: #333;
     background-color: #fff;
@@ -758,11 +757,21 @@
         & > div + div {
             margin-top: 50px;
         }
-        p {
-            padding-top: 10px;
+        li {
+            p {
+                padding-top: 10px;
+                @include txtChip(2);
+            }
         }
         li + li {
             margin-top: 20px;
+        }
+        .newsCnt_scroll{
+            height: 700px;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{
+                width: 10px;
+            }
         }
     }
 }

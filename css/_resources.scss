@@ -69,9 +69,14 @@
         }
         td {
             width: 10%;
-            padding: 20px;
+            height: 95px;
             border: 1px solid #ccc;
             cursor: pointer;
+            a{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
         }
         .bankTb-img {
             max-width: 120px;
