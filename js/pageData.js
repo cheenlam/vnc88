@@ -6,20 +6,21 @@ var menuData = {
         {href:"#/lottery",txt:"Đề xuất cá cược",switch:true},
         {href:"#/news",txt:"Tin tức",switch:true},
         {href:"#/broadcast",txt:"Video đá bóng",switch:true},
-        {href:"#/forum",txt:"Diễn đàn thảo luận",switch:true},
+        {href:"#/forum",txt:"Diễn đàn thảo luận",switch:false},
         {href:"#/resources",txt:"Thông tin",switch:true},
     ],
     picture: [
-        {href:"#/game",img:"images/menu_gameBtn.png",switch:true},
+        {href:"#/game",img:"images/menu_gameBtn.png",switch:false},
     ]
 }
 
 // 主架構輪播
-var indexSlides = [
+var indexSlides = [ 
     {img:"images/carousel/topBanner-01.jpg",switch:true},
     {img:"images/carousel/topBanner-02.jpg",switch:true},
     {img:"images/carousel/topBanner-03.jpg",switch:true},
     {img:"images/carousel/topBanner-04.jpg",switch:true},
+
 ]
 
 // 主架構跑馬燈
@@ -42,10 +43,10 @@ var indexAd = {
     center:[
         {img:"images/adBanner/ad1.gif",switch:true},
         {img:"images/adBanner/ad2.gif",switch:true},
-        {img:"images/adBanner/adBanner-03.jpg",switch:true},
-        {img:"images/adBanner/adBanner-04.jpg",switch:true},
-        {img:"images/adBanner/adBanner-05.jpg",switch:true},
-        {img:"images/adBanner/adBanner-05.jpg",switch:true},
+        {img:"images/adBanner/adBanner-03.jpg",switch:false},
+        {img:"images/adBanner/adBanner-04.jpg",switch:false},
+        {img:"images/adBanner/adBanner-05.jpg",switch:false},
+        {img:"images/adBanner/adBanner-05.jpg",switch:false},
     ]
 }
 
