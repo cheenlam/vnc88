@@ -59,7 +59,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="hd_signIn" id="hd_signIn" data-signIn="0">
+                <div class="hd_signIn" id="hd_signIn" data-signIn="0" v-if="signSwitch">
                     <div data-signIn="0">
                         <div class="signIn_ipt">
                             <label>  
@@ -309,6 +309,8 @@
         data() {
             return {
                 hdMenu: menuData,
+                // 開關
+                signSwitch:false,
             };
         },
         methods: {},

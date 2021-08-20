@@ -43,10 +43,10 @@ var indexAd = {
     center:[
         {img:"images/adBanner/ad1.gif",switch:true},
         {img:"images/adBanner/ad2.gif",switch:true},
-        {img:"images/adBanner/adBanner-03.jpg",switch:false},
-        {img:"images/adBanner/adBanner-04.jpg",switch:false},
-        {img:"images/adBanner/adBanner-05.jpg",switch:false},
-        {img:"images/adBanner/adBanner-05.jpg",switch:false},
+        {img:"images/adBanner/adBanner-03.jpg",switch:true},
+        {img:"images/adBanner/adBanner-04.jpg",switch:true},
+        {img:"images/adBanner/adBanner-05.jpg",switch:true},
+        {img:"images/adBanner/adBanner-05.jpg",switch:true},
     ]
 }
 

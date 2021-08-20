@@ -23,11 +23,13 @@ body {
 // ===== header start =====
 .header {
     width: 100%;
-    // min-width: $count-minW;
     margin: auto;
     min-height: 188px;
     background-color: $mainBgc;
     position: relative;
+    @include rwd(550){
+        min-height: auto;
+    }
     // hd_top start
     .hd_top {
         max-width: $count-minW;
@@ -49,6 +51,11 @@ body {
             background: url(../images/logo/hd_logo.png) no-repeat center / cover;
             cursor: pointer;
             @include imgToTxt;
+
+            @include rwd(550){
+                width: 100%;
+                height: 15vw;
+            }
             a {
                 width: 100%;
                 height: 100%;
@@ -61,6 +68,9 @@ body {
             padding-bottom: 20px;
             @include rwd(1250) {
                 align-self: flex-end;
+            }
+            @include rwd(550){
+                padding-bottom: 0px;
             }
         }
         .hd_link {

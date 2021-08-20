@@ -63,42 +63,45 @@
             </div>
 
             <div class="gameMsg" id="gameMsg">
-                <div class="mainMsg-title">BẢNG XẾP HẠNG</div>
-                <div class="gameChart">
-                    <select @change="chart_list(),goTop()" v-model="selected">
-                        <option v-for="(item,index) in chartSel" :value="item.id">{{item.name}}</option>
-                    </select>
+                <div>
+                    <div class="mainMsg-title">BẢNG XẾP HẠNG</div>
+                    <div class="gameChart">
+                        <select @change="chart_list(),goTop()" v-model="selected">
+                            <option v-for="(item,index) in chartSel" :value="item.id">{{item.name}}</option>
+                        </select>
 
-                    <div class="gameChart_tb"  ref="gameChart">
-                        <table>
-                            <tr>
-                                <th>TT</th>
-                                <th>Đội</th>
-                                <th>Trận</th>
-                                <th>HS</th>
-                                <th>Điểm</th>
-                            </tr>
-                            <tr v-for="(item,index) in chartList">
-                                <td>{{index+1}}</td>
-                                <td>
-                                    <div class="flag">
-                                        <img :src="item.img">
-                                    </div>
-                                    <span>{{item.Team}}</span>
-                                </td>
-                                <td>{{item.Battle}}</td>
-                                <td>{{item.Difference}}</td>
-                                <td>{{item.Point}}</td>
-                            </tr>
-                        </table>
+                        <div class="gameChart_tb" ref="gameChart">
+                            <table>
+                                <tr>
+                                    <th>TT</th>
+                                    <th>Đội</th>
+                                    <th>Trận</th>
+                                    <th>HS</th>
+                                    <th>Điểm</th>
+                                </tr>
+                                <tr v-for="(item,index) in chartList">
+                                    <td>{{index+1}}</td>
+                                    <td>
+                                        <div class="flag">
+                                            <img :src="item.img">
+                                        </div>
+                                        <span>{{item.Team}}</span>
+                                    </td>
+                                    <td>{{item.Battle}}</td>
+                                    <td>{{item.Difference}}</td>
+                                    <td>{{item.Point}}</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
-                <div class="mainMsg-title">Kết quả</div>
-                <div class="gameSchedule">
-                    <div class="gameSchedule_tb">
-                        <table>
-                            <template v-for="(item,index) in schedule">
+                <div>
+                    <div class="mainMsg-title">Kết quả</div>
+                    <div class="gameSchedule">
+                        <div class="gameSchedule_tb">
+                            <table>
+                                <template v-for="(item,index) in schedule">
                                 <tr>
                                     <th colspan="3">{{item.sort}}</th>
                                 </tr>
@@ -124,14 +127,16 @@
                                     </td>
                                 </tr>
                             </template>
-                        </table>
+                            </table>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
         <!-- chatBox start (聊天室) -->
-        <div class="chatBox">
+        <div class="chatBox" v-if="chatSwitch">
             <div class="chatroom">
                 <div class="chat_title">聊天室</div>
                 <div class="chat_list" id="chat_list">
@@ -168,7 +173,7 @@
         </div>
 
         <!-- scheduleList start (時程表) -->
-        <div class="scheduleList">
+        <div class="scheduleList" v-if="dateSwitch">
             <div class="mainMsg-title">LỊCH THI ĐẤU</div>
             <!-- dateList -->
             <div class="dateList">
@@ -231,16 +236,19 @@
                 ytList: [],
                 today: '',
                 weekList: [],
-                selected:'champions-league',
-                chartSel:'',
-                chartList:'',
-               
+                selected: 'champions-league',
+                chartSel: '',
+                chartList: '',
+
                 // 暫定假資料
                 schedule: scheduleData,
+                // 開關
+                chatSwitch: false,
+                dateSwitch: false,
             };
         },
         methods: {
-            goTop(){
+            goTop() {
                 this.$refs.gameChart.scrollTop = 0;
             },
             reMvsrc(data) {
@@ -304,24 +312,24 @@
                 let formatd = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
                 return formatd;
             },
-            chart_sel(){
-                let self = this;  
+            chart_sel() {
+                let self = this;
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/match/score",
                     dataType: "json",
-                    success: function(data) {                        
-                       self.chartSel = data;
+                    success: function(data) {
+                        self.chartSel = data;
                     },
                 });
             },
-            chart_list(){
-                let self = this;  
+            chart_list() {
+                let self = this;
                 let setUrl = `https://vnc88.awgstudio.com/api/match/score/${self.selected}`
                 $.ajax({
                     url: setUrl,
                     dataType: "json",
-                    success: function(data) {                        
-                       self.chartList = data;
+                    success: function(data) {
+                        self.chartList = data;
                     },
                 });
             }

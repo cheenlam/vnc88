@@ -1285,6 +1285,12 @@ body {
   position: relative;
 }
 
+@media screen and (max-width: 550px) {
+  .header {
+    min-height: auto;
+  }
+}
+
 .header .hd_top {
   max-width: 1280px;
   min-height: 140px;
@@ -1325,6 +1331,13 @@ body {
   white-space: nowrap;
 }
 
+@media screen and (max-width: 550px) {
+  .header .hd_top .hd_logo {
+    width: 100%;
+    height: 15vw;
+  }
+}
+
 .header .hd_top .hd_logo a {
   width: 100%;
   height: 100%;
@@ -1341,6 +1354,12 @@ body {
   .header .hd_top .hd_tool {
     -ms-flex-item-align: end;
         align-self: flex-end;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .header .hd_top .hd_tool {
+    padding-bottom: 0px;
   }
 }
 
@@ -2489,6 +2508,12 @@ body {
   background-color: #444;
   border-radius: 10px;
   overflow: hidden;
+}
+
+@media screen and (max-width: 1280px) {
+  .betList table {
+    border-radius: unset;
+  }
 }
 
 @media screen and (max-width: 1250px) {
@@ -3733,13 +3758,29 @@ body {
   position: relative;
 }
 
+@media screen and (max-width: 800px) {
+  .fullList li a {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .fullList li .fullList_img {
   width: 260px;
   height: 0;
-  padding-bottom: 13%;
+  padding-bottom: 155px;
   background: no-repeat center / cover;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .fullList li .fullList_img {
+    width: 100%;
+    padding-bottom: 50%;
+  }
 }
 
 .fullList li .fullList2_img {
@@ -3767,11 +3808,24 @@ body {
   font-size: 1.1rem;
 }
 
+@media screen and (max-width: 800px) {
+  .fullList li .fullList_msg {
+    padding: 0;
+  }
+}
+
 .fullList li .fullList_msg .title {
   color: #000;
   font-size: 1.6rem;
   font-weight: bold;
   padding-bottom: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .fullList li .fullList_msg .title {
+    font-size: 1rem;
+    padding-top: 10px;
+  }
 }
 
 .fullList li .fullList_msg p {
@@ -3792,6 +3846,12 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media screen and (max-width: 800px) {
+  .fullList li .fullList_msg .fullList_tool {
+    padding-top: 20px;
+  }
 }
 
 .fullList li .fullList_msg .fullList_tool span {
@@ -4064,9 +4124,25 @@ body {
   margin-top: 0;
 }
 
+@media screen and (max-width: 1000px) {
+  .broadcast .videoBox {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .broadcast .gameShow {
   width: calc(100% - 350px);
   padding-right: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+  .broadcast .gameShow {
+    width: 100%;
+    padding-right: 0;
+  }
 }
 
 .broadcast .gameShow .main {
@@ -4104,6 +4180,14 @@ body {
   cursor: pointer;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+}
+
+@media screen and (max-width: 550px) {
+  .broadcast .gameShow .list .arrow_l,
+  .broadcast .gameShow .list .arrow_r {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .broadcast .gameShow .list .arrow_l:active,
@@ -4193,6 +4277,12 @@ body {
   font-weight: bold;
 }
 
+@media screen and (max-width: 550px) {
+  .broadcast .gameShow .list .listArray_msg {
+    display: none;
+  }
+}
+
 .broadcast .gameShow .list .listArray_msg span {
   color: #888;
   font-weight: normal;
@@ -4221,6 +4311,25 @@ body {
           flex-direction: column;
 }
 
+@media screen and (max-width: 1000px) {
+  .broadcast .gameMsg {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .broadcast .gameMsg {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .broadcast .gameMsg > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -4229,6 +4338,20 @@ body {
 
 .broadcast .gameMsg > div + div {
   margin-top: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .broadcast .gameMsg > div + div {
+    margin-top: 0;
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .broadcast .gameMsg > div + div {
+    margin-top: 10px;
+    margin-left: 0;
+  }
 }
 
 .broadcast .gameMsg .gameChart select {

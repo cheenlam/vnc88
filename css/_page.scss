@@ -42,6 +42,10 @@
         background-color: #444;
         border-radius: 10px;
         overflow: hidden;
+
+        @include rwd(1280){
+            border-radius: unset;
+        }
     }
     tbody {
         @include rwd(1250) {
@@ -610,12 +614,23 @@
         padding: 10px;
         display: flex;
         position: relative;
+
+        a{
+            @include rwd(800){
+                flex-direction: column;
+            }
+        }
+
         .fullList_img {
             width: 260px;
             height: 0;
-            padding-bottom: 13%;
+            padding-bottom: 155px;
             background: no-repeat center / cover;
             flex-shrink: 0;
+            @include rwd(800){
+                width: 100%;
+                padding-bottom: 50%;
+            }
         }
         .fullList2_img {
             width: 260px;
@@ -631,11 +646,19 @@
             flex-direction: column;
             justify-content: space-between;
             font-size: 1.1rem;
+            @include rwd(800){
+                padding: 0;
+             }
             .title {
                 color: #000;
                 font-size: 1.6rem;
                 font-weight: bold;
                 padding-bottom: 10px;
+
+                @include rwd(800){
+                   font-size: 1rem;
+                   padding-top: 10px;
+                }
             }
             p {
                 @include txtChip(2);
@@ -644,6 +667,9 @@
             .fullList_tool {
                 display: flex;
                 justify-content: space-between;
+                @include rwd(800){
+                    padding-top: 20px;
+                 }
                 span {
                     font-size: 1rem;
                 }
