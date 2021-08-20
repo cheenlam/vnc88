@@ -23,24 +23,8 @@
 </head>
 
 <body>
-    <!-- 主頁新聞跳頁(範例) -->
-    <!-- <a href="#/newsRef?p=1">newsRef</a> -->
-    <!-- 主頁博彩跳頁(範例) -->
-    <!-- <a href="#/lotteryRef?p=1">lotteryRef</a>  -->
-    
-    <!-- 內頁新聞跳頁(範例) -->
-    <!-- <a href="#/news?p=1">news</a> -->
-    <!-- 內頁博跳頁(範例) -->
-    <!-- <a href="#/lottery?p=1">lottery</a> -->
-    <!-- 內頁資源頁(範例) -->
-    <!-- <a href="#/resources?p=1">resources</a> -->
-
-    <!-- 投注公司介紹跳頁(範例) -->
-    <!-- <a href="#/betRef?p=1">resources</a> -->
-
-
     <!-- ===== header start ===== -->
-    <div class="header">
+    <div class="header" id="header">
         <!-- hd_top start -->
         <div class="hd_top" id="hd_top">
             <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
@@ -145,44 +129,36 @@
         <!-- hd_menu start -->
         <div class="hd_menu" id="hd_menu">
             <ul>
-                <li class="on">
-                    <a href="#/home">TRANG CHỦ</a>
-                </li>
-                <li><a href="#/lottery">Đề xuất cá cược </a></a>
-                </li>
-                <li><a href="#/news">Tin tức</a></li>
-                <li><a href="#/broadcast">Video đá bóng</a></li>
-                <li><a href="#/forum">Diễn đàn thảo luận</a></li>
-                <li><a href="#/resources">Thông tin</a></li>
-                <li>
-                    <a href="#/game">
-                        <div class="menu_game">
-                            <img src="images/menu_gameBtn.png">
-                        </div>
-                    </a>
-                </li>
+                <template v-for="(item,index) in hdMenu.txtList">
+                    <li v-if="item.switch">
+                        <a :href="item.href">{{item.txt}}</a>
+                    </li>
+                </template>
+
+                <template v-for="(item,index) in hdMenu.picture">
+                    <li v-if="item.switch">
+                        <a :href="item.href">
+                            <div class="menu_game">
+                                <img :src="item.img">
+                            </div>
+                        </a>
+                    </li>
+                </template>
             </ul>
         </div>
     </div>
 
     <!-- ===== content start ===== -->
-    <div class="mainCnt">
+    <div class="mainCnt" id="mainCnt">
         <div class="contBox-full">
             <!-- 首頁輪播 -->
             <div id="full_feature" class="swipslider">
-                <ul class="sw-slides">
-                    <li class="sw-slide">
-                        <img src="images/carousel/topBanner-01.jpg">
-                    </li>
-                    <li class="sw-slide">
-                        <img src="images/carousel/topBanner-02.jpg">
-                    </li>
-                    <li class="sw-slide">
-                        <img src="images/carousel/topBanner-03.jpg">
-                    </li>
-                    <li class="sw-slide">
-                        <img src="images/carousel/topBanner-04.jpg">
-                    </li>
+                <ul class="sw-slides" >
+                    <template v-for="(item,index) in slides">
+                        <li class="sw-slide" v-if="item.switch">
+                            <img :src="item.img">
+                        </li>
+                    </template>
                 </ul>
             </div>
 
@@ -192,9 +168,9 @@
                     <div>
                         <span>Tin mới nhất：</span>
                         <ul id="marquee" class="marquee_body">
-                            <li>現在測試跑馬燈 (*´∀`)~ ♥</li>
-                            <li>電子遊戲已開放，歡迎玩家點擊「SLOT GAME」進入遊戲，祝您遊戲愉快 (๑ơ ₃ ơ)♥</li>
-                            <li>跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑 !!</li>
+                            <template v-for="(item,index) in marquee">
+                                <li v-if="item.switch">{{item.txt}}</li>
+                            </template>
                         </ul>
                         <div class="btn_linear_c1 btn">
                             <div class="btn_cnt">Chi tiết</div>
@@ -206,8 +182,9 @@
             <div class="contBox-min">
                 <div class="leftTool" id="leftTool">
                     <div class="floatAd">
-                        <img src="images/adBanner/ad5.gif">
-                        <img src="images/adBanner/ad6.gif">
+                        <template v-for="(item,index) in banner.left">
+                            <img :src="item.img" v-if="item.switch">
+                        </template>
                     </div>
                     <div class="getGift" id="getGift">
                         <img src="images/gift.png">
@@ -216,8 +193,9 @@
 
                 <div class="rightTool" id="rightTool">
                     <div class="floatAd">
-                        <img src="images/adBanner/ad7.gif">
-                        <img src="images/adBanner/ad8.gif">
+                        <template v-for="(item,index) in banner.right">
+                            <img :src="item.img" v-if="item.switch">
+                        </template>
                     </div>
                     <div class="goTop" id="goTop">
                         <img src="images/icon/arrow-top.png">
@@ -233,24 +211,11 @@
                 <!-- flexAd start -->
                 <div class="flexAd">
                     <ul>
-                        <li>
-                            <img src="images/adBanner/ad1.gif">
-                        </li>
-                        <li>
-                            <img src="images/adBanner/ad2.gif">
-                        </li>
-                        <li>
-                            <img src="images/adBanner/adBanner-03.jpg">
-                        </li>
-                        <li>
-                            <img src="images/adBanner/adBanner-04.jpg">
-                        </li>
-                        <li>
-                            <img src="images/adBanner/adBanner-05.jpg">
-                        </li>
-                        <li>
-                            <img src="images/adBanner/adBanner-05.jpg">
-                        </li>
+                        <template v-for="(item,index) in banner.center">
+                            <li v-if="item.switch">
+                                <img :src="item.img">
+                            </li>
+                        </template>
                     </ul>
                 </div>
 
@@ -342,6 +307,33 @@
 </body>
 
 <script>
+    Vue.createApp({
+        data() {
+            return {
+                hdMenu: menuData,
+            };
+        },
+        methods: {},
+        mounted() {},
+    }).mount("#header");
+
+
+    Vue.createApp({
+        data() {
+            return {
+                slides:indexSlides,
+                marquee: marqueeData,
+                banner:indexAd,
+            };
+        },
+        methods: {},
+        mounted() {},
+    }).mount("#mainCnt");
+
+</script>
+
+
+<script>
     // 啟動輪播&跑馬燈外掛
     $('#full_feature').swipeslider();
     $("#marquee").marquee({
@@ -392,3 +384,19 @@
 </script>
 
 </html>
+
+
+<!-- 主頁新聞跳頁(範例) -->
+<!-- <a href="#/newsRef?p=1">newsRef</a> -->
+<!-- 主頁博彩跳頁(範例) -->
+<!-- <a href="#/lotteryRef?p=1">lotteryRef</a>  -->
+
+<!-- 內頁新聞跳頁(範例) -->
+<!-- <a href="#/news?p=1">news</a> -->
+<!-- 內頁博跳頁(範例) -->
+<!-- <a href="#/lottery?p=1">lottery</a> -->
+<!-- 內頁資源頁(範例) -->
+<!-- <a href="#/resources?p=1">resources</a> -->
+
+<!-- 投注公司介紹跳頁(範例) -->
+<!-- <a href="#/betRef?p=1">resources</a> -->

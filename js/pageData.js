@@ -1,3 +1,55 @@
+// ======== index ========
+// 主架構menu
+var menuData = {
+    txtList: [
+        {href:"#/home",txt:"TRANG CHỦ",switch:true},
+        {href:"#/lottery",txt:"Đề xuất cá cược",switch:true},
+        {href:"#/news",txt:"Tin tức",switch:true},
+        {href:"#/broadcast",txt:"Video đá bóng",switch:true},
+        {href:"#/forum",txt:"Diễn đàn thảo luận",switch:true},
+        {href:"#/resources",txt:"Thông tin",switch:true},
+    ],
+    picture: [
+        {href:"#/game",img:"images/menu_gameBtn.png",switch:true},
+    ]
+}
+
+// 主架構輪播
+var indexSlides = [
+    {img:"images/carousel/topBanner-01.jpg",switch:true},
+    {img:"images/carousel/topBanner-02.jpg",switch:true},
+    {img:"images/carousel/topBanner-03.jpg",switch:true},
+    {img:"images/carousel/topBanner-04.jpg",switch:true},
+]
+
+// 主架構跑馬燈
+var marqueeData = [
+    {txt:"現在測試跑馬燈 (*´∀`)~ ♥",switch:true},
+    {txt:"電子遊戲已開放，歡迎玩家點擊「SLOT GAME」進入遊戲，祝您遊戲愉快 (๑ơ ₃ ơ)♥",switch:true},
+    {txt:"跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑 !!",switch:true},
+]
+
+// 主架構廣告
+var indexAd = {
+    left: [
+        {img:"images/adBanner/ad5.gif",switch:true},
+        {img:"images/adBanner/ad6.gif",switch:true},
+    ],
+    right:[
+        {img:"images/adBanner/ad7.gif",switch:true},
+        {img:"images/adBanner/ad8.gif",switch:true},
+    ],
+    center:[
+        {img:"images/adBanner/ad1.gif",switch:true},
+        {img:"images/adBanner/ad2.gif",switch:true},
+        {img:"images/adBanner/adBanner-03.jpg",switch:true},
+        {img:"images/adBanner/adBanner-04.jpg",switch:true},
+        {img:"images/adBanner/adBanner-05.jpg",switch:true},
+        {img:"images/adBanner/adBanner-05.jpg",switch:true},
+    ]
+}
+
+
 // ======== home ========
 // 足球投注排行
 var betList = {
