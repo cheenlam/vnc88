@@ -141,45 +141,6 @@ var mvLive = {
 }
 
 // 靜態假資料
-var chartData = [{
-    sort: 'Bảng A',
-    list: [{
-        flagUrl: 'images/flag/italy.png',
-        name: 'Italy',
-        num: [3, 7, 9]
-    }, {
-        flagUrl: 'images/flag/wales.png',
-        name: 'Wales',
-        num: [3, 1, 4]
-    }, {
-        flagUrl: 'images/flag/switzerland.png',
-        name: 'Switzerland',
-        num: [3, -1, 4]
-    }, {
-        flagUrl: 'images/flag/turkey.png',
-        name: 'Turkey',
-        num: [3, -7, 0]
-    }]
-}, {
-    sort: 'Bảng B',
-    list: [{
-        flagUrl: 'images/flag/belgium.png',
-        name: 'Belgium',
-        num: [3, 6, 9]
-    }, {
-        flagUrl: 'images/flag/denmark.png',
-        name: 'Denmark',
-        num: [3, 1, 3]
-    }, {
-        flagUrl: 'images/flag/finland.png',
-        name: 'Finland',
-        num: [3, -2, 3]
-    }, {
-        flagUrl: 'images/flag/russia.png',
-        name: 'Russia',
-        num: [3, -5, 3]
-    }]
-}, ];
 var scheduleData = [{
         sort: 'Premier League 24/07/2021',
         list: [{
