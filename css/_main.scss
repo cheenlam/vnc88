@@ -447,6 +447,7 @@ body {
                     @include rwd(800){
                         width: 80px;
                         left: -13px;
+                        display: none;
                     }            
                 }
             }

@@ -1931,6 +1931,7 @@ body {
   .mainCnt .contBox-full .rightTool .todayGame .god {
     width: 80px;
     left: -13px;
+    display: none;
   }
 }
 
