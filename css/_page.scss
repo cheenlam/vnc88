@@ -22,6 +22,7 @@
 .betList {
     margin-bottom: 30px;
     .betTitle {
+        padding-left: 10px;
         margin-bottom: 15px;
         display: flex;
         flex-wrap: wrap;
@@ -290,7 +291,7 @@
 
 // ==== mainMsg start ====
 .mainMsg {
-    padding: 20px;
+    padding: 20px 20px 50px;
     background-color: #fff;
     & > div + div {
         margin-top: 40px;
@@ -713,10 +714,19 @@
     @include rwd(1280) {
         width: calc(100% - 20px);
     }
+    @include rwd(900) {
+        flex-direction: column;
+    }
 
     @at-root .newsCnt_main {
         width: calc(100% - 300px);
         margin-right: 20px;
+
+        @include rwd(900) {
+           width: 100%;
+           margin: 0;
+        }
+    
         .newstitle {
             p {
                 font-size: 2rem;
@@ -780,13 +790,44 @@
 
     @at-root .newsCnt_menu {
         width: 300px;
+        @include rwd(900){
+            width: 100%;
+            padding-top: 50px;
+            display: flex;       
+        }
+        @include rwd(550){
+            flex-direction: column;
+        }
+        & > div{
+            @include rwd(900){
+               width: 50%;
+            }
+            @include rwd(550){
+                width: 100%;
+             }
+        }
         & > div + div {
             margin-top: 50px;
+            @include rwd(900){
+                margin-top: 0;
+                margin-left: 10px;
+            }
+            @include rwd(550){
+               margin-left: 0;
+               margin-top: 50px;
+            }
         }
         li {
             p {
                 padding-top: 10px;
                 @include txtChip(2);
+            }
+            .img{
+                height: 0;
+                padding-bottom: 65%;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: top center;
             }
         }
         li + li {

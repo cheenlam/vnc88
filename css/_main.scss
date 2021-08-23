@@ -27,7 +27,7 @@ body {
     min-height: 188px;
     background-color: $mainBgc;
     position: relative;
-    @include rwd(550){
+    @include rwd(1250){
         min-height: auto;
     }
     // hd_top start
@@ -68,8 +68,6 @@ body {
             padding-bottom: 20px;
             @include rwd(1250) {
                 align-self: flex-end;
-            }
-            @include rwd(550){
                 padding-bottom: 0px;
             }
         }
@@ -402,6 +400,13 @@ body {
                     bottom: 300px;
                 }
             }
+            @include rwd(800){
+                &,
+                &.on{
+                    width: 50px;
+                    opacity: 0.8;
+                }
+            }
         }
         .rightTool {
             right: -90px;
@@ -421,15 +426,27 @@ body {
                     bottom: 260px;
                 }
             }
+            @include rwd(800){
+                &,
+                &.on{
+                    width: 50px;
+                    bottom: 245px;
+                    opacity: 0.8;
+                }
+            }
             .todayGame {
                 width: 100%;
                 position: absolute;
                 .god {
-                    width: 220px;
-                    left: -60px;
+                    width: 160px;
+                    left: -30px;
                     cursor: pointer;
                     position: relative;
                     animation: pudding 1s infinite linear;
+                    @include rwd(800){
+                        width: 80px;
+                        left: -13px;
+                    }            
                 }
             }
         }
@@ -450,6 +467,11 @@ body {
             background-color: #282828;
             border-radius: 50%;
             cursor: pointer;
+            @include rwd(800){
+                width: 50px;
+                height: 50px;
+                padding: 10px;
+            }
         }
         .goTop {
             height: 30px;
@@ -465,6 +487,19 @@ body {
                 width: 20px;
                 height: 20px;
                 margin-right: 5px;
+                @include rwd(800){
+                    width: 32px;
+                    height: 32px;
+                    margin: 0;
+                }
+            }
+            @include rwd(800){
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                span{
+                    display: none;
+                }
             }
         }
     }

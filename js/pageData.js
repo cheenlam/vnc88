@@ -2,51 +2,51 @@
 // 主架構menu
 var menuData = {
     txtList: [
-        {href:"#/home",txt:"TRANG CHỦ",switch:true},
-        {href:"#/lottery",txt:"Đề xuất cá cược",switch:true},
-        {href:"#/news",txt:"Tin tức",switch:true},
-        {href:"#/broadcast",txt:"Video đá bóng",switch:true},
-        {href:"#/forum",txt:"Diễn đàn thảo luận",switch:false},
-        {href:"#/resources",txt:"Thông tin",switch:true},
+        { href: "#/home", txt: "TRANG CHỦ", switch: true },
+        { href: "#/lottery", txt: "Đề xuất cá cược", switch: true },
+        { href: "#/news", txt: "Tin tức", switch: true },
+        { href: "#/broadcast", txt: "Video đá bóng", switch: true },
+        { href: "#/forum", txt: "Diễn đàn thảo luận", switch: false },
+        { href: "#/resources", txt: "Thông tin", switch: true },
     ],
     picture: [
-        {href:"#/game",img:"images/menu_gameBtn.png",switch:false},
+        { href: "#/game", img: "images/menu_gameBtn.png", switch: false },
     ]
 }
 
 // 主架構輪播
-var indexSlides = [ 
-    {img:"images/carousel/topBanner-01.jpg",switch:true},
-    {img:"images/carousel/topBanner-02.jpg",switch:true},
-    {img:"images/carousel/topBanner-03.jpg",switch:true},
-    {img:"images/carousel/topBanner-04.jpg",switch:true},
+var indexSlides = [
+    { img: "images/carousel/topBanner-01.jpg", switch: true },
+    { img: "images/carousel/topBanner-02.jpg", switch: true },
+    { img: "images/carousel/topBanner-03.jpg", switch: true },
+    { img: "images/carousel/topBanner-04.jpg", switch: true },
 
 ]
 
 // 主架構跑馬燈
 var marqueeData = [
-    {txt:"現在測試跑馬燈 (*´∀`)~ ♥",switch:true},
-    {txt:"電子遊戲已開放，歡迎玩家點擊「SLOT GAME」進入遊戲，祝您遊戲愉快 (๑ơ ₃ ơ)♥",switch:true},
-    {txt:"跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑 !!",switch:true},
+    { txt: "現在測試跑馬燈 (*´∀`)~ ♥", switch: true },
+    { txt: "電子遊戲已開放，歡迎玩家點擊「SLOT GAME」進入遊戲，祝您遊戲愉快 (๑ơ ₃ ơ)♥", switch: true },
+    { txt: "跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑 !!", switch: true },
 ]
 
 // 主架構廣告
 var indexAd = {
     left: [
-        {img:"images/adBanner/ad5.gif",switch:true},
-        {img:"images/adBanner/ad6.gif",switch:true},
+        { img: "images/adBanner/ad5.gif", switch: true },
+        { img: "images/adBanner/ad6.gif", switch: true },
     ],
-    right:[
-        {img:"images/adBanner/ad7.gif",switch:true},
-        {img:"images/adBanner/ad8.gif",switch:true},
+    right: [
+        { img: "images/adBanner/ad7.gif", switch: true },
+        { img: "images/adBanner/ad8.gif", switch: true },
     ],
-    center:[
-        {img:"images/adBanner/ad1.gif",switch:true},
-        {img:"images/adBanner/ad2.gif",switch:true},
-        {img:"images/adBanner/adBanner-03.jpg",switch:true},
-        {img:"images/adBanner/adBanner-04.jpg",switch:true},
-        {img:"images/adBanner/adBanner-05.jpg",switch:true},
-        {img:"images/adBanner/adBanner-05.jpg",switch:true},
+    center: [
+        { img: "images/adBanner/ad1.gif", switch: true },
+        { img: "images/adBanner/ad2.gif", switch: true },
+        { img: "images/adBanner/adBanner-03.jpg", switch: true },
+        { img: "images/adBanner/adBanner-04.jpg", switch: true },
+        { img: "images/adBanner/adBanner-05.jpg", switch: true },
+        { img: "images/adBanner/adBanner-05.jpg", switch: true },
     ]
 }
 
@@ -136,6 +136,129 @@ var lotteryDict = {
         { list: ["Có thể nhắc tới những chuyên mục nổi bật và được yêu thích nhất của VNC88.com như: Kèo nhà cái (cập nhật tỷ lệ kèo mới nhất), truyền hình trực tiếp bóng đá giải đấu Champions League, Ngoại Hạng Anh, Serie A, La liga, Bundesliga…hay các giải đấu của các đội tuyển quốc gia như World Cup Euro đã phục vụ cho những khán giả có niềm đam mê với thể thao."] },
         { list: ["VNC88.com thường xuyên nâng cấp cơ sở vất chất, đầu tư nhân lực để đảm bảo quá trình trực tiếp bóng đá các trận cầu đỉnh cao luôn cho chất lượng hình ảnh tốt nhất, âm thanh chân thực xuyên suốt qua trinh tường thuật luôn luôn có BLV tham gia bình luận các trận đấu để tạo thêm không khí sôi nổi cho người xem."] },
         { list: ["Hiện nay thương hiệu VNC88 đang không ngừng phát triển lớn mạnh, và chúng tôi không ngừng cố gắng cho những mục tiêu lớn nhằm mang đến cho người xem những dịch vụ tốt nhất và hoàn toàn Miễn Phí"] },
+    ]
+}
+
+var lotteryNews = {
+    news_t: {
+        img: "images/newsRef/lottery1-01.jpg",
+        title: "Tiêu chí nhận định nhà cái uy tín tại Kèo Bóng Cỏ"
+    },
+    news_b: [{
+            img: "images/newsRef/lottery2-01.jpg",
+            title: "Kèo Nhà Cái nhận định trước trân Chung Kết : Anh vs Ý"
+        },
+        {
+            img: "images/newsRef/lottery3-01.jpg",
+            title: "Kèo nhà cái nhận định bóng đá Anh vs Đan Mạch"
+        },
+        {
+            img: "images/newsRef/lottery4-01.jpg",
+            title: "Kèo Nhà Cái nhận định trân đấu Ý vs Tây Ban Nha"
+        },
+        {
+            img: "images/newsRef/lottery5-01.jpg",
+            title: "Kèo Nhà Cái nhận định Ukraine vs Anh"
+        },
+    ],
+    news_r: [{
+            img: "images/newsRef/newsRef-01.jpg",
+            title: "CHÍNH THỨC: Man Utd công bố bom tấn thứ 2 sau Sancho"
+        },
+        {
+            img: "images/newsRef/newsRef2-01.jpg",
+            title: "Đội hình với 11 'bom xịt' của Arsenal trong thế kỷ XXI"
+        },
+        {
+            img: "images/newsRef/newsRef3-01.jpg",
+            title: "Ronaldo gieo rắc hy vọng về một thương vụ bom tấn hoàn hảo cho M.U"
+        },
+        {
+            img: "images/newsRef/newsRef4-01.jpg",
+            title: "Top 10 trung vệ được trả lương cao nhất EPL: Kỷ lục từ tân binh Man Utd"
+        },
+        {
+            img: "images/newsRef/newsRef5-01.jpg",
+            title: "5 điểm nhấn Bournemouth 1-2 Chelsea: Số 9 mới; 3 cái tên gây thất vọng."
+        },
+        {
+            img: "images/newsRef/newsRef6-01.jpg",
+            title: "Chelsea đề xuất các điều khoản cá nhân cho tiền đạo 74 triệu bảng"
+        },
+        {
+            img: "images/newsRef/newsRef7-01.jpg",
+            title: "Eric Bailly khiến Man Utd lo ngại về Varane"
+        },
+        {
+            img: "images/newsRef/newsRef8-01.jpg",
+            title: "Có Ben White, Arsenal lập tức chuyển hướng sang máy quét Bundesliga"
+        },
+        {
+            img: "images/newsRef/newsRef9-01.jpg",
+            title: "Arsenal vẫn theo đuổi mục tiêu số 1"
+        },
+        {
+            img: "images/newsRef/newsRef10-01.jpg",
+            title: "Xong 2 kế hoạch lớn, Man Utd tiếp tục xử lý kế hoạch 3 nan giải"
+        },
+        {
+            img: "images/newsRef/newsRef11-01.jpg",
+            title: 'Haaland: "Cậu phải kiến tạo cho tôi nhiều, nếu không tôi sẽ giận"'
+        },
+        {
+            img: "images/newsRef/newsRef12-01.jpg",
+            title: "Mohamed Salah tái mặt khi đối đầu với quái thú phòng ngự"
+        },
+        {
+            img: "images/newsRef/newsRef13-01.jpg",
+            title: "Varane đến Ngoại hạng Anh, chuyên gia lo ngại cho Chelsea"
+        },
+        {
+            img: "images/newsRef/newsRef14-01.jpg",
+            title: "Cập bến Chelsea, đá tảng 60 triệu mang áo số mấy?"
+        },
+    ],
+    lotter_r: [{
+            img: "images/newsRef/lotteryRef2_01.jpg",
+            title: "Kèo nhà cái: Nhận định trận đấu Anh vs Scotland"
+        },
+        {
+            img: "images/newsRef/lotteryRef3_01.jpg",
+            title: "Nhà cái uy tín Fun88- Vé cược thể thao miễnphí"
+        },
+        {
+            img: "images/newsRef/lotteryRef4_01.jpg",
+            title: "Nhà cái uy tín AE888- AE GAMING MƯA LÌ XÌ – GIỮA MÙA HÈ"
+        },
+        {
+            img: "images/newsRef/lotteryRef5_01.jpg",
+            title: "Cách chơi Baccarat – Hướng dẫn bạn cách thắng tiền tại AE 888"
+        },
+        {
+            img: "images/newsRef/lotteryRef6_01.jpg",
+            title: "Kỹ Năng Chơi Baccarat-2 Công Thức Chiến Thắng Baccarat Tại AE SEXY"
+        },
+        {
+            img: "images/newsRef/lotteryRef7_01.jpg",
+            title: "123BET-NẠP LẦN ĐẦU TẶNG 50%"
+        },
+        {
+            img: "images/newsRef/lotteryRef8_01.jpg",
+            title: "FUN88-ĐẶC BIỆT! KHUYẾN MÃI THÀNH VIÊN VIP"
+        },
+        {
+            img: "images/newsRef/lotteryRef7_01.jpg",
+            title: "123BET-ĐĂNG KÝ NHẬN NGAY 100K"
+        },
+        {
+            img: "images/newsRef/lotteryRef8_01.jpg",
+            title: "FUN88-THƯỞNG ĐĂNG KÝ 120% TẠI THỂ THAO"
+        },
+        {
+            img: "images/newsRef/lotteryRef4_01.jpg",
+            title: "AE888-THƯỞNG 50% NẠP LẦN 2"
+        },
+
     ]
 }
 
@@ -426,7 +549,7 @@ var lottoryLink = {
         {
             href: "http://xsktmiennam.vn",
             img: "images/bank/ichNuocLoiNha.png",
-            txt: "XỐ SỔ KIẾN THIẾT KHU VỰC MIỀN NAM ÍCH NƯỚC-LỢI NHÀ<"
+            txt: "XỐ SỔ KIẾN THIẾT KHU VỰC MIỀN NAM ÍCH NƯỚC-LỢI NHÀ"
         },
         {
             href: "http://xosophutho.vn",
@@ -592,22 +715,22 @@ var lottoryLink = {
 
 // 常見問題
 var resQa = [{
-        txtMore:false,
+        txtMore: false,
         question: "Thời gian quay thưởng xổ số",
         answer: "Xổ Số Miền Bắc: Có 6 đài xổ số, mỗi ngày có 3 đài mở 27 tổ hợp số, quay thưởng vào lúc 18h. Xổ Số Miền Trung: Có 14 đài xổ số, mỗi ngày có 2 đài mở 18 tổ hợp số, quay thưởng vào lúc 5h15 chiều. Xổ Số Miền Nam: Có 21 đài xổ số, mỗi ngày có 2 đài mở 18 tổ hợp số, quay thưởng vào lúc 6h10 chiều."
     },
     {
-        txtMore:false,
+        txtMore: false,
         question: "Lô tô",
         answer: "Lô tô tự chọn 2 và 3 chữ số: Người chơi chọn 2 hoặc 3 số, sau đó viết ra một tờ vé, sau đó gửi lại cho đại lý để ký tên tham gia, giá trị giải độc đắc gấp 70 lần vé số bạn đã mua. Lô tô tự chọn các cặp số: Người chơi có thể chọn ngẫu nhiên từ 2 đến 4 cặp số để chơi, sau khi chọn xong người chơi sẽ so sánh kết quả với kết quả xổ số truyền thống trong ngày. Nếu con số chọn trùng với 2 đến 4 cặp số cuối cùng trong xổ số truyền thống thì trúng thưởng. Lô tô 6×36: Chọn một bộ số gồm 6 cặp số và so sánh với kết quả xổ số truyền thống trong ngày, giải thưởng tối đa là 2 tỷ đồng, nếu không có ai trúng thưởng thì giải thưởng được chuyển sang giải nhất tiếp theo cho đến khi có người trúng giải. (Giới hạn giải độc đắc là 5 tỷ đồng)."
     },
     {
-        txtMore:false,
+        txtMore: false,
         question: "Xổ số bóc",
         answer: "Đây là loại hình xổ số cho phép người mua vé biết ngay kết quả. Vé số được đóng gói và niêm phong cẩn thận, có thể chọn ngẫu nhiên một bó vé số, xé ra sau khi mua và đối chiếu với kết quả xổ số ngay lập tức là có thể biết bản thân đã trúng số hay chưa. Tất nhiên, kết quả phải được chứng kiến giám sát của hội đồng xổ số kiến thiết"
     },
     {
-        txtMore:false,
+        txtMore: false,
         question: "Xổ số Vietlott ( hay xổ số điện toán)",
         answer: "Vietlott là công ty xổ số điện toán quốc gia do Bộ Tài chính Việt Nam trực tiếp điều hành, được phê duyệt và thành lập vào ngày 05 tháng 12 năm 2011. Nhà nước nắm giữ 100% cổ phần. Chính thức đi vào hoạt động từ ngày 18 tháng 7 năm 2016. Có hai hình thức, là xếp số (vé 3D nghìn ký tự, vé số 4D vạn kí tự) và tổ hợp xếp số (vé tổ hợp 6 số). Dịch vụ xổ số này được ra mắt tại TP. lần đầu tiên. Tính đến nay, Vietlott đã được triển khai tại nhiều thành phố khác như Hà Nội, Hải Phòng, Hạ Long (Quảng Ninh), v.v. Vietlott hiện có 5 trò chơi xổ số: 1. MEGA 6/45 2. POWER 6/55 3. MAX 3D 4. MAX 4D 5. KENO"
     },

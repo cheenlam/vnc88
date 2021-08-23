@@ -17,7 +17,7 @@
                         <template v-for="(item,index) in newsMenu.newsHot">
                             <li v-if="localNum != index+7">
                                 <a :href="reHref(true,index)">
-                                    <img :src="item.img">
+                                    <div class="img" :style="getbgi(item.img)"></div>
                                     <p>{{item.title}}</p>
                                 </a>
                             </li>
@@ -32,14 +32,14 @@
                     <ul>
                         <li v-if="localNum != 1">
                             <a href="#/news/news?list=1">
-                                <img :src="newsMenu.newsImp_t.img">
+                                <div class="img" :style="getbgi(newsMenu.newsImp_t.img)"></div>
                                 <p>{{newsMenu.newsImp_t.title}}</p>
                             </a>
                         </li>
                         <template v-for="(item,index) in newsMenu.newsImp_b">
                             <li v-if="localNum != index+2">
                                 <a :href="reHref(false,index)">
-                                    <img :src="item.img">
+                                    <div class="img" :style="getbgi(item.img)"></div>
                                     <p>{{item.title}}</p>
                                 </a>
                             </li>
@@ -70,6 +70,9 @@
             };
         },
         methods: {
+            getbgi(data){
+                return  `background-image: url(${data})`;
+            },
             reHref(hot, index) {
                 if (hot) {
                     return `#/news/news?list=${index+7}`
