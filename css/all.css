@@ -1920,6 +1920,7 @@ body {
 .mainCnt .contBox-full .rightTool .todayGame .god {
   width: 160px;
   left: -30px;
+  top: 5px;
   cursor: pointer;
   position: relative;
   -webkit-animation: pudding 1s infinite linear;
