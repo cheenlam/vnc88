@@ -1,12 +1,12 @@
 Vue.createApp({
     data() {
         return {
-            newSelf:news_selfNews,
+            newSelf: news_selfNews,
             newsMenu: lotteryNews,
-            resourcesNum:0,
-            lotteryNum:0,
-            newsRefNum:0,
-            newsSelfNum:0,
+            resourcesNum: 0,
+            lotteryNum: 0,
+            newsRefNum: 0,
+            newsSelfNum: 0,
         };
     },
     methods: {
@@ -20,13 +20,13 @@ Vue.createApp({
                 return `#/lottery?p=${index+2}`
             }
         },
-        reHref_l(index){
+        reHref_l(index) {
             return `#/lotteryRef?p=${index+2}`
         },
-        reHref_r(index){
+        reHref_r(index) {
             return `#/resources?p=${index+1}`
         },
-        getLocal(){
+        getLocal() {
             this.resourcesNum = sessionStorage.getItem("new_resources");
             this.lotteryNum = sessionStorage.getItem("new_lottery");
             this.newsRefNum = sessionStorage.getItem("new_newsRef");
@@ -34,6 +34,12 @@ Vue.createApp({
         }
     },
     mounted() {
-        this.getLocal()
+        this.getLocal();
+        indexVue.onLoad = true;
+        this.$nextTick(function() {
+            setTimeout(function() {
+                indexVue.onLoad = false;
+            }, 300)
+        })
     },
 }).mount("#page");
