@@ -23,11 +23,13 @@ body {
 // ===== header start =====
 .header {
     width: 100%;
-    // min-width: $count-minW;
     margin: auto;
     min-height: 188px;
     background-color: $mainBgc;
     position: relative;
+    @include rwd(1250){
+        min-height: auto;
+    }
     // hd_top start
     .hd_top {
         max-width: $count-minW;
@@ -49,6 +51,11 @@ body {
             background: url(../images/logo/hd_logo.png) no-repeat center / cover;
             cursor: pointer;
             @include imgToTxt;
+
+            @include rwd(550){
+                width: 100%;
+                height: 15vw;
+            }
             a {
                 width: 100%;
                 height: 100%;
@@ -61,6 +68,7 @@ body {
             padding-bottom: 20px;
             @include rwd(1250) {
                 align-self: flex-end;
+                padding-bottom: 0px;
             }
         }
         .hd_link {
@@ -392,6 +400,13 @@ body {
                     bottom: 300px;
                 }
             }
+            @include rwd(800){
+                &,
+                &.on{
+                    width: 50px;
+                    opacity: 0.8;
+                }
+            }
         }
         .rightTool {
             right: -90px;
@@ -411,15 +426,28 @@ body {
                     bottom: 260px;
                 }
             }
+            @include rwd(800){
+                &,
+                &.on{
+                    width: 50px;
+                    bottom: 245px;
+                    opacity: 0.8;
+                }
+            }
             .todayGame {
                 width: 100%;
                 position: absolute;
                 .god {
-                    width: 220px;
-                    left: -60px;
+                    width: 160px;
+                    left: -30px;
+                    top: 5px;
                     cursor: pointer;
                     position: relative;
                     animation: pudding 1s infinite linear;
+                    @include rwd(800){
+                        width: 80px;
+                        left: -13px;
+                    }            
                 }
             }
         }
@@ -440,6 +468,11 @@ body {
             background-color: #282828;
             border-radius: 50%;
             cursor: pointer;
+            @include rwd(800){
+                width: 50px;
+                height: 50px;
+                padding: 10px;
+            }
         }
         .goTop {
             height: 30px;
@@ -455,6 +488,19 @@ body {
                 width: 20px;
                 height: 20px;
                 margin-right: 5px;
+                @include rwd(800){
+                    width: 32px;
+                    height: 32px;
+                    margin: 0;
+                }
+            }
+            @include rwd(800){
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                span{
+                    display: none;
+                }
             }
         }
     }
@@ -504,18 +550,27 @@ body {
         &>div {
             width: 100%;
             max-width: 1800px;
-            // min-width: $count-minW;
             min-height: 160px;
             margin: auto;
             padding: 0 15px 30px;
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
+            @include rwd(800){
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 10px;
+            }
         }
         .ft_msg {
             line-height: 25px;
+            @include rwd(800){
+                order: 1;
+                padding-top: 20px;
+            }
         }
         .ft_link {
+           
             ul {
                 display: flex;
             }
@@ -533,24 +588,30 @@ body {
         background-color: #121210;
         &>div {
             max-width: 1800px;
-            // min-width: $count-minW;
             min-height: calc(275px - 160px);
             margin: auto;
             padding: 0 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            @include rwd(800){
+                flex-direction: column;
+                padding: 20px 10px;
+            }
         }
         .copyright {
             font-size: 1.2rem;
+            margin-right: 50px;
+            flex-shrink: 0;
+            @include rwd(800){
+                order: 1;
+                padding-top: 20px;
+            }
         }
         .ft_menu {
-            @include rwd(1120) {
-                max-width: 400px;
-            }
             ul {
                 display: flex;
-                align-items: flex-end;
+
                 font-size: 1rem;
                 font-weight: bold;
                 @include rwd(1120) {
@@ -561,7 +622,7 @@ body {
                 padding: 5px 10px;
                 transition: 0.3s;
                 @include rwd(1120) {
-                    width: 50%;
+                   width: 50%;
                 }
                 &:active {
                     color: $color_02;
@@ -572,9 +633,6 @@ body {
                     }
                 }
             }
-            // li + li {
-            //     margin-left: 30px;
-            // }
         }
     }
     // ftAd
@@ -587,12 +645,17 @@ body {
         z-index: 5;
         display: flex;
         justify-content: space-between;
-        @include rwd(1000) {
-            width: 50%;
-            min-width: 250px;
+        @include rwd(1200) {
+            width: 40%;
+            min-width: 450px;
             flex-direction: column;
             padding: 0;
         }
+
+        @include rwd(500){
+            display: none;
+        } 
+
         &>div {
             margin: 10px;
             position: relative;
@@ -600,6 +663,10 @@ body {
             &.on {
                 visibility: hidden;
                 pointer-events: none;
+                @include rwd(1200){
+                    display: none;
+                } 
+        
             }
         }
         .ftAd_close {

@@ -18,12 +18,7 @@ $('#hd_signIn .btn').click(function() {
     }
 })
 
-
 $(document).ready(function() {
-    setTimeout(function(){
-        $('#loading').removeClass('on')  
-    },500)
-   
     window.scrollTo({ top: 0 });
     dialog();
 })
@@ -35,8 +30,9 @@ var scroll = $(window).scroll(function() {
 
 $(window).resize(function() {
     floatAd()
-    $('#hd_menu').removeClass('on')
-    // window.scrollTo({ top: 0 });
+    $('#hd_menu').removeClass('on');
+    indexVue.menuOpen = false;
+    window.scrollTo({ top: 0 });
 })
 
 // 上方menu浮動
@@ -81,11 +77,6 @@ $('#goTop').click(function() {
     });
 });
 
-// 頁尾廣告關閉
-$('.ftAd_close').click(function() {
-    $(this).parents('div').addClass('on')
-})
-
 
 // 彈跳視窗
 function dialog() {
@@ -96,47 +87,6 @@ function dialog() {
         }
     });
 }
-
-var news_h;
-function getNews_h(){
-    $.ajax({
-        url: "https://spurslee.myqnapcloud.com:8081/GetJson.php?json=BongdaNew",
-        dataType: "json",
-        success: function(data) {
-            h_news = data;
-            // 主新聞
-            $('#news_mainImg').css('background-image', `url(${data.mainNews.img})`);
-            $('#news_mainImg p').text(data.mainNews.title);
-
-            // 下方新聞列
-            let news_b = '';
-            for (let i = 0; i < 4; i++) {
-                news_b += `<li>
-                        <a href="#/newsRef?p=${i+2}">
-                            <div class="img" style="background-image: url(${data.leftNews[i].img});"></div>
-                        </a>
-                        <p>${data.leftNews[i].title}</p>
-                    </li>`
-            }
-            $('#mainNews_b ul').html(news_b);
-
-            // 右側新聞列
-            for(let i =0;i<2;i++){
-                data.rightNews.forEach(function(data,index){
-                    let combination = `<li>
-                                    <a href="#/newsRef?p=${index + 6}">
-                                        <div class="newsList_img" style="background-image: url(${data.img});"></div>
-                                    </a>
-                                    <p>${data.title}</p>
-                                </li>` 
-                    $('#newsList_cnt ul').append(combination);
-                });
-            }   
-        },
-    });
-}
-
-
 
 $('#hd_forget').click(function() {
     $("#dialogBox").addClass('on');
@@ -155,10 +105,11 @@ $('#todayGame').click(function() {
 })
 
 // 小視窗按鈕點擊
-$('#menuBar').click(function(){
-    $('#hd_menu').addClass('on')
-})
+// $('#menuBar').click(function(){
+//     $('#hd_menu').addClass('on')
+// })
 
 $('#hd_menu li').click(function(){
     $('#hd_menu').removeClass('on')
+    window.scrollTo({ top: 0 });
 })

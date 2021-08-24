@@ -11,6 +11,11 @@ Router.prototype.refresh = function() {
     // 路由清單
     let routerList = ['', 'home', 'lottery', 'news', 'broadcast', 'forum', 'resources', 'game','member','member/message','member/changePwd','member/wallet'];
 
+    for (let i = 0; i < 99; i++){
+        routerList.push(`home/news?list=${i}`)
+        routerList.push(`news/news?list=${i}`)
+    }
+
     for (let i = 0; i < 99; i++) {
         routerList.push(`newsRef?p=${i}`)
         routerList.push(`lotteryRef?p=${i}`)
@@ -94,11 +99,32 @@ Router.route('/member/changePwd', function() {
 });
 
 
+// api新聞
+for (let i = 0; i < 99; i++) {
+    // 首頁新聞
+    Router.route(`/home/news?list=${i}`, function() {
+        mainInclude('page/newsCnt/news_home.html');
+        menuList_on(0);
+        sessionStorage.setItem('news_h',i)
+    });
+
+    // 新聞內頁新聞
+    Router.route(`/news/news?list=${i}`, function() {
+        mainInclude('page/newsCnt/news_news.html');
+        menuList_on(2);
+        sessionStorage.setItem('news_n',i)
+    });
+}
+
+
+// ======================================================
 for (let i = 1; i < 99; i++) {
     Router.route(`/newsRef?p=${i}`, function() {
         location = location
         mainInclude(`newsRef/newsRef_${i}.html`);
         menuList_on(0);
+        sessionStorage.setItem('new_newsRef',i);
+        sessionStorage.setItem('new_lottery',0);
     });
 
     Router.route(`/lotteryRef?p=${i}`, function() {
@@ -111,18 +137,23 @@ for (let i = 1; i < 99; i++) {
         location = location
         mainInclude(`page/news/news_${i}.html`);
         menuList_on(2);
+        sessionStorage.setItem('new_selfNews',i);
+        sessionStorage.setItem('new_lottery',0);
     });
 
     Router.route(`/lottery?p=${i}`, function() {
         location = location
         mainInclude(`page/lottery/lottery_${i}.html`);
         menuList_on(1);
+        sessionStorage.setItem('new_lottery',i);
+        sessionStorage.setItem('new_newsRef',0);
     });
 
     Router.route(`/resources?p=${i}`, function() {
         location = location
         mainInclude(`page/resources/resources_${i}.html`);
         menuList_on(5);
+        sessionStorage.setItem('new_resources',i)
     });
 
     Router.route(`/betRef?p=${i}`, function() {
@@ -143,11 +174,9 @@ function mainInclude(src) {
         },
         // 發送前
         beforeSend: function() {
-
         },
         // 完成
         complete: function() {
-            $('#loading').addClass('on')
         },
         error: function(error) {
             location.href = "#/home"

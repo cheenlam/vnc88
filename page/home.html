@@ -1,27 +1,27 @@
-<div class="contBox-min">
+<div class="contBox-min" id="page">
     <!-- betList start -->
     <div class="betList">
         <div class="betTitle">
             <div class="icon"></div>
-            <span>VNC88.com</span>
+            <span>{{bet.title.title_01}}</span>
             <div class="icon"></div>
-            <span>Kèo nhà cái - kèo bóng đá trực tuyến tại VNC88.com</span>
+            <span>{{bet.title.title_02}}</span>
         </div>
         <table>
-            <tr>
+            <tr v-for="(item,index) in bet.list">
                 <th>
                     <div class="betNb"></div>
                     <div class="betLogo">
-                        <img src="images/logo/betLogo-1.png">
+                        <img :src="item.betLogo">
                     </div>
                 </th>
                 <td>
                     <span>Đăng ký tặng ngay:</span>
-                    <p class="price" data-currency="VND">3,800,000</p>
+                    <p class="price" data-currency="VND">{{item.price}}</p>
                 </td>
                 <td>
                     <div class="betScore">
-                        <div class="scoreIcon" data-nb="5">
+                        <div class="scoreIcon" :data-nb="item.num">
                             <div class="ball"></div>
                             <div class="star"></div>
                         </div>
@@ -31,7 +31,7 @@
                 <td>
                     <div class="betBtn">
                         <div class="btn_linear_c1 btn">
-                            <a href="https://fun213213.com/euxc" target="_blank">
+                            <a :href="item.href_out" target="_blank">
                                 <div class="btn_cnt">
                                     <div class="icon">
                                         <img src="images/icon/icon-out.svg">
@@ -41,188 +41,7 @@
                             </a>
                         </div>
                         <div class="btn_linear_c1 btn">
-                            <a href="#/betRef?p=1" target="_blank">
-                                <div class="btn_cnt">
-                                    <div class="icon">
-                                        <img src="images/icon/icon-play.svg">
-                                    </div>
-                                    <p>Xem Thêm</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    <div class="betNb"></div>
-                    <div class="betLogo">
-                        <img src="images/logo/betLogo-2.png">
-                    </div>
-                </th>
-                <td>
-                    <span>Đăng ký tặng ngay:</span>
-                    <p class="price" data-currency="VND">3,800,000</p>
-                </td>
-                <td>
-                    <div class="betScore">
-                        <div class="scoreIcon" data-nb="4.5">
-                            <div class="ball"></div>
-                            <div class="star"></div>
-                        </div>
-                        <span>Casino trực tuyến</span>
-                    </div>
-                </td>
-                <td>
-                    <div class="betBtn">
-                        <div class="btn_linear_c1 btn">
-                            <a href="https://8123b.com/?inviteCode=26011561" target="_blank">
-                                <div class="btn_cnt">
-                                    <div class="icon">
-                                        <img src="images/icon/icon-out.svg">
-                                    </div>
-                                    <p>Đăng Ký</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="btn_linear_c1 btn">
-                            <a href="#/betRef?p=2" target="_blank">
-                                <div class="btn_cnt">
-                                    <div class="icon">
-                                        <img src="images/icon/icon-play.svg">
-                                    </div>
-                                    <p>Xem Thêm</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    <div class="betNb"></div>
-                    <div class="betLogo">
-                        <img src="images/logo/betLogo-3.png" alt="betLogo">
-                    </div>
-                </th>
-                <td>
-                    <span>Đăng ký tặng ngay:</span>
-                    <p class="price" data-currency="VND">3,800,000</p>
-                </td>
-                <td>
-                    <div class="betScore">
-                        <div class="scoreIcon" data-nb="4">
-                            <div class="ball"></div>
-                            <div class="star"></div>
-                        </div>
-                        <span>Casino trực tuyến</span>
-                    </div>
-                </td>
-                <td>
-                    <div class="betBtn">
-                        <div class="btn_linear_c1 btn">
-                            <a href="https://www.q8vn.com/" title="Đăng Ký" target="_blank">
-                                <div class="btn_cnt">
-                                    <div class="icon">
-                                        <img src="images/icon/icon-out.svg">
-                                    </div>
-                                    <p>Đăng Ký</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="btn_linear_c1 btn">
-                            <a href="#/betRef?p=3" target="_blank">
-                                <div class="btn_cnt">
-                                    <div class="icon">
-                                        <img src="images/icon/icon-play.svg">
-                                    </div>
-                                    <p>Xem Thêm</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    <div class="betNb"></div>
-                    <div class="betLogo">
-                        <img src="images/logo/betLogo-4.png" alt="betLogo">
-                    </div>
-                </th>
-                <td>
-                    <span>Đăng ký tặng ngay:</span>
-                    <p class="price" data-currency="VND">99,000</p>
-                </td>
-                <td>
-                    <div class="betScore">
-                        <div class="scoreIcon" data-nb="3.5">
-                            <div class="ball"></div>
-                            <div class="star"></div>
-                        </div>
-                        <span>Casino trực tuyến</span>
-                    </div>
-                </td>
-                <td>
-                    <div class="betBtn">
-                        <div class="btn_linear_c1 btn">
-                            <a href="https://jinbo989898.com/hpmifr" title="Đăng Ký" target="_blank">
-                                <div class="btn_cnt">
-                                    <div class="icon">
-                                        <img src="images/icon/icon-out.svg">
-                                    </div>
-                                    <p>Đăng Ký</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="btn_linear_c1 btn">
-                            <a href="#/betRef?p=4" target="_blank">
-                                <div class="btn_cnt">
-                                    <div class="icon">
-                                        <img src="images/icon/icon-play.svg">
-                                    </div>
-                                    <p>Xem Thêm</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    <div class="betNb"></div>
-                    <div class="betLogo">
-                        <img src="images/logo/betLogo-5.png" alt="betLogo">
-                    </div>
-                </th>
-                <td>
-                    <span>Đăng ký tặng ngay:</span>
-                    <p class="price" data-currency="VND">9,999</p>
-                </td>
-                <td>
-                    <div class="betScore">
-                        <div class="scoreIcon" data-nb="2.5">
-                            <div class="ball"></div>
-                            <div class="star"></div>
-                        </div>
-                        <span>Casino trực tuyến</span>
-                    </div>
-                </td>
-                <td>
-                    <div class="betBtn">
-                        <div class="btn_linear_c1 btn">
-                            <a href="https://www.ae3888.com/?agt=amg668" title="Đăng Ký" target="_blank">
-                                <div class="btn_cnt">
-                                    <div class="icon">
-                                        <img src="images/icon/icon-out.svg">
-                                    </div>
-                                    <p>Đăng Ký</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="btn_linear_c1 btn">
-                            <a href="#/betRef?p=5" target="_blank">
-
+                            <a :href="item.href_self">
                                 <div class="btn_cnt">
                                     <div class="icon">
                                         <img src="images/icon/icon-play.svg">
@@ -240,14 +59,116 @@
     <!-- ==== mainMsg start ==== -->
     <div class="mainMsg">
         <!-- mainNews start -->
-        <div class="mainNews" id="mainNews">
+        <!-- <div class="mainNews">
+            <div class="mainNews_t">
+                <div class="news_main">
+                    <div class="mainMsg-title">TIN TỨC</div>
+                    <a href="#/newsRef?p=1">
+                        <div class="news_mainImg" style="background-image: url(images/newsRef/newsRef-02.jpg);">
+                            <p>CHÍNH THỨC: Man Utd công bố bom tấn thứ 2 sau Sancho</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="news_list">
+                    <div class="mainMsg-title">Tin Mới Nhất</div>
+                    <div class="newsList_cnt">
+                        <ul>
+                            <li>
+                                <a href="#/newsRef?p=6">
+                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef6-01.jpg);"></div>
+                                </a>
+                                <p>Chelsea đề xuất các điều khoản cá nhân cho tiền đạo 74 triệu bảng</p>
+                            </li>
+                            <li>
+                                <a href="#/newsRef?p=7">
+                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef7-01.jpg);"></div>
+                                </a>
+                                <p>Eric Bailly khiến Man Utd lo ngại về Varane</p>
+                            </li>
+                            <li>
+                                <a href="#/newsRef?p=8">
+                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef8-01.jpg);"></div>
+                                </a>
+                                <p>Có Ben White, Arsenal lập tức chuyển hướng sang máy quét Bundesliga</p>
+                            </li>
+                            <li>
+                                <a href="#/newsRef?p=9">
+                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef9-01.jpg);"></div>
+                                </a>
+                                <p>Arsenal vẫn theo đuổi mục tiêu số 1 </p>
+                            </li>
+                            <li>
+                                <a href="#/newsRef?p=10">
+                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef10-01.jpg);"></div>
+                                </a>
+                                <p>Xong 2 kế hoạch lớn, Man Utd tiếp tục xử lý kế hoạch 3 nan giải</p>
+                            </li>
+                            <li>
+                                <a href="#/newsRef?p=11">
+                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef11-01.jpg);"></div>
+                                </a>
+                                <p>Haaland: "Cậu phải kiến tạo cho tôi nhiều, nếu không tôi sẽ giận"</p>
+                            </li>
+                            <li>
+                                <a href="#/newsRef?p=12">
+                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef12-01.jpg);"></div>
+                                </a>
+                                <p>Mohamed Salah tái mặt khi đối đầu với quái thú phòng ngự</p>
+                            </li>
+                            <li>
+                                <a href="#/newsRef?p=13">
+                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef13-01.jpg);"></div>
+                                </a>
+                                <p>Varane đến Ngoại hạng Anh, chuyên gia lo ngại cho Chelsea</p>
+                            </li>
+                            <li>
+                                <a href="#/newsRef?p=14">
+                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef14-01.jpg);"></div>
+                                </a>
+                                <p>Cập bến Chelsea, đá tảng 60 triệu mang áo số mấy?</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mainNews_b">
+                <ul>
+                    <li>
+                        <a href="#/newsRef?p=2">
+                            <div class="img" style="background-image: url(images/newsList-04.jpg);"></div>
+                        </a>
+                        <p>Đội hình với 11 'bom xịt' của Arsenal trong thế kỷ XXI</p>
+                    </li>
+                    <li>
+                        <a href="#/newsRef?p=3">
+                            <div class="img" style="background-image: url(images/newsList-05.jpg);"></div>
+                        </a>
+                        <p>Ronaldo gieo rắc hy vọng về một thương vụ bom tấn hoàn hảo cho M.U</p>
+                    </li>
+                    <li>
+                        <a href="#/newsRef?p=4">
+                            <div class="img" style="background-image: url(images/newsList-06.jpg);"></div>
+                        </a>
+                        <p>Top 10 trung vệ được trả lương cao nhất EPL: Kỷ lục từ tân binh Man Utd</p>
+                    </li>
+                    <li>
+                        <a href="#/newsRef?p=5">
+                            <div class="img" style="background-image: url(images/newsList-07.jpg);"></div>
+                        </a>
+                        <p>5 điểm nhấn Bournemouth 1-2 Chelsea: Số 9 mới; 3 cái tên gây thất vọng</p>
+                    </li>
+                </ul>
+            </div>
+        </div> -->
+
+        <div class="mainNews">
             <div class="mainNews_t">
                 <div class="news_main">
                     <div class="mainMsg-title">TIN TỨC</div>
                     <!-- 足球新聞 -->
-                    <a href="#/newsRef?p=1">
-                        <div class="news_mainImg" id="news_mainImg">
-                            <p></p>
+                    <a href="#/home/news?list=1">
+                        <div class="news_mainImg" :style="getbgi(newsMenu.news_t.img)">
+                            <p>{{newsMenu.news_t.title}}</p>
                         </div>
                     </a>
                 </div>
@@ -255,12 +176,26 @@
                     <div class="mainMsg-title">Tin Mới Nhất</div>
                     <!-- 最新消息 -->
                     <div class="newsList_cnt" id="newsList_cnt">
-                        <ul></ul>
+                        <ul>
+                            <li v-for="(item,index) in newsMenu.news_r">
+                                <a :href="reHref(true,index)">
+                                    <div class="newsList_img" :style="getbgi(item.img)"></div>
+                                </a>
+                                <p>{{item.title}}</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="mainNews_b" id="mainNews_b">
-                <ul></ul>
+                <ul>
+                    <li v-for="(item,index) in newsMenu.news_b">
+                        <a :href="reHref(false,index)">
+                            <div class="img" :style="getbgi(item.img)"></div>
+                        </a>
+                        <p>{{item.title}}</p>
+                    </li>
+                </ul>
             </div>
         </div>
 
@@ -276,17 +211,8 @@
         <!-- flexAd start -->
         <div class="flexAd">
             <ul>
-                <li>
-                    <img src="images/adBanner/adBanner-01.jpg">
-                </li>
-                <li>
-                    <img src="images/adBanner/adBanner-02.jpg">
-                </li>
-                <li>
-                    <img src="images/adBanner/adBanner-03.jpg">
-                </li>
-                <li>
-                    <img src="images/adBanner/adBanner-04.jpg">
+                <li v-for="(item,index) in adImg">
+                    <img :src="item.img">
                 </li>
             </ul>
         </div>
@@ -309,30 +235,16 @@
                     </li>
                 </ul>
             </div>
-
             <div class="recCount">
                 <div>
                     <div class="mainMsg-title">NHÀ CÁI UY TÍN</div>
                 </div>
                 <div class="list">
-                    <div>
-                        <div class="listImg" style="background-image: url(images/firmBanner-01.jpg);"></div>
+                    <div v-for="(item,index) in rec">
+                        <div class="listImg" :style="getbgi(item.img)"></div>
                         <div class="listMsg">
-                            <div class="title">Kèo nhà cái: Nhận định trận đấu Anh vs Scotland</div>
-                            <p>Cuộc đối đầu giữa Anh vs Scotland tại Vòng bảng EURO 2020 vào lúc 02h00 ngày 19/6 được
-                            </p>
-                            <a href="#/lotteryRef?p=1">
-                                <button class="moreBtn"><span>Read more »</span></button>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="listImg" style="background-image: url(images/firmBanner-02.jpg);">
-                        </div>
-                        <div class="listMsg">
-                            <div class="title">Kèo nhà cái: Nhận định trận đấu Anh vs Scotland Kèo nhà cái: Nhận định trận đấu Anh vs Scotland</div>
-                            <p>Cuộc đối đầu giữa Anh vs Scotland tại Vòng bảng EURO 2020 vào lúc 02h00 ngày 19/6 được Cuộc đối đầu giữa Anh vs Scotland tại Vòng bảng EURO 2020 vào lúc 02h00 ngày 19/6 được
-                            </p>
+                            <div class="title">{{item.title}}</div>
+                            <p>{{item.msg}}</p>
                             <a href="#/lotteryRef?p=1">
                                 <button class="moreBtn"><span>Read more »</span></button>
                             </a>
@@ -349,18 +261,11 @@
                 <div>
                     <div class="title">Trang VNC88.com</div>
                     <div class="wsDictImg">
-                        <img src="images/wsDictImg.jpg">
+                        <img :src="wsDict.img">
                     </div>
-
-                    <p>Được xếp vào một trong những trang web TOP nổi tiếng nhất tại Việt Nam, đặc biệt mang đến cho độc giả những tin thể thao hết sức hấp dẫn, đặc biệt là xoay quanh nội dung về các mùa giải bóng đá lớn trên Thế giới.</p>
-                    <br>
-                    <p>Có thể nhắc tới những chuyên mục nổi bật và được yêu thích nhất của VNC88.com như: Kèo nhà cái (cập nhật tỷ lệ kèo mới nhất), truyền hình trực tiếp bóng đá giải đấu Champions League, Ngoại Hạng Anh, Serie A, La liga, Bundesliga…hay
-                        các giải đấu của các đội tuyển quốc gia như World Cup Euro đã phục vụ cho những khán giả có niềm đam mê với thể thao.</p>
-                    <br>
-                    <p>VNC88.com thường xuyên nâng cấp cơ sở vất chất, đầu tư nhân lực để đảm bảo quá trình trực tiếp bóng đá các trận cầu đỉnh cao luôn cho chất lượng hình ảnh tốt nhất, âm thanh chân thực xuyên suốt qua trinh tường thuật luôn luôn có BLV
-                        tham gia bình luận các trận đấu để tạo thêm không khí sôi nổi cho người xem.</p>
-                    <br>
-                    <p>Hiện nay thương hiệu VNC88 đang không ngừng phát triển lớn mạnh, và chúng tôi không ngừng cố gắng cho những mục tiêu lớn nhằm mang đến cho người xem những dịch vụ tốt nhất và hoàn toàn Miễn Phí</p>
+                    <div class="wsDict_txt">
+                        <p v-for="(item,index) in wsDict.txtList">{{item}}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -369,11 +274,89 @@
 
 
 
-
 <script src="js/index.js"></script>
 <script>
+    Vue.createApp({
+        data() {
+            return {
+                bet: betList,
+                adImg: flexAd,
+                newsMenu: {
+                    news_t: '',
+                    news_b: [],
+                    news_r: '',
+                },
+                rec: homeRec,
+                wsDict: homeWsDict,
+            };
+        },
+        methods: {
+            getbgi(data) {
+                return `background-image: url(${data})`;
+            },
+            reHref(hot, index) {
+                if (hot) {
+                    return `#/home/news?list=${index+6}`
+                } else {
+                    return `#/home/news?list=${index+2}`
+                }
+            },
+
+            getMenu() {
+                let self = this;
+                let chReady = [false, false, false];
+                function ready() {
+                    if (chReady[0] && chReady[1] && chReady[2]) {
+                        indexVue.onLoad = false;
+                    }
+                }
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.news_r = data;
+                        self.$nextTick(function() {
+                            chReady[0] = true;
+                            ready();
+                        })
+                    },
+                });
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/homenews/top",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.news_t = data;
+                        self.$nextTick(function() {
+                            chReady[1] = true;
+                            ready();
+                        })
+                    },
+                });
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/homenews/bottom",
+                    dataType: "json",
+                    success: function(data) {
+                        for (let i = 0; i < 4; i++) {
+                            self.newsMenu.news_b.push(data[i])
+                        }
+                        self.$nextTick(function() {
+                            chReady[2] = true;
+                            ready();
+                        })
+                    },
+                });
+            },
+        },
+        mounted() {
+            this.getMenu();
+            indexVue.onLoad = true;
+        },
+    }).mount("#page");
+
+
     // 啟動輪播外掛
     $('#mainCarousel').swipeslider();
-    getNews_h();
-
 </script>

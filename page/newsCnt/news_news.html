@@ -1,0 +1,186 @@
+<div class="contBox-min">
+    <div class="newsCnt" id="newsCnt">
+        <div class="newsCnt_main">
+            <div class="newstitle">
+                <p>{{newsMain.newsTitle}}</p>
+                <div class="time">{{newsMain.newsTime}}</div>
+            </div>
+            <div class="newsArticle" v-html="newsMain.newsContent">
+            </div>
+        </div>
+
+        <div class="newsCnt_menu">
+            <div>
+                <div class="mainMsg-title">Tin hot</div>
+                <div class="newsCnt_scroll">
+                    <ul>
+                        <template v-for="(item,index) in newsMenu.newsHot">
+                            <li v-if="localNum != index+7">
+                                <a :href="reHref(true,index)">
+                                    <div class="img" :style="getbgi(item.img)"></div>
+                                    <p>{{item.title}}</p>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>  
+            </div>
+            
+            <div>
+                <div class="mainMsg-title">Tin quan trọng</div>
+                <div class="newsCnt_scroll">
+                    <ul>
+                        <li v-if="localNum != 1">
+                            <a href="#/news/news?list=1">
+                                <div class="img" :style="getbgi(newsMenu.newsImp_t.img)"></div>
+                                <p>{{newsMenu.newsImp_t.title}}</p>
+                            </a>
+                        </li>
+                        <template v-for="(item,index) in newsMenu.newsImp_b">
+                            <li v-if="localNum != index+2">
+                                <a :href="reHref(false,index)">
+                                    <div class="img" :style="getbgi(item.img)"></div>
+                                    <p>{{item.title}}</p>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/index.js"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                newsMain: {
+                    newsTitle: '',
+                    newsTime: '',
+                    newsContent: '',
+                },
+                newsMenu: {
+                    newsHot: '',
+                    newsImp_t: '',
+                    newsImp_b: [],
+                },
+                localNum: 1,
+            };
+        },
+        methods: {
+            getbgi(data){
+                return  `background-image: url(${data})`;
+            },
+            reHref(hot, index) {
+                if (hot) {
+                    return `#/news/news?list=${index+7}`
+                } else {
+                    return `#/news/news?list=${index+2}`
+                }
+
+            },
+            getData() {
+                let self = this;
+                let getUrl;
+                let getLocal_h = sessionStorage.getItem('news_n');
+                self.localNum = sessionStorage.getItem('news_n');
+
+                if (getLocal_h == 1) {
+                    getUrl = "https://vnc88.awgstudio.com/api/news/top";
+                } else if (getLocal_h > 1 && getLocal_h < 7) {
+                    getUrl = "https://vnc88.awgstudio.com/api/news/bottom";
+                } else {
+                    getUrl = "https://vnc88.awgstudio.com/api/homenews/list";
+                }
+
+                $.ajax({
+                    url: getUrl,
+                    dataType: "json",
+                    success: function(data) {
+                        if (getLocal_h == 1) {
+                            set(true)
+                        } else if (getLocal_h > 1 && getLocal_h < 7) {
+                            set(false, 2)
+                        } else {
+                            set(false, 7)
+                        }
+
+                        function set(set, num) {
+                            if (set) {
+                                self.newsMain.newsTitle = data.content.title;
+                                self.newsMain.newsTime = data.content.time;
+                                self.newsMain.newsContent = data.content.content;
+                            } else {
+                                if (getLocal_h >= 7) {
+                                    self.newsMain.newsTitle = data[getLocal_h - num].detail.title;
+                                    self.newsMain.newsTime = data[getLocal_h - num].detail.time;
+                                    self.newsMain.newsContent = data[getLocal_h - num].detail.content;
+                                } else {
+                                    self.newsMain.newsTitle = data[getLocal_h - num].content.title;
+                                    self.newsMain.newsTime = data[getLocal_h - num].content.time;
+                                    self.newsMain.newsContent = data[getLocal_h - num].content.content;
+                                }
+
+                            }
+                        }
+                    },
+                });
+            },
+            getMenu() {
+                let self = this;
+                let chReady = [false, false, false];
+                function ready() {
+                    if (chReady[0] && chReady[1] && chReady[2]) {
+                        indexVue.onLoad = false;
+                    }
+                }
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.newsHot = data;
+                        self.$nextTick(function() {
+                            chReady[0] = true;
+                            ready();
+                        })
+                    },
+                });
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/news/top",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.newsImp_t = data;
+                        self.$nextTick(function() {
+                            chReady[1] = true;
+                            ready();
+                        })
+                    },
+                });
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/news/bottom",
+                    dataType: "json",
+                    success: function(data) {
+                        for (let i = 0; i < 5; i++) {
+                            self.newsMenu.newsImp_b.push(data[i])
+                        }
+                        self.$nextTick(function() {
+                            chReady[2] = true;
+                            ready();
+                        })
+                    },
+                });
+            }
+        },
+        mounted() {
+            this.getData();
+            this.getMenu();
+
+            indexVue.onLoad = true;
+        },
+    }).mount("#newsCnt");
+</script>

@@ -1,4 +1,4 @@
-<div class="contBox-min">
+<div class="contBox-min" id="page">
     <!-- ==== mainMsg start ==== -->
     <div class="mainMsg">
         <!-- mainNews start -->
@@ -7,70 +7,22 @@
                 <div class="news_main">
                     <div class="mainMsg-title">SOI KÈO BÓNG</div>
                     <!-- 足球新聞 -->
-                    <a href="#/news?p=1">
-                        <div class="news_mainImg" style="background-image: url(images/newsRef/newsList1-01.jpg);">
-                            <p>Dù có thua UAE, Việt Nam cũng sẽ chắc suất vào vòng 3?</p>
+                    <a href="#/news/news?list=1">
+                        <div class="news_mainImg" :style="getbgi(newsMenu.news_t.img)">
+                            <p>{{newsMenu.news_t.title}}</p>
                         </div>
                     </a>
                 </div>
                 <div class="news_list">
                     <div class="mainMsg-title">Tin Mới Nhất</div>
                     <!-- 最新消息 -->
-                    <div class="newsList_cnt">
+                    <div class="newsList_cnt" id="newsList_cnt">
                         <ul>
-                            <li>
-                                <a href="#/newsRef?p=6">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef6-01.jpg);"></div>
+                            <li v-for="(item,index) in newsMenu.news_r">
+                                <a :href="reHref(true,index)">
+                                    <div class="newsList_img" :style="getbgi(item.img)"></div>
                                 </a>
-                                <p>Chelsea đề xuất các điều khoản cá nhân cho tiền đạo 74 triệu bảng</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=7">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef7-01.jpg);"></div>
-                                </a>
-                                <p>Eric Bailly khiến Man Utd lo ngại về Varane</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=8">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef8-01.jpg);"></div>
-                                </a>
-                                <p>Có Ben White, Arsenal lập tức chuyển hướng sang máy quét Bundesliga</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=9">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef9-01.jpg);"></div>
-                                </a>
-                                <p>Arsenal vẫn theo đuổi mục tiêu số 1 </p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=10">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef10-01.jpg);"></div>
-                                </a>
-                                <p>Xong 2 kế hoạch lớn, Man Utd tiếp tục xử lý kế hoạch 3 nan giải</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=11">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef11-01.jpg);"></div>
-                                </a>
-                                <p>Haaland: "Cậu phải kiến tạo cho tôi nhiều, nếu không tôi sẽ giận"</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=12">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef12-01.jpg);"></div>
-                                </a>
-                                <p>Mohamed Salah tái mặt khi đối đầu với quái thú phòng ngự</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=13">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef13-01.jpg);"></div>
-                                </a>
-                                <p>Varane đến Ngoại hạng Anh, chuyên gia lo ngại cho Chelsea</p>
-                            </li>
-                            <li>
-                                <a href="#/newsRef?p=14">
-                                    <div class="newsList_img" style="background-image: url(images/newsRef/newsRef14-01.jpg);"></div>
-                                </a>
-                                <p>Cập bến Chelsea, đá tảng 60 triệu mang áo số mấy?</p>
+                                <p>{{item.title}}</p>
                             </li>
                         </ul>
                     </div>
@@ -78,36 +30,11 @@
             </div>
             <div class="mainNews_b">
                 <ul>
-                    <li>
-                        <a href="#/news?p=2">
-                            <div class="newsList_img" style="background-image: url(images/newsRef/newsList2-02.jpg);"></div>
+                    <li v-for="(item,index) in newsMenu.news_b">
+                        <a :href="reHref(false,index)">
+                            <div class="img" :style="getbgi(item.img)"></div>
                         </a>
-                        <p>Việt Nam vs UAE: Chiến thắng để thể hiện đẳng cấp của thế lực mới nổi châu Á</p>
-                    </li>
-                    <li>
-                        <a href="#/news?p=3">
-                            <div class="newsList_img" style="background-image: url(images/newsRef/newsList3-01.jpg);"></div>
-                        </a>
-                        <p>
-                            Carrasco của Atletico vẫn cay cú vì bị Chelsea loại: 'VAR là trò hề'</p>
-                    </li>
-                    <li>
-                        <a href="#/news?p=4">
-                            <div class="newsList_img" style="background-image: url(images/newsRef/newsList4-01.jpg);"></div>
-                        </a>
-                        <p>ĐT Việt Nam về nước, riêng 5 cầu thủ bay sang Thái Lan</p>
-                    </li>
-                    <li>
-                        <a href="#/news?p=5">
-                            <div class="newsList_img" style="background-image: url(images/newsRef/newsList5-01.jpg);"></div>
-                        </a>
-                        <p>MU - AC Milan và câu nói "Bắt chết Kaka đi, trận chung kết là của chúng ta"</p>
-                    </li>
-                    <li>
-                        <a href="#/news?p=6">
-                            <div class="newsList_img" style="background-image: url(images/newsRef/newsList6-01.jpg);"></div>
-                        </a>
-                        <p>Hà Nội đã trở lại để vượt HAGL</p>
+                        <p>{{item.title}}</p>
                     </li>
                 </ul>
             </div>
@@ -116,17 +43,8 @@
         <!-- flexAd start -->
         <div class="flexAd">
             <ul>
-                <li>
-                    <img src="images/adBanner/adBanner-01.jpg">
-                </li>
-                <li>
-                    <img src="images/adBanner/adBanner-02.jpg">
-                </li>
-                <li>
-                    <img src="images/adBanner/adBanner-03.jpg">
-                </li>
-                <li>
-                    <img src="images/adBanner/adBanner-04.jpg">
+                <li v-for="(item,index) in adImg">
+                    <img :src="item.img">
                 </li>
             </ul>
         </div>
@@ -135,191 +53,39 @@
         <div class="fullList">
             <div class="mainMsg-title">Tin tức</div>
             <ul>
-                <li>
-                    <a href="#/news?p=7" style="display: flex;">
-                        <div class="fullList_img" style="background-image: url(images/newsRef/newsList7-01.jpg);"></div>
-                        <div class="fullList_msg">
-                            <div>
-                                <div class="title">Cách chơi trò chơi</div>
-                                <p>Baccarat Baccarat là một trong các trò chơi trong Casino được nhiều chuyên gia cho rằng có nhiều khả năng thắng nhất đối với người chơi. Như các bạn cũng đ&</p>
+                <template v-for="(item,index) in selfNews">
+                    <li>
+                        <a :href="item.href" style="display: flex;">
+                            <div class="fullList_img" :style="getbgi(item.img)"></div>
+                            <div class="fullList_msg">
+                                <div>
+                                    <div class="title">{{item.title}}</div>
+                                    <p>{{item.msg}}</p>
+                                </div>
+                                <div class="fullList_tool">
+                                    <div class="more">Cách chơi trò chơi</div>
+                                    <p>
+                                        <span>Tử điển xổ số</span>
+                                        <span>{{item.time}}</span>
+                                    </p>
+                                </div>
                             </div>
-                            <div class="fullList_tool">
-                                <div class="more">Cách chơi trò chơi</div>
-                                <p>
-                                    <span>Tử điển xổ số</span>
-                                    <span>27-06 00:52</span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#/news?p=8" style="display: flex;">
-                        <div class="fullList_img" style="background-image: url(images/newsRef/newsList8-01.jpg);"></div>
-                        <div class="fullList_msg">
-                            <div>
-                                <div class="title">Xổ số- cờ bạc hay trò chơi giải trí?</div>
-                                <p>Xổ số là trò chơi không phải dành cho người nghèo và nếu Nhà nước biết cách quản lý thì sẽ phát huy được lợi ích của </p>
-                            </div>
-                            <div class="fullList_tool">
-                                <div class="more">Thông tin xổ số</div>
-                                <p>
-                                    <span>Tử điển xổ số</span>
-                                    <span>24-06 19:53</span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#/news?p=9" style="display: flex;">
-                        <div class="fullList_img" style="background-image: url(images/newsRef/newsList9-01.jpg);"></div>
-                        <div class="fullList_msg">
-                            <div>
-                                <div class="title">Tình tiết mới vụ nhầm kết quả xổ số ở Hậu Giang: Giám đốc cty xổ số nói gì với quay phim?</div>
-                                <p>TPO - Khi em thiếu nhi rút nhầm thẻ số 7, một thành viên Hội đồng Giám sát (HĐGS) Xổ số kiến thiết (XSKT) tỉnh thắc mắc. Thư ký HĐGS đi xác minh, qu&aac</p>
-                            </div>
-                            <div class="fullList_tool">
-                                <div class="more">Thông tin xổ số</div>
-                                <p>
-                                    <span>Tử điển xổ số</span>
-                                    <span>17-06 07:44</span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#/news?p=10" style="display: flex;">
-                        <div class="fullList_img" style="background-image: url(images/newsRef/newsList10-01.jpg);"></div>
-                        <div class="fullList_msg">
-                            <div>
-                                <div class="title">Phá đường dây ghi lô đề hơn 15 tỷ</div>
-                                <p>Giang, Sơn, Pháp cùng hơn 50 người thành lập đường dây đánh bạc bằng hình thức ghi lô đề. Trong 3 tháng, số tiền nhóm nghi phạm giao dịch l</p>
-                            </div>
-                            <div class="fullList_tool">
-                                <div class="more">Thông tin xổ số</div>
-                                <p>
-                                    <span>Tử điển xổ số</span>
-                                    <span>11-06 18:09</span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#/news?p=11" style="display: flex;">
-                        <div class="fullList_img" style="background-image: url(images/newsRef/newsList11-01.jpg);"></div>
-                        <div class="fullList_msg">
-                            <div>
-                                <div class="title">Người trúng thưởng xổ số được yêu cầu giữ bí mật thông tin</div>
-                                <p>Đó là một trong những đề xuất mà Bộ Tài chính đưa ra để lấy ý kiến tại Dự thảo Thông tư hướng dẫn hoạt động kinh doanh xổ số tự chọn số điện toán</p>
-                            </div>
-                            <div class="fullList_tool">
-                                <div class="more">Thông tin xổ số</div>
-                                <p>
-                                    <span>Tử điển xổ số</span>
-                                    <span>10-06 22:57</span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#/news?p=12" style="display: flex;">
-                        <div class="fullList_img" style="background-image: url(images/newsRef/newsList12-01.jpg);"></div>
-                        <div class="fullList_msg">
-                            <div>
-                                <div class="title">Mỹ tặng tiền, bia, mở xổ số 1 triệu USD cổ vũ dân tiêm vắc xin COVID-19</div>
-                                <p>TTO - Chính quyền các bang và doanh nghiệp Mỹ đang dùng đủ mọi cách từ tặng tiền, xổ số đến đăng quảng cáo... để khuyến khích người dân đi ti&eci</p>
-                            </div>
-                            <div class="fullList_tool">
-                                <div class="more">Thông tin xổ số</div>
-                                <p>
-                                    <span>Tử điển xổ số</span>
-                                    <span>07-06 20:44</span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#/news?p=13" style="display: flex;">
-                        <div class="fullList_img" style="background-image: url(images/newsRef/newsList13-01.jpg);"></div>
-                        <div class="fullList_msg">
-                            <div>
-                                <div class="title">Thu ngân sách từ thuế vẫn tăng mạnh bất chấp dịch bệnh</div>
-                                <p>Trong tháng 5, tổng thu ngân sách Nhà nước do cơ quan Thuế quản lý ước đạt 73.000 tỷ đồng, tương đương 6,5% dự toán và tăng 20,1% so với cùng kỳ </p>
-                            </div>
-                            <div class="fullList_tool">
-                                <div class="more">Thông tin xổ số</div>
-                                <p>
-                                    <span>Tử điển xổ số</span>
-                                    <span>07-06 18:39</span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#/news?p=14" style="display: flex;">
-                        <div class="fullList_img" style="background-image: url(images/newsRef/newsList14-01.jpg);"></div>
-                        <div class="fullList_msg">
-                            <div>
-                                <div class="title">Vứt nhầm 12 tờ vé số trị giá 180 triệu, cả xóm lục tung thùng rác tìm giữa đêm khuya</div>
-                                <p>Được biết, chiếc vé cuối cùng cũng đã chịu "xuất đầu lộ diện" trong một thùng rác ở góc phố!Mới đây, một xóm nhỏ tại huyện Thạnh Hóa (Long</p>
-                            </div>
-                            <div class="fullList_tool">
-                                <div class="more">Thông tin xổ số</div>
-                                <p>
-                                    <span>Tử điển xổ số</span>
-                                    <span>06-06 21:48</span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-
-
+                        </a>
+                    </li>
+                </template>
             </ul>
         </div>
 
-        <!-- fullDict start -->
         <div class="fullDict">
             <div class="title"></div>
             <div>
                 <div class="wsDict_msg">
-                    <div class="title">Nhà cái uy tín – Kèo Bóng Cỏ giới thiệu các nhà cái uy tín hàng đầu</div>
+                    <div class="title">{{wsDict.title}}</div>
                     <ul class="lotteryList">
-                        <li>
+                        <li v-for="(item,index) in wsDict.msg">
                             <div class="icon"></div>
                             <ul class="lotteryMsg">
-                                <li>Với những người chơi cá cược việc tìm lựa trọn cho mình một nhà cái uy tín để đặt cược luôn là việc quan trọng nhất cần làm.Với việc lựa trọn đúng nhà cái uy tín người chơi có thể hoàn toàn yên tâm về số tiền mà mình đã
-                                    đầu tư sẽ không bị biến mất, từ đó có thể chú tâm hoàn toàn vào việc đặt cược.
-                                </li>
-                                <li>Những nhà cái uy tín lâu năm luôn đảm bảo cho khách hàng khả năng thanh khoản tiền thưởng thắng cược của người chơi luôn nhanh, đấy đủ, chính xác số tiền mà người chơi muốn rút.Trong thời gia gần đây số lượng nhà cái mới
-                                    ra đời nhiều như nấm mọc sau mưa, đã có rất nhiều người chơi không tìm hiểu nên đã lựa trọn đúng các nhà cái không uy tín dẫn đến tình trạng không rút được tiền thưởng thắng cược hoặc thậm chí bị nhà cái giam tiền,
-                                    nhuốt tiề.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="icon"></div>
-                            <ul class="lotteryMsg">
-                                <li>Với nhu cầu ngày càng cao hiện nay Kèo Bóng Cỏ xin được giới thiệu đến người chơi các nhà cái lớn hoạt động lâu năm trên thị trường, mức độ uy tín lớn để người chơi có thể tin tưởng tuyệt đối nạp tiền vào chơi cho dù số
-                                    tiền đó lớn hay nhỏ. Các nhà cái uy tín được Kèo Bóng Cỏ giới thiệu đã được chính thành viên của Kèo Bóng Cỏ tham ra đăng ký chơi để kiểm tra chính xác mức độ uy tín mà nhà cái có được, đồng thời cũng được rất nhiều
-                                    các thành viên của các diễn đàn lớn về cá cược khác đánh giá tốt.
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="icon"></div>
-                            <ul class="lotteryMsg">
-                                <li>Kèo Bóng Cỏ xin chúc người chơi lựa chọn được nhà cái uy tín để trọn mặt gửi vàng. Xin chân thành cảm ơn!
-                                </li>
+                                <li v-for="(item,index) in item.list">{{item}}</li>
                             </ul>
                         </li>
                     </ul>
@@ -330,3 +96,84 @@
 </div>
 
 <script src="js/index.js"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                adImg: flexAd,
+                wsDict: newsDict,
+                selfNews: news_selfNews,
+                newsMenu: {
+                    news_t: '',
+                    news_b: [],
+                    news_r: '',
+                },
+            };
+        },
+        methods: {
+            getbgi(data) {
+                return `background-image: url(${data})`;
+            },
+            reHref(hot, index) {
+                if (hot) {
+                    return `#/news/news?list=${index+7}`
+                } else {
+                    return `#/news/news?list=${index+2}`
+                }
+
+            },
+            getMenu() {
+                let self = this;
+                let chReady = [false, false, false];
+
+                function ready() {
+                    if (chReady[0] && chReady[1] && chReady[2]) {
+                        indexVue.onLoad = false;
+                    }
+                }
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.news_r = data;
+                        self.$nextTick(function() {
+                            chReady[0] = true;
+                            ready();
+                        })
+                    },
+                });
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/news/top",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.news_t = data;
+                        self.$nextTick(function() {
+                            chReady[1] = true;
+                            ready();
+                        })
+                    },
+                });
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/news/bottom",
+                    dataType: "json",
+                    success: function(data) {
+                        for (let i = 0; i < 5; i++) {
+                            self.newsMenu.news_b.push(data[i])
+                            self.$nextTick(function() {
+                                chReady[2] = true;
+                                ready();
+                            })
+                        }
+                    },
+                });
+            },
+        },
+        mounted() {
+            this.getMenu();
+            indexVue.onLoad = true;
+        },
+    }).mount("#page");
+</script>

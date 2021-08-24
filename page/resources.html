@@ -1,4 +1,4 @@
-<div class="contBox-min">
+<div class="contBox-min" id="page">
     <div class="resourcesBox">
         <div class="res-Title">
             <div class="bank-icon"></div>
@@ -7,214 +7,30 @@
         <div class="bank-List">
             <div class="bank-tb">
                 <table>
-                    <tr>
-                        <td>
-                            <a href="https://www.agribank.com.vn/">
-                                <div class="bankTb-img">
-                                    <img src="images/bank/agri.png">
-                                </div>
-                            </a>
-                        </td>
-
-                        <td>
-                            <a href="https://www.bidv.com.vn/en/ve-bidv">
-                                <div class="bankTb-img">
-                                    <img src="images/bank/bidv.png">
-                                </div>
-                            </a>
-                        </td>
-
-                        <td>
-                            <a href="https://www.mbbank.com.vn/">
-                                <div class="bankTb-img">
-                                    <img src="images/bank/mb.png">
-                                </div>
-                            </a>
-                        </td>
-
-                        <td>
-                            <a href="https://www.msb.com.vn/">
-                                <div class="bankTb-img">
-                                    <img src="images/bank/msb.png">
-                                </div>
-                            </a>
-                        </td>
-
-                        <td>
-                            <a href="https://www.scb.com.vn/eng/homepage">
-                                <div class="bankTb-img">
-                                    <img src="images/bank/scb.png">
-                                </div>
-                            </a>
-                        </td>
-
-                        <td>
-                            <a href="https://www.shb.com.vn/">
-                                <div class="bankTb-img">
-                                    <img src="images/bank/shb.png">
-                                </div>
-                            </a>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="https://www.techcombank.com.vn/trang-chu">
-                                <div class="bankTb-img">
-                                    <img src="images/bank/techcom.png">
-                                </div>
-                            </a>
-                        </td>
-
-                        <td>
-                            <a href="https://portal.vietcombank.com.vn/Pages/Home.aspx">
-                                <div class="bankTb-img">
-                                    <img src="images/bank/vietcom.png">
-                                </div>
-                            </a>
-                        </td>
-
-                        <td>
-                            <a href="https://www.vietinbank.vn/web/home/vn/index.html">
-                                <div class="bankTb-img">
-                                    <img src="images/bank/vietin.png">
-                                </div>
-                            </a>
-                        </td>
-
-                        <td>
-                            <a href="https://www.vpbank.com.vn/en/ca-nhan">
-                                <div class="bankTb-img">
-                                    <img src="images/bank/vp.png">
-                                </div>
-                            </a>
-                        </td>
-
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <template v-for="(item,index) in bank.main.slice(0,parseInt(bank.main.length/bankNum)+2)">
+                        <tr v-if="index !== 0">
+                            <td v-for="(item,index) in bank.main.slice(0+(index-1)*bankNum,bankNum*index)">
+                                <a :href="item.href" target="_blank">
+                                    <div class="bankTb-img">
+                                        <img :src="item.img">
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                    </template>
                 </table>
             </div>
-            <div class="resList-list">
-                <ul>
-                    <li>
-                        <a href="https://www.cbbank.vn/">
-                            <span>Ngân hàng xây dựng </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.oceanbank.vn/">
-                            <span> Ngân hàng Đại Dương</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.gpbank.com.vn/">
-                            <span>Ngân hàng Dầu Khí Toàn Cầu </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://online.acb.com.vn/">
-                            <span> Ngân hàng Á Châu</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://kienlongbank.com/">
-                            <span> Kiên Long</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.hdbank.com.vn/">
-                            <span>Phát triển Thành phố Hồ Chí Minh </span>
-                        </a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="https://www.vib.com.vn/wps/portal/vn/ca-nhan">
-                            <span> Ngân hàng thương mại quốc tế việt nam </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.vietbank.com.vn/">
-                            <span> Ngân hàng Việt Nam (Ngân hàng thương mại cổ phần Tongtian Việt Nam)</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.sacombank.com.vn/">
-                            <span> Sài Gòn Thương Tín</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.dongabank.com.vn/">
-                            <span> Ngân hàng Đông Á </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.vietcapitalbank.com.vn/personal">
-                            <span>Ngân hàng Bản Việt</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.namabank.com.vn/">
-                            <span>Nam Á</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="https://www.ocb.com.vn/en/">
-                            <span>Phương Đông</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.baca-bank.vn/SitePages/trang-chu.aspx">
-                            <span>Ngân hàng Bắc Á</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.ncb-bank.vn/en/about">
-                            <span>Quốc Dân</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://lienvietpostbank.com.vn/">
-                            <span>Bưu điện Liên Việt</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.seabank.com.vn/site#/">
-                            <span>Ngân hàng Đông Nam Á</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://abbl.com/">
-                            <span>Ngân hàng An Bình</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="https://www.vietabank.com.vn/">
-                            <span>Việt Á</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.pvcombank.com.vn/">
-                            <span>Đại chúng Việt Nam</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.baovietbank.vn/">
-                            <span>Ngân hàng Bảo Việt</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://home.pgbank.com.vn/Landing/Welcome.aspx">
-                            <span>Xăng dầu Petrolimex</span>
-                        </a>
-                    </li>
 
-                </ul>
+            <div class="resList-list">
+                <template v-for="(item,index) in bank.minor.slice(0,parseInt(bank.minor.length/listNum)+2)">
+                    <ul v-if="index !== 0">
+                        <li v-for="(item,index) in bank.minor.slice(0+(index-1)*listNum,listNum*index)">
+                            <a :href="item.href" target="_blank">
+                                <span>{{item.txt}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </template>
             </div>
         </div>
         <div class="res-Title">
@@ -224,262 +40,32 @@
         <div class="lottory-list">
             <div class="lottory-tb">
                 <table>
-                    <tr>
-                        <td>
-                            <a href="https://www.awin77g.com">
-                                <div class="lottoryTb_list">
-                                    <div class="lottoryTb-img">
-                                        <img src="images/bank/tuDienXoSo.png">
+                    <template v-for="(item,index) in lottory.main.slice(0,parseInt(bank.main.length/lottoryNum)+2)">
+                        <tr v-if="index !== 0">
+                            <td v-for="(item,index) in lottory.main.slice(0+(index-1)*lottoryNum,lottoryNum*index)">
+                                <a :href="item.href" target="_blank">
+                                    <div class="lottoryTb_list">
+                                        <div class="lottoryTb-img">
+                                            <img :src="item.img">
+                                        </div>
+                                        <span>{{item.txt}}</span>
                                     </div>
-                                    <span>Từ điển xổ số</span>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="https://www.awin77g.com">
-                                <div class="lottoryTb_list">
-                                    <div class="lottoryTb-img">
-                                        <img src="images/bank/hoChiMinh.png">
-                                    </div>
-                                    <span>CÔNG TY TNHH MTV SỔ XỐ KIẾN THIẾT TP.HỒ CHÍ MINH</span>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="http://xsktmiennam.vn">
-                                <div class="lottoryTb_list">
-                                    <div class="lottoryTb-img">
-                                        <img src="images/bank/ichNuocLoiNha.png">
-                                    </div>
-                                    <span>XỐ SỔ KIẾN THIẾT KHU VỰC MIỀN NAM ÍCH NƯỚC-LỢI NHÀ</span>
-                                </div>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="http://xosophutho.vn">
-                                <div class="lottoryTb_list">
-                                    <div class="lottoryTb-img">
-                                        <img src="images/bank/xoSoKienThiet.png">
-                                    </div>
-                                    <span>ỦY BAN NHÂN DÂN TỈNH PHÚ THỌ CÔNG TY TNHH MTV XỔ SỐ KIẾN THIẾT PHÚ THỌ</span>
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="https://xsktdongthap.vn">
-                                <div class="lottoryTb_list">
-                                    <div class="lottoryTb-img">
-                                        <img src="images/bank/dongThap.png">
-                                    </div>
-                                    <span>CÔNG TY TNHH MỘT THÀNH VIÊN XỔ SỐ KIẾN THIẾT TỈNH ĐỒNG </span>
-                                </div>
-                        </td>
-                        <td></td>
-                    </tr>
+                                </a>
+                            </td>
+                        </tr>
+                    </template>
                 </table>
             </div>
             <div class="resList-list">
-                <ul>
-                    <li>
-                        <a href="http://www.xosodalat.com.vn//">
-                            <span>ĐÀ LẠT</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.xskthcm.com/">
-                            <span> (TP)Hồ Chí Minh</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.xosocamau.com/">
-                            <span>Cà Mau </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xosobariavungtau.com.vn/">
-                            <span> Vũng Tàu</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://xosobentre.com.vn/">
-                            <span>Bạc Liêu</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xosodongnai.com.vn/">
-                            <span>Đồng Nai </span>
-                        </a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="http://xsktcantho.com.vn/">
-                            <span> Cần Thơ </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xsktsoctrang.vn/">
-                            <span> Sóc Trăng</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://xosotayninh.com.vn/trang-chu">
-                            <span> Tây Ninh</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.xsktangiang.com.vn/">
-                            <span> An Giang </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.xosobinhthuan.com.vn/">
-                            <span>Bình Thuận</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://xosovinhlong.com.vn/">
-                            <span>Vĩnh Long</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="https://www.xosobinhduong.com.vn/">
-                            <span>Bình Dương</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xosotravinh.vn/trang-chu">
-                            <span>Trà Vinh</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xosolongan.vn/trang-chu">
-                            <span>Quốc Dân</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://lienvietpostbank.com.vn/">
-                            <span>Long An</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://xosobinhphuoc.vn/">
-                            <span>Bình Phước</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://xskthaugiang.vn/">
-                            <span>Hậu Giang</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="http://www.xskttg.com.vn/">
-                            <span>Tiền Giang</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xosokiengiang.vn/">
-                            <span>Kiên Giang</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://xsktdongthap.vn/">
-                            <span>Đồng Tháp</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xosogialai.com.vn/">
-                            <span>Gia Lai</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xosogialai.com.vn/">
-                            <span>Gia Lai</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xsktquangnam.vn/">
-                            <span>Quảng Nam</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="http://xosophuyen.vn/">
-                            <span>Phú Yên</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xosoquangngai.com.vn/">
-                            <span>Quảng Ngãi</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.xosoquangtri.com.vn/">
-                            <span>Quảng Trị</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.xosokhanhhoa.com.vn/">
-                            <span>Khánh Hòa</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xsktdaklak.vn/">
-                            <span>Đắc Lắc</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xosohue.com.vn/">
-                            <span>Thừa Thiên Huế</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="http://xosobinhdinh.com.vn/">
-                            <span>Bình Định</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xosoquangbinh.vn/">
-                            <span>Quảng Bình</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xosoninhthuan.com.vn/">
-                            <span>Ninh Thuận</span
-                        ></a>
-                    </li>
-                   <li><a href="http://www.xosokontum.vn/">
-                       <span>Kon Tum</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.xsktdanang.com/">
-                            <span>Đà Nẵng</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://xskt.daknong.gov.vn/">
-                            <span>Đắk Nông</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="http://xosomb.com.vn/">
-                            <span>Hà Nội</span>
-                        </a>
-                    </li>
-
-                </ul>
+                <template v-for="(item,index) in lottory.minor.slice(0,parseInt(lottory.minor.length/listNum)+2)">
+                    <ul v-if="index !== 0">
+                        <li v-for="(item,index) in lottory.minor.slice(0+(index-1)*listNum,listNum*index)">
+                            <a :href="item.href" target="_blank">
+                                <span>{{item.txt}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </template>
             </div>
         </div>
 
@@ -487,20 +73,12 @@
             <!-- flexAd start -->
             <div class="flexAd">
                 <ul>
-                    <li>
-                        <img src="images/adBanner/adBanner-01.jpg">
-                    </li>
-                    <li>
-                        <img src="images/adBanner/adBanner-02.jpg">
-                    </li>
-                    <li>
-                        <img src="images/adBanner/adBanner-03.jpg">
-                    </li>
-                    <li>
-                        <img src="images/adBanner/adBanner-04.jpg">
+                    <li v-for="(item,index) in adImg">
+                        <img :src="item.img">
                     </li>
                 </ul>
             </div>
+
             <!-- resNews start -->
             <div class="resNews">
                 <div class="mainMsg-title">Thông tin hoạt động</div>
@@ -569,60 +147,23 @@
             </div>
 
             <!-- resQa start -->
-            <div class="resQa" id="resQa">
+            <div class="resQa">
                 <div class="mainMsg-title">Vấn đề thường gặp</div>
                 <ul>
-                    <li>
+                    <li v-for="(item,index) in resQa">
                         <div class="question">
                             <div class="icon">Q</div>
-                            <p>Thời gian quay thưởng xổ số</p>
+                            <p>{{item.question}}</p>
                         </div>
                         <div class="Answer">
                             <div class="icon">A</div>
-                            <p>Xổ Số Miền Bắc: Có 6 đài xổ số, mỗi ngày có 3 đài mở 27 tổ hợp số, quay thưởng vào lúc 18h. Xổ Số Miền Trung: Có 14 đài xổ số, mỗi ngày có 2 đài mở 18 tổ hợp số, quay thưởng vào lúc 5h15 chiều. Xổ Số Miền Nam: Có 21 đài xổ
-                                số, mỗi ngày có 2 đài mở 18 tổ hợp số, quay thưởng vào lúc 6h10 chiều.<span class="switch"></span></p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="question">
-                            <div class="icon">Q</div>
-                            <p>Lô tô </p>
-                        </div>
-                        <div class="Answer">
-                            <div class="icon">A</div>
-                            <p>Lô tô tự chọn 2 và 3 chữ số: Người chơi chọn 2 hoặc 3 số, sau đó viết ra một tờ vé, sau đó gửi lại cho đại lý để ký tên tham gia, giá trị giải độc đắc gấp 70 lần vé số bạn đã mua. Lô tô tự chọn các cặp số: Người chơi có thể
-                                chọn ngẫu nhiên từ 2 đến 4 cặp số để chơi, sau khi chọn xong người chơi sẽ so sánh kết quả với kết quả xổ số truyền thống trong ngày. Nếu con số chọn trùng với 2 đến 4 cặp số cuối cùng trong xổ số truyền thống thì trúng
-                                thưởng. Lô tô 6×36: Chọn một bộ số gồm 6 cặp số và so sánh với kết quả xổ số truyền thống trong ngày, giải thưởng tối đa là 2 tỷ đồng, nếu không có ai trúng thưởng thì giải thưởng được chuyển sang giải nhất tiếp theo cho
-                                đến khi có người trúng giải. (Giới hạn giải độc đắc là 5 tỷ đồng).
-                                <span class="switch"></span> </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="question">
-                            <div class="icon">Q</div>
-                            <p>Xổ số bóc</p>
-                        </div>
-                        <div class="Answer">
-                            <div class="icon">A</div>
-                            <p>Đây là loại hình xổ số cho phép người mua vé biết ngay kết quả. Vé số được đóng gói và niêm phong cẩn thận, có thể chọn ngẫu nhiên một bó vé số, xé ra sau khi mua và đối chiếu với kết quả xổ số ngay lập tức là có thể biết bản
-                                thân đã trúng số hay chưa. Tất nhiên, kết quả phải được chứng kiến giám sát của hội đồng xổ số kiến thiết <span class="switch"></span> </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="question">
-                            <div class="icon">Q</div>
-                            <p>Xổ số Vietlott ( hay xổ số điện toán)</p>
-                        </div>
-                        <div class="Answer">
-                            <div class="icon">A</div>
-                            <p>Vietlott là công ty xổ số điện toán quốc gia do Bộ Tài chính Việt Nam trực tiếp điều hành, được phê duyệt và thành lập vào ngày 05 tháng 12 năm 2011. Nhà nước nắm giữ 100% cổ phần. Chính thức đi vào hoạt động từ ngày 18 tháng
-                                7 năm 2016. Có hai hình thức, là xếp số (vé 3D nghìn ký tự, vé số 4D vạn kí tự) và tổ hợp xếp số (vé tổ hợp 6 số). Dịch vụ xổ số này được ra mắt tại TP. lần đầu tiên. Tính đến nay, Vietlott đã được triển khai tại nhiều
-                                thành phố khác như Hà Nội, Hải Phòng, Hạ Long (Quảng Ninh), v.v. Vietlott hiện có 5 trò chơi xổ số: 1. MEGA 6/45 2. POWER 6/55 3. MAX 3D 4. MAX 4D 5. KENO<span class="switch"></span> </p>
+                            <p :class="{'on': item.txtMore}">{{item.answer}}
+                                <span class="switch" @click="item.txtMore = !item.txtMore"></span>
+                            </p>
                         </div>
                     </li>
                 </ul>
             </div>
-
         </div>
     </div>
 </div>
@@ -630,7 +171,41 @@
 <script src="js/index.js"></script>
 
 <script>
-    $('#resQa .switch').click(function() {
-        $(this).parents('p').toggleClass('on')
-    })
+    Vue.createApp({
+        data() {
+            return {
+                bank: bankLink,
+                lottory: lottoryLink,
+                adImg: flexAd,
+                resQa: resQa,
+                bankNum:6,
+                lottoryNum :3,
+                listNum:6,
+            };
+        },
+        methods: {
+            myResize() {
+                let num = window.innerWidth;
+                if(num > 1200){
+                    this.bankNum = 6
+                    this.listNum = 6
+                }
+                else if(num <= 1200){
+                    this.bankNum = parseInt(num / 200)
+                    this.listNum = parseInt(num / 200)
+                }
+                this.lottoryNum  = num > 1200 ? 3:2;  
+            },
+        },
+        mounted() {
+            window.addEventListener("resize", this.myResize);
+            this.myResize();
+            indexVue.onLoad = true;
+            this.$nextTick(function() {
+                setTimeout(function(){
+                    indexVue.onLoad = false;
+                },300)  
+            })
+        },
+    }).mount("#page");
 </script>

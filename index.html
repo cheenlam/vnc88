@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/all.css">
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
     <!-- 外掛插件 -->
     <script src="js/swipeslider.js"></script>
     <script src="js/marquee.js"></script>
@@ -16,329 +17,317 @@
     <script src="js/verifyCode.js"></script>
     <!-- 自訂義js -->
     <script src="js/index.js"></script>
+    <script src="js/pageData.js"></script>
     <title>VNC88</title>
 
 </head>
 
 <body>
-    <!-- 主頁新聞跳頁(範例) -->
-    <!-- <a href="#/newsRef?p=1">newsRef</a> -->
-    <!-- 主頁博彩跳頁(範例) -->
-    <!-- <a href="#/lotteryRef?p=1">lotteryRef</a>  -->
-    
-    <!-- 內頁新聞跳頁(範例) -->
-    <!-- <a href="#/news?p=1">news</a> -->
-    <!-- 內頁博跳頁(範例) -->
-    <!-- <a href="#/lottery?p=1">lottery</a> -->
-    <!-- 內頁資源頁(範例) -->
-    <!-- <a href="#/resources?p=1">resources</a> -->
-
-    <!-- 投注公司介紹跳頁(範例) -->
-    <!-- <a href="#/betRef?p=1">resources</a> -->
-
-
-    <!-- ===== header start ===== -->
-    <div class="header">
-        <!-- hd_top start -->
-        <div class="hd_top" id="hd_top">
-            <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
-            <div class="hd_tool">
-                <div class="hd_link">
-                    <ul>
-                        <li class="btn_linear_c1 hd_service">
-                            <div class="btn_cnt">
-                                <img src="images/icon/icon-service.png">
-                            </div>
-                            <p>CSKH</p>
-                        </li>
-                        <li class="btn_linear_c1">
-                            <div class="btn_cnt">
-                                <img src="images/icon/icon-fb.png">
-                            </div>
-                        </li>
-                        <li class="btn_linear_c1">
-                            <div class="btn_cnt">
-                                <img src="images/icon/icon-zalo.png">
-                            </div>
-                        </li>
-                        <li class="btn_linear_c1">
-                            <div class="btn_cnt">
-                                <img src="images/icon/icon-tg.png">
-                            </div>
-                        </li>
-                        <li class="btn_linear_c1 menuBar" id="menuBar">
-                            <div class="btn_cnt">
-                                <img src="images/icon/menuBar.png">
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="hd_signIn" id="hd_signIn" data-signIn="0">
-                    <div data-signIn="0">
-                        <div class="signIn_ipt">
-                            <label>  
+    <div id="indexBox">
+        <!-- ===== header start ===== -->
+        <div class="header" id="header">
+            <!-- hd_top start -->
+            <div class="hd_top" id="hd_top">
+                <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
+                <div class="hd_tool">
+                    <div class="hd_link">
+                        <ul>
+                            <li class="btn_linear_c1 hd_service">
+                                <div class="btn_cnt">
+                                    <img src="images/icon/icon-service.png">
+                                </div>
+                                <p>CSKH</p>
+                            </li>
+                            <li class="btn_linear_c1">
+                                <div class="btn_cnt">
+                                    <img src="images/icon/icon-fb.png">
+                                </div>
+                            </li>
+                            <li class="btn_linear_c1">
+                                <div class="btn_cnt">
+                                    <img src="images/icon/icon-zalo.png">
+                                </div>
+                            </li>
+                            <li class="btn_linear_c1">
+                                <div class="btn_cnt">
+                                    <img src="images/icon/icon-tg.png">
+                                </div>
+                            </li>
+                            <li class="btn_linear_c1 menuBar" @click="menuOpen = true">
+                                <div class="btn_cnt">
+                                    <img src="images/icon/menuBar.png">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hd_signIn" id="hd_signIn" data-signIn="0" v-if="signSwitch">
+                        <div data-signIn="0">
+                            <div class="signIn_ipt">
+                                <label>  
                                 <input type="text" placeholder="Tài khoản">  
                             </label>
 
-                            <div class="signIn_forget">
-                                <label>
+                                <div class="signIn_forget">
+                                    <label>
                                     <input type="password" placeholder="Mật khẩu">
                                 </label>
-                                <div class="btn_linear hd_forget" id="hd_forget">
-                                    <div class="btn_cnt"></div>
+                                    <div class="btn_linear hd_forget" id="hd_forget">
+                                        <div class="btn_cnt"></div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="signIn_code">
-                                <label>
+                                <div class="signIn_code">
+                                    <label>
                                     <input type="number" placeholder="Xác minh">
                                 </label>
-                                <div class="nbCode">
-                                    <canvas id='mainVerify'></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="signIn_btn">
-                            <div class="btn_linear_c2 btn" data-btn="signIn">
-                                <div class="btn_cnt">Đăng nhập</div>
-                            </div>
-                            <div class="btn_linear_c3 btn" data-btn="regd">
-                                <div class="btn_cnt">Đăng kí</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div data-signIn="1">
-                        <div class="signIn_on">
-                            <div class="signIn_msg">
-                                <div>
-                                    <div class="signIn_icon member"></div>
-                                    <p>test123456789123456</p>
-                                </div>
-                                <div>
-                                    <div class="signIn_icon chip"></div>
-                                    <p>1,000,000,000.00</p>
-                                </div>
-                                <div>
-                                    <div class="signIn_icon mail"></div>
-                                    <p>99+</p>
+                                    <div class="nbCode">
+                                        <canvas id='mainVerify'></canvas>
+                                    </div>
                                 </div>
                             </div>
                             <div class="signIn_btn">
-                                <div class="btn_linear_c2 btn" data-btn="signOut">
-                                    <div class="btn_cnt">Đăng xuất</div>
+                                <div class="btn_linear_c2 btn" data-btn="signIn">
+                                    <div class="btn_cnt">Đăng nhập</div>
                                 </div>
-                                <div class="btn_linear_c3 btn" data-btn="mbrMsg">
-                                    <a href="#/member">
-                                        <div class="btn_cnt">Thông tin tài khoản</div>
-                                    </a>
+                                <div class="btn_linear_c3 btn" data-btn="regd">
+                                    <div class="btn_cnt">Đăng kí</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div data-signIn="1">
+                            <div class="signIn_on">
+                                <div class="signIn_msg">
+                                    <div>
+                                        <div class="signIn_icon member"></div>
+                                        <p>test123456789123456</p>
+                                    </div>
+                                    <div>
+                                        <div class="signIn_icon chip"></div>
+                                        <p>1,000,000,000.00</p>
+                                    </div>
+                                    <div>
+                                        <div class="signIn_icon mail"></div>
+                                        <p>99+</p>
+                                    </div>
+                                </div>
+                                <div class="signIn_btn">
+                                    <div class="btn_linear_c2 btn" data-btn="signOut">
+                                        <div class="btn_cnt">Đăng xuất</div>
+                                    </div>
+                                    <div class="btn_linear_c3 btn" data-btn="mbrMsg">
+                                        <a href="#/member">
+                                            <div class="btn_cnt">Thông tin tài khoản</div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- hd_menu start -->
-        <div class="hd_menu" id="hd_menu">
-            <ul>
-                <li class="on">
-                    <a href="#/home">TRANG CHỦ</a>
-                </li>
-                <li><a href="#/lottery">Đề xuất cá cược </a></a>
-                </li>
-                <li><a href="#/news">Tin tức</a></li>
-                <li><a href="#/broadcast">Video đá bóng</a></li>
-                <li><a href="#/forum">Diễn đàn thảo luận</a></li>
-                <li><a href="#/resources">Thông tin</a></li>
-                <li>
-                    <a href="#/game">
-                        <div class="menu_game">
-                            <img src="images/menu_gameBtn.png">
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+            <!-- hd_menu start -->
+            <div class="hd_menu" id="hd_menu" :class="{'on' : menuOpen}">
+                <ul>
+                    <template v-for="(item,index) in hdMenu.txtList">
+                    <li v-if="item.switch" @click="menuOpen = false">
+                        <a :href="item.href">{{item.txt}}</a>
+                    </li>
+                </template>
 
-
-    <!-- ===== content start ===== -->
-    <div class="mainCnt">
-        <div class="contBox-full">
-            <!-- 首頁輪播 -->
-            <div id="full_feature" class="swipslider">
-                <ul class="sw-slides">
-                    <li class="sw-slide">
-                        <img src="images/carousel/topBanner-01.jpg">
+                    <template v-for="(item,index) in hdMenu.picture">
+                    <li v-if="item.switch">
+                        <a :href="item.href">
+                            <div class="menu_game">
+                                <img :src="item.img">
+                            </div>
+                        </a>
                     </li>
-                    <li class="sw-slide">
-                        <img src="images/carousel/topBanner-02.jpg">
-                    </li>
-                    <li class="sw-slide">
-                        <img src="images/carousel/topBanner-03.jpg">
-                    </li>
-                    <li class="sw-slide">
-                        <img src="images/carousel/topBanner-04.jpg">
-                    </li>
+                </template>
                 </ul>
             </div>
+        </div>
 
-            <!-- marquee start -->
-            <div class="marquee">
-                <div class="marqueeBox">
-                    <div>
-                        <span>Tin mới nhất：</span>
-                        <ul id="marquee" class="marquee_body">
-                            <li>現在測試跑馬燈 (*´∀`)~ ♥</li>
-                            <li>電子遊戲已開放，歡迎玩家點擊「SLOT GAME」進入遊戲，祝您遊戲愉快 (๑ơ ₃ ơ)♥</li>
-                            <li>跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑 !!</li>
+        <!-- ===== content start ===== -->
+        <div class="mainCnt">
+            <div class="contBox-full">
+                <!-- 首頁輪播 -->
+                <div id="full_feature" class="swipslider">
+                    <ul class="sw-slides">
+                        <template v-for="(item,index) in slides">
+                        <li class="sw-slide" v-if="item.switch">
+                            <img :src="item.img">
+                        </li>
+                    </template>
+                    </ul>
+                </div>
+
+                <!-- marquee start -->
+                <div class="marquee">
+                    <div class="marqueeBox">
+                        <div>
+                            <span>Tin mới nhất：</span>
+                            <ul id="marquee" class="marquee_body">
+                                <template v-for="(item,index) in marquee">
+                                <li v-if="item.switch">{{item.txt}}</li>
+                            </template>
+                            </ul>
+                            <div class="btn_linear_c1 btn">
+                                <div class="btn_cnt">Chi tiết</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contBox-min">
+                    <div class="leftTool" id="leftTool">
+                        <div class="floatAd">
+                            <template v-for="(item,index) in banner.left">
+                            <img :src="item.img" v-if="item.switch">
+                        </template>
+                        </div>
+                        <div class="getGift" id="getGift" v-if="signSwitch">
+                            <img src="images/gift.png">
+                        </div>
+                    </div>
+
+                    <div class="rightTool" id="rightTool">
+                        <div class="floatAd">
+                            <template v-for="(item,index) in banner.right">
+                            <img :src="item.img" v-if="item.switch">
+                        </template>
+                        </div>
+                        <div class="goTop" id="goTop">
+                            <img src="images/icon/arrow-top.png">
+                            <span>TOP</span>
+                        </div>
+                        <div class="todayGame" id="todayGame" v-if="signSwitch">
+                            <div class="god">
+                                <img src="images/god.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- flexAd start -->
+                    <div class="flexAd">
+                        <ul>
+                            <template v-for="(item,index) in banner.center">
+                            <li v-if="item.switch">
+                                <img :src="item.img">
+                            </li>
+                        </template>
                         </ul>
-                        <div class="btn_linear_c1 btn">
-                            <div class="btn_cnt">Chi tiết</div>
-                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="contBox-min">
-                <div class="leftTool" id="leftTool">
-                    <div class="floatAd">
-                        <img src="images/adBanner/ad5.gif">
-                        <img src="images/adBanner/ad6.gif">
-                    </div>
-                    <div class="getGift" id="getGift">
-                        <img src="images/gift.png">
-                    </div>
+                    <!-- content start -->
+                    <div class="content" id="content"></div>
                 </div>
-
-                <div class="rightTool" id="rightTool">
-                    <div class="floatAd">
-                        <img src="images/adBanner/ad7.gif">
-                        <img src="images/adBanner/ad8.gif">
-                    </div>
-                    <div class="goTop" id="goTop">
-                        <img src="images/icon/arrow-top.png">
-                        <span>TOP</span>
-                    </div>
-                    <div class="todayGame" id="todayGame">
-                        <div class="god">
-                            <img src="images/god.png">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- flexAd start -->
-                <div class="flexAd">
-                    <ul>
-                        <li>
-                            <img src="./images/adBanner/ad1.gif">
-                        </li>
-                        <li>
-                            <img src="./images/adBanner/ad2.gif">
-                        </li>
-                        <li>
-                            <img src="./images/adBanner/adBanner-03.jpg">
-                        </li>
-                        <li>
-                            <img src="./images/adBanner/adBanner-04.jpg">
-                        </li>
-                        <li>
-                            <img src="./images/adBanner/adBanner-05.jpg">
-                        </li>
-                        <li>
-                            <img src="./images/adBanner/adBanner-05.jpg">
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- content start -->
-                <div class="content" id="content"></div>
             </div>
         </div>
 
+        <!-- ===== footer start ===== -->
+        <div class="footer">
+            <!-- ft_top -->
+            <div class="ft_top">
+                <div>
+                    <div class="ft_msg">
+                        <p>Truyền hình trực tiếp bóng đá chất lượng hàng đầu việt nam</p>
+                        <p>TOP PRESTIGE BEAUTIFUL 100% </p>
+                        <p>SUPER HIGH SUPER HOT SUPER HOT CAMERA</p>
+                    </div>
 
-    </div>
-
-    <!-- ===== footer start ===== -->
-    <div class="footer">
-        <!-- ft_top -->
-        <div class="ft_top">
-            <div>
-                <div class="ft_msg">
-                    <p>Truyền hình trực tiếp bóng đá chất lượng hàng đầu việt nam</p>
-                    <p>TOP PRESTIGE BEAUTIFUL 100% </p>
-                    <p>SUPER HIGH SUPER HOT SUPER HOT CAMERA</p>
+                    <div class="ft_link">
+                        <ul>
+                            <li>
+                                <div class="ft_icon">
+                                    <img src="images/icon/icon-18up.png">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ft_icon">
+                                    <img src="images/icon/icon-f-fb.png">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ft_icon">
+                                    <img src="images/icon/icon-f-yt.png">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="ft_link">
-                    <ul>
-                        <li>
-                            <div class="ft_icon">
-                                <img src="images/icon/icon-18up.png">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="ft_icon">
-                                <img src="images/icon/icon-f-fb.png">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="ft_icon">
-                                <img src="images/icon/icon-f-yt.png">
-                            </div>
-                        </li>
-                    </ul>
+            </div>
+            <!-- ft_bottom -->
+            <div class="ft_bottom">
+                <div>
+                    <div class="copyright">
+                        <p>&copy; Copyright 2021 VNC88.com</p>
+                    </div>
+                    <div class="ft_menu">
+                        <ul>
+                            <li><a href="#/home">TRANG CHỦ</a></li>
+                            <li><a href="#/lottery">Đề xuất cá cược </a></a>
+                            </li>
+                            <li><a href="#/news">Tin tức</a></li>
+                            <li><a href="#/broadcast">Video đá bóng</a></li>
+                            <li><a href="#/forum">Diễn đàn thảo luận</a></li>
+                            <li><a href="#/resources">Tin tức</a></li>
+                        </ul>
+                    </div>
                 </div>
+
             </div>
 
+            <!-- ftAd  -->
+            <div class="ftAd">
+                <template v-for="(item,index) in banner.ftAd">
+                    <div :class="{'on' : !item.switch}">
+                        <div class="ftAd_close" @click="item.switch = false"></div>
+                        <img :src="item.img">
+                    </div>
+                </template>
+            </div>
         </div>
-        <!-- ft_bottom -->
-        <div class="ft_bottom">
-            <div>
-                <div class="copyright">
-                    <p>&copy; Copyright 2021 VNC88.com | </p>
-                </div>
-                <div class="ft_menu">
-                    <ul>
-                        <li><a href="#/home">TRANG CHỦ</a></li>
-                        <li><a href="#/lottery">Đề xuất cá cược </a></a>
-                        </li>
-                        <li><a href="#/news">Tin tức</a></li>
-                        <li><a href="#/broadcast">Video đá bóng</a></li>
-                        <li><a href="#/forum">Diễn đàn thảo luận</a></li>
-                        <li><a href="#/resources">Tin tức</a></li>
-                    </ul>
-                </div>
-            </div>
 
-        </div>
-
-        <!-- ftAd  -->
-        <div class="ftAd">
-            <div>
-                <div class="ftAd_close"></div>
-                <img src="./images/adBanner/ad3.gif">
-            </div>
-            <div>
-                <div class="ftAd_close"></div>
-                <img src="./images/adBanner/ad4.gif">
-            </div>
-            <div>
-                <div class="ftAd_close"></div>
-                <img src="./images/adBanner/ad3.gif">
-            </div>
+        <!-- ===== loading start ===== -->
+        <div class="loading" id="loading" :class="{'on' : onLoad}">
+            <div class="load_round"></div>
         </div>
     </div>
+
 
     <!-- ===== dialogCnt start ===== -->
     <div class="dialogCnt" id="dialogCnt"></div>
 
-    <div class="loading" id="loading">
-        <div class="load_round"></div>
-    </div>
+
 </body>
+
+<script>
+    var indexVue = Vue.createApp({
+        data() {
+            return {
+                hdMenu: menuData,
+                slides: indexSlides,
+                marquee: marqueeData,
+                banner: indexAd,
+                onLoad: false,
+                menuOpen: false,
+
+                // 開關
+                signSwitch: false,
+            };
+        },
+        methods: {
+            
+        },
+        mounted() {
+        
+        },
+    }).mount("#indexBox");
+</script>
+
 
 <script>
     // 啟動輪播&跑馬燈外掛
