@@ -4158,13 +4158,16 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .broadcast .liveBox .liveList li {
+  min-width: 210px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 0 10px;
+  padding: 5px;
 }
 
 .broadcast .liveBox .liveList li > div {

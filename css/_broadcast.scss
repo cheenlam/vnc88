@@ -28,10 +28,12 @@
             margin-bottom: 40px;
             ul {
                 display: flex;
+                flex-wrap: wrap;
             }
             li {
+                min-width: 210px;
                 flex: 1;
-                padding: 0 10px;
+                padding: 5px;
                 & > div {
                     height: 100%;
                     padding-bottom: 20px;
