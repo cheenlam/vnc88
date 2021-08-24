@@ -47,8 +47,14 @@ var indexAd = {
         { img: "images/adBanner/adBanner-04.jpg", switch: true },
         { img: "images/adBanner/adBanner-05.jpg", switch: true },
         { img: "images/adBanner/adBanner-05.jpg", switch: true },
+    ],
+    ftAd:[
+        {img:"images/adBanner/ad3.gif",switch: true},
+        {img:"images/adBanner/ad4.gif",switch: true},
+        {img:"images/adBanner/ad3.gif",switch: true},
     ]
 }
+
 
 
 // ======== home ========

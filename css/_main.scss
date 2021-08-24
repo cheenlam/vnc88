@@ -550,18 +550,27 @@ body {
         &>div {
             width: 100%;
             max-width: 1800px;
-            // min-width: $count-minW;
             min-height: 160px;
             margin: auto;
             padding: 0 15px 30px;
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
+            @include rwd(800){
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 10px;
+            }
         }
         .ft_msg {
             line-height: 25px;
+            @include rwd(800){
+                order: 1;
+                padding-top: 20px;
+            }
         }
         .ft_link {
+           
             ul {
                 display: flex;
             }
@@ -579,24 +588,30 @@ body {
         background-color: #121210;
         &>div {
             max-width: 1800px;
-            // min-width: $count-minW;
             min-height: calc(275px - 160px);
             margin: auto;
             padding: 0 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            @include rwd(800){
+                flex-direction: column;
+                padding: 20px 10px;
+            }
         }
         .copyright {
             font-size: 1.2rem;
+            margin-right: 50px;
+            flex-shrink: 0;
+            @include rwd(800){
+                order: 1;
+                padding-top: 20px;
+            }
         }
         .ft_menu {
-            @include rwd(1120) {
-                max-width: 400px;
-            }
             ul {
                 display: flex;
-                align-items: flex-end;
+
                 font-size: 1rem;
                 font-weight: bold;
                 @include rwd(1120) {
@@ -607,7 +622,7 @@ body {
                 padding: 5px 10px;
                 transition: 0.3s;
                 @include rwd(1120) {
-                    width: 50%;
+                   width: 50%;
                 }
                 &:active {
                     color: $color_02;
@@ -618,9 +633,6 @@ body {
                     }
                 }
             }
-            // li + li {
-            //     margin-left: 30px;
-            // }
         }
     }
     // ftAd
@@ -633,12 +645,17 @@ body {
         z-index: 5;
         display: flex;
         justify-content: space-between;
-        @include rwd(1000) {
-            width: 50%;
-            min-width: 250px;
+        @include rwd(1200) {
+            width: 40%;
+            min-width: 450px;
             flex-direction: column;
             padding: 0;
         }
+
+        @include rwd(500){
+            display: none;
+        } 
+
         &>div {
             margin: 10px;
             position: relative;

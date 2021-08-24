@@ -23,119 +23,120 @@
 </head>
 
 <body>
-    <!-- ===== header start ===== -->
-    <div class="header" id="header">
-        <!-- hd_top start -->
-        <div class="hd_top" id="hd_top">
-            <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
-            <div class="hd_tool">
-                <div class="hd_link">
-                    <ul>
-                        <li class="btn_linear_c1 hd_service">
-                            <div class="btn_cnt">
-                                <img src="images/icon/icon-service.png">
-                            </div>
-                            <p>CSKH</p>
-                        </li>
-                        <li class="btn_linear_c1">
-                            <div class="btn_cnt">
-                                <img src="images/icon/icon-fb.png">
-                            </div>
-                        </li>
-                        <li class="btn_linear_c1">
-                            <div class="btn_cnt">
-                                <img src="images/icon/icon-zalo.png">
-                            </div>
-                        </li>
-                        <li class="btn_linear_c1">
-                            <div class="btn_cnt">
-                                <img src="images/icon/icon-tg.png">
-                            </div>
-                        </li>
-                        <li class="btn_linear_c1 menuBar" id="menuBar">
-                            <div class="btn_cnt">
-                                <img src="images/icon/menuBar.png">
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="hd_signIn" id="hd_signIn" data-signIn="0" v-if="signSwitch">
-                    <div data-signIn="0">
-                        <div class="signIn_ipt">
-                            <label>  
+    <div id="indexBox">
+        <!-- ===== header start ===== -->
+        <div class="header" id="header">
+            <!-- hd_top start -->
+            <div class="hd_top" id="hd_top">
+                <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
+                <div class="hd_tool">
+                    <div class="hd_link">
+                        <ul>
+                            <li class="btn_linear_c1 hd_service">
+                                <div class="btn_cnt">
+                                    <img src="images/icon/icon-service.png">
+                                </div>
+                                <p>CSKH</p>
+                            </li>
+                            <li class="btn_linear_c1">
+                                <div class="btn_cnt">
+                                    <img src="images/icon/icon-fb.png">
+                                </div>
+                            </li>
+                            <li class="btn_linear_c1">
+                                <div class="btn_cnt">
+                                    <img src="images/icon/icon-zalo.png">
+                                </div>
+                            </li>
+                            <li class="btn_linear_c1">
+                                <div class="btn_cnt">
+                                    <img src="images/icon/icon-tg.png">
+                                </div>
+                            </li>
+                            <li class="btn_linear_c1 menuBar" id="menuBar">
+                                <div class="btn_cnt">
+                                    <img src="images/icon/menuBar.png">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hd_signIn" id="hd_signIn" data-signIn="0" v-if="signSwitch">
+                        <div data-signIn="0">
+                            <div class="signIn_ipt">
+                                <label>  
                                 <input type="text" placeholder="Tài khoản">  
                             </label>
 
-                            <div class="signIn_forget">
-                                <label>
+                                <div class="signIn_forget">
+                                    <label>
                                     <input type="password" placeholder="Mật khẩu">
                                 </label>
-                                <div class="btn_linear hd_forget" id="hd_forget">
-                                    <div class="btn_cnt"></div>
+                                    <div class="btn_linear hd_forget" id="hd_forget">
+                                        <div class="btn_cnt"></div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="signIn_code">
-                                <label>
+                                <div class="signIn_code">
+                                    <label>
                                     <input type="number" placeholder="Xác minh">
                                 </label>
-                                <div class="nbCode">
-                                    <canvas id='mainVerify'></canvas>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="signIn_btn">
-                            <div class="btn_linear_c2 btn" data-btn="signIn">
-                                <div class="btn_cnt">Đăng nhập</div>
-                            </div>
-                            <div class="btn_linear_c3 btn" data-btn="regd">
-                                <div class="btn_cnt">Đăng kí</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div data-signIn="1">
-                        <div class="signIn_on">
-                            <div class="signIn_msg">
-                                <div>
-                                    <div class="signIn_icon member"></div>
-                                    <p>test123456789123456</p>
-                                </div>
-                                <div>
-                                    <div class="signIn_icon chip"></div>
-                                    <p>1,000,000,000.00</p>
-                                </div>
-                                <div>
-                                    <div class="signIn_icon mail"></div>
-                                    <p>99+</p>
+                                    <div class="nbCode">
+                                        <canvas id='mainVerify'></canvas>
+                                    </div>
                                 </div>
                             </div>
                             <div class="signIn_btn">
-                                <div class="btn_linear_c2 btn" data-btn="signOut">
-                                    <div class="btn_cnt">Đăng xuất</div>
+                                <div class="btn_linear_c2 btn" data-btn="signIn">
+                                    <div class="btn_cnt">Đăng nhập</div>
                                 </div>
-                                <div class="btn_linear_c3 btn" data-btn="mbrMsg">
-                                    <a href="#/member">
-                                        <div class="btn_cnt">Thông tin tài khoản</div>
-                                    </a>
+                                <div class="btn_linear_c3 btn" data-btn="regd">
+                                    <div class="btn_cnt">Đăng kí</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div data-signIn="1">
+                            <div class="signIn_on">
+                                <div class="signIn_msg">
+                                    <div>
+                                        <div class="signIn_icon member"></div>
+                                        <p>test123456789123456</p>
+                                    </div>
+                                    <div>
+                                        <div class="signIn_icon chip"></div>
+                                        <p>1,000,000,000.00</p>
+                                    </div>
+                                    <div>
+                                        <div class="signIn_icon mail"></div>
+                                        <p>99+</p>
+                                    </div>
+                                </div>
+                                <div class="signIn_btn">
+                                    <div class="btn_linear_c2 btn" data-btn="signOut">
+                                        <div class="btn_cnt">Đăng xuất</div>
+                                    </div>
+                                    <div class="btn_linear_c3 btn" data-btn="mbrMsg">
+                                        <a href="#/member">
+                                            <div class="btn_cnt">Thông tin tài khoản</div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- hd_menu start -->
-        <div class="hd_menu" id="hd_menu">
-            <ul>
-                <template v-for="(item,index) in hdMenu.txtList">
+            <!-- hd_menu start -->
+            <div class="hd_menu" id="hd_menu">
+                <ul>
+                    <template v-for="(item,index) in hdMenu.txtList">
                     <li v-if="item.switch">
                         <a :href="item.href">{{item.txt}}</a>
                     </li>
                 </template>
 
-                <template v-for="(item,index) in hdMenu.picture">
+                    <template v-for="(item,index) in hdMenu.picture">
                     <li v-if="item.switch">
                         <a :href="item.href">
                             <div class="menu_game">
@@ -144,157 +145,151 @@
                         </a>
                     </li>
                 </template>
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <!-- ===== content start ===== -->
-    <div class="mainCnt" id="mainCnt">
-        <div class="contBox-full">
-            <!-- 首頁輪播 -->
-            <div id="full_feature" class="swipslider">
-                <ul class="sw-slides" >
-                    <template v-for="(item,index) in slides">
+        <!-- ===== content start ===== -->
+        <div class="mainCnt">
+            <div class="contBox-full">
+                <!-- 首頁輪播 -->
+                <div id="full_feature" class="swipslider">
+                    <ul class="sw-slides">
+                        <template v-for="(item,index) in slides">
                         <li class="sw-slide" v-if="item.switch">
                             <img :src="item.img">
                         </li>
                     </template>
-                </ul>
-            </div>
+                    </ul>
+                </div>
 
-            <!-- marquee start -->
-            <div class="marquee">
-                <div class="marqueeBox">
-                    <div>
-                        <span>Tin mới nhất：</span>
-                        <ul id="marquee" class="marquee_body">
-                            <template v-for="(item,index) in marquee">
+                <!-- marquee start -->
+                <div class="marquee">
+                    <div class="marqueeBox">
+                        <div>
+                            <span>Tin mới nhất：</span>
+                            <ul id="marquee" class="marquee_body">
+                                <template v-for="(item,index) in marquee">
                                 <li v-if="item.switch">{{item.txt}}</li>
                             </template>
-                        </ul>
-                        <div class="btn_linear_c1 btn">
-                            <div class="btn_cnt">Chi tiết</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="contBox-min">
-                <div class="leftTool" id="leftTool">
-                    <div class="floatAd">
-                        <template v-for="(item,index) in banner.left">
-                            <img :src="item.img" v-if="item.switch">
-                        </template>
-                    </div>
-                    <div class="getGift" id="getGift" v-if="signSwitch">
-                        <img src="images/gift.png">
-                    </div>
-                </div>
-
-                <div class="rightTool" id="rightTool">
-                    <div class="floatAd">
-                        <template v-for="(item,index) in banner.right">
-                            <img :src="item.img" v-if="item.switch">
-                        </template>
-                    </div>
-                    <div class="goTop" id="goTop">
-                        <img src="images/icon/arrow-top.png">
-                        <span>TOP</span>
-                    </div>
-                    <div class="todayGame" id="todayGame" v-if="signSwitch">
-                        <div class="god">
-                            <img src="images/god.png">
+                            </ul>
+                            <div class="btn_linear_c1 btn">
+                                <div class="btn_cnt">Chi tiết</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- flexAd start -->
-                <div class="flexAd">
-                    <ul>
-                        <template v-for="(item,index) in banner.center">
+                <div class="contBox-min">
+                    <div class="leftTool" id="leftTool">
+                        <div class="floatAd">
+                            <template v-for="(item,index) in banner.left">
+                            <img :src="item.img" v-if="item.switch">
+                        </template>
+                        </div>
+                        <div class="getGift" id="getGift" v-if="signSwitch">
+                            <img src="images/gift.png">
+                        </div>
+                    </div>
+
+                    <div class="rightTool" id="rightTool">
+                        <div class="floatAd">
+                            <template v-for="(item,index) in banner.right">
+                            <img :src="item.img" v-if="item.switch">
+                        </template>
+                        </div>
+                        <div class="goTop" id="goTop">
+                            <img src="images/icon/arrow-top.png">
+                            <span>TOP</span>
+                        </div>
+                        <div class="todayGame" id="todayGame" v-if="signSwitch">
+                            <div class="god">
+                                <img src="images/god.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- flexAd start -->
+                    <div class="flexAd">
+                        <ul>
+                            <template v-for="(item,index) in banner.center">
                             <li v-if="item.switch">
                                 <img :src="item.img">
                             </li>
                         </template>
-                    </ul>
+                        </ul>
+                    </div>
+
+                    <!-- content start -->
+                    <div class="content" id="content"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== footer start ===== -->
+        <div class="footer">
+            <!-- ft_top -->
+            <div class="ft_top">
+                <div>
+                    <div class="ft_msg">
+                        <p>Truyền hình trực tiếp bóng đá chất lượng hàng đầu việt nam</p>
+                        <p>TOP PRESTIGE BEAUTIFUL 100% </p>
+                        <p>SUPER HIGH SUPER HOT SUPER HOT CAMERA</p>
+                    </div>
+
+                    <div class="ft_link">
+                        <ul>
+                            <li>
+                                <div class="ft_icon">
+                                    <img src="images/icon/icon-18up.png">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ft_icon">
+                                    <img src="images/icon/icon-f-fb.png">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ft_icon">
+                                    <img src="images/icon/icon-f-yt.png">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- content start -->
-                <div class="content" id="content"></div>
+            </div>
+            <!-- ft_bottom -->
+            <div class="ft_bottom">
+                <div>
+                    <div class="copyright">
+                        <p>&copy; Copyright 2021 VNC88.com</p>
+                    </div>
+                    <div class="ft_menu">
+                        <ul>
+                            <li><a href="#/home">TRANG CHỦ</a></li>
+                            <li><a href="#/lottery">Đề xuất cá cược </a></a>
+                            </li>
+                            <li><a href="#/news">Tin tức</a></li>
+                            <li><a href="#/broadcast">Video đá bóng</a></li>
+                            <li><a href="#/forum">Diễn đàn thảo luận</a></li>
+                            <li><a href="#/resources">Tin tức</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ftAd  -->
+            <div class="ftAd">
+                <div v-for="(item,index) in banner.ftAd">
+                    <div class="ftAd_close"></div>
+                    <img :src="item.img">
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- ===== footer start ===== -->
-    <div class="footer">
-        <!-- ft_top -->
-        <div class="ft_top">
-            <div>
-                <div class="ft_msg">
-                    <p>Truyền hình trực tiếp bóng đá chất lượng hàng đầu việt nam</p>
-                    <p>TOP PRESTIGE BEAUTIFUL 100% </p>
-                    <p>SUPER HIGH SUPER HOT SUPER HOT CAMERA</p>
-                </div>
-
-                <div class="ft_link">
-                    <ul>
-                        <li>
-                            <div class="ft_icon">
-                                <img src="images/icon/icon-18up.png">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="ft_icon">
-                                <img src="images/icon/icon-f-fb.png">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="ft_icon">
-                                <img src="images/icon/icon-f-yt.png">
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-        <!-- ft_bottom -->
-        <div class="ft_bottom">
-            <div>
-                <div class="copyright">
-                    <p>&copy; Copyright 2021 VNC88.com | </p>
-                </div>
-                <div class="ft_menu">
-                    <ul>
-                        <li><a href="#/home">TRANG CHỦ</a></li>
-                        <li><a href="#/lottery">Đề xuất cá cược </a></a>
-                        </li>
-                        <li><a href="#/news">Tin tức</a></li>
-                        <li><a href="#/broadcast">Video đá bóng</a></li>
-                        <li><a href="#/forum">Diễn đàn thảo luận</a></li>
-                        <li><a href="#/resources">Tin tức</a></li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ftAd  -->
-        <div class="ftAd">
-            <div>
-                <div class="ftAd_close"></div>
-                <img src="./images/adBanner/ad3.gif">
-            </div>
-            <div>
-                <div class="ftAd_close"></div>
-                <img src="./images/adBanner/ad4.gif">
-            </div>
-            <div>
-                <div class="ftAd_close"></div>
-                <img src="./images/adBanner/ad3.gif">
-            </div>
-        </div>
-    </div>
 
     <!-- ===== dialogCnt start ===== -->
     <div class="dialogCnt" id="dialogCnt"></div>
@@ -309,27 +304,17 @@
         data() {
             return {
                 hdMenu: menuData,
-                // 開關
-                signSwitch:false,
-            };
-        },
-        methods: {},
-        mounted() {},
-    }).mount("#header");
-
-
-    Vue.createApp({
-        data() {
-            return {
-                slides:indexSlides,
+                slides: indexSlides,
                 marquee: marqueeData,
-                banner:indexAd,
+                banner: indexAd,
+
+                // 開關
+                signSwitch: false,
             };
         },
         methods: {},
         mounted() {},
-    }).mount("#mainCnt");
-
+    }).mount("#indexBox");
 </script>
 
 
@@ -384,19 +369,3 @@
 </script>
 
 </html>
-
-
-<!-- 主頁新聞跳頁(範例) -->
-<!-- <a href="#/newsRef?p=1">newsRef</a> -->
-<!-- 主頁博彩跳頁(範例) -->
-<!-- <a href="#/lotteryRef?p=1">lotteryRef</a>  -->
-
-<!-- 內頁新聞跳頁(範例) -->
-<!-- <a href="#/news?p=1">news</a> -->
-<!-- 內頁博跳頁(範例) -->
-<!-- <a href="#/lottery?p=1">lottery</a> -->
-<!-- 內頁資源頁(範例) -->
-<!-- <a href="#/resources?p=1">resources</a> -->
-
-<!-- 投注公司介紹跳頁(範例) -->
-<!-- <a href="#/betRef?p=1">resources</a> -->

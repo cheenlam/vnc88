@@ -27,13 +27,17 @@
         .liveList {
             margin-bottom: 40px;
             ul {
-                display: flex;
-                flex-wrap: wrap;
+                display: flex;   
+                @include rwd(920){
+                    flex-wrap: wrap;
+                }
             }
-            li {
-                min-width: 210px;
+            li {   
                 flex: 1;
                 padding: 5px;
+                @include rwd(920){
+                    min-width: 230px;
+                }
                 & > div {
                     height: 100%;
                     padding-bottom: 20px;
