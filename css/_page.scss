@@ -44,7 +44,7 @@
         border-radius: 10px;
         overflow: hidden;
 
-        @include rwd(1280){
+        @include rwd(1280) {
             border-radius: unset;
         }
     }
@@ -359,6 +359,14 @@
             .newsList_cnt {
                 max-height: 410px;
                 overflow-y: auto;
+                &::-webkit-scrollbar {
+                    width: 10px;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: #c1c1c1;
+                    border: 3px #f1f1f1 solid;
+                    border-radius: 10px;
+                }
             }
             li {
                 display: flex;
@@ -616,8 +624,8 @@
         display: flex;
         position: relative;
 
-        a{
-            @include rwd(800){
+        a {
+            @include rwd(800) {
                 flex-direction: column;
             }
         }
@@ -628,7 +636,7 @@
             padding-bottom: 155px;
             background: no-repeat center / cover;
             flex-shrink: 0;
-            @include rwd(800){
+            @include rwd(800) {
                 width: 100%;
                 padding-bottom: 50%;
             }
@@ -647,18 +655,18 @@
             flex-direction: column;
             justify-content: space-between;
             font-size: 1.1rem;
-            @include rwd(800){
+            @include rwd(800) {
                 padding: 0;
-             }
+            }
             .title {
                 color: #000;
                 font-size: 1.6rem;
                 font-weight: bold;
                 padding-bottom: 10px;
 
-                @include rwd(800){
-                   font-size: 1rem;
-                   padding-top: 10px;
+                @include rwd(800) {
+                    font-size: 1rem;
+                    padding-top: 10px;
                 }
             }
             p {
@@ -668,9 +676,9 @@
             .fullList_tool {
                 display: flex;
                 justify-content: space-between;
-                @include rwd(800){
+                @include rwd(800) {
                     padding-top: 20px;
-                 }
+                }
                 span {
                     font-size: 1rem;
                 }
@@ -723,10 +731,10 @@
         margin-right: 20px;
 
         @include rwd(900) {
-           width: 100%;
-           margin: 0;
+            width: 100%;
+            margin: 0;
         }
-    
+
         .newstitle {
             p {
                 font-size: 2rem;
@@ -790,31 +798,31 @@
 
     @at-root .newsCnt_menu {
         width: 300px;
-        @include rwd(900){
+        @include rwd(900) {
             width: 100%;
             padding-top: 50px;
-            display: flex;       
+            display: flex;
         }
-        @include rwd(550){
+        @include rwd(550) {
             flex-direction: column;
         }
-        & > div{
-            @include rwd(900){
-               width: 50%;
+        & > div {
+            @include rwd(900) {
+                width: 50%;
             }
-            @include rwd(550){
+            @include rwd(550) {
                 width: 100%;
-             }
+            }
         }
         & > div + div {
             margin-top: 50px;
-            @include rwd(900){
+            @include rwd(900) {
                 margin-top: 0;
                 margin-left: 10px;
             }
-            @include rwd(550){
-               margin-left: 0;
-               margin-top: 50px;
+            @include rwd(550) {
+                margin-left: 0;
+                margin-top: 50px;
             }
         }
         li {
@@ -822,7 +830,7 @@
                 padding-top: 10px;
                 @include txtChip(2);
             }
-            .img{
+            .img {
                 height: 0;
                 padding-bottom: 65%;
                 background-repeat: no-repeat;
@@ -833,10 +841,10 @@
         li + li {
             margin-top: 20px;
         }
-        .newsCnt_scroll{
+        .newsCnt_scroll {
             height: 700px;
             overflow-y: scroll;
-            &::-webkit-scrollbar{
+            &::-webkit-scrollbar {
                 width: 10px;
             }
         }

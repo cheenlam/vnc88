@@ -3450,6 +3450,16 @@ body {
   overflow-y: auto;
 }
 
+.mainNews .mainNews_t .news_list .newsList_cnt::-webkit-scrollbar {
+  width: 10px;
+}
+
+.mainNews .mainNews_t .news_list .newsList_cnt::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border: 3px #f1f1f1 solid;
+  border-radius: 10px;
+}
+
 .mainNews .mainNews_t .news_list li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4544,6 +4554,16 @@ body {
   border: 1px solid #eaeaea;
 }
 
+.broadcast .gameMsg .gameChart .gameChart_tb::-webkit-scrollbar {
+  width: 10px;
+}
+
+.broadcast .gameMsg .gameChart .gameChart_tb::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border: 3px #f1f1f1 solid;
+  border-radius: 10px;
+}
+
 .broadcast .gameMsg .gameChart .gameChart_tb table {
   width: 100%;
   color: #181c27;
@@ -4605,6 +4625,16 @@ body {
   max-height: 360px;
   border: 1px solid #eaeaea;
   overflow-y: scroll;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb::-webkit-scrollbar {
+  width: 10px;
+}
+
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border: 3px #f1f1f1 solid;
+  border-radius: 10px;
 }
 
 .broadcast .gameMsg .gameSchedule .gameSchedule_tb table {
