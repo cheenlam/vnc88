@@ -83,7 +83,7 @@
                 <div class="newsCnt_scroll">
                     <ul>
                         <template v-for="(item,index) in newsMenu.news_r">
-                            <li v-if="localNum != index+6">
+                            <li v-if="newsRefNum != index+1">
                                 <a :href="reHref(true,index)">
                                     <div class="img" :style="getbgi(item.img)"></div>
                                     <p>{{item.title}}</p>
@@ -97,7 +97,7 @@
                 <div class="mainMsg-title">Tin quan trọng</div>
                 <div class="newsCnt_scroll">
                     <ul>
-                        <li>
+                        <li v-if="lotteryNum != 1">
                             <a href="#/lottery?p=1">
                                 <div class="img" :style="getbgi(newsMenu.news_t.img)"></div>
                                 <p>{{newsMenu.news_t.title}}</p>
@@ -105,7 +105,7 @@
                         </li>
     
                         <template v-for="(item,index) in newsMenu.news_b">
-                            <li v-if="localNum != index+2">
+                            <li v-if="lotteryNum != index+2">
                                 <a :href="reHref(false,index)">
                                     <div class="img" :style="getbgi(item.img)"></div>
                                     <p>{{item.title}}</p>

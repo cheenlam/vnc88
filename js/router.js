@@ -123,6 +123,8 @@ for (let i = 1; i < 99; i++) {
         location = location
         mainInclude(`newsRef/newsRef_${i}.html`);
         menuList_on(0);
+        sessionStorage.setItem('new_newsRef',i);
+        sessionStorage.setItem('new_lottery',0);
     });
 
     Router.route(`/lotteryRef?p=${i}`, function() {
@@ -141,6 +143,8 @@ for (let i = 1; i < 99; i++) {
         location = location
         mainInclude(`page/lottery/lottery_${i}.html`);
         menuList_on(1);
+        sessionStorage.setItem('new_lottery',i);
+        sessionStorage.setItem('new_newsRef',0);
     });
 
     Router.route(`/resources?p=${i}`, function() {

@@ -2,7 +2,9 @@ Vue.createApp({
     data() {
         return {
             newsMenu: lotteryNews,
-            resourcesNum:1
+            resourcesNum:0,
+            lotteryNum:0,
+            newsRefNum:0,
         };
     },
     methods: {
@@ -24,6 +26,8 @@ Vue.createApp({
         },
         getLocal(){
             this.resourcesNum = sessionStorage.getItem("new_resources");
+            this.lotteryNum = sessionStorage.getItem("new_lottery");
+            this.newsRefNum = sessionStorage.getItem("new_newsRef");
         }
     },
     mounted() {
