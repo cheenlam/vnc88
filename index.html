@@ -17,7 +17,7 @@
     <script src="js/verifyCode.js"></script>
     <!-- 自訂義js -->
     <script src="js/index.js"></script>
-    <script src="js/pageData.js"></script> 
+    <script src="js/pageData.js"></script>
     <title>VNC88</title>
 
 </head>
@@ -28,7 +28,7 @@
         <div class="header" id="header">
             <!-- hd_top start -->
             <div class="hd_top" id="hd_top">
-                <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
+                <h1 class="hd_logo"><a href="#/home" @click="aa()">vnc88</a></h1>
                 <div class="hd_tool">
                     <div class="hd_link">
                         <ul>
@@ -80,7 +80,7 @@
                                     <label>
                                     <input type="number" placeholder="Xác minh">
                                 </label>
-                                    <div class="nbCode">
+                                    <div class="nbCode" @click="verify()">
                                         <canvas id='mainVerify'></canvas>
                                     </div>
                                 </div>
@@ -295,12 +295,10 @@
         <div class="loading" id="loading" :class="{'on' : onLoad}">
             <div class="load_round"></div>
         </div>
+
+        <!-- ===== dialogCnt start ===== -->
+        <div class="dialogCnt" id="dialogCnt"></div>
     </div>
-
-
-    <!-- ===== dialogCnt start ===== -->
-    <div class="dialogCnt" id="dialogCnt"></div>
-
 
 </body>
 
@@ -320,10 +318,37 @@
             };
         },
         methods: {
-            
+            getDialog() {
+                $.ajax({
+                    url: 'page/dialog.html',
+                    success: function(html) {
+                        $("#dialogCnt").html(html);
+                    }
+                });
+            },
+            verify() {
+                let codeNum = ''
+                let options = {
+                    canvasId: "mainVerify",
+                    txt: `${parseInt(Math.random()*8889+1111)}`,
+                    /**傳入驗證碼內容*/
+                    height: 34,
+                    /**驗證碼高度 */
+                    width: 80,
+                    /**驗證碼寬度 */
+                };
+                writeAuthCode(options);
+                getVerify_m = function() {
+                    return options.txt
+                }
+            },
+            aa(){
+                dialogVue.boxSwitch = true
+            }
         },
         mounted() {
-        
+            this.getDialog();
+            this.verify();
         },
     }).mount("#indexBox");
 </script>
@@ -354,29 +379,6 @@
     let docRef = db.collection("showLive");
     let docRef2 = db.collection("ytMovie");
     var database = firebase.database().ref().limitToLast(50);
-
-    // 驗證碼
-    function mainVerify() {
-        let codeNum = ''
-        let options = {
-            canvasId: "mainVerify",
-            txt: `${parseInt(Math.random()*8889+1111)}`,
-            /**傳入驗證碼內容*/
-            height: 34,
-            /**驗證碼高度 */
-            width: 80,
-            /**驗證碼寬度 */
-        };
-        writeAuthCode(options);
-        getVerify_m = function() {
-            return options.txt
-        }
-    }
-    mainVerify()
-
-    $('#mainVerify').click(function() {
-        mainVerify()
-    })
 </script>
 
 </html>

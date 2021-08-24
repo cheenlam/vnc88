@@ -79,14 +79,14 @@ $('#goTop').click(function() {
 
 
 // 彈跳視窗
-function dialog() {
-    $.ajax({
-        url: 'page/dialog.html',
-        success: function(html) {
-            $("#dialogCnt").html(html);
-        }
-    });
-}
+// function dialog() {
+//     $.ajax({
+//         url: 'page/dialog.html',
+//         success: function(html) {
+//             $("#dialogCnt").html(html);
+//         }
+//     });
+// }
 
 $('#hd_forget').click(function() {
     $("#dialogBox").addClass('on');
