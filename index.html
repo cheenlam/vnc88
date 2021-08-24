@@ -53,7 +53,7 @@
                                     <img src="images/icon/icon-tg.png">
                                 </div>
                             </li>
-                            <li class="btn_linear_c1 menuBar" id="menuBar">
+                            <li class="btn_linear_c1 menuBar" @click="menuOpen = true">
                                 <div class="btn_cnt">
                                     <img src="images/icon/menuBar.png">
                                 </div>
@@ -128,10 +128,10 @@
             </div>
 
             <!-- hd_menu start -->
-            <div class="hd_menu" id="hd_menu">
+            <div class="hd_menu" id="hd_menu" :class="{'on' : menuOpen}">
                 <ul>
                     <template v-for="(item,index) in hdMenu.txtList">
-                    <li v-if="item.switch">
+                    <li v-if="item.switch" @click="menuOpen = false">
                         <a :href="item.href">{{item.txt}}</a>
                     </li>
                 </template>
@@ -287,7 +287,7 @@
                         <div class="ftAd_close" @click="item.switch = false"></div>
                         <img :src="item.img">
                     </div>
-                </template> 
+                </template>
             </div>
         </div>
 
@@ -301,7 +301,7 @@
     <!-- ===== dialogCnt start ===== -->
     <div class="dialogCnt" id="dialogCnt"></div>
 
-    
+
 </body>
 
 <script>
@@ -312,16 +312,19 @@
                 slides: indexSlides,
                 marquee: marqueeData,
                 banner: indexAd,
-                onLoad:false,
+                onLoad: false,
+                menuOpen: false,
 
                 // 開關
                 signSwitch: false,
             };
         },
-        methods: {        
+        methods: {
+            
         },
         mounted() {
-        },    
+        
+        },
     }).mount("#indexBox");
 </script>
 

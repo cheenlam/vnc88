@@ -30,8 +30,9 @@ var scroll = $(window).scroll(function() {
 
 $(window).resize(function() {
     floatAd()
-    $('#hd_menu').removeClass('on')
-    // window.scrollTo({ top: 0 });
+    $('#hd_menu').removeClass('on');
+    indexVue.menuOpen = false;
+    window.scrollTo({ top: 0 });
 })
 
 // 上方menu浮動
@@ -104,9 +105,9 @@ $('#todayGame').click(function() {
 })
 
 // 小視窗按鈕點擊
-$('#menuBar').click(function(){
-    $('#hd_menu').addClass('on')
-})
+// $('#menuBar').click(function(){
+//     $('#hd_menu').addClass('on')
+// })
 
 $('#hd_menu li').click(function(){
     $('#hd_menu').removeClass('on')
