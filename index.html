@@ -17,7 +17,7 @@
     <script src="js/verifyCode.js"></script>
     <!-- 自訂義js -->
     <script src="js/index.js"></script>
-    <script src="js/pageData.js"></script>
+    <script src="js/pageData.js"></script> 
     <title>VNC88</title>
 
 </head>
@@ -60,7 +60,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="hd_signIn" id="hd_signIn" data-signIn="0" v-if="signSwitch">
+                    <div class="hd_signIn" id="hd_signIn" data-signIn="0" v-show="signSwitch">
                         <div data-signIn="0">
                             <div class="signIn_ipt">
                                 <label>  
@@ -131,13 +131,13 @@
             <div class="hd_menu" id="hd_menu" :class="{'on' : menuOpen}">
                 <ul>
                     <template v-for="(item,index) in hdMenu.txtList">
-                    <li v-if="item.switch" @click="menuOpen = false">
+                    <li v-show="item.switch" @click="menuOpen = false">
                         <a :href="item.href">{{item.txt}}</a>
                     </li>
                 </template>
 
                     <template v-for="(item,index) in hdMenu.picture">
-                    <li v-if="item.switch">
+                    <li v-show="item.switch">
                         <a :href="item.href">
                             <div class="menu_game">
                                 <img :src="item.img">

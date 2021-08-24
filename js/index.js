@@ -104,11 +104,6 @@ $('#todayGame').click(function() {
     $("#dialogBox .todayGame").addClass('on');
 })
 
-// 小視窗按鈕點擊
-// $('#menuBar').click(function(){
-//     $('#hd_menu').addClass('on')
-// })
-
 $('#hd_menu li').click(function(){
     $('#hd_menu').removeClass('on')
     window.scrollTo({ top: 0 });
