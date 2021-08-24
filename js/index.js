@@ -20,10 +20,6 @@ $('#hd_signIn .btn').click(function() {
 
 
 $(document).ready(function() {
-    // setTimeout(function(){
-    //     $('#loading').removeClass('on')  
-    // },500)
-   
     window.scrollTo({ top: 0 });
     dialog();
 })
@@ -120,4 +116,5 @@ $('#menuBar').click(function(){
 
 $('#hd_menu li').click(function(){
     $('#hd_menu').removeClass('on')
+    window.scrollTo({ top: 0 });
 })
