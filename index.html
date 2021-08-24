@@ -282,10 +282,12 @@
 
             <!-- ftAd  -->
             <div class="ftAd">
-                <div v-for="(item,index) in banner.ftAd">
-                    <div class="ftAd_close"></div>
-                    <img :src="item.img">
-                </div>
+                <template v-for="(item,index) in banner.ftAd">
+                    <div :class="{'on' : !item.switch}">
+                        <div class="ftAd_close" @click="item.switch = false"></div>
+                        <img :src="item.img">
+                    </div>
+                </template> 
             </div>
         </div>
 
@@ -316,18 +318,10 @@
                 signSwitch: false,
             };
         },
-        methods: {
-            
+        methods: {        
         },
         mounted() {
-            // this.onLoad = true
-            // console.log( this.onLoad)
-        },
-        updated(){
-            // this.onLoad = false
-            // console.log( this.onLoad)
-        }
-        
+        },    
     }).mount("#indexBox");
 </script>
 

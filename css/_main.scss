@@ -663,6 +663,10 @@ body {
             &.on {
                 visibility: hidden;
                 pointer-events: none;
+                @include rwd(1200){
+                    display: none;
+                } 
+        
             }
         }
         .ftAd_close {

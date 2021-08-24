@@ -18,7 +18,6 @@ $('#hd_signIn .btn').click(function() {
     }
 })
 
-
 $(document).ready(function() {
     window.scrollTo({ top: 0 });
     dialog();
@@ -76,11 +75,6 @@ $('#goTop').click(function() {
         behavior: "smooth"
     });
 });
-
-// 頁尾廣告關閉
-$('.ftAd_close').click(function() {
-    $(this).parents('div').addClass('on')
-})
 
 
 // 彈跳視窗

@@ -2236,6 +2236,12 @@ body {
   pointer-events: none;
 }
 
+@media screen and (max-width: 1200px) {
+  .footer .ftAd > div.on {
+    display: none;
+  }
+}
+
 .footer .ftAd .ftAd_close {
   width: 30px;
   height: 30px;
