@@ -5207,7 +5207,7 @@ body {
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .newsRef_box {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -5221,7 +5221,7 @@ body {
   margin-right: 20px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .newsRef_cnt {
     width: 100%;
     margin: 0;

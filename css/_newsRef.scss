@@ -8,7 +8,7 @@
     @include rwd(1280) {
         width: calc(100% - 20px);
     }
-    @include rwd(900) {
+    @include rwd(1000) {
         flex-direction: column;
     }
     
@@ -17,7 +17,7 @@
     width: calc(100% - 300px);
     margin-right: 20px;
 
-    @include rwd(900) {
+    @include rwd(1000) {
         width: 100%;
         margin: 0;
      }
