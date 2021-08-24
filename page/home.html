@@ -56,7 +56,7 @@
         </table>
     </div>
 
-    <!-- ==== mainMsg start ==== -->   
+    <!-- ==== mainMsg start ==== -->
     <div class="mainMsg">
         <!-- mainNews start -->
         <!-- <div class="mainNews">
@@ -220,7 +220,7 @@
         <!-- mainRec start -->
         <div class="mainRec">
             <div id="mainCarousel" class="mainCarousel">
-                <ul class="sw-slides">      
+                <ul class="sw-slides">
                     <li class="sw-slide">
                         <img src="images/carousel/minBanner-01.jpg">
                     </li>
@@ -265,7 +265,7 @@
                     </div>
                     <div class="wsDict_txt">
                         <p v-for="(item,index) in wsDict.txtList">{{item}}</p>
-                    </div>         
+                    </div>
                 </div>
             </div>
         </div>
@@ -279,20 +279,20 @@
     Vue.createApp({
         data() {
             return {
-                bet:betList,
-                adImg:flexAd,
+                bet: betList,
+                adImg: flexAd,
                 newsMenu: {
                     news_t: '',
                     news_b: [],
                     news_r: '',
                 },
-                rec:homeRec,
+                rec: homeRec,
                 wsDict: homeWsDict,
             };
         },
-        methods: {   
-            getbgi(data){
-                return  `background-image: url(${data})`;
+        methods: {
+            getbgi(data) {
+                return `background-image: url(${data})`;
             },
             reHref(hot, index) {
                 if (hot) {
@@ -306,7 +306,7 @@
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/homenews/list",
                     dataType: "json",
-                    success: function(data) {                
+                    success: function(data) {
                         self.newsMenu.news_r = data;
                     },
                 });
@@ -314,7 +314,7 @@
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/homenews/top",
                     dataType: "json",
-                    success: function(data) {       
+                    success: function(data) {
                         self.newsMenu.news_t = data;
                     },
                 });
@@ -322,7 +322,7 @@
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/homenews/bottom",
                     dataType: "json",
-                    success: function(data) {               
+                    success: function(data) {
                         for (let i = 0; i < 4; i++) {
                             self.newsMenu.news_b.push(data[i])
                         }
@@ -336,6 +336,6 @@
     }).mount("#page");
 
 
-     // 啟動輪播外掛
-     $('#mainCarousel').swipeslider();
+    // 啟動輪播外掛
+    $('#mainCarousel').swipeslider();
 </script>
