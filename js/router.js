@@ -105,14 +105,14 @@ for (let i = 0; i < 99; i++) {
     Router.route(`/home/news?list=${i}`, function() {
         mainInclude('page/newsCnt/news_home.html');
         menuList_on(0);
-        localStorage.setItem('news_h',i)
+        sessionStorage.setItem('news_h',i)
     });
 
     // 新聞內頁新聞
     Router.route(`/news/news?list=${i}`, function() {
         mainInclude('page/newsCnt/news_news.html');
         menuList_on(2);
-        localStorage.setItem('news_n',i)
+        sessionStorage.setItem('news_n',i)
     });
 }
 
@@ -147,6 +147,7 @@ for (let i = 1; i < 99; i++) {
         location = location
         mainInclude(`page/resources/resources_${i}.html`);
         menuList_on(5);
+        sessionStorage.setItem('new_resources',i)
     });
 
     Router.route(`/betRef?p=${i}`, function() {

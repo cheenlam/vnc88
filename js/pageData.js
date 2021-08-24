@@ -259,7 +259,41 @@ var lotteryNews = {
             title: "AE888-THƯỞNG 50% NẠP LẦN 2"
         },
 
+    ],
+    resources_r: [{
+            img: "images/newsRef/resources1-01.jpg",
+            title: "Hội Nghị Đại Biểu Người Lao Động Công Ty TNHH Một Thành Viên Xổ Số Kiến Thiết Thành Phố Năm 2021"
+        },
+        {
+            img: "images/newsRef/resources2-01.jpg",
+            title: "Chi Đoàn Thanh Niên Xổ Số Kiến Thiết Trao Xe Đạp Cho Con Của Người Bán Vé Số Lẻ Hiếu Học Có Hoàn Cảnh Khó Khăn Và Đạt Thành Tích Trong Học Tập Năm 2020"
+        },
+        {
+            img: "images/newsRef/resources3-01.jpg",
+            title: "Đoàn Thanh Niên Công Ty XSKT Thành Phố Tổ Chức Nhiều Hoạt Động Ý Nghĩa Chào Mừng Tháng Thanh Niên 2021"
+        },
+        {
+            img: "images/newsRef/resources4-01.jpg",
+            title: "Công Ty Xskt Thành Phố Chào Mừng Ngày Quốc Tế Phụ Nữ 8-3"
+        },
+        {
+            img: "images/newsRef/resources5-01.jpg",
+            title: "Công Ty Xổ Số Kiến Thiết Hồ Chí Minh: Thương Hiệu Hàng Đầu Của Xổ Số Kiến Thiết Khu Vực Miền Nam"
+        },
+        {
+            img: "images/newsRef/resources6-01.jpg",
+            title: "Đoàn Công Tác Công Ty TNHH MTV XSKT Thành Phố Thăm Và Tặng Quà Cho Công Nhân Có Hoàn Cảnh Khó Khăn Tại Xí Nghiệp In Tài Chính"
+        },
+        {
+            img: "images/newsRef/resources7-01.jpg",
+            title: "Hội Nghị Xổ Số Kiến Thiết Khu Vực Miền Nam Lần Thứ 124"
+        },
+        {
+            img: "images/newsRef/resources8-01.jpg",
+            title: "Công ty TNHH MTV Xổ số Kiến thiết TPHCM: Nỗ lực vượt khó khăn, đoàn kết, ổn định và giữ vững vị thế dẫn đầu trong ngành xổ số truyền thống"
+        },
     ]
+
 }
 
 // ======== news ========

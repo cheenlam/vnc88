@@ -84,8 +84,8 @@
             getData() {
                 let self = this;
                 let getUrl;
-                let getLocal_h = localStorage.getItem('news_h');
-                self.localNum = localStorage.getItem('news_h');
+                let getLocal_h = sessionStorage.getItem('news_h');
+                self.localNum = sessionStorage.getItem('news_h');
 
                 if (getLocal_h == 1) {
                     getUrl = "https://vnc88.awgstudio.com/api/homenews/top";

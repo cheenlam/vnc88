@@ -2,6 +2,7 @@ Vue.createApp({
     data() {
         return {
             newsMenu: lotteryNews,
+            resourcesNum:1
         };
     },
     methods: {
@@ -17,7 +18,15 @@ Vue.createApp({
         },
         reHref_l(index){
             return `#/lotteryRef?p=${index+2}`
+        },
+        reHref_r(index){
+            return `#/resources?p=${index+1}`
+        },
+        getLocal(){
+            this.resourcesNum = sessionStorage.getItem("new_resources");
         }
     },
-    mounted() {},
+    mounted() {
+        this.getLocal()
+    },
 }).mount("#page");
