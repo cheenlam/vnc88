@@ -301,13 +301,25 @@
                     return `#/home/news?list=${index+2}`
                 }
             },
+
             getMenu() {
                 let self = this;
+                let chReady = [false, false, false];
+                function ready() {
+                    if (chReady[0] && chReady[1] && chReady[2]) {
+                        indexVue.onLoad = false;
+                    }
+                }
+
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/homenews/list",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.news_r = data;
+                        self.$nextTick(function() {
+                            chReady[0] = true;
+                            ready();
+                        })
                     },
                 });
 
@@ -316,6 +328,10 @@
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.news_t = data;
+                        self.$nextTick(function() {
+                            chReady[1] = true;
+                            ready();
+                        })
                     },
                 });
 
@@ -326,12 +342,17 @@
                         for (let i = 0; i < 4; i++) {
                             self.newsMenu.news_b.push(data[i])
                         }
+                        self.$nextTick(function() {
+                            chReady[2] = true;
+                            ready();
+                        })
                     },
                 });
             },
         },
         mounted() {
             this.getMenu();
+            indexVue.onLoad = true;
         },
     }).mount("#page");
 

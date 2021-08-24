@@ -288,32 +288,46 @@
                 </div>
             </div>
         </div>
+
+        <!-- ===== loading start ===== -->
+        <div class="loading" id="loading" :class="{'on' : onLoad}">
+            <div class="load_round"></div>
+        </div>
     </div>
 
 
     <!-- ===== dialogCnt start ===== -->
     <div class="dialogCnt" id="dialogCnt"></div>
 
-    <div class="loading" id="loading">
-        <div class="load_round"></div>
-    </div>
+    
 </body>
 
 <script>
-    Vue.createApp({
+    var indexVue = Vue.createApp({
         data() {
             return {
                 hdMenu: menuData,
                 slides: indexSlides,
                 marquee: marqueeData,
                 banner: indexAd,
+                onLoad:false,
 
                 // 開關
                 signSwitch: false,
             };
         },
-        methods: {},
-        mounted() {},
+        methods: {
+            
+        },
+        mounted() {
+            // this.onLoad = true
+            // console.log( this.onLoad)
+        },
+        updated(){
+            // this.onLoad = false
+            // console.log( this.onLoad)
+        }
+        
     }).mount("#indexBox");
 </script>
 

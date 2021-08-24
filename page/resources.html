@@ -200,6 +200,12 @@
         mounted() {
             window.addEventListener("resize", this.myResize);
             this.myResize();
+            indexVue.onLoad = true;
+            this.$nextTick(function() {
+                setTimeout(function(){
+                    indexVue.onLoad = false;
+                },300)  
+            })
         },
     }).mount("#page");
 </script>

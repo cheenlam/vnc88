@@ -100,7 +100,7 @@
     Vue.createApp({
         data() {
             return {
-                adImg:flexAd,
+                adImg: flexAd,
                 wsDict: newsDict,
                 selfNews: news_selfNews,
                 newsMenu: {
@@ -111,8 +111,8 @@
             };
         },
         methods: {
-            getbgi(data){
-                return  `background-image: url(${data})`;
+            getbgi(data) {
+                return `background-image: url(${data})`;
             },
             reHref(hot, index) {
                 if (hot) {
@@ -124,28 +124,48 @@
             },
             getMenu() {
                 let self = this;
+                let chReady = [false, false, false];
+
+                function ready() {
+                    if (chReady[0] && chReady[1] && chReady[2]) {
+                        indexVue.onLoad = false;
+                    }
+                }
+
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/homenews/list",
                     dataType: "json",
-                    success: function(data) {           
+                    success: function(data) {
                         self.newsMenu.news_r = data;
+                        self.$nextTick(function() {
+                            chReady[0] = true;
+                            ready();
+                        })
                     },
                 });
 
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/news/top",
                     dataType: "json",
-                    success: function(data) {       
+                    success: function(data) {
                         self.newsMenu.news_t = data;
+                        self.$nextTick(function() {
+                            chReady[1] = true;
+                            ready();
+                        })
                     },
                 });
 
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/news/bottom",
                     dataType: "json",
-                    success: function(data) {               
+                    success: function(data) {
                         for (let i = 0; i < 5; i++) {
                             self.newsMenu.news_b.push(data[i])
+                            self.$nextTick(function() {
+                                chReady[2] = true;
+                                ready();
+                            })
                         }
                     },
                 });
@@ -153,6 +173,7 @@
         },
         mounted() {
             this.getMenu();
+            indexVue.onLoad = true;
         },
     }).mount("#page");
 </script>

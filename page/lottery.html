@@ -124,12 +124,12 @@
             return {
                 bet: betList,
                 wsDict: lotteryDict,
-                newsMenu:lotteryNews,
+                newsMenu: lotteryNews,
             };
         },
         methods: {
-            getbgi(data){
-                return  `background-image: url(${data})`;
+            getbgi(data) {
+                return `background-image: url(${data})`;
             },
             reHref(hot, index) {
                 if (hot) {
@@ -140,7 +140,12 @@
             },
         },
         mounted() {
-
+            indexVue.onLoad = true;
+            this.$nextTick(function() {
+                setTimeout(function(){
+                    indexVue.onLoad = false;
+                },300)  
+            })
         },
     }).mount("#page");
 </script>
