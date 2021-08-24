@@ -1,4 +1,4 @@
-<div class="contBox-min">
+<div class="contBox-min" id="page">
     <!-- 新聞內頁 -->
     <div class="newsRef_box">
         <div class="newsRef_cnt">
@@ -36,6 +36,46 @@
                     <li>Không phụ lòng người, sau bao nỗ lực thì chiếc vé số kia đã "xuất đầu lộ diện" ở trong một thùng rác ở góc phố. Được biết, con số là trúng giải là số: 71448 theo đài Tp.HCM xổ vào chiều ngày 1/3.</li>
                     <li>Chưa biết cả xóm có ý định mở tiệc sau khi tiền về tới túi hay không, nhưng chắc chắn họ đã cho nhau một kỉ niệm khó quên suốt đời.</li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="newsCnt_menu">
+            <div>
+                <div class="mainMsg-title">Tin hot</div>
+                <div class="newsCnt_scroll">
+                    <ul>
+                        <template v-for="(item,index) in newSelf">
+                            <li v-if="newsSelfNum != index+7">
+                                <a :href="item.href">
+                                    <div class="img" :style="getbgi(item.img)"></div>
+                                    <p>{{item.title}}</p>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>    
+            </div>
+            <div>
+                <div class="mainMsg-title">Tin quan trọng</div>
+                <div class="newsCnt_scroll">
+                    <ul>
+                        <li v-if="lotteryNum != 1">
+                            <a href="#/lottery?p=1">
+                                <div class="img" :style="getbgi(newsMenu.news_t.img)"></div>
+                                <p>{{newsMenu.news_t.title}}</p>
+                            </a>
+                        </li>
+    
+                        <template v-for="(item,index) in newsMenu.news_b">
+                            <li v-if="lotteryNum != index+2">
+                                <a :href="reHref(false,index)">
+                                    <div class="img" :style="getbgi(item.img)"></div>
+                                    <p>{{item.title}}</p>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>  
             </div>
         </div>
     </div>

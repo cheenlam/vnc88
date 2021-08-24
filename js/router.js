@@ -137,6 +137,8 @@ for (let i = 1; i < 99; i++) {
         location = location
         mainInclude(`page/news/news_${i}.html`);
         menuList_on(2);
+        sessionStorage.setItem('new_selfNews',i);
+        sessionStorage.setItem('new_lottery',0);
     });
 
     Router.route(`/lottery?p=${i}`, function() {
