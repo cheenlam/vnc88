@@ -186,7 +186,7 @@
                             <img :src="item.img" v-if="item.switch">
                         </template>
                     </div>
-                    <div class="getGift" id="getGift">
+                    <div class="getGift" id="getGift" v-if="signSwitch">
                         <img src="images/gift.png">
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                         <img src="images/icon/arrow-top.png">
                         <span>TOP</span>
                     </div>
-                    <div class="todayGame" id="todayGame">
+                    <div class="todayGame" id="todayGame" v-if="signSwitch">
                         <div class="god">
                             <img src="images/god.png">
                         </div>
