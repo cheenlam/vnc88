@@ -33,25 +33,25 @@ var marqueeData = [
 // 主架構廣告
 var indexAd = {
     left: [
-        { img: "images/eventBanner/event_5.gif", switch: true },
-        { img: "images/eventBanner/event_6.gif", switch: true },
+        { img: "images/eventBanner/eventL_01.gif", switch: true },
+        { img: "images/eventBanner/eventL_02.gif", switch: true },
     ],
     right: [
-        { img: "images/eventBanner/event_7.gif", switch: true },
-        { img: "images/eventBanner/event_8.gif", switch: true },
+        { img: "images/eventBanner/eventR_01.gif", switch: true },
+        { img: "images/eventBanner/eventR_02.gif", switch: true },
     ],
     center: [
-        { img: "images/eventBanner/event_1.gif", switch: true },
-        { img: "images/eventBanner/event_2.gif", switch: true },
-        { img: "images/eventBanner/eventBanner-03.jpg", switch: true },
-        { img: "images/eventBanner/eventBanner-04.jpg", switch: true },
-        { img: "images/eventBanner/eventBanner-05.jpg", switch: true },
-        { img: "images/eventBanner/eventBanner-05.jpg", switch: true },
+        { img: "images/eventBanner/event01.gif", switch: true },
+        { img: "images/eventBanner/event02.gif", switch: true },
+        { img: "images/eventBanner/event03.gif", switch: true },
+        { img: "images/eventBanner/event04.gif", switch: true },
+        { img: "images/eventBanner/event05.gif", switch: true },
+        { img: "images/eventBanner/event06.gif", switch: true },
     ],
     ftEvent: [
-        { img: "images/eventBanner/event_3.gif", switch: true },
-        { img: "images/eventBanner/event_4.gif", switch: true },
-        { img: "images/eventBanner/event_3.gif", switch: true },
+        { img: "images/eventBanner/eventFooter_01.gif", switch: true },
+        { img: "images/eventBanner/eventFooter_02.gif", switch: true },
+        { img: "images/eventBanner/eventFooter_03.gif", switch: true },
     ]
 }
 
