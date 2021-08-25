@@ -20,7 +20,13 @@ var indexSlides = [
     { img: "images/carousel/topBanner-02.jpg", switch: true },
     { img: "images/carousel/topBanner-03.jpg", switch: true },
     { img: "images/carousel/topBanner-04.jpg", switch: true },
-
+    { img: "images/carousel/topBanner-05.jpg", switch: true },
+    { img: "images/carousel/topBanner-06.jpg", switch: true },
+    { img: "images/carousel/topBanner-07.jpg", switch: true },
+    { img: "images/carousel/topBanner-08.jpg", switch: true },
+    { img: "images/carousel/topBanner-09.jpg", switch: true },
+    { img: "images/carousel/topBanner-10.jpg", switch: true },
+    { img: "images/carousel/topBanner-11.jpg", switch: true },
 ]
 
 // 主架構跑馬燈
