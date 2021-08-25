@@ -1,4 +1,4 @@
-<div class="dialogBox" id="dialogBox" :class="{'on':true}">
+<div class="dialogBox" id="dialogBox" >
     <div class="close"></div>
     <!-- 忘記密碼 -->
     <div class="dialog_cnt_01 forget">
@@ -151,19 +151,6 @@
     </div>
 </div>
 
-
-<script>
-    var dialogVue =  Vue.createApp({
-        data() {
-            return {
-                boxSwitch:false,
-            };
-        },
-        methods: {},
-        mounted() {
-        },
-    }).mount("#dialogBox");
-</script>
 
 <script>
     $("#dialogBox .close").click(function() {

@@ -1,26 +1,6 @@
-// header按鈕動作
-$('#hd_signIn .btn').click(function() {
-    let getData = $(this).attr('data-btn')
-    switch (getData) {
-        case 'signIn':
-            $('#hd_signIn').attr('data-signIn', 1);
-            break;
-        case 'regd':
-            $("#dialogBox").addClass('on');
-            $("#dialogBox .regd").addClass('on');
-            dialogVerify();
-            break;
-        case 'signOut':
-            $('#hd_signIn').attr('data-signIn', 0);
-            break;
-        case 'mbrMsg':
-            break;
-    }
-})
 
 $(document).ready(function() {
     window.scrollTo({ top: 0 });
-    dialog();
 })
 
 var scroll = $(window).scroll(function() {
@@ -69,42 +49,8 @@ function floatEvent() {
     }
 }
 
-//置頂按扭滑動
-$('#goTop').click(function() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
 
-
-// 彈跳視窗
-// function dialog() {
-//     $.ajax({
-//         url: 'page/dialog.html',
-//         success: function(html) {
-//             $("#dialogCnt").html(html);
-//         }
-//     });
-// }
-
-$('#hd_forget').click(function() {
-    $("#dialogBox").addClass('on');
-    $("#dialogBox .forget").addClass('on');
-    forgetVerify()
-})
-
-$('#getGift').click(function() {
-    $("#dialogBox").addClass('on');
-    $("#dialogBox .newGift").addClass('on');
-})
-
-$('#todayGame').click(function() {
-    $("#dialogBox").addClass('on');
-    $("#dialogBox .todayGame").addClass('on');
-})
-
-$('#hd_menu li').click(function() {
-    $('#hd_menu').removeClass('on')
-    window.scrollTo({ top: 0 });
-})
+// $('#hd_menu li').click(function() {
+//     $('#hd_menu').removeClass('on')
+//     window.scrollTo({ top: 0 });
+// })

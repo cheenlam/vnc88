@@ -28,7 +28,7 @@
         <div class="header" id="header">
             <!-- hd_top start -->
             <div class="hd_top" id="hd_top">
-                <h1 class="hd_logo"><a href="#/home" @click="aa()">vnc88</a></h1>
+                <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
                 <div class="hd_tool">
                     <div class="hd_link">
                         <ul>
@@ -60,7 +60,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="hd_signIn" id="hd_signIn" data-signIn="0" v-show="signSwitch">
+                    <div class="hd_signIn" id="hd_signIn" :data-signIn="loginNum" v-show="signSwitch">
                         <div data-signIn="0">
                             <div class="signIn_ipt">
                                 <label>  
@@ -71,7 +71,7 @@
                                     <label>
                                     <input type="password" placeholder="Mật khẩu">
                                 </label>
-                                    <div class="btn_linear hd_forget" id="hd_forget">
+                                    <div class="btn_linear hd_forget" @click="forgetLog()">
                                         <div class="btn_cnt"></div>
                                     </div>
                                 </div>
@@ -80,16 +80,16 @@
                                     <label>
                                     <input type="number" placeholder="Xác minh">
                                 </label>
-                                    <div class="nbCode" @click="verify()">
+                                    <div class="nbCode" @click="verify('mainVerify')">
                                         <canvas id='mainVerify'></canvas>
                                     </div>
                                 </div>
                             </div>
                             <div class="signIn_btn">
-                                <div class="btn_linear_c2 btn" data-btn="signIn">
+                                <div class="btn_linear_c2 btn" @click="loginNum = 1">
                                     <div class="btn_cnt">Đăng nhập</div>
                                 </div>
-                                <div class="btn_linear_c3 btn" data-btn="regd">
+                                <div class="btn_linear_c3 btn" @click="regdLog()">
                                     <div class="btn_cnt">Đăng kí</div>
                                 </div>
                             </div>
@@ -112,10 +112,10 @@
                                     </div>
                                 </div>
                                 <div class="signIn_btn">
-                                    <div class="btn_linear_c2 btn" data-btn="signOut">
+                                    <div class="btn_linear_c2 btn" @click="loginNum = 0">
                                         <div class="btn_cnt">Đăng xuất</div>
                                     </div>
-                                    <div class="btn_linear_c3 btn" data-btn="mbrMsg">
+                                    <div class="btn_linear_c3 btn">
                                         <a href="#/member">
                                             <div class="btn_cnt">Thông tin tài khoản</div>
                                         </a>
@@ -187,7 +187,7 @@
                             <img :src="item.img" v-if="item.switch">
                         </template>
                         </div>
-                        <div class="getGift" id="getGift" v-if="signSwitch">
+                        <div class="getGift" id="getGift" v-if="signSwitch" @click="giftLog()">
                             <img src="images/gift.png">
                         </div>
                     </div>
@@ -198,11 +198,11 @@
                             <img :src="item.img" v-if="item.switch">
                         </template>
                         </div>
-                        <div class="goTop" id="goTop">
+                        <div class="goTop" @click="goTop()">
                             <img src="images/icon/arrow-top.png">
                             <span>TOP</span>
                         </div>
-                        <div class="todayGame" id="todayGame" v-if="signSwitch">
+                        <div class="todayGame" id="todayGame" v-if="signSwitch" @click="todayGameLog()">
                             <div class="god">
                                 <img src="images/god.png">
                             </div>
@@ -296,10 +296,170 @@
             <div class="load_round"></div>
         </div>
 
-        <!-- ===== dialogCnt start ===== -->
-        <div class="dialogCnt" id="dialogCnt"></div>
-    </div>
 
+        <!-- ===== dialogCnt start ===== -->
+        <div class="dialogBox" id="dialogBox" :class="{'on':dialog.main}">
+            <div class="close" @click="closeDialog()"></div>
+            <!-- 忘記密碼 -->
+            <div class="dialog_cnt_01 forget" v-show="dialog.forget">
+                <div class="close" @click="closeDialog()"></div>
+                <div class="title">Quên mật khẩu</div>
+                <div class="innerBox">
+                    <div>
+                        <span>Tài khoản</span>
+                        <div class="iptBox">
+                            <input type="text" placeholder="Điền tên tài khoản">
+                        </div>
+                    </div>
+                    <div>
+                        <span>Phương thức xác minh</span>
+                        <div class="iptBox">
+                            <input type="email" placeholder="Điền hộp thư điện tử">
+                            <div class="selectBox">
+                                <select>
+                                    <option value="email">Thư điện tử</option>
+                                    <option value="phone">Số di động</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <span>Mã xác minh</span>
+                        <div class="codeIpt">
+                            <div class="iptBox">
+                                <input type="number" placeholder="Nhập mã xác minh">
+                            </div>
+                            <div class="codeBox" @click="verify('forgetVerify')">
+                                <canvas id="forgetVerify"></canvas>
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="btn_linear_c1 btn">
+                        <div class="btn_cnt">Gửi đi</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 註冊會員 -->
+            <div class="dialog_cnt_01 regd" v-show="dialog.regd">
+                <div class="close" @click="closeDialog()"></div>
+                <div class="title">Đăng kí</div>
+                <div class="innerBox">
+                    <div>
+                        <span>Tài khoản</span>
+                        <div class="iptBox">
+                            <input type="email" placeholder="Điền hộp thư điện tử">
+                        </div>
+                    </div>
+                    <div>
+                        <span>Mật khẩu</span>
+                        <div class="iptBox">
+                            <input type="password" minlength="6" maxlength="12" placeholder="Điền 6-12 kí tự bao hồm chữ/ số">
+                        </div>
+                    </div>
+                    <div>
+                        <span>Số di động</span>
+                        <div class="iptBox">
+                            <input type="phone" placeholder="Điền số điện thoại">
+                        </div>
+                    </div>
+                    <div>
+                        <span>Mã xác minh</span>
+                        <div class="codeIpt">
+                            <div class="iptBox">
+                                <input type="number" placeholder="Nhập mã xác minh">
+                            </div>
+                            <div class="codeBox">
+                                <canvas id="regdVerify" @click="verify('regdVerify')"></canvas>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="check_cnt">
+                        <label class="ckBox">
+                            <input type="checkbox">
+                            <div></div>
+                        </label>
+                        <p>Tôi đủ tuổi hợp pháp và đồng ý cũng như sẵn sàng tuân thủ các quy định
+                            <a>Quy định người dùng</a>。
+                        </p>
+                    </div>
+                    <div class="regd_btn">
+                        <div class="btn_linear_c1 btn">
+                            <div class="btn_cnt">Đăng kí</div>
+                        </div>
+                        <div class="btn_linear_c2 btn">
+                            <div class="btn_cnt">Hủy</div>
+                        </div>
+                    </div>
+                    <p>Sử dụng thông tin đăng nhập của bên thứ ba </p>
+                    <div class="btn_linear_c4 btn">
+                        <div class="btn_cnt">Đăng nhập Facebook</div>
+                    </div>
+                    <div class="btn_linear_c4 btn">
+                        <div class="btn_cnt">Đăng nhập Zalo</div>
+                    </div>
+                    <div class="btn_linear_c4 btn">
+                        <div class="btn_cnt">Đăng nhập Telegram</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新註冊獎金 -->
+            <div class="newGift" v-show="dialog.gift">
+                <div class="roulette">
+                    <div class="rou_body" id="rou_body" :style="ranRoulette(0)"></div>
+                    <div class="rou_pointer" style="padding: 0%;">
+                        <img src="images/roulette/rou_pointer.png">
+                    </div>
+                </div>
+
+                <div class="newGift_cnt" id="newGift_cnt">
+                    <div class="title">
+                        <span>Phần thưởng cho người mới đăng kí</span>
+                        <p>Nhập mã SDT của bạn vào bên dưới và thử vận ​​may với vòng quay tài lộc</p>
+                    </div>
+
+                    <div>
+                        <input type="text" placeholder="Điền số SDT tài khoản" v-model="giftCode" @focus="reGift(),ranRoulette(1)" :disabled="giftDis">
+                        <div class="btn_linear_c1 btn" @click="ranGift()">
+                            <button class="btn_cnt" :disabled="giftDis">Bắt đầu bốc thăm</button>
+                        </div>
+                    </div>
+
+                    <div class="rule">
+                        <span>Nguyên tắc</span>
+                        <p>- Điền số SDT tài khoản</p>
+                        <p>- Một nhóm tài khoản được giới hạn 1 vòng quay</p>
+                    </div>
+                </div>
+
+                <div class="close" @click="closeDialog()"></div>
+            </div>
+
+            <!-- 今日遊戲 -->
+            <div class="todayGame" v-show="dialog.todayGame">
+                <div class="close" @click="closeDialog()"></div>
+                <div class="todayGame_actor">
+                    <img src="./images/god.gif">
+                </div>
+                <div class="firework">
+                    <img src="images//todayGame/firework.png">
+                </div>
+                <div class="todayGame_cnt">
+                    <div class="todayGame_msg">
+                        <p>VNC88 </p>
+                        <p>tặng bạn</p>
+                        <p>3000</p>
+                        <p>đồng tiền vàng</p>
+                    </div>
+                    <div class="btn">
+                        <img src="images//todayGame/todayGame_btn.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script>
@@ -313,23 +473,62 @@
                 onLoad: false,
                 menuOpen: false,
 
+                // 禮物轉盤
+                giftCode: '',
+                giftDis: false,
+                roulette: 0,
+                canRoulette: false,
+
+                // 彈窗開關
+                dialog: {
+                    main: false,
+                    forget: false,
+                    regd: false,
+                    gift: false,
+                    todayGame: false,
+                },
+
                 // 開關
                 signSwitch: false,
+                loginNum: 0
             };
         },
         methods: {
-            getDialog() {
-                $.ajax({
-                    url: 'page/dialog.html',
-                    success: function(html) {
-                        $("#dialogCnt").html(html);
-                    }
+            goTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
                 });
             },
-            verify() {
+            forgetLog() {
+                this.dialog.main = true;
+                this.dialog.forget = true;
+                this.forgetVerify();
+            },
+            regdLog() {
+                this.dialog.main = true;
+                this.dialog.regd = true;
+            },
+            giftLog() {
+                this.dialog.main = true;
+                this.dialog.gift = true;
+                this.reGift();
+            },
+            todayGameLog() {
+                this.dialog.main = true;
+                this.dialog.todayGame = true;
+            },
+            closeDialog() {
+                this.dialog.main = false;
+                this.dialog.forget = false;
+                this.dialog.regd = false;
+                this.dialog.gift = false;
+                this.dialog.todayGame = false;
+            },
+            verify(name) {
                 let codeNum = ''
                 let options = {
-                    canvasId: "mainVerify",
+                    canvasId: name,
                     txt: `${parseInt(Math.random()*8889+1111)}`,
                     /**傳入驗證碼內容*/
                     height: 34,
@@ -342,13 +541,36 @@
                     return options.txt
                 }
             },
-            aa() {
-                dialogVue.boxSwitch = true
+            ranGift() {
+                let self = this;
+                let getCode = this.giftCode.toUpperCase() //轉大寫
+                if (getCode == 'VNC88') {
+                    self.giftDis = true;
+                    self.canRoulette = true;
+                    this.roulette = parseInt(Math.random() * 12 + 1);
+                    setTimeout(function() {
+                        self.giftCode = ''
+                        self.giftDis = false;
+                    }, 4000)
+                }
+            },
+            reGift() {
+                this.giftCode = ''
+                this.giftDis = false;
+                this.canRoulette = false;
+            },
+            ranRoulette(data) {
+                if (this.canRoulette && data == 0) {
+                    return `transform: rotate(${(30* this.roulette + 3600)}deg);transition: 4s`
+                } else {
+                    return `transform: rotate(0deg);transition: 0s`
+                }
             }
         },
         mounted() {
-            this.getDialog();
-            this.verify();
+            this.verify("mainVerify");
+            this.verify("forgetVerify");
+            this.verify("regdVerify");  
         },
     }).mount("#indexBox");
 </script>
