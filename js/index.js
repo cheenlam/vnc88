@@ -25,11 +25,11 @@ $(document).ready(function() {
 
 var scroll = $(window).scroll(function() {
     floatMenu();
-    floatAd()
+    floatEvent()
 });
 
 $(window).resize(function() {
-    floatAd()
+    floatEvent()
     $('#hd_menu').removeClass('on');
     indexVue.menuOpen = false;
     window.scrollTo({ top: 0 });
@@ -39,8 +39,8 @@ $(window).resize(function() {
 function floatMenu() {
     let topH = $('#hd_top').height();
     let winW = $(document).width();
-    if(winW > 1250){
-        if (scroll.scrollTop() > topH ) {
+    if (winW > 1250) {
+        if (scroll.scrollTop() > topH) {
             $('#hd_menu').addClass('on');
         } else {
             $('#hd_menu').removeClass('on');
@@ -49,7 +49,7 @@ function floatMenu() {
 }
 
 // 側邊浮動廣告
-function floatAd() {
+function floatEvent() {
     let getH = $('.contBox-full .contBox-min').offset().top - $('#hd_menu').height();
     let getH2 = $('.footer').offset().top - $(window).height() + 30 + $('#hd_top').height()
     if (scroll.scrollTop() > getH && scroll.scrollTop() < getH2) {
@@ -104,7 +104,7 @@ $('#todayGame').click(function() {
     $("#dialogBox .todayGame").addClass('on');
 })
 
-$('#hd_menu li').click(function(){
+$('#hd_menu li').click(function() {
     $('#hd_menu').removeClass('on')
     window.scrollTo({ top: 0 });
 })

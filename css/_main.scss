@@ -27,7 +27,7 @@ body {
     min-height: 188px;
     background-color: $mainBgc;
     position: relative;
-    @include rwd(1250){
+    @include rwd(1250) {
         min-height: auto;
     }
     // hd_top start
@@ -51,8 +51,7 @@ body {
             background: url(../images/logo/hd_logo.png) no-repeat center / cover;
             cursor: pointer;
             @include imgToTxt;
-
-            @include rwd(550){
+            @include rwd(550) {
                 width: 100%;
                 height: 15vw;
             }
@@ -368,7 +367,7 @@ body {
             display: flex;
             flex-direction: column;
             position: relative;
-            &>.flexAd {
+            &>.flexEvent {
                 padding: 0 20px;
                 @include rwd(1280) {
                     padding: 0 10px;
@@ -400,9 +399,9 @@ body {
                     bottom: 300px;
                 }
             }
-            @include rwd(800){
+            @include rwd(800) {
                 &,
-                &.on{
+                &.on {
                     width: 50px;
                     opacity: 0.8;
                 }
@@ -426,9 +425,9 @@ body {
                     bottom: 260px;
                 }
             }
-            @include rwd(800){
+            @include rwd(800) {
                 &,
-                &.on{
+                &.on {
                     width: 50px;
                     bottom: 245px;
                     opacity: 0.8;
@@ -444,14 +443,14 @@ body {
                     cursor: pointer;
                     position: relative;
                     animation: pudding 1s infinite linear;
-                    @include rwd(800){
+                    @include rwd(800) {
                         width: 80px;
                         left: -13px;
-                    }            
+                    }
                 }
             }
         }
-        .floatAd {
+        .floatEvent {
             &>img {
                 display: block;
                 margin-bottom: 10px;
@@ -468,7 +467,7 @@ body {
             background-color: #282828;
             border-radius: 50%;
             cursor: pointer;
-            @include rwd(800){
+            @include rwd(800) {
                 width: 50px;
                 height: 50px;
                 padding: 10px;
@@ -488,17 +487,17 @@ body {
                 width: 20px;
                 height: 20px;
                 margin-right: 5px;
-                @include rwd(800){
+                @include rwd(800) {
                     width: 32px;
                     height: 32px;
                     margin: 0;
                 }
             }
-            @include rwd(800){
+            @include rwd(800) {
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
-                span{
+                span {
                     display: none;
                 }
             }
@@ -556,7 +555,7 @@ body {
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
-            @include rwd(800){
+            @include rwd(800) {
                 flex-direction: column;
                 align-items: center;
                 padding: 20px 10px;
@@ -564,13 +563,12 @@ body {
         }
         .ft_msg {
             line-height: 25px;
-            @include rwd(800){
+            @include rwd(800) {
                 order: 1;
                 padding-top: 20px;
             }
         }
         .ft_link {
-           
             ul {
                 display: flex;
             }
@@ -594,7 +592,7 @@ body {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            @include rwd(800){
+            @include rwd(800) {
                 flex-direction: column;
                 padding: 20px 10px;
             }
@@ -603,7 +601,7 @@ body {
             font-size: 1.2rem;
             margin-right: 50px;
             flex-shrink: 0;
-            @include rwd(800){
+            @include rwd(800) {
                 order: 1;
                 padding-top: 20px;
             }
@@ -611,7 +609,6 @@ body {
         .ft_menu {
             ul {
                 display: flex;
-
                 font-size: 1rem;
                 font-weight: bold;
                 @include rwd(1120) {
@@ -622,7 +619,7 @@ body {
                 padding: 5px 10px;
                 transition: 0.3s;
                 @include rwd(1120) {
-                   width: 50%;
+                    width: 50%;
                 }
                 &:active {
                     color: $color_02;
@@ -635,8 +632,8 @@ body {
             }
         }
     }
-    // ftAd
-    .ftAd {
+    // ftEvent
+    .ftEvent {
         width: 100%;
         pointer-events: none;
         position: absolute;
@@ -651,11 +648,9 @@ body {
             flex-direction: column;
             padding: 0;
         }
-
-        @include rwd(500){
+        @include rwd(500) {
             display: none;
-        } 
-
+        }
         &>div {
             margin: 10px;
             position: relative;
@@ -663,13 +658,12 @@ body {
             &.on {
                 visibility: hidden;
                 pointer-events: none;
-                @include rwd(1200){
+                @include rwd(1200) {
                     display: none;
-                } 
-        
+                }
             }
         }
-        .ftAd_close {
+        .ftEvent_close {
             width: 30px;
             height: 30px;
             border-radius: 50%;

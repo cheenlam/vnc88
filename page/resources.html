@@ -70,8 +70,8 @@
         </div>
 
         <div class="mainMsg">
-            <!-- flexAd start -->
-            <div class="flexAd">
+            <!-- flexEvent start -->
+            <div class="flexEvent">
                 <ul>
                     <li v-for="(item,index) in adImg">
                         <img :src="item.img">
@@ -176,25 +176,24 @@
             return {
                 bank: bankLink,
                 lottory: lottoryLink,
-                adImg: flexAd,
+                adImg: flexEvent,
                 resQa: resQa,
-                bankNum:6,
-                lottoryNum :3,
-                listNum:6,
+                bankNum: 6,
+                lottoryNum: 3,
+                listNum: 6,
             };
         },
         methods: {
             myResize() {
                 let num = window.innerWidth;
-                if(num > 1200){
+                if (num > 1200) {
                     this.bankNum = 6
                     this.listNum = 6
-                }
-                else if(num <= 1200){
+                } else if (num <= 1200) {
                     this.bankNum = parseInt(num / 200)
                     this.listNum = parseInt(num / 200)
                 }
-                this.lottoryNum  = num > 1200 ? 3:2;  
+                this.lottoryNum = num > 1200 ? 3 : 2;
             },
         },
         mounted() {
@@ -202,9 +201,9 @@
             this.myResize();
             indexVue.onLoad = true;
             this.$nextTick(function() {
-                setTimeout(function(){
+                setTimeout(function() {
                     indexVue.onLoad = false;
-                },300)  
+                }, 300)
             })
         },
     }).mount("#page");

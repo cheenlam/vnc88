@@ -26,29 +26,28 @@
             min-height: 55px;
             padding: 10px;
             cursor: pointer;
-            transition: background-color .5s ;
-            @include rwd(1199){
+            transition: background-color .5s;
+            @include rwd(1199) {
                 width: calc(100% / 5);
             }
-            @include rwd(999){
+            @include rwd(999) {
                 width: calc(100% / 4);
             }
-            @include rwd(799){
+            @include rwd(799) {
                 width: calc(100% / 3);
             }
-            @include rwd(599){
+            @include rwd(599) {
                 width: calc(100% / 2);
             }
-            @include rwd(399){
+            @include rwd(399) {
                 width: 100%;
             }
-            
-            a{
-                height: 100%;    
+            a {
+                height: 100%;
                 display: flex;
                 align-items: center;
             }
-            span{
+            span {
                 @include txtChip(2);
                 line-height: 25px;
             }
@@ -62,29 +61,25 @@
             }
         }
     }
-
     .resMsg {
         padding: 20px;
         background-color: #fff;
     }
-
     .bank-List {
         margin-bottom: 40px;
     }
-
     .bank-icon {
         width: 22px;
         height: 22px;
         background: url(../images/icon/icon-bank.svg) no-repeat center / cover;
     }
-
     .bank-tb {
         background-color: #eee;
         table {
             width: 100%;
         }
-        tr{
-            @include rwd(500){
+        tr {
+            @include rwd(500) {
                 display: flex;
                 flex-direction: column;
             }
@@ -93,12 +88,12 @@
             height: 95px;
             border: 1px solid #ccc;
             cursor: pointer;
-            @include rwd(500){
+            @include rwd(500) {
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
-            a{
+            a {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -109,20 +104,18 @@
             margin: auto;
         }
     }
-
     .lottory-icon {
         width: 36px;
         height: 22px;
         background: url(../images/icon/icon-lottory.svg) no-repeat center / cover;
     }
-
     .lottory-tb {
         background-color: #eee;
         table {
             width: 100%;
         }
-        tr{
-            @include rwd(800){
+        tr {
+            @include rwd(800) {
                 display: flex;
                 flex-direction: column;
             }
@@ -144,11 +137,9 @@
             margin-right: 20px;
         }
     }
-
-    .flexAd {
+    .flexEvent {
         margin-bottom: 0;
     }
-
     .resQa {
         color: #000;
         .icon {
@@ -161,13 +152,12 @@
             font-size: 1.2rem;
             flex-shrink: 0;
         }
-        li + li {
+        li+li {
             margin-top: 40px;
         }
-        li > div + div {
+        li>div+div {
             margin-top: 10px;
         }
-
         @at-root .question {
             padding-right: 30px;
             display: flex;
@@ -204,13 +194,13 @@
                     content: "-";
                 }
             }
-            .switch{
+            .switch {
                 width: 25px;
-                height: 25px; 
+                height: 25px;
                 display: inline-block;
                 cursor: pointer;
                 position: absolute;
-                @include pos(br,0);
+                @include pos(br, 0);
                 &::before {
                     content: "+";
                     width: 25px;
@@ -222,8 +212,7 @@
                     color: #fff;
                     background-color: #58595b;
                     position: absolute;
-                    @include pos(br,0);
-                  
+                    @include pos(br, 0);
                 }
             }
         }

@@ -33,25 +33,25 @@ var marqueeData = [
 // 主架構廣告
 var indexAd = {
     left: [
-        { img: "images/adBanner/ad5.gif", switch: true },
-        { img: "images/adBanner/ad6.gif", switch: true },
+        { img: "images/eventBanner/event_5.gif", switch: true },
+        { img: "images/eventBanner/event_6.gif", switch: true },
     ],
     right: [
-        { img: "images/adBanner/ad7.gif", switch: true },
-        { img: "images/adBanner/ad8.gif", switch: true },
+        { img: "images/eventBanner/event_7.gif", switch: true },
+        { img: "images/eventBanner/event_8.gif", switch: true },
     ],
     center: [
-        { img: "images/adBanner/ad1.gif", switch: true },
-        { img: "images/adBanner/ad2.gif", switch: true },
-        { img: "images/adBanner/adBanner-03.jpg", switch: true },
-        { img: "images/adBanner/adBanner-04.jpg", switch: true },
-        { img: "images/adBanner/adBanner-05.jpg", switch: true },
-        { img: "images/adBanner/adBanner-05.jpg", switch: true },
+        { img: "images/eventBanner/event_1.gif", switch: true },
+        { img: "images/eventBanner/event_2.gif", switch: true },
+        { img: "images/eventBanner/eventBanner-03.jpg", switch: true },
+        { img: "images/eventBanner/eventBanner-04.jpg", switch: true },
+        { img: "images/eventBanner/eventBanner-05.jpg", switch: true },
+        { img: "images/eventBanner/eventBanner-05.jpg", switch: true },
     ],
-    ftAd:[
-        {img:"images/adBanner/ad3.gif",switch: true},
-        {img:"images/adBanner/ad4.gif",switch: true},
-        {img:"images/adBanner/ad3.gif",switch: true},
+    ftEvent: [
+        { img: "images/eventBanner/event_3.gif", switch: true },
+        { img: "images/eventBanner/event_4.gif", switch: true },
+        { img: "images/eventBanner/event_3.gif", switch: true },
     ]
 }
 
@@ -102,11 +102,11 @@ var betList = {
         ]
     }
     // 內頁廣告
-var flexAd = [
-    { img: "images/adBanner/adBanner-01.jpg" },
-    { img: "images/adBanner/adBanner-02.jpg" },
-    { img: "images/adBanner/adBanner-03.jpg" },
-    { img: "images/adBanner/adBanner-04.jpg" },
+var flexEvent = [
+    { img: "images/eventBanner/eventBanner-01.jpg" },
+    { img: "images/eventBanner/eventBanner-02.jpg" },
+    { img: "images/eventBanner/eventBanner-03.jpg" },
+    { img: "images/eventBanner/eventBanner-04.jpg" },
 ]
 
 // 投注連結(小輪播右側)

@@ -1,5 +1,5 @@
-// flexAd start
-.flexAd {
+// flexEvent start
+.flexEvent {
     margin-bottom: 40px;
     ul {
         display: flex;
@@ -43,7 +43,6 @@
         background-color: #444;
         border-radius: 10px;
         overflow: hidden;
-
         @include rwd(1280) {
             border-radius: unset;
         }
@@ -110,7 +109,7 @@
             }
         }
     }
-    tr + tr::before {
+    tr+tr::before {
         content: "";
         width: calc(100% - 40px);
         height: 1px;
@@ -256,7 +255,7 @@
                 width: 100%;
                 flex-direction: column;
             }
-            & > .btn {
+            &>.btn {
                 height: 40px;
                 border-radius: 20px;
                 flex: 1;
@@ -278,7 +277,7 @@
                     }
                 }
             }
-            & > .btn + .btn {
+            &>.btn+.btn {
                 margin-left: 10px;
                 @include rwd(1250) {
                     margin-left: 0;
@@ -293,7 +292,7 @@
 .mainMsg {
     padding: 20px 20px 50px;
     background-color: #fff;
-    & > div + div {
+    &>div+div {
         margin-top: 40px;
     }
 }
@@ -383,7 +382,7 @@
                     @include txtChip(3);
                 }
             }
-            li + li {
+            li+li {
                 margin-top: 10px;
             }
         }
@@ -418,7 +417,7 @@
                 @include txtChip(3);
             }
         }
-        li + li {
+        li+li {
             margin-left: 20px;
             @include rwd(850) {
                 margin-left: 0;
@@ -447,7 +446,7 @@
     @include rwd(1100) {
         flex-direction: column;
     }
-    & > div {
+    &>div {
         width: calc(50% - 10px);
         @include rwd(1100) {
             width: 100%;
@@ -467,7 +466,7 @@
             @include rwd(850) {
                 flex-direction: column;
             }
-            & > div {
+            &>div {
                 height: calc(50% - 5px);
                 display: flex;
                 color: #000;
@@ -579,7 +578,7 @@
         p {
             line-height: 30px;
         }
-        p + p {
+        p+p {
             margin-top: 25px;
         }
     }
@@ -596,7 +595,7 @@
     }
     .lotteryList {
         padding-left: 10px;
-        & > li {
+        &>li {
             display: flex;
             .icon {
                 width: 21px;
@@ -606,7 +605,7 @@
                 margin-right: 15px;
             }
         }
-        & > li + li {
+        &>li+li {
             margin-top: 20px;
         }
     }
@@ -623,13 +622,11 @@
         padding: 10px;
         display: flex;
         position: relative;
-
         a {
             @include rwd(800) {
                 flex-direction: column;
             }
         }
-
         .fullList_img {
             width: 260px;
             height: 0;
@@ -663,7 +660,6 @@
                 font-size: 1.6rem;
                 font-weight: bold;
                 padding-bottom: 10px;
-
                 @include rwd(800) {
                     font-size: 1rem;
                     padding-top: 10px;
@@ -682,7 +678,7 @@
                 span {
                     font-size: 1rem;
                 }
-                span + span {
+                span+span {
                     margin-left: 10px;
                 }
             }
@@ -698,7 +694,7 @@
             }
         }
     }
-    li + li {
+    li+li {
         &::before {
             content: "";
             width: 100%;
@@ -725,16 +721,13 @@
     @include rwd(900) {
         flex-direction: column;
     }
-
     @at-root .newsCnt_main {
         width: calc(100% - 300px);
         margin-right: 20px;
-
         @include rwd(900) {
             width: 100%;
             margin: 0;
         }
-
         .newstitle {
             p {
                 font-size: 2rem;
@@ -756,7 +749,6 @@
                 border-bottom: 1px solid #c5c5c5;
             }
         }
-
         .newsArticle {
             p {
                 margin-bottom: 20px;
@@ -774,18 +766,15 @@
                     height: auto !important;
                 }
             }
-
             .dugout-video {
                 display: none;
             }
-
             .text-right {
                 padding-top: 50px;
                 font-size: 0.95rem;
                 color: #999;
                 text-align: right;
             }
-
             ul {
                 padding-left: 20px;
                 margin: 40px 0;
@@ -795,7 +784,6 @@
             }
         }
     }
-
     @at-root .newsCnt_menu {
         width: 300px;
         @include rwd(900) {
@@ -806,7 +794,7 @@
         @include rwd(550) {
             flex-direction: column;
         }
-        & > div {
+        &>div {
             @include rwd(900) {
                 width: 50%;
             }
@@ -814,7 +802,7 @@
                 width: 100%;
             }
         }
-        & > div + div {
+        &>div+div {
             margin-top: 50px;
             @include rwd(900) {
                 margin-top: 0;
@@ -838,7 +826,7 @@
                 background-position: top center;
             }
         }
-        li + li {
+        li+li {
             margin-top: 20px;
         }
         .newsCnt_scroll {

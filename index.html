@@ -182,7 +182,7 @@
 
                 <div class="contBox-min">
                     <div class="leftTool" id="leftTool">
-                        <div class="floatAd">
+                        <div class="floatEvent">
                             <template v-for="(item,index) in banner.left">
                             <img :src="item.img" v-if="item.switch">
                         </template>
@@ -193,7 +193,7 @@
                     </div>
 
                     <div class="rightTool" id="rightTool">
-                        <div class="floatAd">
+                        <div class="floatEvent">
                             <template v-for="(item,index) in banner.right">
                             <img :src="item.img" v-if="item.switch">
                         </template>
@@ -209,8 +209,8 @@
                         </div>
                     </div>
 
-                    <!-- flexAd start -->
-                    <div class="flexAd">
+                    <!-- flexEvent start -->
+                    <div class="flexEvent">
                         <ul>
                             <template v-for="(item,index) in banner.center">
                             <li v-if="item.switch">
@@ -280,11 +280,11 @@
 
             </div>
 
-            <!-- ftAd  -->
-            <div class="ftAd">
-                <template v-for="(item,index) in banner.ftAd">
+            <!-- ftEvent  -->
+            <div class="ftEvent">
+                <template v-for="(item,index) in banner.ftEvent">
                     <div :class="{'on' : !item.switch}">
-                        <div class="ftAd_close" @click="item.switch = false"></div>
+                        <div class="ftEvent_close" @click="item.switch = false"></div>
                         <img :src="item.img">
                     </div>
                 </template>
@@ -342,7 +342,7 @@
                     return options.txt
                 }
             },
-            aa(){
+            aa() {
                 dialogVue.boxSwitch = true
             }
         },
