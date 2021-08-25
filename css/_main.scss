@@ -103,15 +103,6 @@ body {
             }
         }
         .hd_signIn {
-            // @include rwd(800){
-            //     width: 100vw;
-            //    height: 100vh;
-            //     position: fixed;
-            //     top: 0;
-            //     left: 0;
-            //     background-color: rgba(0, 0, 0, 0.8);
-            //     z-index: 20;
-            // }
             &[data-signIn="0"]>div[data-signIn="0"] {
                 display: flex;
             }
@@ -127,6 +118,7 @@ body {
             }
             .signIn_forget {
                 width: 155px;
+                height: 34px;
                 display: flex;
                 padding: 0 5px;
                 margin-right: 10px;
@@ -208,6 +200,7 @@ body {
             }
         }
         .signIn_code {
+            height: 34px;
             margin-right: 10px;
             display: flex;
             label {
