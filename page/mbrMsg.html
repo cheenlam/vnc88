@@ -1,4 +1,4 @@
-<div class="contBox-min">
+<div class="contBox-min" id="page">
     <div class="mbrBox">
         <div class="mbrSelect" id="mbrSelect">
             <div class="btn on">
@@ -97,4 +97,21 @@
     </div>
 </div>
 
-<script src="js/index.js"></script>
+<script>
+    var dialogVue =  Vue.createApp({
+        data() {
+            return {
+               
+            };
+        },
+        methods: {},
+        mounted() {
+            indexVue.onLoad = true;
+            this.$nextTick(function() {
+                setTimeout(function(){
+                    indexVue.onLoad = false;
+                },300)  
+            })
+        },
+    }).mount("#page");
+</script>
