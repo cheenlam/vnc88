@@ -109,10 +109,10 @@ var betList = {
     }
     // 內頁廣告
 var flexEvent = [
-    { img: "images/eventBanner/eventBanner-01.jpg" },
-    { img: "images/eventBanner/eventBanner-02.jpg" },
-    { img: "images/eventBanner/eventBanner-03.jpg" },
-    { img: "images/eventBanner/eventBanner-04.jpg" },
+    { img: "images/eventBanner/event07.gif" },
+    { img: "images/eventBanner/event08.gif" },
+    { img: "images/eventBanner/event09.gif" },
+    { img: "images/eventBanner/event10.gif" },
 ]
 
 // 投注連結(小輪播右側)
