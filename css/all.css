@@ -1699,7 +1699,7 @@ body {
     background: linear-gradient(0deg, #091422, #0e263c);
     -webkit-box-shadow: 5px 5px 10px #000;
             box-shadow: 5px 5px 10px #000;
-    border: 1px solid transparent;
+    border: 1px solid #f6bf3d;
     -o-border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round;
        border-image: -webkit-gradient(linear, left bottom, left top, from(#f6bf3d), color-stop(#7a5d17), to(#f6bf3d)) 1 1 round;
        border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round;
