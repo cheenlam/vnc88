@@ -12,6 +12,7 @@ $(window).resize(function() {
     floatEvent()
     $('#hd_menu').removeClass('on');
     indexVue.menuOpen = false;
+    indexVue.signInOpen = false;
     window.scrollTo({ top: 0 });
 })
 

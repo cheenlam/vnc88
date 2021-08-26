@@ -751,7 +751,7 @@ img {
   .dialogBox .newGift .close {
     top: 5px;
     right: 5px;
-    border: 2px solid #fff;
+    border: 1px solid #c43f40;
     background-color: #000;
     border-radius: 50%;
   }
@@ -759,7 +759,7 @@ img {
 
 @media screen and (max-width: 710px) and (any-hover: hover) {
   .dialogBox .newGift .close:hover {
-    border: 2px solid #F8A959;
+    border: 1px solid #F8A959;
   }
 }
 
@@ -893,7 +893,7 @@ img {
   .dialogBox .newGift .newGift_cnt {
     height: calc(100% - 89vw);
     overflow-y: scroll;
-    margin-top: 20px;
+    padding: 5vw 20px 20px;
   }
 }
 
@@ -1010,6 +1010,12 @@ img {
   z-index: 1;
 }
 
+@media screen and (max-width: 500px) {
+  .dialogBox .todayGame .todayGame_actor {
+    display: none;
+  }
+}
+
 .dialogBox .todayGame .firework {
   width: 100%;
   position: absolute;
@@ -1022,7 +1028,8 @@ img {
 }
 
 .dialogBox .todayGame .todayGame_cnt {
-  width: 350px;
+  width: 82vw;
+  max-width: 350px;
   padding: 90px 0 20px;
   background-color: #c43f40;
   border-radius: 10px;
@@ -1040,6 +1047,12 @@ img {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+}
+
+@media screen and (max-width: 500px) {
+  .dialogBox .todayGame .todayGame_cnt {
+    padding: 20vw 0 20px;
+  }
 }
 
 .dialogBox .todayGame .todayGame_cnt::before {
@@ -1076,6 +1089,20 @@ img {
   letter-spacing: 1px;
   border-radius: 5px;
   line-height: 50px;
+}
+
+@media screen and (max-width: 500px) {
+  .dialogBox .todayGame .todayGame_cnt .todayGame_msg {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .dialogBox .todayGame .todayGame_cnt .todayGame_msg {
+    width: 90%;
+    font-size: 1.6rem;
+    line-height: 35px;
+  }
 }
 
 .dialogBox .todayGame .todayGame_cnt .btn {
@@ -1417,7 +1444,7 @@ body {
   position: relative;
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1280px) {
   .header {
     min-height: auto;
   }
@@ -1431,6 +1458,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -1439,15 +1468,17 @@ body {
           justify-content: space-between;
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 900px) {
   .header .hd_top {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .header .hd_top {
+    padding: 10px;
   }
 }
 
@@ -1482,7 +1513,7 @@ body {
   padding-bottom: 20px;
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1280px) {
   .header .hd_top .hd_tool {
     -ms-flex-item-align: end;
         align-self: flex-end;
@@ -1527,36 +1558,208 @@ body {
 }
 
 .header .hd_top .hd_link li + li {
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
-.header .hd_top .hd_link .menuBar {
+@media screen and (max-width: 350px) {
+  .header .hd_top .hd_link li + li {
+    margin-left: 5px;
+  }
+}
+
+.header .hd_top .hd_link .menuBar,
+.header .hd_top .hd_link .signinBar {
   display: none;
 }
 
-@media screen and (max-width: 1250px) {
-  .header .hd_top .hd_link .menuBar {
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_link .menuBar,
+  .header .hd_top .hd_link .signinBar {
     display: block;
   }
 }
 
-.header .hd_top .hd_signIn[data-signIn="0"] > div[data-signIn="0"] {
+.header .hd_top .hd_signIn {
+  height: 34px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.header .hd_top .hd_signIn[data-signIn="1"] > div[data-signIn="1"] {
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn {
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: none;
+  }
+  .header .hd_top .hd_signIn.on {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-animation: dialogBox 0.5s forwards;
+            animation: dialogBox 0.5s forwards;
+  }
+}
+
+.header .hd_top .hd_signIn[data-signIn="0"] .hd_signInCnt[data-signIn="0"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.header .hd_top .hd_signIn > div {
+.header .hd_top .hd_signIn[data-signIn="1"] .hd_signInCnt[data-signIn="1"] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .close {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.header .hd_top .hd_signIn .title {
+  padding: 0 25px 20px;
+  margin-bottom: 47px;
+  color: #e9b21a;
+  font-size: 2.1rem;
+  font-weight: 400;
+  letter-spacing: 5px;
+  text-align: center;
+  position: relative;
+  display: none;
+}
+
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .title {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header .hd_top .hd_signIn .title {
+    padding: 0 25px 10px;
+    margin-bottom: 25px;
+    font-size: 1.6em;
+  }
+}
+
+.header .hd_top .hd_signIn .title::before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#71784c), to(transparent));
+  background: linear-gradient(90deg, transparent, #71784c, transparent);
+  position: absolute;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+}
+
+.header .hd_top .hd_signIn .hd_signInCnt {
   display: none;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  position: relative;
+}
+
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .hd_signInCnt {
+    width: 100%;
+    max-width: 779px;
+    max-height: 95%;
+    margin: auto;
+    padding: 30px 20px;
+    position: relative;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background: -webkit-gradient(linear, left bottom, left top, from(#091422), to(#0e263c));
+    background: linear-gradient(0deg, #091422, #0e263c);
+    -webkit-box-shadow: 5px 5px 10px #000;
+            box-shadow: 5px 5px 10px #000;
+    border: 1px solid transparent;
+    -o-border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round;
+       border-image: -webkit-gradient(linear, left bottom, left top, from(#f6bf3d), color-stop(#7a5d17), to(#f6bf3d)) 1 1 round;
+       border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round;
+  }
+}
+
+.header .hd_top .hd_signIn .hd_signInCnt .signIn_close {
+  width: 38px;
+  height: 38px;
+  z-index: 1;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .hd_signInCnt .signIn_close {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header .hd_top .hd_signIn .hd_signInCnt .signIn_close {
+    top: 5px;
+    right: 5px;
+  }
+}
+
+.header .hd_top .hd_signIn .hd_signInCnt .signIn_close::before, .header .hd_top .hd_signIn .hd_signInCnt .signIn_close::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #818b99;
+}
+
+.header .hd_top .hd_signIn .hd_signInCnt .signIn_close::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.header .hd_top .hd_signIn .hd_signInCnt .signIn_close::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.header .hd_top .hd_signIn .hd_signInCnt .signIn_close:active::before, .header .hd_top .hd_signIn .hd_signInCnt .signIn_close:active::after {
+  background-color: #ffd200;
+}
+
+@media (any-hover: hover) {
+  .header .hd_top .hd_signIn .hd_signInCnt .signIn_close:hover::before, .header .hd_top .hd_signIn .hd_signInCnt .signIn_close:hover::after {
+    background-color: #ffd200;
+  }
 }
 
 .header .hd_top .hd_signIn .signIn_ipt {
@@ -1565,17 +1768,230 @@ body {
   display: flex;
 }
 
-.header .hd_top .hd_signIn .signIn_forget {
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .signIn_ipt {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+  .header .hd_top .hd_signIn .signIn_ipt::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.header .hd_top .hd_signIn label {
   width: 155px;
-  height: 34px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  height: 100%;
   padding: 0 5px;
   margin-right: 10px;
+  border: 1px solid #646774;
+  background-color: #111;
+  color: #c5c5c5;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn label {
+    width: 100%;
+    height: 35px;
+    margin: 10px 0;
+    background-color: #100f1f;
+    -webkit-box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+            box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+    border: none;
+  }
+}
+
+.header .hd_top .hd_signIn label input {
+  width: 100%;
+  height: 100%;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  color: #c5c5c5;
+  font-size: 1rem;
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.header .hd_top .hd_signIn label input::-webkit-input-placeholder {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.header .hd_top .hd_signIn .signIn_on {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .signIn_on {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.header .hd_top .hd_signIn .signIn_msg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #caa653;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .signIn_msg {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .header .hd_top .hd_signIn .signIn_msg {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.header .hd_top .hd_signIn .signIn_msg > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 650px) {
+  .header .hd_top .hd_signIn .signIn_msg > div + div {
+    margin-top: 15px;
+  }
+}
+
+.header .hd_top .hd_signIn .signIn_msg .signIn_icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.header .hd_top .hd_signIn .signIn_msg .signIn_icon.member {
+  background: url(../images/icon/icon-member.svg);
+}
+
+.header .hd_top .hd_signIn .signIn_msg .signIn_icon.chip {
+  background: url(../images/icon/icon-chip.svg);
+}
+
+.header .hd_top .hd_signIn .signIn_msg .signIn_icon.mail {
+  background: url(../images/icon/icon-mail.svg);
+}
+
+@media screen and (max-width: 650px) {
+  .header .hd_top .hd_signIn .signIn_msg p {
+    width: 100%;
+    height: 35px;
+    margin-left: 5px;
+    padding-left: 10px;
+    line-height: 35px;
+    border-radius: 5px;
+    background-color: #100f1f;
+    -webkit-box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+            box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+  }
+}
+
+.header .hd_top .hd_signIn .signIn_account,
+.header .hd_top .hd_signIn .signIn_forget,
+.header .hd_top .hd_signIn .signIn_code {
+  margin: 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .header .hd_top .hd_signIn .signIn_account,
+  .header .hd_top .hd_signIn .signIn_forget,
+  .header .hd_top .hd_signIn .signIn_code {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+.header .hd_top .hd_signIn .signIn_account .signIn_minCnt,
+.header .hd_top .hd_signIn .signIn_forget .signIn_minCnt,
+.header .hd_top .hd_signIn .signIn_code .signIn_minCnt {
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .hd_top .hd_signIn .signIn_minTitle {
+  display: none;
+}
+
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .signIn_minTitle {
+    width: 120px;
+    padding-right: 5px;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    text-align: right;
+    font-weight: bold;
+    color: #869bae;
+    margin-right: 6px;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header .hd_top .hd_signIn .signIn_minTitle {
+    width: 100%;
+    padding-bottom: 5px;
+    text-align: left;
+  }
+}
+
+.header .hd_top .hd_signIn .signIn_account .signIn_minCnt {
+  width: 155px;
+  height: 34px;
+  padding: 0 5px;
   background-color: #111;
   border: 1px solid #646774;
   -webkit-box-sizing: border-box;
@@ -1583,11 +1999,83 @@ body {
   border-radius: 5px;
 }
 
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .signIn_account .signIn_minCnt {
+    width: 100%;
+    max-width: 390px;
+    height: 35px;
+    background-color: #100f1f;
+    -webkit-box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+            box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 1280px) and (max-width: 600px) {
+  .header .hd_top .hd_signIn .signIn_account .signIn_minCnt {
+    max-width: 100%;
+  }
+}
+
+.header .hd_top .hd_signIn .signIn_account label {
+  width: 100%;
+  margin-right: 0;
+  border: none;
+  padding: 0;
+}
+
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .signIn_account label {
+    height: 100%;
+    background-color: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+
+.header .hd_top .hd_signIn .signIn_forget .signIn_minCnt {
+  width: 155px;
+  height: 34px;
+  padding: 0 5px;
+  background-color: #111;
+  border: 1px solid #646774;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .signIn_forget .signIn_minCnt {
+    width: 100%;
+    max-width: 390px;
+    height: 35px;
+    background-color: #100f1f;
+    -webkit-box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+            box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header .hd_top .hd_signIn .signIn_forget .signIn_minCnt {
+    max-width: 100%;
+  }
+}
+
 .header .hd_top .hd_signIn .signIn_forget label {
   width: 100%;
   margin-right: 0;
   border: none;
   padding: 0;
+}
+
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .signIn_forget label {
+    height: 100%;
+    background-color: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
 }
 
 .header .hd_top .hd_signIn .signIn_forget .hd_forget {
@@ -1660,101 +2148,36 @@ body {
   background: url(../images/icon/icon-Q.png) no-repeat center;
 }
 
-.header .hd_top .hd_signIn label {
-  width: 155px;
-  height: 100%;
-  padding: 0 5px;
-  margin-right: 10px;
-  border: 1px solid #646774;
-  background-color: #111;
-  color: #c5c5c5;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.header .hd_top .hd_signIn label input {
-  width: 100%;
-  height: 100%;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-  color: #c5c5c5;
-  font-size: 1rem;
-  background: transparent;
-  outline: none;
-  border: none;
-}
-
-.header .hd_top .hd_signIn label input::-webkit-input-placeholder {
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.header .hd_top .hd_signIn .signIn_on {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.header .hd_top .hd_signIn .signIn_msg {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: #caa653;
-  font-size: 0.9rem;
-}
-
-.header .hd_top .hd_signIn .signIn_msg > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-right: 10px;
-}
-
-.header .hd_top .hd_signIn .signIn_msg .signIn_icon {
-  width: 20px;
-  height: 20px;
-  margin: 0 5px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.header .hd_top .hd_signIn .signIn_msg .signIn_icon.member {
-  background: url(../images/icon/icon-member.svg);
-}
-
-.header .hd_top .hd_signIn .signIn_msg .signIn_icon.chip {
-  background: url(../images/icon/icon-chip.svg);
-}
-
-.header .hd_top .hd_signIn .signIn_msg .signIn_icon.mail {
-  background: url(../images/icon/icon-mail.svg);
-}
-
-.header .hd_top .signIn_code {
+.header .hd_top .hd_signIn .signIn_code .signIn_minCnt {
   height: 34px;
-  margin-right: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
-.header .hd_top .signIn_code label {
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .signIn_code .signIn_minCnt {
+    width: 100%;
+    max-width: 390px;
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header .hd_top .hd_signIn .signIn_code .signIn_minCnt {
+    max-width: 100%;
+  }
+}
+
+.header .hd_top .hd_signIn .signIn_code label {
   width: 95px;
   margin-right: 5px;
 }
 
-.header .hd_top .signIn_code .nbCode {
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .signIn_code label {
+    width: 100%;
+  }
+}
+
+.header .hd_top .hd_signIn .signIn_code .nbCode {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1765,7 +2188,7 @@ body {
           user-select: none;
 }
 
-.header .hd_top .signIn_btn {
+.header .hd_top .hd_signIn .signIn_btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1773,13 +2196,53 @@ body {
       flex-shrink: 0;
 }
 
-.header .hd_top .signIn_btn .btn {
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .signIn_btn {
+    width: 550px;
+    margin: 40px auto 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .header .hd_top .hd_signIn .signIn_btn {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.header .hd_top .hd_signIn .signIn_btn .btn {
   min-width: 80px;
   padding: 0 5px;
 }
 
-.header .hd_top .signIn_btn .btn + .btn {
+@media screen and (max-width: 1280px) {
+  .header .hd_top .hd_signIn .signIn_btn .btn {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: 45px;
+    line-height: 45px;
+  }
+}
+
+.header .hd_top .hd_signIn .signIn_btn .btn + .btn {
   margin-left: 5px;
+}
+
+@media screen and (max-width: 12800px) {
+  .header .hd_top .hd_signIn .signIn_btn .btn + .btn {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .header .hd_top .hd_signIn .signIn_btn .btn + .btn {
+    margin-left: 0;
+    margin-top: 10px;
+  }
 }
 
 .header .hd_menu {
@@ -1805,8 +2268,8 @@ body {
   .header .hd_menu.on {
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
-    -webkit-transition: .3s;
-    transition: .3s;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
   }
 }
 
@@ -2548,7 +3011,7 @@ body {
 }
 
 .loading::before {
-  content: 'loading...';
+  content: "loading...";
   margin: auto;
   color: #fff;
   position: absolute;
@@ -2668,6 +3131,24 @@ body {
             transform: rotate(360deg);
     -webkit-box-shadow: 0 4px 0 0 #fff;
             box-shadow: 0 4px 0 0 #fff;
+  }
+}
+
+@-webkit-keyframes signinBox {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes signinBox {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

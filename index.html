@@ -23,6 +23,7 @@
 </head>
 
 <body>
+
     <div id="indexBox">
         <!-- ===== header start ===== -->
         <div class="header" id="header">
@@ -58,31 +59,52 @@
                                     <img src="images/icon/menuBar.png">
                                 </div>
                             </li>
+                            <li class="btn_linear_c1 signinBar" @click="signInOpen = true" v-if="signSwitch">
+                                <div class="btn_cnt">
+                                    <img src="images/icon/signinBar.png" v-if="loginNum == 0">
+                                    <img src="images/icon/icon-onSignin.png" v-else>
+                                </div>
+                            </li>
                         </ul>
                     </div>
-                    <div class="hd_signIn" id="hd_signIn" :data-signIn="loginNum" v-show="signSwitch">
-                        <div data-signIn="0">
-                            <div class="signIn_ipt">
-                                <label>  
-                                <input type="text" placeholder="Tài khoản">  
-                            </label>
 
-                                <div class="signIn_forget">
-                                    <label>
-                                    <input type="password" placeholder="Mật khẩu">
-                                </label>
-                                    <div class="btn_linear hd_forget" @click="forgetLog()">
-                                        <div class="btn_cnt"></div>
+                    <div class="hd_signIn" id="hd_signIn" :data-signIn="loginNum" :class="{'on' : signInOpen}" v-show="signSwitch" >
+                        <div class="close" @click="signInOpen = false"></div>
+                        <div data-signIn="0" class="hd_signInCnt">
+                            <div class="signIn_close" @click="signInOpen = false"></div>
+                            <div class="title">Đăng nhập</div>
+                            <div class="signIn_ipt">
+                                <div class="signIn_account">
+                                    <span class="signIn_minTitle">Tài khoản</span>
+                                    <div class="signIn_minCnt">
+                                        <label data-title="Tài khoản">  
+                                            <input type="text" placeholder="Tài khoản">  
+                                        </label>
                                     </div>
+                                </div>
+                                
+                                <div class="signIn_forget">
+                                    <span class="signIn_minTitle">Mật khẩu</span>
+                                    <div class="signIn_minCnt">      
+                                        <label>
+                                            <input type="password" placeholder="Mật khẩu">
+                                        </label>
+                                        <div class="btn_linear hd_forget" @click="forgetLog()">
+                                            <div class="btn_cnt"></div>
+                                        </div>
+                                    </div>      
                                 </div>
 
                                 <div class="signIn_code">
-                                    <label>
-                                    <input type="number" placeholder="Xác minh">
-                                </label>
-                                    <div class="nbCode" @click="verify('mainVerify')">
-                                        <canvas id='mainVerify'></canvas>
-                                    </div>
+                                    <span class="signIn_minTitle">Mã xác minh</span>
+                                    <div class="signIn_minCnt">
+                                        <label>
+                                            <input type="number" placeholder="Xác minh">
+                                        </label>
+                                        <div class="nbCode" @click="verify('mainVerify')">
+                                            <canvas id='mainVerify'></canvas>
+                                        </div>
+                                    </div> 
                                 </div>
                             </div>
                             <div class="signIn_btn">
@@ -95,8 +117,10 @@
                             </div>
                         </div>
 
-                        <div data-signIn="1">
+                        <div data-signIn="1" class="hd_signInCnt">
+                            <div class="signIn_close" @click="signInOpen = false"></div>
                             <div class="signIn_on">
+                                <div class="title">Thông tin tài khoản</div>
                                 <div class="signIn_msg">
                                     <div>
                                         <div class="signIn_icon member"></div>
@@ -115,7 +139,7 @@
                                     <div class="btn_linear_c2 btn" @click="loginNum = 0">
                                         <div class="btn_cnt">Đăng xuất</div>
                                     </div>
-                                    <div class="btn_linear_c3 btn">
+                                    <div class="btn_linear_c3 btn" @click="signInOpen = false">
                                         <a href="#/member">
                                             <div class="btn_cnt">Thông tin tài khoản</div>
                                         </a>
@@ -332,7 +356,7 @@
                             <div class="codeBox" @click="verify('forgetVerify')">
                                 <canvas id="forgetVerify"></canvas>
                             </div>
-                        </div>     
+                        </div>
                     </div>
                     <div class="btn_linear_c1 btn">
                         <div class="btn_cnt">Gửi đi</div>
@@ -373,7 +397,7 @@
                                 <canvas id="regdVerify" @click="verify('regdVerify')"></canvas>
                             </div>
                         </div>
-                       
+
                     </div>
                     <div class="check_cnt">
                         <label class="ckBox">
@@ -460,6 +484,8 @@
             </div>
         </div>
     </div>
+
+
 </body>
 
 <script>
@@ -472,6 +498,8 @@
                 banner: indexAd,
                 onLoad: false,
                 menuOpen: false,
+                signInOpen:false,
+                loginNum: 0,
 
                 // 禮物轉盤
                 giftCode: '',
@@ -489,8 +517,8 @@
                 },
 
                 // 開關
-                signSwitch: false,
-                loginNum: 0
+                signSwitch: true,
+               
             };
         },
         methods: {
@@ -503,20 +531,24 @@
             forgetLog() {
                 this.dialog.main = true;
                 this.dialog.forget = true;
+                this.signInOpen = false;
                 this.forgetVerify();
             },
             regdLog() {
                 this.dialog.main = true;
                 this.dialog.regd = true;
+                this.signInOpen = false;
             },
             giftLog() {
                 this.dialog.main = true;
                 this.dialog.gift = true;
+                this.signInOpen = false;
                 this.reGift();
             },
             todayGameLog() {
                 this.dialog.main = true;
                 this.dialog.todayGame = true;
+                this.signInOpen = false;
             },
             closeDialog() {
                 this.dialog.main = false;
@@ -570,11 +602,10 @@
         mounted() {
             this.verify("mainVerify");
             this.verify("forgetVerify");
-            this.verify("regdVerify");  
+            this.verify("regdVerify");
         },
     }).mount("#indexBox");
 </script>
-
 
 <script>
     // 啟動輪播&跑馬燈外掛
@@ -602,5 +633,7 @@
     let docRef2 = db.collection("ytMovie");
     var database = firebase.database().ref().limitToLast(50);
 </script>
+
+
 
 </html>

@@ -27,7 +27,7 @@ body {
     min-height: 188px;
     background-color: $mainBgc;
     position: relative;
-    @include rwd(1250) {
+    @include rwd(1280) {
         min-height: auto;
     }
     // hd_top start
@@ -37,11 +37,14 @@ body {
         margin: auto;
         padding: 10px 20px 0px 28px;
         display: flex;
+        flex-wrap: wrap;
         align-items: flex-end;
         justify-content: space-between;
-        @include rwd(1250) {
-            flex-direction: column;
-            align-items: flex-start;
+        @include rwd(900) {
+            justify-content: center;
+        }
+        @include rwd(350) {
+            padding: 10px;
         }
         .hd_logo {
             width: 478px;
@@ -65,7 +68,7 @@ body {
             max-width: 685px;
             height: 100%;
             padding-bottom: 20px;
-            @include rwd(1250) {
+            @include rwd(1280) {
                 align-self: flex-end;
                 padding-bottom: 0px;
             }
@@ -92,57 +95,162 @@ body {
                     height: 34px;
                 }
             }
-            li+li {
-                margin-left: 10px;
+            li + li {
+                margin-left: 8px;
+                @include rwd(350) {
+                    margin-left: 5px;
+                }
             }
-            .menuBar {
+            .menuBar,
+            .signinBar {
                 display: none;
-                @include rwd(1250) {
+                @include rwd(1280) {
                     display: block;
                 }
             }
         }
         .hd_signIn {
-            &[data-signIn="0"]>div[data-signIn="0"] {
+            height: 34px;
+            display: flex;
+            @include rwd(1280) {
+                width: 100%;
+                height: 100vh;
+                padding: 10px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 99;
+                align-items: center;
+                display: none;
+                &.on {
+                    display: flex;
+                    animation: dialogBox 0.5s forwards;
+                }
+            }
+
+            &[data-signIn="0"] .hd_signInCnt[data-signIn="0"] {
                 display: flex;
             }
-            &[data-signIn="1"]>div[data-signIn="1"] {
+            &[data-signIn="1"] .hd_signInCnt[data-signIn="1"] {
                 display: flex;
             }
-            &>div {
+            .close {
+                @include rwd(1280) {
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    position: absolute;
+                    @include pos(tblr, 0);
+                }
+            }
+
+            .title {
+                padding: 0 25px 20px;
+                margin-bottom: 47px;
+                color: #e9b21a;
+                font-size: 2.1rem;
+                font-weight: 400;
+                letter-spacing: 5px;
+                text-align: center;
+                position: relative;
+                display: none;
+                @include rwd(1280) {
+                    display: block;
+                }
+
+                @include rwd(600) {
+                    padding: 0 25px 10px;
+                    margin-bottom: 25px;
+                    font-size: 1.6em;
+                }
+
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 2px;
+                    background: linear-gradient(90deg, transparent, #71784c, transparent);
+                    position: absolute;
+                    margin: auto;
+                    @include pos(blr, 0);
+                    border-radius: 50%;
+                }
+            }
+
+            .hd_signInCnt {
                 display: none;
                 justify-content: flex-end;
-            }
-            .signIn_ipt {
-                display: flex;
-            }
-            .signIn_forget {
-                width: 155px;
-                height: 34px;
-                display: flex;
-                padding: 0 5px;
-                margin-right: 10px;
-                align-items: center;
-                background-color: #111;
-                border: 1px solid #646774;
-                box-sizing: border-box;
-                border-radius: 5px;
-                label {
+                position: relative;
+                @include rwd(1280) {
                     width: 100%;
-                    margin-right: 0;
-                    border: none;
-                    padding: 0;
+                    max-width: 779px;
+                    max-height: 95%;
+                    margin: auto;
+                    padding: 30px 20px;
+                    position: relative;
+                    flex-direction: column;
+                    background: linear-gradient(0deg, #091422, #0e263c);
+                    box-shadow: 5px 5px 10px #000;
+                    border: 1px solid transparent;
+                    border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round;
                 }
-                .hd_forget {
-                    @include btn_linear(#fff, #898989, #212121, #676767);
-                    width: 25px;
-                    height: 25px;
-                    flex-shrink: 0;
-                    & .btn_cnt {
-                        background: url(../images/icon/icon-Q.png) no-repeat center;
+
+                .signIn_close {
+                    width: 38px;
+                    height: 38px;
+                    z-index: 1;
+                    position: absolute;
+                    @include pos(tr, 15px);
+                    cursor: pointer;
+                    display: none;
+
+                    @include rwd(1280) {
+                        display: block;
+                    }
+
+                    @include rwd(600) {
+                        @include pos(tr, 5px);
+                    }
+                    &::before,
+                    &::after {
+                        content: "";
+                        width: 100%;
+                        height: 1px;
+                        margin: auto;
+                        position: absolute;
+                        @include pos(tblr, 0);
+                        background-color: #818b99;
+                    }
+                    &::before {
+                        transform: rotate(45deg);
+                    }
+                    &::after {
+                        transform: rotate(-45deg);
+                    }
+                    &:active::before,
+                    &:active::after {
+                        background-color: #ffd200;
+                    }
+                    @include hover {
+                        &:hover::before,
+                        &:hover::after {
+                            background-color: #ffd200;
+                        }
                     }
                 }
             }
+
+            .signIn_ipt {
+                display: flex;
+                @include rwd(1280) {
+                    flex-direction: column;
+                    max-height: calc(100vh - 100px);
+                    overflow-y: auto;
+                    &::-webkit-scrollbar {
+                        width: 0;
+                    }
+                }
+            }
+
             label {
                 width: 155px;
                 height: 100%;
@@ -154,6 +262,15 @@ body {
                 align-items: center;
                 border-radius: 5px;
                 display: flex;
+                @include rwd(1280) {
+                    width: 100%;
+                    height: 35px;
+                    margin: 10px 0;
+                    background-color: #100f1f;
+                    box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+                    border: none;
+                }
+
                 input {
                     width: 100%;
                     height: 100%;
@@ -170,15 +287,31 @@ body {
             .signIn_on {
                 width: 100%;
                 display: flex;
+                @include rwd(1280) {
+                    flex-direction: column;
+                }
             }
             .signIn_msg {
                 display: flex;
                 color: $clr_Txt;
                 font-size: 0.9rem;
-                &>div {
+                @include rwd(1280) {
+                    justify-content: center;
+                }
+                @include rwd(650) {
+                    flex-direction: column;
+                }
+
+                & > div {
                     display: flex;
                     align-items: center;
                     margin-right: 10px;
+                }
+
+                & > div + div {
+                    @include rwd(650) {
+                        margin-top: 15px;
+                    }
                 }
                 .signIn_icon {
                     width: 20px;
@@ -197,31 +330,195 @@ body {
                         background: url(../images/icon/icon-mail.svg);
                     }
                 }
+
+                p {
+                    @include rwd(650) {
+                        width: 100%;
+                        height: 35px;
+                        margin-left: 5px;
+                        padding-left: 10px;
+                        line-height: 35px;
+                        border-radius: 5px;
+                        background-color: #100f1f;
+                        box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+                    }
+                }
             }
-        }
-        .signIn_code {
-            height: 34px;
-            margin-right: 10px;
-            display: flex;
-            label {
-                width: 95px;
-                margin-right: 5px;
-            }
-            .nbCode {
+
+            .signIn_account,
+            .signIn_forget,
+            .signIn_code {
+                margin: 15px 0;
                 display: flex;
-                cursor: pointer;
-                user-select: none;
+                align-items: center;
+                justify-content: center;
+                @include rwd(600) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .signIn_minCnt {
+                    margin-right: 10px;
+                    display: flex;
+                    align-items: center;
+                }
             }
-        }
-        .signIn_btn {
-            display: flex;
-            flex-shrink: 0;
-            .btn {
-                min-width: 80px;
-                padding: 0 5px;
+
+            .signIn_minTitle {
+                display: none;
+                @include rwd(1280) {
+                    width: 120px;
+                    padding-right: 5px;
+                    flex-shrink: 0;
+                    text-align: right;
+                    font-weight: bold;
+                    color: #869bae;
+                    margin-right: 6px;
+                    display: inline-block;
+                }
+
+                @include rwd(600) {
+                    width: 100%;
+                    padding-bottom: 5px;
+                    text-align: left;
+                }
             }
-            .btn+.btn {
-                margin-left: 5px;
+
+            .signIn_account {
+                .signIn_minCnt {
+                    width: 155px;
+                    height: 34px;
+                    padding: 0 5px;
+                    background-color: #111;
+                    border: 1px solid #646774;
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    @include rwd(1280) {
+                        width: 100%;
+                        max-width: 390px;
+                        height: 35px;
+                        background-color: #100f1f;
+                        box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+                        border: none;
+                        @include rwd(600) {
+                            max-width: 100%;
+                        }
+                    }
+                }
+                label {
+                    width: 100%;
+                    margin-right: 0;
+                    border: none;
+                    padding: 0;
+                    @include rwd(1280) {
+                        height: 100%;
+                        background-color: none;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            .signIn_forget {
+                .signIn_minCnt {
+                    width: 155px;
+                    height: 34px;
+                    padding: 0 5px;
+                    background-color: #111;
+                    border: 1px solid #646774;
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    @include rwd(1280) {
+                        width: 100%;
+                        max-width: 390px;
+                        height: 35px;
+                        background-color: #100f1f;
+                        box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
+                        border: none;
+                    }
+                    @include rwd(600) {
+                        max-width: 100%;
+                    }
+                }
+
+                label {
+                    width: 100%;
+                    margin-right: 0;
+                    border: none;
+                    padding: 0;
+                    @include rwd(1280) {
+                        height: 100%;
+                        background-color: none;
+                        box-shadow: none;
+                    }
+                }
+                .hd_forget {
+                    @include btn_linear(#fff, #898989, #212121, #676767);
+                    width: 25px;
+                    height: 25px;
+                    flex-shrink: 0;
+                    & .btn_cnt {
+                        background: url(../images/icon/icon-Q.png) no-repeat center;
+                    }
+                }
+            }
+
+            .signIn_code {
+                .signIn_minCnt {
+                    height: 34px;
+                    @include rwd(1280) {
+                        width: 100%;
+                        max-width: 390px;
+                        height: 35px;
+                    }
+                    @include rwd(600) {
+                        max-width: 100%;
+                    }
+                }
+                label {
+                    width: 95px;
+                    margin-right: 5px;
+                    @include rwd(1280) {
+                        width: 100%;
+                    }
+                }
+                .nbCode {
+                    display: flex;
+                    cursor: pointer;
+                    user-select: none;
+                }
+            }
+
+            .signIn_btn {
+                display: flex;
+                flex-shrink: 0;
+                @include rwd(1280) {
+                    width: 550px;
+                    margin: 40px auto 0;
+                }
+
+                @include rwd(650) {
+                    width: 100%;
+                    flex-direction: column;
+                }
+                .btn {
+                    min-width: 80px;
+                    padding: 0 5px;
+                    @include rwd(1280) {
+                        flex: 1;
+                        height: 45px;
+                        line-height: 45px;
+                    }
+                }
+                .btn + .btn {
+                    margin-left: 5px;
+                    @include rwd(12800) {
+                        margin-left: 10px;
+                    }
+                    @include rwd(650) {
+                        margin-left: 0;
+                        margin-top: 10px;
+                    }
+                }
             }
         }
     }
@@ -241,7 +538,7 @@ body {
             transform: translateX(-100%);
             &.on {
                 transform: translateX(0%);
-                transition: .3s;
+                transition: 0.3s;
             }
         }
         &.on {
@@ -330,7 +627,7 @@ body {
                     max-width: 1050px;
                     cursor: pointer;
                 }
-                &>div {
+                & > div {
                     max-width: 1050px;
                     height: 35px;
                     padding: 0 15px;
@@ -355,12 +652,12 @@ body {
                 }
             }
         }
-        &>.contBox-min {
+        & > .contBox-min {
             padding: 0;
             display: flex;
             flex-direction: column;
             position: relative;
-            &>.flexEvent {
+            & > .flexEvent {
                 padding: 0 20px;
                 @include rwd(1280) {
                     padding: 0 10px;
@@ -444,7 +741,7 @@ body {
             }
         }
         .floatEvent {
-            &>img {
+            & > img {
                 display: block;
                 margin-bottom: 10px;
             }
@@ -523,7 +820,6 @@ body {
     width: 100%;
     min-height: calc(100vh - 463px);
     margin: auto;
-    // padding-bottom: 20px;
     color: #fff;
     position: relative;
 }
@@ -531,7 +827,6 @@ body {
 // ===== footer start =====
 .footer {
     width: 100%;
-    // min-width: $count-minW;
     min-height: 275px;
     margin: auto;
     color: $clr_ftTxt;
@@ -539,7 +834,7 @@ body {
     // ft_top
     .ft_top {
         background-color: #313131;
-        &>div {
+        & > div {
             width: 100%;
             max-width: 1800px;
             min-height: 160px;
@@ -565,7 +860,7 @@ body {
             ul {
                 display: flex;
             }
-            li+li {
+            li + li {
                 margin-left: 20px;
             }
             .ft_icon {
@@ -577,7 +872,7 @@ body {
     // ft_bottom
     .ft_bottom {
         background-color: #121210;
-        &>div {
+        & > div {
             max-width: 1800px;
             min-height: calc(275px - 160px);
             margin: auto;
@@ -644,7 +939,7 @@ body {
         @include rwd(500) {
             display: none;
         }
-        &>div {
+        & > div {
             margin: 10px;
             position: relative;
             pointer-events: auto;
@@ -705,7 +1000,7 @@ body {
     &.on {
         display: flex;
     }
-    &>div {
+    & > div {
         width: 100px;
         height: 100px;
         background-color: #fff;
@@ -758,7 +1053,7 @@ body {
         display: flex;
     }
     &::before {
-        content: 'loading...';
+        content: "loading...";
         margin: auto;
         color: #fff;
         position: absolute;
@@ -812,5 +1107,14 @@ body {
     100% {
         transform: rotate(360deg);
         box-shadow: 0 4px 0 0 #fff;
+    }
+}
+
+@keyframes signinBox {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
