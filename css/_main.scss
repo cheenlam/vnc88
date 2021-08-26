@@ -659,7 +659,7 @@ body {
             position: relative;
             & > .flexEvent {
                 padding: 0 20px;
-                margin-bottom: 10px;
+                margin-bottom: 0;
                 @include rwd(1280) {
                     padding: 0 10px;
                 }
