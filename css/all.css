@@ -4551,6 +4551,15 @@ body {
       flex-shrink: 0;
 }
 
+@media screen and (max-width: 800px) {
+  .fullList li .fullList2_img {
+    width: 100%;
+    height: 0;
+    margin: auto;
+    padding-bottom: 60%;
+  }
+}
+
 .fullList li .fullList_msg {
   padding: 0 30px;
   color: #a8a7a7;
