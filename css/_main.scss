@@ -87,7 +87,7 @@ body {
                 font-size: 1.1rem;
                 font-weight: bold;
                 p {
-                    margin-left: 15px;
+                    margin-left: 5px;
                     position: relative;
                 }
                 .btn_cnt {
@@ -659,8 +659,37 @@ body {
             position: relative;
             & > .flexEvent {
                 padding: 0 20px;
+                margin-bottom: 10px;
                 @include rwd(1280) {
                     padding: 0 10px;
+                }
+            }
+
+            .crumb{
+                width: 100%;
+                padding: 10px 20px;
+                margin: 0 auto 50px;
+                background: linear-gradient(90deg, transparent,#000,transparent);
+                color: #f7e6be;
+                ul{
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+                li{
+                    padding: 3px 0;
+                    position: relative;
+                    display: flex;
+                   
+                    align-items: center;
+                }
+                li+li{
+                    margin-left: 25px;
+                    &::before{
+                        content: '≫';
+                        position: absolute;
+                        left: -20px;
+                        font-weight: bold;
+                    }
                 }
             }
         }

@@ -19,7 +19,6 @@
     <script src="js/index.js"></script>
     <script src="js/pageData.js"></script>
     <title>VNC88</title>
-
 </head>
 
 <body>
@@ -35,9 +34,9 @@
                         <ul>
                             <li class="btn_linear_c1 hd_service">
                                 <div class="btn_cnt">
-                                    <img src="images/icon/icon-service.png">
+                                    <img src="images/icon/icon-email.png">
                                 </div>
-                                <p>CSKH</p>
+                                <p>EMAIL</p>
                             </li>
                             <li class="btn_linear_c1">
                                 <div class="btn_cnt">
@@ -187,6 +186,7 @@
                     </ul>
                 </div>
 
+
                 <!-- marquee start -->
                 <div class="marquee">
                     <div class="marqueeBox">
@@ -241,6 +241,15 @@
                                 <img :src="item.img">
                             </li>
                         </template>
+                        </ul>
+                    </div>
+
+                    <div class="crumb">
+                        <ul>
+                            <li>VNC88</li>
+                            <li v-for="(item,index) in crumb">
+                                <a :href="item.href">{{item.name}}</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -500,6 +509,7 @@
                 menuOpen: false,
                 signInOpen:false,
                 loginNum: 0,
+                crumb:'',
 
                 // 禮物轉盤
                 giftCode: '',
