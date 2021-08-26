@@ -30,8 +30,9 @@
         z-index: 2;
         background: linear-gradient(0deg, #091422, #0e263c);
         box-shadow: 5px 5px 10px #000;
-        border: 1px solid transparent;
+        border: 1px solid #f6bf3d;
         border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round;
+
         @include rwd(600) {
             padding: 50px 10px 30px;
         }

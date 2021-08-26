@@ -87,7 +87,7 @@ body {
                 font-size: 1.1rem;
                 font-weight: bold;
                 p {
-                    margin-left: 15px;
+                    margin-left: 5px;
                     position: relative;
                 }
                 .btn_cnt {
@@ -190,7 +190,7 @@ body {
                     flex-direction: column;
                     background: linear-gradient(0deg, #091422, #0e263c);
                     box-shadow: 5px 5px 10px #000;
-                    border: 1px solid transparent;
+                    border: 1px solid #f6bf3d;
                     border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round;
                 }
 
@@ -633,12 +633,18 @@ body {
                     padding: 0 15px;
                     display: flex;
                     align-items: center;
+                    @include rwd(500){
+                        padding: 0 10px;
+                    }
                 }
                 span {
                     flex-shrink: 0;
                     margin-right: 20px;
                     letter-spacing: 1px;
                     font-weight: bold;
+                    @include rwd(500){
+                        display: none;
+                    }
                 }
                 .btn {
                     height: 23px;
@@ -659,8 +665,37 @@ body {
             position: relative;
             & > .flexEvent {
                 padding: 0 20px;
+                margin-bottom: 0;
                 @include rwd(1280) {
                     padding: 0 10px;
+                }
+            }
+
+            .crumb{
+                width: 100%;
+                padding: 10px 20px;
+                margin: 0 auto 50px;
+                background: linear-gradient(90deg, transparent,#000,transparent);
+                color: #f7e6be;
+                ul{
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+                li{
+                    padding: 3px 0;
+                    position: relative;
+                    display: flex;
+                   
+                    align-items: center;
+                }
+                li+li{
+                    margin-left: 25px;
+                    &::before{
+                        content: '≫';
+                        position: absolute;
+                        left: -20px;
+                        font-weight: bold;
+                    }
                 }
             }
         }

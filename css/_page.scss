@@ -109,7 +109,7 @@
             }
         }
     }
-    tr+tr::before {
+    tr + tr::before {
         content: "";
         width: calc(100% - 40px);
         height: 1px;
@@ -130,6 +130,8 @@
         position: relative;
         @include rwd(1250) {
             width: 100%;
+            height: auto;
+            padding: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -158,6 +160,8 @@
         position: relative;
         @include rwd(1250) {
             width: 100%;
+            height: auto;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -255,7 +259,7 @@
                 width: 100%;
                 flex-direction: column;
             }
-            &>.btn {
+            & > .btn {
                 height: 40px;
                 border-radius: 20px;
                 flex: 1;
@@ -277,7 +281,7 @@
                     }
                 }
             }
-            &>.btn+.btn {
+            & > .btn + .btn {
                 margin-left: 10px;
                 @include rwd(1250) {
                     margin-left: 0;
@@ -292,7 +296,7 @@
 .mainMsg {
     padding: 20px 20px 50px;
     background-color: #fff;
-    &>div+div {
+    & > div + div {
         margin-top: 40px;
     }
 }
@@ -382,7 +386,7 @@
                     @include txtChip(3);
                 }
             }
-            li+li {
+            li + li {
                 margin-top: 10px;
             }
         }
@@ -417,7 +421,7 @@
                 @include txtChip(3);
             }
         }
-        li+li {
+        li + li {
             margin-left: 20px;
             @include rwd(850) {
                 margin-left: 0;
@@ -446,7 +450,7 @@
     @include rwd(1100) {
         flex-direction: column;
     }
-    &>div {
+    & > div {
         width: calc(50% - 10px);
         @include rwd(1100) {
             width: 100%;
@@ -466,7 +470,7 @@
             @include rwd(850) {
                 flex-direction: column;
             }
-            &>div {
+            & > div {
                 height: calc(50% - 5px);
                 display: flex;
                 color: #000;
@@ -578,7 +582,7 @@
         p {
             line-height: 30px;
         }
-        p+p {
+        p + p {
             margin-top: 25px;
         }
     }
@@ -595,7 +599,7 @@
     }
     .lotteryList {
         padding-left: 10px;
-        &>li {
+        & > li {
             display: flex;
             .icon {
                 width: 21px;
@@ -605,7 +609,7 @@
                 margin-right: 15px;
             }
         }
-        &>li+li {
+        & > li + li {
             margin-top: 20px;
         }
     }
@@ -644,6 +648,14 @@
             padding-bottom: 13%;
             background: no-repeat center / cover;
             flex-shrink: 0;
+            @include rwd(800) {
+                width: 100%;
+                height: 0;
+                margin: auto;
+                padding-bottom: 60%;
+            }
+
+
         }
         .fullList_msg {
             padding: 0 30px;
@@ -678,7 +690,7 @@
                 span {
                     font-size: 1rem;
                 }
-                span+span {
+                span + span {
                     margin-left: 10px;
                 }
             }
@@ -694,7 +706,7 @@
             }
         }
     }
-    li+li {
+    li + li {
         &::before {
             content: "";
             width: 100%;
@@ -729,15 +741,30 @@
             margin: 0;
         }
         .newstitle {
-            p {
+            .txt {
                 font-size: 2rem;
-                line-height: 2.2rem;
-                font-weight: bold;
+                line-height: 2.5rem;
                 @include rwd(800) {
                     font-size: 1.3rem;
                     line-height: 1.5rem;
                 }
+                p {
+                    display: inline;
+                    font-weight: bold;
+                }
+                h2 {
+                    height: 2rem;
+                    padding: 3px 5px;
+                    font-size: 1.6rem;
+                    background-color: #ea0000;
+                    color: #fff;
+                    display: inline;
+                    @include rwd(800) {
+                        font-size: 1rem;
+                    }
+                }
             }
+
             .time {
                 margin: 10px 0 20px;
                 padding: 8px 5px;
@@ -750,6 +777,9 @@
             }
         }
         .newsArticle {
+            #adbro{
+                display: none !important;
+            }
             p {
                 margin-bottom: 20px;
                 line-height: 24px;
@@ -794,7 +824,7 @@
         @include rwd(550) {
             flex-direction: column;
         }
-        &>div {
+        & > div {
             @include rwd(900) {
                 width: 50%;
             }
@@ -802,7 +832,7 @@
                 width: 100%;
             }
         }
-        &>div+div {
+        & > div + div {
             margin-top: 50px;
             @include rwd(900) {
                 margin-top: 0;
@@ -826,7 +856,7 @@
                 background-position: top center;
             }
         }
-        li+li {
+        li + li {
             margin-top: 20px;
         }
         .newsCnt_scroll {
