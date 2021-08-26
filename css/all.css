@@ -2576,6 +2576,7 @@ body {
   font-size: 1.2rem;
   font-weight: 300;
   cursor: pointer;
+  z-index: 99999;
 }
 
 .mainCnt .contBox-full .goTop img {
