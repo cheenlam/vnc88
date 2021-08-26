@@ -23,7 +23,7 @@
 
 <body>
 
-    <div id="indexBox">
+    <div id="indexBox" loading="lazy">
         <!-- ===== header start ===== -->
         <div class="header" id="header">
             <!-- hd_top start -->
@@ -644,6 +644,11 @@
     var database = firebase.database().ref().limitToLast(50);
 </script>
 
-
-
 </html>
+
+<!-- @include hover {
+    &:hover::before,
+    &:hover::after {
+        background-color: #ffd200;
+    }
+} -->

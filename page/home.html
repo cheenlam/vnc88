@@ -191,7 +191,7 @@
                 <ul>
                     <li v-for="(item,index) in newsMenu.news_b">
                         <a :href="reHref(false,index)">
-                            <div class="img" :style="getbgi(item.img)"></div>
+                            <div class="img" :style="getbgi(item.img)" loading="lazy"></div>
                         </a>
                         <p>{{item.title}}</p>
                     </li>
@@ -203,7 +203,7 @@
         <div class="mainScore">
             <div class="mainMsg-title">BONG DA TRUC TIEP</div>
             <div class="scoreCnt">
-                <iframe loading="lazy" src="https://cheenlam.github.io/vncBongdalu/" width="100%" height="600" frameborder="0">
+                <iframe src="https://cheenlam.github.io/vncBongdalu/" width="100%" height="600" frameborder="0">
                 </iframe>
             </div>
         </div>
