@@ -2402,12 +2402,24 @@ body {
           align-items: center;
 }
 
+@media screen and (max-width: 500px) {
+  .mainCnt .contBox-full .marquee .marqueeBox > div {
+    padding: 0 10px;
+  }
+}
+
 .mainCnt .contBox-full .marquee .marqueeBox span {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   margin-right: 20px;
   letter-spacing: 1px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+  .mainCnt .contBox-full .marquee .marqueeBox span {
+    display: none;
+  }
 }
 
 .mainCnt .contBox-full .marquee .marqueeBox .btn {

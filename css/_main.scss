@@ -633,12 +633,18 @@ body {
                     padding: 0 15px;
                     display: flex;
                     align-items: center;
+                    @include rwd(500){
+                        padding: 0 10px;
+                    }
                 }
                 span {
                     flex-shrink: 0;
                     margin-right: 20px;
                     letter-spacing: 1px;
                     font-weight: bold;
+                    @include rwd(500){
+                        display: none;
+                    }
                 }
                 .btn {
                     height: 23px;
