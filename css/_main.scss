@@ -176,6 +176,13 @@ body {
                 }
             }
 
+            .errorTxt{
+                display: none;
+                @include rwd(1280){
+                    display: block;
+                }
+            }
+
             .hd_signInCnt {
                 display: none;
                 justify-content: flex-end;
@@ -348,7 +355,7 @@ body {
             .signIn_account,
             .signIn_forget,
             .signIn_code {
-                margin: 15px 0;
+                margin: 5px 0;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -356,7 +363,7 @@ body {
                     flex-direction: column;
                     align-items: flex-start;
                 }
-
+               
                 .signIn_minCnt {
                     margin-right: 10px;
                     display: flex;
@@ -369,6 +376,7 @@ body {
                 @include rwd(1280) {
                     width: 120px;
                     padding-right: 5px;
+                    padding-bottom: 20px;
                     flex-shrink: 0;
                     text-align: right;
                     font-weight: bold;
@@ -385,6 +393,16 @@ body {
             }
 
             .signIn_account {
+                .signIn_iptBox{
+                    @include rwd(1280){
+                        width: 100%;
+                        max-width: 390px;
+                        height: 56px;
+                    }
+                    @include rwd(600) {
+                        max-width: 100%;
+                    }
+                }
                 .signIn_minCnt {
                     width: 155px;
                     height: 34px;
@@ -395,14 +413,11 @@ body {
                     border-radius: 5px;
                     @include rwd(1280) {
                         width: 100%;
-                        max-width: 390px;
                         height: 35px;
                         background-color: #100f1f;
                         box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
                         border: none;
-                        @include rwd(600) {
-                            max-width: 100%;
-                        }
+                       
                     }
                 }
                 label {
@@ -418,7 +433,18 @@ body {
                 }
             }
 
-            .signIn_forget {
+            .signIn_forget {   
+                .signIn_iptBox{
+                    @include rwd(1280){
+                        width: 100%;
+                        max-width: 390px;
+                        height: 56px;
+                    }
+                    @include rwd(600){
+                        max-width: 100%;
+                    }
+                }
+                
                 .signIn_minCnt {
                     width: 155px;
                     height: 34px;
@@ -429,12 +455,12 @@ body {
                     border-radius: 5px;
                     @include rwd(1280) {
                         width: 100%;
-                        max-width: 390px;
                         height: 35px;
                         background-color: #100f1f;
                         box-shadow: 0 0 6px #000 inset, 0 1px 1px #313a5c;
                         border: none;
                     }
+
                     @include rwd(600) {
                         max-width: 100%;
                     }
@@ -463,15 +489,22 @@ body {
             }
 
             .signIn_code {
+                .signIn_codeBox{
+                    width: 100%;
+                    @include rwd(1280){
+                        width: 100%;
+                        height: 56px;
+                        max-width: 390px;
+                        @include rwd(600) {
+                            max-width: 100%;
+                        }
+                    }
+                }
                 .signIn_minCnt {
                     height: 34px;
                     @include rwd(1280) {
                         width: 100%;
-                        max-width: 390px;
                         height: 35px;
-                    }
-                    @include rwd(600) {
-                        max-width: 100%;
                     }
                 }
                 label {
@@ -1021,27 +1054,7 @@ body {
     }
 }
 
-.onloading {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 999;
-    position: fixed;
-    top: 0;
-    left: 0;
-    align-items: center;
-    justify-content: center;
-    display: none;
-    &.on {
-        display: flex;
-    }
-    & > div {
-        width: 100px;
-        height: 100px;
-        background-color: #fff;
-        border-radius: 50%;
-    }
-}
+
 
 @keyframes pudding {
     0% {
@@ -1077,7 +1090,7 @@ body {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 50;
+    z-index: 999;
     align-items: center;
     justify-content: center;
     display: flex;

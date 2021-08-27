@@ -103,6 +103,14 @@
        opacity: 0;
        transition: .3s;
     }
+    
+    button{
+        background-color: transparent;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+
     &:active{
         opacity: 1;
         transform: translateY(2px);
