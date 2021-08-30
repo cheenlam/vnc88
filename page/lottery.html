@@ -65,8 +65,8 @@
                     <div class="mainMsg-title">GIỚI THIỆU NHÀ CÁI</div>
                     <!-- 博彩平台介紹 -->
                     <a href="#/lottery?p=1">
-                        <div class="news_mainImg" :style="getbgi(newsMenu.news_t.img)">
-                            <p>{{newsMenu.news_t.title}}</p>
+                        <div class="news_mainImg" :style="getbgi(newsMenu.news_t.news_t.img)">
+                            <p>{{newsMenu.news_t.news_t.title}}</p>
                         </div>
                     </a>
                 </div>
@@ -75,7 +75,7 @@
                     <!-- 最新消息 -->
                     <div class="newsList_cnt">
                         <ul>
-                            <li v-for="(item,index) in newsMenu.news_r">
+                            <li v-for="(item,index) in newsMenu.news_r.news_r">
                                 <a :href="reHref(true,index)">
                                     <div class="newsList_img" :style="getbgi(item.img)"></div>
                                 </a>
@@ -124,7 +124,11 @@
             return {
                 bet: betList,
                 wsDict: lotteryDict,
-                newsMenu: lotteryNews,
+                newsMenu: {
+                    news_t: lotteryNews,
+                    news_r: lotteryNews,
+                    news_b: [],
+                },
             };
         },
         methods: {
@@ -135,17 +139,35 @@
                 if (hot) {
                     return `#/newsRef?p=${index+6}`
                 } else {
-                    return `#/lottery?p=${index+2}`
+                    return `#/lottery/news?list=${index+2}`
                 }
+            },
+            getData() {
+                let self = this;
+                let chReady = [false];
+
+                function ready() {
+                    if (chReady[0]) {
+                        indexVue.onLoad = false;
+                    }
+                }
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/match/news",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.news_b = data;
+                        self.$nextTick(function() {
+                            chReady[0] = true;
+                            ready();
+                        })
+                    },
+                });
             },
         },
         mounted() {
+            this.getData();
             indexVue.onLoad = true;
-            this.$nextTick(function() {
-                setTimeout(function(){
-                    indexVue.onLoad = false;
-                },300)  
-            })
         },
     }).mount("#page");
 </script>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/all.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>VNC88</title>
+</head>
+
+<body>
+    <div class="qrBody" id="qrBody">
+        <div class="qrCnt">
+            <div class="qrTitle">
+                <span>{{data.title}}</span>
+                <p  v-for="(item,index) in data.secondary">{{item}}</p>
+            </div>
+            <div class="qrImg">
+                <img :src="data.img">
+            </div>
+            <div class="qrAccount">{{data.account}}</div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let zaloData = {
+        title: "Zalo",
+        secondary: ["Đăng nhập tài khoản Zalo",
+            "để kết nối với ứng dụng Zalo Chat"
+        ],
+        img: "../images/zalo.jpg",
+        account: "@arlene"
+    }
+
+    let tgData = {
+        title: "Telegram",
+        secondary: ["Đăng nhập vào Telegram bằng Mã QR", ],
+        img: "../images/tg.jpg",
+        account: "@Bella666888"
+    }
+
+    Vue.createApp({
+        data() {
+            return {
+                data: ''
+            };
+        },
+        methods: {
+            getData() {
+                let local = localStorage.getItem('qrCode')
+                switch (local) {
+                    case "zalo":
+                        this.data = zaloData;
+                        break;
+                    case "tg":
+                        this.data = tgData;
+                        break;
+                }
+            }
+        },
+        mounted() {
+            this.getData();
+        },
+    }).mount("#qrBody");
+</script>

@@ -43,15 +43,19 @@
                                     <img src="images/icon/icon-fb.png">
                                 </div>
                             </li>
-                            <li class="btn_linear_c1">
-                                <div class="btn_cnt">
-                                    <img src="images/icon/icon-zalo.png">
-                                </div>
+                            <li class="btn_linear_c1" @click="qrHref('zalo')">
+                                <a href="blankPage/qrcode.html" target="_blank">
+                                    <div class="btn_cnt">
+                                        <img src="images/icon/icon-zalo.png">
+                                    </div>
+                                </a>   
                             </li>
-                            <li class="btn_linear_c1">
-                                <div class="btn_cnt">
-                                    <img src="images/icon/icon-tg.png">
-                                </div>
+                            <li class="btn_linear_c1" @click="qrHref('tg')">
+                                <a href="blankPage/qrcode.html" target="_blank">
+                                    <div class="btn_cnt">
+                                        <img src="images/icon/icon-tg.png">
+                                    </div>
+                                </a>
                             </li>
                             <li class="btn_linear_c1 menuBar" @click="menuOpen = true">
                                 <div class="btn_cnt">
@@ -60,18 +64,19 @@
                             </li>
                             <li class="btn_linear_c1 signinBar" @click="signInOpen = true,reset()" v-if="signSwitch">
                                 <div class="btn_cnt">
-                                    <img src="images/icon/signinBar.png" v-if="loginNum == 0">
-                                    <img src="images/icon/icon-onSignin.png" v-else>
+                                    <img src="images/icon/icon-onSignin.png" v-if="mbrLogin">
+                                    <img src="images/icon/signinBar.png" v-else>
                                 </div>
                             </li>
                         </ul>
                     </div>
 
-                    <!-- 會員登入 / 註冊按鈕 -->
-                    <form @submit="ckSignIn()">
-                        <div class="hd_signIn" id="hd_signIn" :data-signIn="loginNum" :class="{'on' : signInOpen}" v-show="signSwitch">
+                    <form @submit.prevent="ckSignIn()">
+                        <div class="hd_signIn" id="hd_signIn" :class="{'on' : signInOpen}" v-show="signSwitch">
                             <div class="close" @click="signInOpen = false,reset()"></div>
-                            <div data-signIn="0" class="hd_signInCnt">
+
+                            <!-- 會員登入 / 註冊按鈕 -->
+                            <div class="hd_signInCnt" v-show="!mbrLogin">
                                 <div class="signIn_close" @click="signInOpen = false,reset()"></div>
                                 <div class="title">Đăng nhập</div>
                                 <div class="signIn_ipt">
@@ -131,7 +136,7 @@
                             </div>
 
                             <!-- 會員訊息 / 登出 -->
-                            <div data-signIn="1" class="hd_signInCnt">
+                            <div class="hd_signInCnt" v-show="mbrLogin">
                                 <div class="signIn_close" @click="signInOpen = false"></div>
                                 <div class="signIn_on">
                                     <div class="title">Thông tin tài khoản</div>
@@ -169,6 +174,7 @@
 
             <!-- hd_menu start -->
             <div class="hd_menu" id="hd_menu" :class="{'on' : menuOpen}">
+                <div class="close" @click="menuOpen = false"></div>
                 <ul>
                     <template v-for="(item,index) in hdMenu.txtList">
                         <li v-show="item.switch" @click="menuOpen = false">
@@ -202,7 +208,6 @@
                     </template>
                     </ul>
                 </div>
-
 
                 <!-- marquee start -->
                 <div class="marquee">
@@ -346,6 +351,17 @@
             <div class="load_round"></div>
         </div>
 
+        <!-- ===== warnLog start ===== -->
+        <div class="warnLog"  v-show="warn.warnSwitch" >
+            <div class="warnbody">
+                <div class="warnIcon">
+                    <img src="images/icon/tick.svg" v-if="warn.success">
+                    <img src="./images/icon/cross.svg" v-else>
+                </div>
+                <div class="warnTxt">{{warn.warnTxt}}</div>
+            </div>
+        </div>
+
         <!-- ===== dialogCnt start ===== -->
         <div class="dialogBox" id="dialogBox" :class="{'on':dialog.main}">
             <div class="close" @click="closeDialog()"></div>
@@ -395,7 +411,8 @@
             <div class="dialog_cnt_01 regd" v-show="dialog.regd">
                 <div class="close" @click="closeDialog()"></div>
                 <div class="title">Đăng kí</div>
-                <form @submit="ckRegd()">
+
+                <form @submit.prevent="ckRegd()">
                     <div class="innerBox">
                         <!-- errorCode.email -->
                         <div>
@@ -547,9 +564,9 @@
                 onLoad: false,
                 menuOpen: false,
                 signInOpen: false,
-                loginNum: 1,
+                mbrLogin: false,
                 crumb: '',
-                
+
                 // ==== 禮物轉盤 ====
                 giftCode: '',
                 giftDis: false,
@@ -566,14 +583,14 @@
                 // ==== 錯誤訊息 ====
                 errorCode: {
                     reEmail: false,
-                    notEmail:false,
+                    notEmail: false,
                     verify: false,
                     pwd: false,
                 },
-               
-                mbrMsg:{
-                    nickname:'',
-                    points:''
+
+                mbrMsg: {
+                    nickname: '',
+                    points: ''
                 },
 
                 // ==== 註冊會員 ====
@@ -601,6 +618,13 @@
                     todayGame: false,
                 },
 
+                // 成功 / 失敗警示
+                warn: {
+                    warnSwitch: false,
+                    success:false,
+                    warnTxt: ''
+                },
+
                 // ==== 開關(暫時) ====
                 signSwitch: true,
 
@@ -613,6 +637,7 @@
                 let ckAgree = this.regdMbr.agree;
                 this.errorCode.pwd = false;
                 this.errorCode.reEmail = false;
+
 
                 // 驗證碼錯誤提醒
                 this.errorCode.verify = ckCode ? false : true
@@ -637,7 +662,7 @@
                 xhr.onload = function() {
                     self.onLoad = false;
                     let res = JSON.parse(xhr.response);
-                    self.ckError(xhr.status,res)
+                    self.ckError(xhr.status, res)
                 }
             },
 
@@ -649,15 +674,17 @@
 
                 // 驗證碼錯誤提醒
                 this.errorCode.verify = ckCode ? false : true
-                if (ckCode) {
-                    this.postSignIn();
+                if (ckCode) {         
+                    this.postSignIn();             
+                }else{
+                    this.warn.warnTxt = "Sai mã xác nhận";
+                    this.showErrorLog();
                 };
             },
 
             postSignIn() {
                 let account = {};
                 let self = this;
-                self.onLoad = true;
                 account.email = String(this.signInMbr.email);
                 account.password = String(this.signInMbr.pwd);
 
@@ -667,33 +694,58 @@
                 let data = JSON.stringify(account);
                 xhr.send(data);
                 xhr.onload = function() {
-                    self.onLoad = false;
                     let res = JSON.parse(xhr.response);
-                    self.ckError(xhr.status,res)
+                    self.ckError(xhr.status, res);
+                }
+
+            },
+
+            showErrorLog(status) {
+                this.warn.success = false;
+                let w = document.body.clientWidth;
+                let self = this;
+                if (w >= 1264) {
+                    self.warn.warnSwitch = true;
+                    setTimeout(function() {
+                        self.warn.warnSwitch = false;
+                    }, 1500)
                 }
             },
 
             // ==== 確認狀態碼 ====
-            ckError(status,res) {
+            ckError(status, res) {
                 let self = this;
-                console.log(res);
-                console.log(status);
-   
                 switch (status) {
                     case 200:
                         self.closeDialog();
                         self.onLogin(res);
                         self.mbrMsg.nickname = res.nickname;
                         self.mbrMsg.points = res.points;
+
+                        self.warn.warnTxt = "登陸成功,即將跳轉首頁";
+                        self.warn.warnSwitch = true;
+                        self.warn.success = true;
+                        setTimeout(function() {
+                            location.href = "#/home";
+                            self.warn.warnSwitch = false
+                        }, 2000)
+
                         break;
                     case 400:
                         break;
                     case 403:
-                        self.errorCode.pwd = true; break;
+                        self.errorCode.pwd = true;
+                        this.warn.warnTxt = "Sai mật khẩu";
+                        self.showErrorLog();
+                        break;
                     case 404:
-                        self.errorCode.notEmail = true; break;
+                        self.errorCode.notEmail = true;
+                        this.warn.warnTxt = "Email không tồn tại";
+                        self.showErrorLog();
+                        break;
                     case 409:
-                        self.errorCode.reEmail = true; break;
+                        self.errorCode.reEmail = true;
+                        break;
                 }
             },
 
@@ -702,7 +754,7 @@
                 this.errorCode.reEmail = false;
                 this.errorCode.notEmail = false;
                 this.errorCode.verify = false;
-                this.errorCode.pwd  = false;
+                this.errorCode.pwd = false;
 
                 // 清除所有輸入
                 this.regdMbr.email = '';
@@ -716,18 +768,39 @@
                 this.signInMbr.code = '';
             },
 
-            onLogin(res){
-                this.loginNum = 1;
-                console.log(res.token);
-                sessionStorage.setItem('token',res.token); 
+            ckLogin() {
+                let session = sessionStorage.getItem('session');
+                let self = this;
+
+                if (session == null) {
+                    this.mbrLogin = false;
+                } else {
+                    this.mbrLogin = true;
+                    let data = JSON.parse(session);
+                    this.mbrMsg.nickname = data.nickname;
+                    this.mbrMsg.points = data.points;
+                }
             },
-            offLogin(){
-                this.loginNum = 0
+            onLogin(res) {
+                sessionStorage.setItem('session', JSON.stringify(res));
+                this.ckLogin();
+            },
+
+            offLogin() {
+                let self = this;
+                sessionStorage.removeItem('session');
+                this.verify("mainVerify");
                 this.closeDialog();
+                this.ckLogin();
+
+                // 登出返回首頁並出現load
+                self.onLoad = true;
                 location.href = "#/home";
-                sessionStorage.removeItem('token');
+                setTimeout(function() {
+                    self.onLoad = false;
+                }, 300)
             },
-            
+
 
             // ==== 主頁面卷軸置頂 ====
             goTop() {
@@ -832,16 +905,18 @@
                 } else {
                     return `transform: rotate(0deg);transition: 0s`
                 }
+            },
+
+            // ==== qrCode ====
+            qrHref(data){
+                localStorage.setItem('qrCode',data)
             }
         },
         mounted() {
             this.verify("mainVerify");
             this.verify("forgetVerify");
             this.verify("regdVerify");
-           
-            if(sessionStorage.getItem('token') != null){
-                this.loginNum = 1;
-            }
+            this.ckLogin()
         },
     }).mount("#indexBox");
 </script>

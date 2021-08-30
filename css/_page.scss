@@ -741,6 +741,7 @@
             margin: 0;
         }
         .newstitle {
+            margin-bottom: 30px;
             .txt {
                 font-size: 2rem;
                 line-height: 2.5rem;
@@ -756,6 +757,7 @@
                     height: 2rem;
                     padding: 3px 5px;
                     font-size: 1.6rem;
+                    margin-right: 5px;
                     background-color: #ea0000;
                     color: #fff;
                     display: inline;
@@ -777,6 +779,12 @@
             }
         }
         .newsArticle {
+            line-height: 25px;
+            .size-full{
+                height: auto !important;
+                margin: 20px 0;
+            }
+            .adbro-autotester-satellite,
             #adbro{
                 display: none !important;
             }

@@ -9,11 +9,12 @@ Router.prototype.route = function(path, callback) {
 };
 Router.prototype.refresh = function() {
     // 路由清單
-    let routerList = ['', 'home', 'lottery', 'news', 'broadcast', 'forum', 'resources', 'game','member','member/message','member/changePwd','member/wallet'];
+    let routerList = ['', 'home', 'lottery', 'news', 'broadcast', 'forum', 'resources', 'game', 'member', 'member/message', 'member/changePwd', 'member/wallet'];
 
-    for (let i = 0; i < 99; i++){
+    for (let i = 0; i < 99; i++) {
         routerList.push(`home/news?list=${i}`)
         routerList.push(`news/news?list=${i}`)
+        routerList.push(`lottery/news?list=${i}`)
     }
 
     for (let i = 0; i < 99; i++) {
@@ -57,9 +58,8 @@ window.Router.init();
 Router.route('/home', function() {
     mainInclude('page/home.html');
     menuList_on(0);
-
     let data = [
-        {name:"TRANG CHỦ"}
+        { name: "TRANG CHỦ" }
     ];
     chCrumb(data);
 });
@@ -68,17 +68,17 @@ Router.route('/lottery', function() {
     menuList_on(1);
 
     let data = [
-        {name:"Đề xuất cá cược"}
+        { name: "Đề xuất cá cược" }
     ];
     chCrumb(data);
-   
+
 });
 Router.route('/news', function() {
     mainInclude('page/news.html');
     menuList_on(2);
 
     let data = [
-        {name:"Tin tức"}
+        { name: "Tin tức" }
     ];
     chCrumb(data);
 });
@@ -87,7 +87,7 @@ Router.route('/broadcast', function() {
     menuList_on(3);
 
     let data = [
-        {name:"Video đá bóng"}
+        { name: "Video đá bóng" }
     ];
     chCrumb(data);
 });
@@ -96,7 +96,7 @@ Router.route('/forum', function() {
     menuList_on(4);
 
     let data = [
-        {name:"Diễn đàn thảo luận"}
+        { name: "Diễn đàn thảo luận" }
     ];
     chCrumb(data);
 });
@@ -105,7 +105,7 @@ Router.route('/resources', function() {
     menuList_on(5);
 
     let data = [
-        {name:"Thông tin"}
+        { name: "Thông tin" }
     ];
     chCrumb(data);
 });
@@ -114,18 +114,18 @@ Router.route('/game', function() {
     menuList_on(6);
 
     let data = [
-        {name:"trò chơi"}
+        { name: "trò chơi" }
     ];
     chCrumb(data);
 });
 
 Router.route('/member', function() {
     mainInclude('page/mbrMsg.html');
-   $('#hd_menu li').removeClass('on')
+    $('#hd_menu li').removeClass('on')
 
     let data = [
-        {href:"#/member",name:"Thông tin tài khoản"},
-        {name:"帳戶資料"}
+        { href: "#/member", name: "Thông tin tài khoản" },
+        { name: "帳戶資料" }
     ];
     chCrumb(data);
 });
@@ -135,19 +135,19 @@ Router.route('/member/message', function() {
     $('#hd_menu li').removeClass('on')
 
     let data = [
-        {href:"#/member",name:"Thông tin tài khoản"},
-        {name:"帳戶資料"}
+        { href: "#/member", name: "Thông tin tài khoản" },
+        { name: "帳戶資料" }
     ];
     chCrumb(data);
 });
 
 Router.route('/member/changePwd', function() {
     mainInclude('page/changePwd.html');
-   $('#hd_menu li').removeClass('on')
+    $('#hd_menu li').removeClass('on')
 
     let data = [
-        {href:"#/member",name:"Thông tin tài khoản"},
-        {name:"變更密碼"}
+        { href: "#/member", name: "Thông tin tài khoản" },
+        { name: "變更密碼" }
     ];
     chCrumb(data);
 });
@@ -159,17 +159,16 @@ for (let i = 0; i < 99; i++) {
     Router.route(`/home/news?list=${i}`, function() {
         mainInclude('page/newsCnt/news_home.html');
         menuList_on(0);
-        sessionStorage.setItem('news_h',i)
+        sessionStorage.setItem('news_h', i)
 
         let data = [
-            {href:"#/home",name:"TRANG CHỦ"},
+            { href: "#/home", name: "TRANG CHỦ" },
         ];
-    
-        if(i< 6){
-            data.push({name:"Tin quan trọng"})
-        }
-        else{
-            data.push({name:"Tin hot"})
+
+        if (i < 6) {
+            data.push({ name: "Tin quan trọng" })
+        } else {
+            data.push({ name: "Tin hot" })
         }
         chCrumb(data);
     });
@@ -178,17 +177,35 @@ for (let i = 0; i < 99; i++) {
     Router.route(`/news/news?list=${i}`, function() {
         mainInclude('page/newsCnt/news_news.html');
         menuList_on(2);
-        sessionStorage.setItem('news_n',i)
+        sessionStorage.setItem('news_n', i)
 
         let data = [
-            {href:"#/news",name:"Tin tức"},
+            { href: "#/news", name: "Tin tức" },
         ];
-    
-        if(i< 7){
-            data.push({name:"Tin quan trọng"})
+
+        if (i < 7) {
+            data.push({ name: "Tin quan trọng" })
+        } else {
+            data.push({ name: "Tin hot" })
         }
-        else{
-            data.push({name:"Tin hot"})
+        chCrumb(data);
+    });
+
+    // 博彩內頁新聞
+    Router.route(`/lottery/news?list=${i}`, function() {
+        mainInclude('page/newsCnt/news_lottery.html');
+        menuList_on(1);
+        sessionStorage.setItem('news_l', i);
+
+
+        let data = [
+            { href: "#/lottery", name: "Đề xuất cá cược" },
+        ];
+
+        if (i < 6) {
+            data.push({ name: "Tin quan trọng" })
+        } else {
+            data.push({ name: "Tin hot" })
         }
         chCrumb(data);
     });
@@ -201,12 +218,12 @@ for (let i = 1; i < 99; i++) {
         location = location
         mainInclude(`newsRef/newsRef_${i}.html`);
         menuList_on(0);
-        sessionStorage.setItem('new_newsRef',i);
-        sessionStorage.setItem('new_lottery',0);
+        sessionStorage.setItem('new_newsRef', i);
+        sessionStorage.setItem('new_lottery', 0);
 
         let data = [
-            {href:"#/lottery",name:"Đề xuất cá cược"},
-            {name:"Tin hot"}
+            { href: "#/lottery", name: "Đề xuất cá cược" },
+            { name: "Tin hot" }
         ];
         chCrumb(data);
     });
@@ -217,15 +234,14 @@ for (let i = 1; i < 99; i++) {
         menuList_on(0);
 
         let data = [
-            {href:"#/home",name:"TRANG CHỦ"},
+            { href: "#/home", name: "TRANG CHỦ" },
         ];
 
-        if(i == 1){
-            data.push({name:"Danh sách"})
-        }
-        else{
-            data.push({href:"#/lotteryRef?p=1", name:"Danh sách"})
-            data.push({name:"Tin hot"})
+        if (i == 1) {
+            data.push({ name: "Danh sách" })
+        } else {
+            data.push({ href: "#/lotteryRef?p=1", name: "Danh sách" })
+            data.push({ name: "Tin hot" })
         }
         chCrumb(data);
     });
@@ -234,12 +250,12 @@ for (let i = 1; i < 99; i++) {
         location = location
         mainInclude(`page/news/news_${i}.html`);
         menuList_on(2);
-        sessionStorage.setItem('new_selfNews',i);
-        sessionStorage.setItem('new_lottery',0);
+        sessionStorage.setItem('new_selfNews', i);
+        sessionStorage.setItem('new_lottery', 0);
 
         let data = [
-            {href:"#/news",name:"Tin tức"},
-            {name:"Tin hot"}
+            { href: "#/news", name: "Tin tức" },
+            { name: "Tin hot" }
         ];
         chCrumb(data);
     });
@@ -248,12 +264,12 @@ for (let i = 1; i < 99; i++) {
         location = location
         mainInclude(`page/lottery/lottery_${i}.html`);
         menuList_on(1);
-        sessionStorage.setItem('new_lottery',i);
-        sessionStorage.setItem('new_newsRef',0);
+        sessionStorage.setItem('new_lottery', i);
+        sessionStorage.setItem('new_newsRef', 0);
 
         let data = [
-            {href:"#/lottery",name:"Đề xuất cá cược"},
-            {name:"Tin quan trọng"}
+            { href: "#/lottery", name: "Đề xuất cá cược" },
+            { name: "Tin quan trọng" }
         ];
         chCrumb(data);
     });
@@ -262,11 +278,11 @@ for (let i = 1; i < 99; i++) {
         location = location
         mainInclude(`page/resources/resources_${i}.html`);
         menuList_on(5);
-        sessionStorage.setItem('new_resources',i)
+        sessionStorage.setItem('new_resources', i)
 
         let data = [
-            {href:"#/resources",name:"Thông tin"},
-            {name:"Tin hot"}
+            { href: "#/resources", name: "Thông tin" },
+            { name: "Tin hot" }
         ];
         chCrumb(data);
     });
@@ -285,18 +301,16 @@ function mainInclude(src) {
             $("#content").html(html);
         },
         // 發送前
-        beforeSend: function() {
-        },
+        beforeSend: function() {},
         // 完成
-        complete: function() {
-        },
+        complete: function() {},
         error: function(error) {
             location.href = "#/home"
         }
     });
 }
 
-function chCrumb(data){
+function chCrumb(data) {
     indexVue.crumb = data;
     window.scrollTo({ top: 0 });
 }

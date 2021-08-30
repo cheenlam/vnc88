@@ -36,7 +36,7 @@
         @include rwd(600) {
             padding: 50px 10px 30px;
         }
- 
+
         .close {
             width: 38px;
             height: 38px;
@@ -140,8 +140,8 @@
                     text-align: left;
                 }
             }
-            
-            .innerList{
+
+            .innerList {
                 width: 100%;
                 height: 35px;
             }
@@ -248,10 +248,10 @@
                 background: url(../images/icon/icon-tick.png) no-repeat center / 90%;
             }
         }
-        .codeIpt{
-            width: 100%; 
-            height: 35px;    
-            &>div{
+        .codeIpt {
+            width: 100%;
+            height: 35px;
+            & > div {
                 height: 100%;
                 display: flex;
             }
@@ -264,7 +264,7 @@
             margin: 50px auto 0;
             height: 45px;
             line-height: 45px;
-            @include rwd(600){
+            @include rwd(600) {
                 max-width: 100%;
             }
         }
@@ -285,7 +285,6 @@
                     margin-left: 0;
                 }
             }
-           
         }
         div.btn {
             height: 45px;
@@ -337,7 +336,7 @@
 
                 @include hover {
                     &:hover {
-                        border: 1px solid #F8A959;
+                        border: 1px solid #f8a959;
                     }
                 }
             }
@@ -365,12 +364,12 @@
             }
             &:active::before,
             &:active::after {
-                background-color: #F8A959;
+                background-color: #f8a959;
             }
             @include hover {
                 &:hover::before,
                 &:hover::after {
-                    background-color: #F8A959;
+                    background-color: #f8a959;
                 }
             }
         }
@@ -532,7 +531,7 @@
             @include pos(bl, -10%, -40%);
             z-index: 1;
 
-            @include rwd(500){
+            @include rwd(500) {
                 display: none;
             }
         }
@@ -557,8 +556,8 @@
             align-items: center;
             position: relative;
 
-            @include rwd(500){
-               padding: 20vw 0 20px;
+            @include rwd(500) {
+                padding: 20vw 0 20px;
             }
 
             &::before {
@@ -593,15 +592,15 @@
                 border-radius: 5px;
                 line-height: 50px;
 
-                @include rwd(500){
+                @include rwd(500) {
                     width: 90%;
                 }
 
-                @include rwd(370){
+                @include rwd(370) {
                     width: 90%;
                     font-size: 1.6rem;
                     line-height: 35px;
-                }         
+                }
             }
             .btn {
                 width: 60%;
@@ -615,7 +614,7 @@
         }
     }
     // 錯誤訊息
-    @at-root .errorTxt{
+    @at-root .errorTxt {
         padding: 5px 0 0 5px;
         color: rgb(241, 41, 41);
         font-size: 0.9rem;
@@ -650,4 +649,86 @@
     100% {
         opacity: 1;
     }
+}
+
+// ===== loading start =====
+.loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    &.on {
+        display: flex;
+    }
+    &::before {
+        content: "loading...";
+        margin: auto;
+        color: #fff;
+        position: absolute;
+        @include pos(tbrl, 0);
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.5;
+        animation: load_txt 2s linear infinite;
+    }
+    .load_round {
+        animation: load_round 1s linear infinite;
+        width: 160px;
+        height: 160px;
+        top: 20px;
+        left: 20px;
+        border-radius: 50%;
+        box-shadow: 0 4px 0 0 #fff;
+        transform-origin: 80px 82px;
+    }
+}
+
+// ===== warnLog start =====
+.warnLog {
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .warnbody {
+        width: 100%;
+        max-width: 350px;
+        padding: 30px 10px;
+        background: linear-gradient(0deg, #091422, #0e263c);
+        box-shadow: 5px 5px 10px #000;
+        border: 1px solid #f6bf3d;
+        border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round; 
+    }
+
+    .warnIcon{
+        width: 85px;
+        margin: 0 auto 40px;
+    }
+
+    .warnTxt{
+        color: #fff;
+        text-align: center;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+
 }

@@ -216,22 +216,17 @@
                 </li>
             </ul>
         </div>
-
+        
         <!-- mainRec start -->
         <div class="mainRec">
             <div id="mainCarousel" class="mainCarousel">
                 <ul class="sw-slides">
-                    <li class="sw-slide">
-                        <img src="images/carousel/minBanner-01.jpg">
-                    </li>
-                    <li class="sw-slide">
-                        <img src="images/carousel/minBanner-01.jpg">
-                    </li>
-                    <li class="sw-slide">
-                        <img src="images/carousel/minBanner-01.jpg">
-                    </li>
-                    <li class="sw-slide">
-                        <img src="images/carousel/minBanner-01.jpg">
+                    <li class="sw-slide" v-for="(item,index) in carousel" >
+                        <a :href="relotteryHref(index)" :style="getbgi(item.img)">
+                            <div class="title">
+                                <span>{{item.title}}</span>    
+                            </div>
+                        </a> 
                     </li>
                 </ul>
             </div>
@@ -286,6 +281,7 @@
                     news_r: '',
                 },
                 rec: homeRec,
+                carousel:'',
                 wsDict: homeWsDict,
             };
         },
@@ -300,14 +296,18 @@
                     return `#/home/news?list=${index+2}`
                 }
             },
-
+            relotteryHref(index){
+                return `#/lottery/news?list=${index+2}`
+            },
+            
             getMenu() {
                 let self = this;
-                let chReady = [false, false, false];
+                let chReady = [false, false, false, false];
 
                 function ready() {
-                    if (chReady[0] && chReady[1] && chReady[2]) {
+                    if (chReady[0] && chReady[1] && chReady[2] && chReady[3]) {
                         indexVue.onLoad = false;
+                        $('#mainCarousel').swipeslider(); // 啟動輪播外掛
                     }
                 }
 
@@ -348,6 +348,16 @@
                         })
                     },
                 });
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/match/news",
+                    dataType: "json",
+                    success: function(data) {
+                        self.carousel = data;
+                        chReady[3] = true;
+                        ready();
+                    },
+                });
             },
         },
         mounted() {
@@ -355,8 +365,4 @@
             indexVue.onLoad = true;
         },
     }).mount("#page");
-
-
-    // 啟動輪播外掛
-    $('#mainCarousel').swipeslider();
 </script>

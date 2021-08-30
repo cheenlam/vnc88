@@ -1,0 +1,39 @@
+.qrBody{
+    width: 100vw;
+    height: 100vh;
+    padding: 0 20px;
+    background: url(../images/qrBgi.jpg) no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @at-root .qrCnt{
+        width: 100%;
+        max-width: 350px;
+        color: #0164f3;
+
+        @at-root .qrTitle{
+            text-align: center;
+            font-size: 0.8rem;
+            span{
+                font-size: 2.5rem;
+                font-weight: bold;
+                display: block;
+                padding-bottom: 3px;
+            }
+        }
+    
+        @at-root .qrImg{
+            width: 100%;
+            max-width: 300px;
+            margin: 15px auto;
+            box-shadow:  2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        @at-root .qrAccount{
+            color: #313131;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+    }
+}

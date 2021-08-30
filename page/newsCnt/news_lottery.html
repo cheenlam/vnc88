@@ -1,0 +1,127 @@
+<div class="contBox-min">
+    <div class="newsCnt" id="newsCnt">
+        <div class="newsCnt_main">
+            <div class="newstitle">
+                <div class="txt">
+                    <h2>VNC88.com</h2>
+                    <p>{{newsMain.newsTitle}}</p>
+                </div>
+            </div>
+            <div class="newsArticle" v-html="newsMain.newsContent">
+            </div>
+        </div>
+
+        <div class="newsCnt_menu">
+            <div>
+                <div class="mainMsg-title">Tin hot</div>
+                <div class="newsCnt_scroll">
+                    <ul>
+                        <template v-for="(item,index) in newsMenu.newsHot.news_r">
+                            <li>
+                                <a :href="reHref(true,index)">
+                                    <div class="img" :style="getbgi(item.img)"></div>
+                                    <p>{{item.title}}</p>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="mainMsg-title">Tin quan trọng</div>
+                <div class="newsCnt_scroll">
+                    <ul>
+                        <li >
+                            <a href="#/lottery?p=1">
+                                <div class="img" :style="getbgi(newsMenu.newsImp_t.img)"></div>
+                                <p></p>
+                            </a>
+                        </li>
+                        <template v-for="(item,index) in newsMenu.newsImp_b">
+                            <li  v-if="localNum != index+2">
+                                <a :href="reHref(false,index)">
+                                    <div class="img" :style="getbgi(item.img)"></div>
+                                    <p>{{item.title}}</p>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                newsMain: {
+                    newsTitle: '',
+                    newsTime: '',
+                    newsContent: '',
+                },
+
+                newsMenu: {
+                    newsHot: lotteryNews,
+                    newsImp_t: lotteryNews.news_t,
+                    newsImp_b: [],
+                },
+
+                menu_b: '',
+                localNum: 1,
+            };
+        },
+        methods: {
+            getbgi(data) {
+                return `background-image: url(${data})`;
+            },
+            reHref(hot, index) {
+                if (hot) {
+                    return `#/newsRef?p=${index+1}`
+                } else {
+                    return `#/lottery/news?list=${index+2}`
+                }
+
+            },
+            getMenu() {
+                let self = this;
+                let getLocal_l = sessionStorage.getItem('news_l');
+                self.localNum = sessionStorage.getItem('news_l');
+
+                let chReady = [false];
+
+                function ready() {
+                    if (chReady[0]) {
+                        indexVue.onLoad = false;
+
+                        let eashImg = document.querySelectorAll('.size-full');
+                        eashImg.forEach(function(item) {
+                            let getSrc = item.getAttribute("data-lazy-src")
+                            item.setAttribute("src", getSrc)
+                        })
+                    }
+                }
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/match/news",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.newsImp_b = data;
+                        self.newsMain.newsTitle = data[getLocal_l - 2].title;
+                        self.newsMain.newsContent = data[getLocal_l - 2].content;
+
+                        self.$nextTick(function() {
+                            chReady[0] = true;
+                            ready();
+                        })
+                    },
+                });
+            }
+        },
+        mounted() {
+            this.getMenu();
+            indexVue.onLoad = true;
+        },
+    }).mount("#newsCnt");
+</script>

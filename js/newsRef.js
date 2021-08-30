@@ -17,7 +17,7 @@ Vue.createApp({
             if (hot) {
                 return `#/newsRef?p=${index+1}`
             } else {
-                return `#/lottery?p=${index+2}`
+                return `#/lottery/news?list=${index+2}`
             }
         },
         reHref_l(index) {

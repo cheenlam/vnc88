@@ -128,12 +128,6 @@ body {
                 }
             }
 
-            &[data-signIn="0"] .hd_signInCnt[data-signIn="0"] {
-                display: flex;
-            }
-            &[data-signIn="1"] .hd_signInCnt[data-signIn="1"] {
-                display: flex;
-            }
             .close {
                 @include rwd(1280) {
                     width: 100%;
@@ -184,7 +178,7 @@ body {
             }
 
             .hd_signInCnt {
-                display: none;
+                display: flex;
                 justify-content: flex-end;
                 position: relative;
                 @include rwd(1280) {
@@ -515,9 +509,12 @@ body {
                     }
                 }
                 .nbCode {
+                    width: 80px;
                     display: flex;
                     cursor: pointer;
                     user-select: none;
+                    overflow: hidden;
+                    flex-shrink: 0;
                 }
             }
 
@@ -561,12 +558,11 @@ body {
         margin: auto;
         height: 48px;
         background: linear-gradient(90deg, transparent 10%, #000, transparent 90%);
-        @include rwd(1250) {
+        @include rwd(1280) {
             width: 100vw;
             height: 100vh;
             position: fixed;
-            @include pos(tl, 0);
-            background: rgba(0, 0, 0, 0.8);
+            @include pos(tl, 0);   
             z-index: 20;
             transform: translateX(-100%);
             &.on {
@@ -580,6 +576,14 @@ body {
             top: 0;
             z-index: 20;
         }
+
+        .close{
+            @include rwd(1280){
+                width: 100%;
+                height: 100%;
+            }
+        }
+
         ul {
             width: 100%;
             max-width: $count-minW;
@@ -591,15 +595,17 @@ body {
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-around;
-            @include rwd(1250) {
-                width: 85%;
-                max-width: 300px;
+            @include rwd(1280) {
+                width: 80%;
                 min-width: 250px;
                 margin: unset;
                 padding: 20px;
                 background: #0b2139 url(../images/bodyBg.jpg) no-repeat;
                 display: block;
                 border-right: 1px solid #ebba48;
+                position: absolute;
+                top: 0;
+                left: 0;
             }
         }
         li {
@@ -609,7 +615,7 @@ body {
             color: $clr_Txt;
             line-height: 48px;
             transition: 0.3s;
-            @include rwd(1250) {
+            @include rwd(1280) {
                 width: 100%;
                 height: unset;
             }
@@ -1083,47 +1089,7 @@ body {
     }
 }
 
-.loading {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 999;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: none;
-    &.on {
-        display: flex;
-    }
-    &::before {
-        content: "loading...";
-        margin: auto;
-        color: #fff;
-        position: absolute;
-        @include pos(tbrl, 0);
-        font-size: 1.4rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0.5;
-        animation: load_txt 2s linear infinite;
-    }
-    .load_round {
-        animation: load_round 1s linear infinite;
-        width: 160px;
-        height: 160px;
-        top: 20px;
-        left: 20px;
-        border-radius: 50%;
-        box-shadow: 0 4px 0 0 #fff;
-        transform-origin: 80px 82px;
-    }
-}
+
 
 @keyframes load_txt {
     0%,
