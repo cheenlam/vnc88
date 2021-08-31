@@ -1735,6 +1735,12 @@ body {
   margin-bottom: 12px;
 }
 
+.header .hd_top .hd_link a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .header .hd_top .hd_link ul {
   width: 100%;
   display: -webkit-box;

@@ -53,13 +53,15 @@
         },
         methods: {
             getData() {
-                let local = localStorage.getItem('qrCode')
-                switch (local) {
+                let codeSort = localStorage.getItem('qrCode')
+                switch (codeSort) {
                     case "zalo":
                         this.data = zaloData;
+                        document.title= 'VNC88 (Zalo)';
                         break;
                     case "tg":
                         this.data = tgData;
+                        document.title= 'VNC88 (Telegram)';
                         break;
                 }
             }
