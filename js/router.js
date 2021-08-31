@@ -120,34 +120,29 @@ Router.route('/game', function() {
 });
 
 Router.route('/member', function() {
-    mainInclude('page/mbrMsg.html');
-    $('#hd_menu li').removeClass('on')
-
-    let data = [
-        { href: "#/member", name: "Thông tin tài khoản" },
-        { name: "帳戶資料" }
-    ];
-    chCrumb(data);
+    mbrPage()
 });
-
 Router.route('/member/message', function() {
+    mbrPage()
+});
+function mbrPage(){
     mainInclude('page/mbrMsg.html');
-    $('#hd_menu li').removeClass('on')
-
+    menuList_on(0);
+    sessionStorage.setItem('mbrSelect', 0)
     let data = [
         { href: "#/member", name: "Thông tin tài khoản" },
-        { name: "帳戶資料" }
+        { name: "Thông tin tài khoản" }
     ];
     chCrumb(data);
-});
+}
 
 Router.route('/member/changePwd', function() {
-    mainInclude('page/changePwd.html');
-    $('#hd_menu li').removeClass('on')
-
+    mainInclude('page/mbrMsg.html');
+    menuList_on(0);
+    sessionStorage.setItem('mbrSelect', 1)
     let data = [
         { href: "#/member", name: "Thông tin tài khoản" },
-        { name: "變更密碼" }
+        { name: "Cập nhật mật khẩu" }
     ];
     chCrumb(data);
 });

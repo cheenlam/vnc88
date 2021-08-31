@@ -1,15 +1,29 @@
 .mbrBox{
-    padding: 40px;
+    padding: 40px 10px;
     background-color: #fff;
     color: #333;
 
     @at-root .mbrSelect{
-        padding-bottom: 50px;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+        @include rwd(800){
+           display: flex;
+        }
         .btn{
             padding: 0 10px;
             @extend .btn_linear_c2;
+            height: 40px;
+            line-height: 40px;
+
+            @include rwd(800){
+                width: 50%;
+                flex: 1;
+            }
             &.on{
                 @extend .btn_linear_c1;
+                height: 40px;
+                line-height: 40px;
             }
         }
         .btn+.btn{
@@ -18,7 +32,7 @@
     }
     @at-root .mbrMsg{
         max-width: 1000px;
-        padding-bottom: 50px;
+        padding-bottom: 80px;
         margin: auto;
         font-size: 1.2rem;
         ul{
@@ -32,11 +46,21 @@
             padding: 15px 0;
             display: flex;
             align-items: center;
+
+            @include rwd(800){
+               flex-direction: column;
+            }
         }
         @at-root .mbrl_title{
             width: 150px;
             flex-shrink: 0;
             font-weight: bold;
+            @include rwd(800){
+                width: 100%;
+                margin-bottom: 5px;
+                padding: 5px;
+                background-color: #e5e5e5;
+            }
         }
         @at-root .mbrl_content{
             width: 100%;
@@ -121,13 +145,30 @@
     @at-root .mbrbtn{
         display: flex;
         justify-content: center;
+        @include rwd(500){
+           flex-direction: column;
+        }
         .btn{
+            min-width: 150px;
             height: 40px;
             line-height: 40px;
             padding: 0 10px;
+
+            @include rwd(800){
+                width: 50%;
+                flex: 1;
+            }
+
+            @include rwd(500){
+                width: 100%;
+            }
         }
         .btn+.btn{
             margin-left: 10px;
+            @include rwd(500){
+                margin-left: 0;
+                margin-top: 10px;
+            }
         }
     }
 

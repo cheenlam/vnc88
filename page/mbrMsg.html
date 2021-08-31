@@ -1,98 +1,140 @@
 <div class="contBox-min" id="page">
     <div class="mbrBox">
         <div class="mbrSelect" id="mbrSelect">
-            <div class="btn on">
+            <div class="btn" :class="{'on':mbrSelect == 0}">
                 <a href="#/member/message">
-                    <div class="btn_cnt">基本な信念</div>
+                    <div class="btn_cnt">Thông tin tài khoản</div>
                 </a>
             </div>
-            <div class="btn">
-                <a href="#/member/changePwd">
-                    <div class="btn_cnt">パスワードを変更</div>
+            <div class="btn" :class="{'on':mbrSelect == 1}">
+                <a href="#/member/changePwd" >
+                    <div class="btn_cnt">Cập nhật mật khẩu</div>
                 </a>
             </div>
         </div>
 
-        <div class="mbrMsg">
-            <ul>
-                <li>
-                    <div class="mbrl_title">登入識別</div>
-                    <div class="mbrl_txt">google</div> 
-                </li>
-                <li>
-                    <div class="mbrl_title">會員等級</div>
-                    <div class="mbrl_txt">普通</div> 
-                </li>
-                <li>
-                    <div class="mbrl_title">性別</div>
-                    <div class="mbrl_radio">
-                        <label>
-                            <input type="radio" name="gender" checked>
-                            <span>男</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="gender">
-                            <span>女</span>
-                        </label>
-                    </div>
-                </li>
-                <li>
-                    <div class="mbrl_title">真實姓名</div>
-                    <div class="mbrl_ipt">
-                        <input type="text">
-                    </div>
-                </li>
-                <li>
-                    <div class="mbrl_title">國籍</div>
-                    <div class="mbrl_ipt">
-                        <input type="text">
-                    </div>
-                </li>
-                <li>
-                    <div class="mbrl_title">會員暱稱</div>
-                    <div class="mbrl_ipt">
-                        <input type="text">
-                    </div>
-                </li>
-                <li>
-                    <div class="mbrl_title">生日</div>
-                    <div class="mbrl_date">
-                        <input type="date">
-                    </div>
-                </li>
-                <li>
-                    <div class="mbrl_title">E-MAIL</div>
-                    <div class="mbrl_ipt">
-                        <input type="text">
-                    </div>
-                </li>
-                <li>
-                    <div class="mbrl_title">ZALO</div>
-                    <div class="mbrl_ipt">
-                        <input type="text">
-                    </div>
-                </li>
-                <li>
-                    <div class="mbrl_title">最後登陸時間</div>
-                    <div class="mbrl_txt">2021-08-04</div> 
-                </li>
-                <li>
-                    <div class="mbrl_title">我的錢包</div>
-                    <div class="mbrl_txt">
-                        <span>9527</span>
-                        <div class="icon_refresh"></div>
-                    </div> 
-                </li>
-            </ul>
+        <div class="innerBox_mbrMsg" v-show="mbrSelect == 0">
+            <div class="mbrMsg">
+                <ul>
+                    <li>
+                        <div class="mbrl_title">登入識別</div>
+                        <div class="mbrl_txt">google</div> 
+                    </li>
+                    <li>
+                        <div class="mbrl_title">會員等級</div>
+                        <div class="mbrl_txt">普通</div> 
+                    </li>
+                    <li>
+                        <div class="mbrl_title">性別</div>
+                        <div class="mbrl_radio">
+                            <label>
+                                <input type="radio" name="gender" checked>
+                                <span>男</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="gender">
+                                <span>女</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mbrl_title">真實姓名</div>
+                        <div class="mbrl_ipt">
+                            <input type="text">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mbrl_title">國籍</div>
+                        <div class="mbrl_ipt">
+                            <input type="text">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mbrl_title">會員暱稱</div>
+                        <div class="mbrl_ipt">
+                            <input type="text">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mbrl_title">生日</div>
+                        <div class="mbrl_date">
+                            <input type="date">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mbrl_title">E-MAIL</div>
+                        <div class="mbrl_ipt">
+                            <input type="text">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mbrl_title">ZALO</div>
+                        <div class="mbrl_ipt">
+                            <input type="text">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mbrl_title">最後登陸時間</div>
+                        <div class="mbrl_txt">2021-08-04</div> 
+                    </li>
+                    <li>
+                        <div class="mbrl_title">我的錢包</div>
+                        <div class="mbrl_txt">
+                            <span>9527</span>
+                            <div class="icon_refresh"></div>
+                        </div> 
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="mbrbtn">
+                <div class="btn_linear_c1 btn">
+                    <div class="btn_cnt">Gửi đi</div>
+                </div>
+                <div class="btn_linear_c2 btn">
+                    <div class="btn_cnt">Hủy</div>
+                </div>
+            </div>
         </div>
-
-        <div class="mbrbtn">
-            <div class="btn_linear_c1 btn">
-                <div class="btn_cnt">保存する</div>
-            </div>
-            <div class="btn_linear_c2 btn">
-                <div class="btn_cnt">キャンセル</div>
-            </div>
+        
+        <div class="innerBox_chPwd" v-show="mbrSelect == 1">
+            <form @submit.prevent="ckPwd()">
+                <div class="mbrMsg">
+                    <ul>
+                        <li>
+                            <div class="mbrl_title">Nhập mật khẩu cũ</div>
+                            <div class="mbrl_ipt">
+                                <input type="password" v-model="pwdData.former" required autocomplete="on">
+                                <div class="icon_pwdLook"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mbrl_title">Nhập mật khẩu mới</div>
+                            <div class="mbrl_ipt">
+                                <input type="password" v-model="pwdData.new" required autocomplete="on">
+                                <div class="icon_pwdLook"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mbrl_title">Nhập  lại mật khẩu mới</div>
+                            <div class="mbrl_ipt">
+                                <input type="password" v-model="pwdData.ckNew" required autocomplete="on">
+                                <div class="icon_pwdLook"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+        
+                <div class="mbrbtn">
+                    <div class="btn_linear_c1 btn">
+                        <button class="btn_cnt">Gửi đi</button>
+                    </div>
+                    <div class="btn_linear_c2 btn">
+                        <div class="btn_cnt">Hủy</div>
+                    </div>
+                </div> 
+            </form>
+            
         </div>
     </div>
 </div>
@@ -101,11 +143,55 @@
     var dialogVue =  Vue.createApp({
         data() {
             return {
-               
+                mbrSelect:0,
+                pwdData:{
+                    former:'',
+                    new:'',
+                    ckNew:'',
+                }
             };
         },
-        methods: {},
+        methods: {
+            ckPwd(){
+                let state = this.pwdData.new == this.pwdData.ckNew;
+                if(state){
+                    this.postChpwd();
+                }else{
+                    console.log("請確認新密碼相同") 
+                }
+
+                console.log(sessionStorage.getItem('session'))
+            },
+            postChpwd(){
+                let account = {};
+                let self = this;
+                let token = JSON.parse(sessionStorage.getItem('session')).token
+                account.token = String(token);
+                account.oldpassword = String(this.pwdData.former);
+                account.newpassword = String(this.pwdData.ckNew);
+                
+                let xhr = new XMLHttpRequest();
+                xhr.open("PUT", "https://vnc88.awgstudio.com/api/member/password");
+                xhr.setRequestHeader("Content-type", "application/json");
+                let data = JSON.stringify(account);
+                xhr.send(data);
+                xhr.onload = function() {
+                    switch(xhr.status){
+                        case 200: 
+                            console.log("密碼已變更"); break;
+                        case 403: 
+                            console.log("舊密碼錯誤");break;
+                        case 404: 
+                            console.log("token失效");break;
+                    }
+
+                    console.log("最後執行");
+                }
+            },
+           
+        },
         mounted() {
+            this.mbrSelect = sessionStorage.getItem("mbrSelect");
             indexVue.onLoad = true;
             this.$nextTick(function() {
                 setTimeout(function(){
@@ -114,4 +200,15 @@
             })
         },
     }).mount("#page");
+
+
+    // ================================================
+    $('.icon_pwdLook').click(function() {
+        $(this).toggleClass('on');
+        let lookState = $(this).hasClass('on');
+        $(this).siblings('input').attr('type', `${lookState==true? 'text':'password'}`)
+    }).mouseout(function(){
+        $(this).removeClass('on');
+        $(this).siblings('input').attr('type','password')
+    })
 </script>

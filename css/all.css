@@ -7093,17 +7093,43 @@ body {
 }
 
 .mbrBox {
-  padding: 40px;
+  padding: 40px 10px;
   background-color: #fff;
   color: #333;
 }
 
 .mbrSelect {
-  padding-bottom: 50px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+@media screen and (max-width: 800px) {
+  .mbrSelect {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .mbrSelect .btn {
   padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+}
+
+@media screen and (max-width: 800px) {
+  .mbrSelect .btn {
+    width: 50%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+
+.mbrSelect .btn.on {
+  height: 40px;
+  line-height: 40px;
 }
 
 .mbrSelect .btn + .btn {
@@ -7112,7 +7138,7 @@ body {
 
 .mbrMsg {
   max-width: 1000px;
-  padding-bottom: 50px;
+  padding-bottom: 80px;
   margin: auto;
   font-size: 1.2rem;
 }
@@ -7142,11 +7168,29 @@ body {
           align-items: center;
 }
 
+@media screen and (max-width: 800px) {
+  .mbrMsg li {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .mbrl_title {
   width: 150px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  .mbrl_title {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #e5e5e5;
+  }
 }
 
 .mbrl_content {
@@ -7253,14 +7297,46 @@ body {
           justify-content: center;
 }
 
+@media screen and (max-width: 500px) {
+  .mbrbtn {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .mbrbtn .btn {
+  min-width: 150px;
   height: 40px;
   line-height: 40px;
   padding: 0 10px;
 }
 
+@media screen and (max-width: 800px) {
+  .mbrbtn .btn {
+    width: 50%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mbrbtn .btn {
+    width: 100%;
+  }
+}
+
 .mbrbtn .btn + .btn {
   margin-left: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .mbrbtn .btn + .btn {
+    margin-left: 0;
+    margin-top: 10px;
+  }
 }
 
 .qrBody {
