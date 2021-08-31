@@ -127,34 +127,6 @@
                                         </td>
                                     </tr>
                                 </template>
-
-
-                                <!-- <template v-for="(item,index) in schedule">
-                                <tr>
-                                    <th colspan="3">{{item.sort}}</th>
-                                </tr>
-                                <tr v-for="(item,index) in item.list">
-                                    <td>
-                                        <div class="club_1">
-                                            <span>{{item.club_1_name}}</span>
-                                            <div class="badge">
-                                                <img :src="item.club_1_badge">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="time">{{item.time}}</span>
-                                    </td>
-                                    <td>
-                                        <div class="club_2">
-                                            <div class="badge">
-                                                <img  :src="item.club_2_badge">
-                                            </div>
-                                            <span>{{item.club_2_name}}</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </template> -->
                             </table>
                         </div>
                     </div>
@@ -164,7 +136,7 @@
         </div>
 
         <!-- chatBox start (聊天室) -->
-        <div class="chatBox" v-if="chatSwitch">
+        <div class="chatBox" v-show="chatSwitch">
             <div class="chatroom">
                 <div class="chat_title">聊天室</div>
                 <div class="chat_list" id="chat_list">
@@ -201,7 +173,7 @@
         </div>
 
         <!-- scheduleList start (時程表) -->
-        <div class="scheduleList" v-if="dateSwitch">
+        <div class="scheduleList" v-show="dateSwitch">
             <div class="mainMsg-title">LỊCH THI ĐẤU</div>
             <!-- dateList -->
             <div class="dateList">
