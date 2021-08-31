@@ -33,24 +33,26 @@
                     <div class="hd_link">
                         <ul>
                             <li class="btn_linear_c1 hd_service">
-                                <a href="mailto:redsinsue@gmail.com">
+                                <a href="mailto:topvnc88@gmail.com">
                                     <div class="btn_cnt">
                                         <img src="images/icon/icon-email.png">
                                     </div>
                                     <p>EMAIL</p>
-                                </a>   
+                                </a>
                             </li>
                             <li class="btn_linear_c1">
-                                <div class="btn_cnt">
-                                    <img src="images/icon/icon-fb.png">
-                                </div>
+                                <a href="https://reurl.cc/4a23dj" target="_blank">
+                                    <div class="btn_cnt">
+                                        <img src="images/icon/icon-fb.png">
+                                    </div>
+                                </a>
                             </li>
                             <li class="btn_linear_c1" @click="qrHref('zalo')">
                                 <a href="page/qrcode.html" target="_blank">
                                     <div class="btn_cnt">
                                         <img src="images/icon/icon-zalo.png">
                                     </div>
-                                </a>   
+                                </a>
                             </li>
                             <li class="btn_linear_c1" @click="qrHref('tg')">
                                 <a href="page/qrcode.html" target="_blank">
@@ -101,7 +103,7 @@
                                         <div class="signIn_iptBox">
                                             <div class="signIn_minCnt">
                                                 <label>
-                                                    <input type="password" placeholder="Mật khẩu" v-model="signInMbr.pwd" required>
+                                                    <input type="password" placeholder="Mật khẩu" v-model="signInMbr.pwd" required  autocomplete="on">
                                                 </label>
                                                 <div class="btn_linear hd_forget" @click="forgetLog()">
                                                     <div class="btn_cnt"></div>
@@ -354,7 +356,7 @@
         </div>
 
         <!-- ===== warnLog start ===== -->
-        <div class="warnLog"  v-show="warn.warnSwitch" >
+        <div class="warnLog" v-show="warn.warnSwitch">
             <div class="warnbody">
                 <div class="warnIcon">
                     <img src="images/icon/tick.svg" v-if="warn.success">
@@ -431,7 +433,7 @@
                             <span>Mật khẩu</span>
                             <div class="innerList">
                                 <div class="iptBox">
-                                    <input type="password" minlength="6" maxlength="12" placeholder="Điền 6-12 kí tự bao hồm chữ/ số" v-model="regdMbr.pwd" r equired>
+                                    <input type="password" minlength="6" maxlength="12" placeholder="Điền 6-12 kí tự bao hồm chữ/ số" v-model="regdMbr.pwd" required autocomplete="on">
                                 </div>
                                 <p class="errorTxt" v-if="false"></p>
                             </div>
@@ -551,9 +553,8 @@
             </div>
         </div>
     </div>
-
-
 </body>
+
 
 <script>
     var indexVue = Vue.createApp({
@@ -623,7 +624,7 @@
                 // 成功 / 失敗警示
                 warn: {
                     warnSwitch: false,
-                    success:false,
+                    success: false,
                     warnTxt: ''
                 },
 
@@ -676,9 +677,9 @@
 
                 // 驗證碼錯誤提醒
                 this.errorCode.verify = ckCode ? false : true
-                if (ckCode) {         
-                    this.postSignIn();             
-                }else{
+                if (ckCode) {
+                    this.postSignIn();
+                } else {
                     this.warn.warnTxt = "Sai mã xác nhận";
                     this.showErrorLog();
                 };
@@ -699,7 +700,6 @@
                     let res = JSON.parse(xhr.response);
                     self.ckError(xhr.status, res);
                 }
-
             },
 
             showErrorLog(status) {
@@ -710,7 +710,7 @@
                     self.warn.warnSwitch = true;
                     setTimeout(function() {
                         self.warn.warnSwitch = false;
-                    }, 1500)
+                    }, 2000)
                 }
             },
 
@@ -724,7 +724,7 @@
                         self.mbrMsg.nickname = res.nickname;
                         self.mbrMsg.points = res.points;
 
-                        self.warn.warnTxt = "登陸成功,即將跳轉首頁";
+                        self.warn.warnTxt = "Đăng nhập thành công, lập tức chuyển đến trang chủ";
                         self.warn.warnSwitch = true;
                         self.warn.success = true;
                         setTimeout(function() {
@@ -910,8 +910,8 @@
             },
 
             // ==== qrCode ====
-            qrHref(data){
-                localStorage.setItem('qrCode',data)
+            qrHref(data) {
+                localStorage.setItem('qrCode', data)
             }
         },
         mounted() {

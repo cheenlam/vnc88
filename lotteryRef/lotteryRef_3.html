@@ -100,12 +100,12 @@
 
         <div class="newsCnt_menu">
             <div>
-                <div class="mainMsg-title">Tin hot</div>
+                <div class="mainMsg-title">Tin quan trọng</div>
                 <div class="newsCnt_scroll">
                     <ul>
-                        <template v-for="(item,index) in newsMenu.lotter_r">
-                            <li>
-                                <a :href="reHref_l(index)">
+                        <template v-for="(item,index) in newsMenu.newsMain">
+                            <li v-if="lotteryRefNum != index+2">
+                                <a :href="reHref(false,index)">
                                     <div class="img" :style="getbgi(item.img)"></div>
                                     <p>{{item.title}}</p>
                                 </a>
@@ -114,24 +114,18 @@
                     </ul>
                 </div>    
             </div>
-            <div>
-                <div class="mainMsg-title">Tin quan trọng</div>
+            <div>   
+                <div class="mainMsg-title">Tin hot</div>
                 <div class="newsCnt_scroll">
                     <ul>
-                        <li>
-                            <a href="#/lottery?p=1">
-                                <div class="img" :style="getbgi(newsMenu.news_t.img)"></div>
-                                <p>{{newsMenu.news_t.title}}</p>
-                            </a>
-                        </li>
-                        <template v-for="(item,index) in newsMenu.news_b">
-                            <li v-if="localNum != index+2">
-                                <a :href="reHref(false,index)">
+                        <template v-for="(item,index) in newsMenu.newsHot">
+                            <li>
+                                <a :href="reHref(true,index)">
                                     <div class="img" :style="getbgi(item.img)"></div>
                                     <p>{{item.title}}</p>
                                 </a>
                             </li>
-                        </template>
+                        </template> 
                     </ul>
                 </div>  
             </div>

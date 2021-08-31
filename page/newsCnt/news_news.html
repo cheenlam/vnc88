@@ -14,22 +14,6 @@
 
         <div class="newsCnt_menu">
             <div>
-                <div class="mainMsg-title">Tin hot</div>
-                <div class="newsCnt_scroll">
-                    <ul>
-                        <template v-for="(item,index) in newsMenu.newsHot">
-                            <li v-if="localNum != index+7">
-                                <a :href="reHref(true,index)">
-                                    <div class="img" :style="getbgi(item.img)"></div>
-                                    <p>{{item.title}}</p>
-                                </a>
-                            </li>
-                        </template>
-                    </ul>
-                </div>  
-            </div>
-            
-            <div>
                 <div class="mainMsg-title">Tin quan trọng</div>
                 <div class="newsCnt_scroll">
                     <ul>
@@ -49,6 +33,21 @@
                         </template>
                     </ul>
                 </div>    
+            </div>
+            <div>
+                <div class="mainMsg-title">Tin hot</div>
+                <div class="newsCnt_scroll">
+                    <ul>
+                        <template v-for="(item,index) in newsMenu.newsHot">
+                            <li v-if="localNum != index+7">
+                                <a :href="reHref(true,index)">
+                                    <div class="img" :style="getbgi(item.img)"></div>
+                                    <p>{{item.title}}</p>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>  
             </div>
         </div>
     </div>
@@ -78,7 +77,7 @@
             },
             reHref(hot, index) {
                 if (hot) {
-                    return `#/news/news?list=${index+7}`
+                    return `#/home/news?list=${index+6}`
                 } else {
                     return `#/news/news?list=${index+2}`
                 }
@@ -104,10 +103,8 @@
                     success: function(data) {
                         if (getLocal_h == 1) {
                             set(true)
-                        } else if (getLocal_h > 1 && getLocal_h < 7) {
+                        } else if (getLocal_h > 1) {
                             set(false, 2)
-                        } else {
-                            set(false, 7)
                         }
 
                         function set(set, num) {

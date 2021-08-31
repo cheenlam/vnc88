@@ -84,21 +84,6 @@
 
         <div class="newsCnt_menu">
             <div>
-                <div class="mainMsg-title">Tin hot</div>
-                <div class="newsCnt_scroll">
-                    <ul>
-                        <template v-for="(item,index) in newsMenu.news_r">
-                            <li v-if="newsRefNum != index+1">
-                                <a :href="reHref(true,index)">
-                                    <div class="img" :style="getbgi(item.img)"></div>
-                                    <p>{{item.title}}</p>
-                                </a>
-                            </li>
-                        </template>
-                    </ul>
-                </div>    
-            </div>
-            <div>
                 <div class="mainMsg-title">Tin quan trọng</div>
                 <div class="newsCnt_scroll">
                     <ul>
@@ -119,6 +104,21 @@
                         </template>
                     </ul>
                 </div>  
+            </div>
+            <div>
+                <div class="mainMsg-title">Tin hot</div>
+                <div class="newsCnt_scroll">
+                    <ul>
+                        <template v-for="(item,index) in newsMenu.news_r">
+                            <li v-if="newsRefNum != index+1">
+                                <a :href="reHref(true,index)">
+                                    <div class="img" :style="getbgi(item.img)"></div>
+                                    <p>{{item.title}}</p>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>    
             </div>
         </div>
     </div>

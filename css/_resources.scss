@@ -140,6 +140,31 @@
     .flexEvent {
         margin-bottom: 0;
     }
+
+    .resNews{
+        .mainNews_b{
+            ul{
+                flex-wrap: wrap ;
+                justify-content: space-between;
+            }
+            li{
+                width: calc(100% / 4 - 10px);
+                padding-bottom: 20px;
+                flex:unset;   
+
+                @include rwd(850) {
+                    width: calc(50% - 10px);
+                }
+                @include rwd(500) {
+                    width: 100%;
+                }
+            }
+            li+li{
+                margin-left: 0;
+            }
+        }
+    }
+
     .resQa {
         color: #000;
         .icon {

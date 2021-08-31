@@ -20,7 +20,7 @@ $(window).resize(function() {
 function floatMenu() {
     let topH = $('#hd_top').height();
     let winW = $(document).width();
-    if (winW > 1250) {
+    if (winW > 1280) {
         if (scroll.scrollTop() > topH) {
             $('#hd_menu').addClass('on');
         } else {

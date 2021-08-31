@@ -5,165 +5,34 @@
             <div class="fullList">
                 <div class="mainMsg-title">Tin tức</div>
                 <ul>
-                    <li>
-                        <a href="#/lotteryRef?p=2" style="display: flex;">
-                            <div class="fullList2_img" style="background-image: url(images/newsRef/lotteryRef2_01.jpg);"></div>
-                            <div class="fullList_msg">
-                                <div>
-                                    <div class="title">Kèo nhà cái: Nhận định trận đấu Anh vs Scotland</div>
-                                    <p>Cuộc đối đầu giữa Anh vs Scotland tại Vòng bảng EURO 2020 vào lúc 02h00 ngày 19/6 được ...</p>
+                    <template v-for="(item,index) in newsMenu.newsMain">
+                        <li>
+                            <a :href="reHref(false,index)" style="display: flex;">
+                                <div class="fullList2_img" :style="getbgi(item.img)"></div>
+                                <div class="fullList_msg">
+                                    <div>
+                                        <div class="title">{{item.title}}</div>
+                                        <p>{{item.msg}}</p>
+                                    </div>
+                                    <div class="fullList_tool">
+                                        <div class="more">Thông tin xổ số</div>
+                                    </div>
                                 </div>
-                                <div class="fullList_tool">
-                                    <div class="more">Thông tin xổ số</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#/lotteryRef?p=3" style="display: flex;">
-                            <div class="fullList2_img" style="background-image: url(images/newsRef/lotteryRef3_01.jpg);"></div>
-                            <div class="fullList_msg">
-                                <div>
-                                    <div class="title">Nhà cái uy tín Fun88- Vé cược thể thao miễnphí</div>
-                                    <p>Nhà cái uy tín Fun88 được thành lập vào ngày 01/06/2008, đã có thâm niên nhiều năm hoạt ...</p>
-                                </div>
-                                <div class="fullList_tool">
-                                    <div class="more">Thông tin xổ số</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#/lotteryRef?p=4" style="display: flex;">
-                            <div class="fullList2_img" style="background-image: url(images/newsRef/lotteryRef4_01.jpg);"></div>
-                            <div class="fullList_msg">
-                                <div>
-                                    <div class="title">Nhà cái uy tín AE888- AE GAMING MƯA LÌ XÌ – GIỮA MÙA HÈ</div>
-                                    <p>Nhà cái uy tín AE888 khuyến mãi siêu hấp dẫn tại AE GAMING ☆Nhà cái AE888 là nhà ...</p>
-                                </div>
-                                <div class="fullList_tool">
-                                    <div class="more">Thông tin xổ số</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#/lotteryRef?p=5" style="display: flex;">
-                            <div class="fullList2_img" style="background-image: url(images/newsRef/lotteryRef5_01.jpg);"></div>
-                            <div class="fullList_msg">
-                                <div>
-                                    <div class="title">Cách chơi Baccarat – Hướng dẫn bạn cách thắng tiền tại AE 888</div>
-                                    <p>Công thức Baccarat ｜ Baccarat ăn tiền ｜ Baccarat kiếm tiền ｜ Cách chơi Baccarat Nhiều người trong ...</p>
-                                </div>
-                                <div class="fullList_tool">
-                                    <div class="more">Thông tin xổ số</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#/lotteryRef?p=6" style="display: flex;">
-                            <div class="fullList2_img" style="background-image: url(images/newsRef/lotteryRef6_01.jpg);"></div>
-                            <div class="fullList_msg">
-                                <div>
-                                    <div class="title">Kỹ Năng Chơi Baccarat-2 Công Thức Chiến Thắng Baccarat Tại AE SEXY</div>
-                                    <p>Kỹ năng chơi Baccarat có rất nhiều cách và phương pháp nhưng sau đây là 2 cách dễ ...</p>
-                                </div>
-                                <div class="fullList_tool">
-                                    <div class="more">Thông tin xổ số</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#/lotteryRef?p=7" style="display: flex;">
-                            <div class="fullList2_img" style="background-image: url(images/newsRef/lotteryRef7_01.jpg);"></div>
-                            <div class="fullList_msg">
-                                <div>
-                                    <div class="title">123BET-NẠP LẦN ĐẦU TẶNG 50%</div>
-                                    <p>Tặng 50% giá trị nạp tiền cho lần nạp tiền đầu tiên. ☆Áp dụng cho: Thể Thao, Keno, ...</p>
-                                </div>
-                                <div class="fullList_tool">
-                                    <div class="more">Thông tin xổ số</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#/lotteryRef?p=8" style="display: flex;">
-                            <div class="fullList2_img" style="background-image: url(images/newsRef/lotteryRef8_01.jpg);"></div>
-                            <div class="fullList_msg">
-                                <div>
-                                    <div class="title">FUN88-ĐẶC BIỆT! KHUYẾN MÃI THÀNH VIÊN VIP</div>
-                                    <p>TẬN HƯỞNG ƯU ĐÃI VIP LÊN ĐẾN 0.8% Thời gian Khuyến mãi: 01/01/2021 (00:00 giờ GMT+8) cho đến khi ...</p>
-                                </div>
-                                <div class="fullList_tool">
-                                    <div class="more">Thông tin xổ số</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#/lotteryRef?p=9" style="display: flex;">
-                            <div class="fullList2_img" style="background-image: url(images/newsRef/lotteryRef7_01.jpg);"></div>
-                            <div class="fullList_msg">
-                                <div>
-                                    <div class="title">123BET-ĐĂNG KÝ NHẬN NGAY 100K</div>
-                                    <p>Đăng ký và tải APP nhận ngay 100k. ☆Nội dung khuyến mãi : 1.Hội viên đăng ký tài ...</p>
-                                </div>
-                                <div class="fullList_tool">
-                                    <div class="more">Thông tin xổ số</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#/lotteryRef?p=10" style="display: flex;">
-                            <div class="fullList2_img" style="background-image: url(images/newsRef/lotteryRef8_01.jpg);"></div>
-                            <div class="fullList_msg">
-                                <div>
-                                    <div class="title">FUN88-THƯỞNG ĐĂNG KÝ 120% TẠI THỂ THAO</div>
-                                    <p>THƯỞNG ĐĂNG KÝ – 120% TẠI THỂ THAO SABA. NHẬN ĐẾN 3,800,000 VNĐ TIỀN THƯỞNG ĐĂNG KÝ THỂ ...</p>
-                                </div>
-                                <div class="fullList_tool">
-                                    <div class="more">Thông tin xổ số</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#/lotteryRef?p=11" style="display: flex;">
-                            <div class="fullList2_img" style="background-image: url(images/newsRef/lotteryRef4_01.jpg);"></div>
-                            <div class="fullList_msg">
-                                <div>
-                                    <div class="title">AE888-THƯỞNG 50% NẠP LẦN 2</div>
-                                    <p>THƯỞNG 50% NẠP LẦN HAI Thưởng 50% khi nạp tiền lần 2 lên tới 2,888,000 VND ☆Thời gian ...</p>
-                                </div>
-                                <div class="fullList_tool">
-                                    <div class="more">Thông tin xổ số</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
+                            </a>
+                        </li>
+                    </template>
                 </ul>
             </div>
         </div>
 
         <div class="newsCnt_menu">
             <div>
-                <div class="mainMsg-title">Tin hot</div>
+                <div class="mainMsg-title">Tin quan trọng</div>
                 <div class="newsCnt_scroll">
                     <ul>
-                        <template v-for="(item,index) in newsMenu.lotter_r">
+                        <template v-for="(item,index) in newsMenu.newsMain">
                             <li>
-                                <a :href="reHref_l(index)">
+                                <a :href="reHref(false,index)">
                                     <div class="img" :style="getbgi(item.img)"></div>
                                     <p>{{item.title}}</p>
                                 </a>
@@ -172,24 +41,18 @@
                     </ul>
                 </div>    
             </div>
-            <div>
-                <div class="mainMsg-title">Tin quan trọng</div>
+            <div>   
+                <div class="mainMsg-title">Tin hot</div>
                 <div class="newsCnt_scroll">
                     <ul>
-                        <li>
-                            <a href="#/lottery?p=1">
-                                <div class="img" :style="getbgi(newsMenu.news_t.img)"></div>
-                                <p>{{newsMenu.news_t.title}}</p>
-                            </a>
-                        </li>
-                        <template v-for="(item,index) in newsMenu.news_b">
-                            <li v-if="localNum != index+2">
-                                <a :href="reHref(false,index)">
+                        <template v-for="(item,index) in newsMenu.newsHot">
+                            <li>
+                                <a :href="reHref(true,index)">
                                     <div class="img" :style="getbgi(item.img)"></div>
                                     <p>{{item.title}}</p>
                                 </a>
                             </li>
-                        </template>
+                        </template> 
                     </ul>
                 </div>  
             </div>

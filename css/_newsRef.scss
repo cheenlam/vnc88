@@ -48,10 +48,12 @@
     }
     .newsRef_txt {
         font-size: 1.2rem;
+        line-height: 2rem;
         .selfTxt {
             padding: 3px 5px;
             background-color: #ea0000;
             color: #fff;
+            margin-right: 5px;
         }
         li {
             line-height: 28px;

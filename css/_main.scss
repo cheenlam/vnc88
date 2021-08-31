@@ -600,6 +600,7 @@ body {
             justify-content: space-around;
             @include rwd(1280) {
                 width: 80%;
+                max-width: 350px;
                 min-width: 250px;
                 margin: unset;
                 padding: 20px;

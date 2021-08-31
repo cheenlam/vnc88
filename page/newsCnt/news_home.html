@@ -1,12 +1,12 @@
 <div class="contBox-min">
-    <div class="newsCnt" id="newsCnt">
+    <div class="newsCnt" id="newsCnt">   
         <div class="newsCnt_main">
             <div class="newstitle">
                 <div class="txt">
                     <h2>VNC88.com</h2>
                     <p>{{newsMain.newsTitle}}</p>
                 </div>
-                
+
                 <div class="time">{{newsMain.newsTime}}</div>
             </div>
             <div class="newsArticle" v-html="newsMain.newsContent">
@@ -14,6 +14,28 @@
         </div>
 
         <div class="newsCnt_menu">
+            <div>
+                <div class="mainMsg-title">Tin quan trọng</div>
+                <div class="newsCnt_scroll">
+                    <ul>
+                        <li v-if="localNum != 1">
+                            <a href="#/home/news?list=1">
+                                <div class="img" :style="getbgi(newsMenu.newsImp_t.img)"></div>
+                                <p>{{newsMenu.newsImp_t.title}}</p>
+                            </a>
+                        </li>
+
+                        <template v-for="(item,index) in newsMenu.newsImp_b">
+                            <li v-if="localNum != index+2">
+                                <a :href="reHref(false,index)">
+                                    <div class="img" :style="getbgi(item.img)"></div>
+                                    <p>{{item.title}}</p>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
             <div>
                 <div class="mainMsg-title">Tin hot</div>
                 <div class="newsCnt_scroll">
@@ -27,31 +49,10 @@
                             </li>
                         </template>
                     </ul>
-                </div>    
-            </div>
-            <div>
-                <div class="mainMsg-title">Tin quan trọng</div>
-                <div class="newsCnt_scroll">
-                    <ul>
-                        <li v-if="localNum != 1">
-                            <a href="#/home/news?list=1">
-                                <div class="img" :style="getbgi(newsMenu.newsImp_t.img)"></div>
-                                <p>{{newsMenu.newsImp_t.title}}</p>
-                            </a>
-                        </li>
-    
-                        <template v-for="(item,index) in newsMenu.newsImp_b">
-                            <li v-if="localNum != index+2">
-                                <a :href="reHref(false,index)">
-                                    <div class="img" :style="getbgi(item.img)"></div>
-                                    <p>{{item.title}}</p>
-                                </a>
-                            </li>
-                        </template>
-                    </ul>
-                </div>  
+                </div>
             </div>
         </div>
+       
     </div>
 </div>
 
@@ -74,8 +75,8 @@
             };
         },
         methods: {
-            getbgi(data){
-                return  `background-image: url(${data})`;
+            getbgi(data) {
+                return `background-image: url(${data})`;
             },
             reHref(hot, index) {
                 if (hot) {
@@ -83,7 +84,6 @@
                 } else {
                     return `#/home/news?list=${index+2}`
                 }
-
             },
             getData() {
                 let self = this;
@@ -128,6 +128,7 @@
             getMenu() {
                 let self = this;
                 let chReady = [false, false, false];
+
                 function ready() {
                     if (chReady[0] && chReady[1] && chReady[2]) {
                         indexVue.onLoad = false;

@@ -104,9 +104,9 @@
                 wsDict: newsDict,
                 selfNews: news_selfNews,
                 newsMenu: {
-                    news_t: '',
-                    news_b: [],
                     news_r: '',
+                    news_t: '',
+                    news_b: [],      
                 },
             };
         },
@@ -116,7 +116,7 @@
             },
             reHref(hot, index) {
                 if (hot) {
-                    return `#/news/news?list=${index+7}`
+                    return `#/home/news?list=${index+6}`
                 } else {
                     return `#/news/news?list=${index+2}`
                 }

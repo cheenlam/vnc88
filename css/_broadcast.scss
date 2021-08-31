@@ -373,10 +373,12 @@
 
                 .badge {
                     width: 20px;
+                    margin: 0 5px;
                     display: inline-block;
                     flex-shrink: 0;
+                    
                 }
-                .time {
+                .score {
                     padding: 2px 5px;
                     background: #dbdbdb;
                     font-weight: bold;

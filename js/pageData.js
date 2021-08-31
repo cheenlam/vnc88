@@ -230,48 +230,6 @@ var lotteryNews = {
             title: "Cập bến Chelsea, đá tảng 60 triệu mang áo số mấy?"
         },
     ],
-    lotter_r: [{
-            img: "images/newsRef/lotteryRef2_01.jpg",
-            title: "Kèo nhà cái: Nhận định trận đấu Anh vs Scotland"
-        },
-        {
-            img: "images/newsRef/lotteryRef3_01.jpg",
-            title: "Nhà cái uy tín Fun88- Vé cược thể thao miễnphí"
-        },
-        {
-            img: "images/newsRef/lotteryRef4_01.jpg",
-            title: "Nhà cái uy tín AE888- AE GAMING MƯA LÌ XÌ – GIỮA MÙA HÈ"
-        },
-        {
-            img: "images/newsRef/lotteryRef5_01.jpg",
-            title: "Cách chơi Baccarat – Hướng dẫn bạn cách thắng tiền tại AE 888"
-        },
-        {
-            img: "images/newsRef/lotteryRef6_01.jpg",
-            title: "Kỹ Năng Chơi Baccarat-2 Công Thức Chiến Thắng Baccarat Tại AE SEXY"
-        },
-        {
-            img: "images/newsRef/lotteryRef7_01.jpg",
-            title: "123BET-NẠP LẦN ĐẦU TẶNG 50%"
-        },
-        {
-            img: "images/newsRef/lotteryRef8_01.jpg",
-            title: "FUN88-ĐẶC BIỆT! KHUYẾN MÃI THÀNH VIÊN VIP"
-        },
-        {
-            img: "images/newsRef/lotteryRef7_01.jpg",
-            title: "123BET-ĐĂNG KÝ NHẬN NGAY 100K"
-        },
-        {
-            img: "images/newsRef/lotteryRef8_01.jpg",
-            title: "FUN88-THƯỞNG ĐĂNG KÝ 120% TẠI THỂ THAO"
-        },
-        {
-            img: "images/newsRef/lotteryRef4_01.jpg",
-            title: "AE888-THƯỞNG 50% NẠP LẦN 2"
-        },
-
-    ],
     resources_r: [{
             img: "images/newsRef/resources1-01.jpg",
             title: "Hội Nghị Đại Biểu Người Lao Động Công Ty TNHH Một Thành Viên Xổ Số Kiến Thiết Thành Phố Năm 2021"
@@ -418,89 +376,6 @@ var mvLive = {
         "images/icon/i_chat_20.png",
     ]
 }
-
-// 靜態假資料
-var scheduleData = [{
-        sort: 'Premier League 24/07/2021',
-        list: [{
-            club_1_name: 'CSKA Moscow',
-            club_1_badge: 'images/badge/cska-moscow.png',
-            club_2_name: 'Ufa',
-            club_2_badge: 'images/badge/ufa.png',
-            saibe: 'CONCACAF Gold Cup',
-            time: '19:30',
-            day: '24/07/2021',
-            live: true,
-        }, {
-            club_1_name: 'FK Krylya Sovetov Samara',
-            club_1_badge: 'images/badge/FK-Krylya-Sovetov-Samara.png',
-            club_2_name: 'Akhmat Grozny',
-            club_2_badge: 'images/badge/akhmat-grozny.png',
-            saibe: 'Liga Mexico',
-            time: '20:00',
-            day: '24/07/2021',
-            live: true,
-        }, {
-            club_1_name: 'FK Rostov',
-            club_1_badge: 'images/badge/fk-rostov.png',
-            club_2_name: 'Dynamo Moscow',
-            club_2_badge: 'images/badge/dynamo-moscow.png',
-            saibe: 'Giao Hữu CLB',
-            time: '20:00',
-            day: '24/07/2021',
-            live: false,
-        }, {
-            club_1_name: 'Khimki',
-            club_1_badge: 'images/badge/khimk.png',
-            club_2_name: 'Zenit',
-            club_2_badge: 'images/badge/zenit.png',
-            saibe: 'Ngoại Hạng Banglades',
-            time: '22:00',
-            day: '24/07/2021',
-            live: false,
-        }, ]
-    },
-    {
-        sort: 'Premier League 24/07/2021',
-        list: [{
-            club_1_name: 'CSKA Moscow',
-            club_1_badge: 'images/badge/cska-moscow.png',
-            club_2_name: 'Ufa',
-            club_2_badge: 'images/badge/ufa.png',
-            saibe: 'CONCACAF Gold Cup',
-            time: '19:30',
-            day: '24/07/2021',
-            live: true,
-        }, {
-            club_1_name: 'FK Krylya Sovetov Samara',
-            club_1_badge: 'images/badge/FK-Krylya-Sovetov-Samara.png',
-            club_2_name: 'Akhmat Grozny',
-            club_2_badge: 'images/badge/akhmat-grozny.png',
-            saibe: 'Liga Mexico',
-            time: '20:00',
-            day: '24/07/2021',
-            live: true,
-        }, {
-            club_1_name: 'FK Rostov',
-            club_1_badge: 'images/badge/fk-rostov.png',
-            club_2_name: 'Dynamo Moscow',
-            club_2_badge: 'images/badge/dynamo-moscow.png',
-            saibe: 'Giao Hữu CLB',
-            time: '20:00',
-            day: '24/07/2021',
-            live: false,
-        }, {
-            club_1_name: 'Khimki',
-            club_1_badge: 'images/badge/khimk.png',
-            club_2_name: 'Zenit',
-            club_2_badge: 'images/badge/zenit.png',
-            saibe: 'Ngoại Hạng Banglades',
-            time: '22:00',
-            day: '24/07/2021',
-            live: false,
-        }, ]
-    },
-]
 
 // ======== resources ========
 // 銀行連結
@@ -816,6 +691,40 @@ var lottoryLink = {
     ]
 }
 
+var resNews = [{
+        img: "images/newsRef/resources1-01.jpg",
+        title: "Hội Nghị Đại Biểu Người Lao Động Công Ty TNHH Một Thành Viên Xổ Số Kiến Thiết Thành Phố Năm 2021"
+    },
+    {
+        img: "images/newsRef/resources2-01.jpg",
+        title: "Chi Đoàn Thanh Niên Xổ Số Kiến Thiết Trao Xe Đạp Cho Con Của Người Bán Vé Số Lẻ Hiếu Học Có Hoàn Cảnh Khó Khăn Và Đạt Thành Tích Trong Học Tập Năm 2020"
+    },
+    {
+        img: "images/newsRef/resources3-01.jpg",
+        title: "Đoàn Thanh Niên Công Ty XSKT Thành Phố Tổ Chức Nhiều Hoạt Động Ý Nghĩa Chào Mừng Tháng Thanh Niên 2021"
+    },
+    {
+        img: "images/newsRef/resources4-01.jpg",
+        title: "Công Ty Xskt Thành Phố Chào Mừng Ngày Quốc Tế Phụ Nữ 8-3"
+    },
+    {
+        img: "images/newsRef/resources5-01.jpg",
+        title: "Công Ty Xổ Số Kiến Thiết Hồ Chí Minh: Thương Hiệu Hàng Đầu Của Xổ Số Kiến Thiết Khu Vực Miền Nam"
+    },
+    {
+        img: "images/newsRef/resources6-01.jpg",
+        title: "Đoàn Công Tác Công Ty TNHH MTV XSKT Thành Phố Thăm Và Tặng Quà Cho Công Nhân Có Hoàn Cảnh Khó Khăn Tại Xí Nghiệp In Tài Chính"
+    },
+    {
+        img: "images/newsRef/resources7-01.jpg",
+        title: "Hội Nghị Xổ Số Kiến Thiết Khu Vực Miền Nam Lần Thứ 124"
+    },
+    {
+        img: "images/newsRef/resources8-01.jpg",
+        title: "Công ty TNHH MTV Xổ số Kiến thiết TPHCM: Nỗ lực vượt khó khăn, đoàn kết, ổn định và giữ vững vị thế dẫn đầu trong ngành xổ số truyền thống"
+    },
+]
+
 // 常見問題
 var resQa = [{
         txtMore: false,
@@ -836,5 +745,59 @@ var resQa = [{
         txtMore: false,
         question: "Xổ số Vietlott ( hay xổ số điện toán)",
         answer: "Vietlott là công ty xổ số điện toán quốc gia do Bộ Tài chính Việt Nam trực tiếp điều hành, được phê duyệt và thành lập vào ngày 05 tháng 12 năm 2011. Nhà nước nắm giữ 100% cổ phần. Chính thức đi vào hoạt động từ ngày 18 tháng 7 năm 2016. Có hai hình thức, là xếp số (vé 3D nghìn ký tự, vé số 4D vạn kí tự) và tổ hợp xếp số (vé tổ hợp 6 số). Dịch vụ xổ số này được ra mắt tại TP. lần đầu tiên. Tính đến nay, Vietlott đã được triển khai tại nhiều thành phố khác như Hà Nội, Hải Phòng, Hạ Long (Quảng Ninh), v.v. Vietlott hiện có 5 trò chơi xổ số: 1. MEGA 6/45 2. POWER 6/55 3. MAX 3D 4. MAX 4D 5. KENO"
+    },
+]
+
+// ======== lotteryRef ========
+// 博彩公司內頁
+var lotteryRef_menu = [{
+        img: "images/newsRef/lotteryRef2_01.jpg",
+        title: "Kèo nhà cái: Nhận định trận đấu Anh vs Scotland",
+        msg: "Cuộc đối đầu giữa Anh vs Scotland tại Vòng bảng EURO 2020 vào lúc 02h00 ngày 19/6 được ..."
+    },
+    {
+        img: "images/newsRef/lotteryRef3_01.jpg",
+        title: "Nhà cái uy tín Fun88- Vé cược thể thao miễnphí",
+        msg: "Nhà cái uy tín Fun88 được thành lập vào ngày 01/06/2008, đã có thâm niên nhiều năm hoạt ..."
+    },
+    {
+        img: "images/newsRef/lotteryRef4_01.jpg",
+        title: "Nhà cái uy tín AE888- AE GAMING MƯA LÌ XÌ – GIỮA MÙA HÈ",
+        msg: "Nhà cái uy tín AE888 khuyến mãi siêu hấp dẫn tại AE GAMING ☆Nhà cái AE888 là nhà ..."
+    },
+    {
+        img: "images/newsRef/lotteryRef5_01.jpg",
+        title: "Cách chơi Baccarat – Hướng dẫn bạn cách thắng tiền tại AE 888",
+        msg: "Công thức Baccarat ｜ Baccarat ăn tiền ｜ Baccarat kiếm tiền ｜ Cách chơi Baccarat Nhiều người trong ..."
+    },
+    {
+        img: "images/newsRef/lotteryRef6_01.jpg",
+        title: "Kỹ Năng Chơi Baccarat-2 Công Thức Chiến Thắng Baccarat Tại AE SEXY",
+        msg: "Kỹ năng chơi Baccarat có rất nhiều cách và phương pháp nhưng sau đây là 2 cách dễ ..."
+    },
+    {
+        img: "images/newsRef/lotteryRef7_01.jpg",
+        title: "123BET-NẠP LẦN ĐẦU TẶNG 50%",
+        msg: "Tặng 50% giá trị nạp tiền cho lần nạp tiền đầu tiên. ☆Áp dụng cho: Thể Thao, Keno, ..."
+    },
+    {
+        img: "images/newsRef/lotteryRef8_01.jpg",
+        title: "FUN88-ĐẶC BIỆT! KHUYẾN MÃI THÀNH VIÊN VIP",
+        msg: "TẬN HƯỞNG ƯU ĐÃI VIP LÊN ĐẾN 0.8% Thời gian Khuyến mãi: 01/01/2021 (00:00 giờ GMT+8) cho đến khi ..."
+    },
+    {
+        img: "images/newsRef/lotteryRef7_01.jpg",
+        title: "123BET-ĐĂNG KÝ NHẬN NGAY 100K",
+        msg: "Đăng ký và tải APP nhận ngay 100k. ☆Nội dung khuyến mãi : 1.Hội viên đăng ký tài ..."
+    },
+    {
+        img: "images/newsRef/lotteryRef8_01.jpg",
+        title: "FUN88-THƯỞNG ĐĂNG KÝ 120% TẠI THỂ THAO",
+        msg: "THƯỞNG ĐĂNG KÝ – 120% TẠI THỂ THAO SABA. NHẬN ĐẾN 3,800,000 VNĐ TIỀN THƯỞNG ĐĂNG KÝ THỂ ..."
+    },
+    {
+        img: "images/newsRef/lotteryRef4_01.jpg",
+        title: "AE888-THƯỞNG 50% NẠP LẦN 2",
+        msg: "THƯỞNG 50% NẠP LẦN HAI Thưởng 50% khi nạp tiền lần 2 lên tới 2,888,000 VND ☆Thời gian ..."
     },
 ]

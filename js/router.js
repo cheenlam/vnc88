@@ -232,6 +232,7 @@ for (let i = 1; i < 99; i++) {
         location = location
         mainInclude(`lotteryRef/lotteryRef_${i}.html`);
         menuList_on(0);
+        sessionStorage.setItem('new_lotteryRef', i);
 
         let data = [
             { href: "#/home", name: "TRANG CHỦ" },
@@ -241,7 +242,7 @@ for (let i = 1; i < 99; i++) {
             data.push({ name: "Danh sách" })
         } else {
             data.push({ href: "#/lotteryRef?p=1", name: "Danh sách" })
-            data.push({ name: "Tin hot" })
+            data.push({ name: "Tin quan trọng" })
         }
         chCrumb(data);
     });
@@ -255,7 +256,7 @@ for (let i = 1; i < 99; i++) {
 
         let data = [
             { href: "#/news", name: "Tin tức" },
-            { name: "Tin hot" }
+            { name: "Tin quan trọng" }
         ];
         chCrumb(data);
     });
@@ -282,7 +283,7 @@ for (let i = 1; i < 99; i++) {
 
         let data = [
             { href: "#/resources", name: "Thông tin" },
-            { name: "Tin hot" }
+            { name: "Tin quan trọng" }
         ];
         chCrumb(data);
     });

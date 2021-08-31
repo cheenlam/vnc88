@@ -1361,6 +1361,7 @@ img {
   color: #fff;
   text-align: center;
   font-size: 1.2rem;
+  line-height: 1.6rem;
   letter-spacing: 1px;
   font-weight: bold;
 }
@@ -2567,6 +2568,7 @@ body {
 @media screen and (max-width: 1280px) {
   .header .hd_menu ul {
     width: 80%;
+    max-width: 350px;
     min-width: 250px;
     margin: unset;
     padding: 20px;
@@ -5592,12 +5594,13 @@ body {
 
 .broadcast .gameMsg .gameSchedule .gameSchedule_tb .badge {
   width: 20px;
+  margin: 0 5px;
   display: inline-block;
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
 
-.broadcast .gameMsg .gameSchedule .gameSchedule_tb .time {
+.broadcast .gameMsg .gameSchedule .gameSchedule_tb .score {
   padding: 2px 5px;
   background: #dbdbdb;
   font-weight: bold;
@@ -6151,12 +6154,14 @@ body {
 
 .newsRef_cnt .newsRef_txt {
   font-size: 1.2rem;
+  line-height: 2rem;
 }
 
 .newsRef_cnt .newsRef_txt .selfTxt {
   padding: 3px 5px;
   background-color: #ea0000;
   color: #fff;
+  margin-right: 5px;
 }
 
 .newsRef_cnt .newsRef_txt li {
@@ -6948,6 +6953,38 @@ body {
 
 .resourcesBox .flexEvent {
   margin-bottom: 0;
+}
+
+.resourcesBox .resNews .mainNews_b ul {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.resourcesBox .resNews .mainNews_b li {
+  width: calc(100% / 4 - 10px);
+  padding-bottom: 20px;
+  -webkit-box-flex: unset;
+      -ms-flex: unset;
+          flex: unset;
+}
+
+@media screen and (max-width: 850px) {
+  .resourcesBox .resNews .mainNews_b li {
+    width: calc(50% - 10px);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .resourcesBox .resNews .mainNews_b li {
+    width: 100%;
+  }
+}
+
+.resourcesBox .resNews .mainNews_b li + li {
+  margin-left: 0;
 }
 
 .resourcesBox .resQa {

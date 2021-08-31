@@ -2,11 +2,19 @@ Vue.createApp({
     data() {
         return {
             newSelf: news_selfNews,
-            newsMenu: lotteryNews,
+            newsMenu: {
+                newsMain: lotteryRef_menu,
+                newsHot: '',
+            },
+            resNews:resNews,
+
             resourcesNum: 0,
             lotteryNum: 0,
             newsRefNum: 0,
+
+
             newsSelfNum: 0,
+            lotteryRefNum:0,
         };
     },
     methods: {
@@ -15,11 +23,12 @@ Vue.createApp({
         },
         reHref(hot, index) {
             if (hot) {
-                return `#/newsRef?p=${index+1}`
+                return `#/home/news?list=${index+6}`
             } else {
-                return `#/lottery/news?list=${index+2}`
+                return `#/lotteryRef?p=${index+2}`
             }
         },
+        
         reHref_l(index) {
             return `#/lotteryRef?p=${index+2}`
         },
@@ -31,9 +40,36 @@ Vue.createApp({
             this.lotteryNum = sessionStorage.getItem("new_lottery");
             this.newsRefNum = sessionStorage.getItem("new_newsRef");
             this.newsSelfNum = sessionStorage.getItem("new_selfNews");
-        }
+
+            
+            this.lotteryRefNum = sessionStorage.getItem("new_lotteryRef");
+        },
+        getMenu(){
+            let self = this;
+            let chReady = [false];
+
+            function ready() {
+                if (chReady[0]) {
+                    indexVue.onLoad = false;
+                }
+            }
+
+            $.ajax({
+                url: "https://vnc88.awgstudio.com/api/homenews/list",
+                dataType: "json",
+                success: function(data) {
+                    self.newsMenu.newsHot = data;
+                    self.$nextTick(function() {
+                        chReady[0] = true;
+                        ready();
+                    })
+                },
+            });
+
+        },
     },
     mounted() {
+        this.getMenu();
         this.getLocal();
         indexVue.onLoad = true;
         this.$nextTick(function() {

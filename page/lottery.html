@@ -64,9 +64,9 @@
                 <div class="news_main">
                     <div class="mainMsg-title">GIỚI THIỆU NHÀ CÁI</div>
                     <!-- 博彩平台介紹 -->
-                    <a href="#/lottery?p=1">
-                        <div class="news_mainImg" :style="getbgi(newsMenu.news_t.news_t.img)">
-                            <p>{{newsMenu.news_t.news_t.title}}</p>
+                    <a href="#/lottery/news?list=1">
+                        <div class="news_mainImg" :style="getbgi(newsMenu.news_t.img)">
+                            <p>{{newsMenu.news_t.title}}</p>
                         </div>
                     </a>
                 </div>
@@ -75,7 +75,7 @@
                     <!-- 最新消息 -->
                     <div class="newsList_cnt">
                         <ul>
-                            <li v-for="(item,index) in newsMenu.news_r.news_r">
+                            <li v-for="(item,index) in newsMenu.news_r">
                                 <a :href="reHref(true,index)">
                                     <div class="newsList_img" :style="getbgi(item.img)"></div>
                                 </a>
@@ -125,9 +125,9 @@
                 bet: betList,
                 wsDict: lotteryDict,
                 newsMenu: {
-                    news_t: lotteryNews,
-                    news_r: lotteryNews,
-                    news_b: [],
+                    news_r: '',
+                    news_t: '',  
+                    news_b: '',
                 },
             };
         },
@@ -137,14 +137,15 @@
             },
             reHref(hot, index) {
                 if (hot) {
-                    return `#/newsRef?p=${index+6}`
+                    return `#/home/news?list=${index+6}`
                 } else {
                     return `#/lottery/news?list=${index+2}`
                 }
             },
+            
             getData() {
                 let self = this;
-                let chReady = [false];
+                let chReady = [false,false,false];
 
                 function ready() {
                     if (chReady[0]) {
@@ -153,12 +154,36 @@
                 }
 
                 $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.news_r = data;
+                        self.$nextTick(function() {
+                            chReady[0] = true;
+                            ready();
+                        })
+                    },
+                });
+
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/recommend/top",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.news_t = data;
+                        self.$nextTick(function() {
+                            chReady[1] = true;
+                            ready();
+                        })
+                    },
+                });
+
+                $.ajax({
                     url: "https://vnc88.awgstudio.com/api/match/news",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.news_b = data;
                         self.$nextTick(function() {
-                            chReady[0] = true;
+                            chReady[2] = true;
                             ready();
                         })
                     },
