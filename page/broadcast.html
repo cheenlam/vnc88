@@ -40,10 +40,10 @@
                     <iframe :src="reYTmv(youtube.show)" frameborder="0" id="showMv"></iframe>
                 </div>
                 <div class="list">
-                    <div class="arrow_l"></div>
-                    <div class="arrow_r"></div>
-                    <div class="listArray" id="listArray">
-                        <ul>
+                    <div class="arrow_l" @click="arrayMove('left')"></div>
+                    <div class="arrow_r"  @click="arrayMove('right')"></div>
+                    <div class="listArray">
+                        <ul :style="reArray()">
                             <template v-for="(item,index) in youtube.list">
                                 <li  @click="chYT(item.id)">
                                     <div>
@@ -240,6 +240,8 @@
                  youtube: {
                     show:'',
                     list:'',
+                    length: 0,
+                    arrayNum:0
                 },
 
                 // 賽事比分
@@ -322,16 +324,31 @@
                 return formatd;
             },
 
-
-            chYT(data) {
-                // 變更youtube影片ID值
+             // 變更youtube影片ID值
+            chYT(data) {          
                 this.youtube.show = data;
             },
+
+             // 返回youtube完整影片位置
             reYTmv(){
-                // 返回youtube完整影片位置
                 return `https://www.youtube.com/embed/${this.youtube.show}`
             },
-           
+
+            reArray(){
+                let allW = 100 * this.youtube.length / 3
+                let num = (100 - (100 / this.youtube.length *3)) / parseInt(this.youtube.length / 3)
+                return `width : ${allW}%; transform : translateX(-${this.youtube.arrayNum * num}%)`
+            },
+
+            arrayMove(data){
+                if(data == "left"){
+                    this.youtube.arrayNum == 0 ? 0 : this.youtube.arrayNum--;
+                }else if(data == "right"){
+                    let num =  parseInt(this.youtube.length / 3)
+                    this.youtube.arrayNum == num ? num : this.youtube.arrayNum++;
+                }
+            },
+
             getData(){
                 let self = this;
                 let chReady = [false, false, false];
@@ -347,6 +364,7 @@
                     url: "https://vnc88.awgstudio.com/api/video/list",
                     dataType: "json",
                     success: function(data) {
+                        self.youtube.length = data.length;
                         self.youtube.list = data;
                         self.youtube.show = data[0].id;
                         self.$nextTick(function() {
@@ -447,7 +465,7 @@
 
         var chat_sc = document.getElementById('chat_sc');
         // 卷軸至頂
-        // chat_sc.scrollTop = chat_sc.scrollHeight;
+        chat_sc.scrollTop = chat_sc.scrollHeight;
     });
 
     var chat_ipt = false

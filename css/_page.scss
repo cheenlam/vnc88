@@ -654,8 +654,6 @@
                 margin: auto;
                 padding-bottom: 60%;
             }
-
-
         }
         .fullList_msg {
             padding: 0 30px;
@@ -780,12 +778,12 @@
         }
         .newsArticle {
             line-height: 25px;
-            .size-full{
+            .size-full {
                 height: auto !important;
                 margin: 20px 0;
             }
             .adbro-autotester-satellite,
-            #adbro{
+            #adbro {
                 display: none !important;
             }
             p {
@@ -819,6 +817,49 @@
                 color: #099adb;
                 line-height: 24px;
                 list-style: disc;
+            }
+
+            // 資訊內頁
+            .dk-widget-h {
+                padding: 5px;
+                background-color: #c70000;
+                color: #fff;
+                font-size: 1.1rem;
+            }
+
+            .breadcrumbsSubWrapper {
+                margin: 5px 0 20px;
+                font-size: 0.95rem;
+                line-height: 1.2rem;
+                font-weight: bold;
+            }
+
+            .dk-post-thumb {
+                float: left;
+                margin: 1px 7px 0 0;
+                padding: 3px;
+            }
+
+            .dk-post-name{
+                min-height: 100px;
+                color: #333;
+                font-weight: 700;
+                font-size: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .dk-post-detail {
+                margin-top: 20px;
+                & div{
+                    margin: 10px 0;
+                    display: block;
+                } 
+            }
+
+            .dk-widgetw-author,
+            .dk-post-share,
+            .dk-post-extra{
+                display: none;
             }
         }
     }
