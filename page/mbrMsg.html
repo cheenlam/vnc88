@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="btn" :class="{'on':mbrSelect == 1}">
-                <a href="#/member/changePwd" >
+                <a href="#/member/changePwd">
                     <div class="btn_cnt">Cập nhật mật khẩu</div>
                 </a>
             </div>
@@ -18,11 +18,11 @@
                 <ul>
                     <li>
                         <div class="mbrl_title">登入識別</div>
-                        <div class="mbrl_txt">google</div> 
+                        <div class="mbrl_txt">google</div>
                     </li>
                     <li>
                         <div class="mbrl_title">會員等級</div>
-                        <div class="mbrl_txt">普通</div> 
+                        <div class="mbrl_txt">普通</div>
                     </li>
                     <li>
                         <div class="mbrl_title">性別</div>
@@ -75,18 +75,18 @@
                     </li>
                     <li>
                         <div class="mbrl_title">最後登陸時間</div>
-                        <div class="mbrl_txt">2021-08-04</div> 
+                        <div class="mbrl_txt">2021-08-04</div>
                     </li>
                     <li>
                         <div class="mbrl_title">我的錢包</div>
                         <div class="mbrl_txt">
                             <span>9527</span>
                             <div class="icon_refresh"></div>
-                        </div> 
+                        </div>
                     </li>
                 </ul>
             </div>
-    
+
             <div class="mbrbtn">
                 <div class="btn_linear_c1 btn">
                     <div class="btn_cnt">Gửi đi</div>
@@ -96,38 +96,38 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="innerBox_chPwd" v-show="mbrSelect == 1">
             <form @submit.prevent="ckPwd()">
                 <div class="mbrMsg">
                     <ul>
-                        <li>
+                        <li> 
                             <div class="mbrl_title">Nhập mật khẩu cũ</div>
                             <div class="mbrl_ipt">
-                                <input type="password" v-model="pwdData.former" required autocomplete="on">
-                                <div class="icon_pwdLook"></div>
+                                <input :type="lookPwd.formerType" v-model="pwdData.former" required autocomplete="on">
+                                <div class="icon_pwdLook" :class="{'on' : lookPwd.former}" @click="onLook('former')" @mouseout="outLook('former')"></div>
                                 <p class="errorTxt" v-if="errorCode.former">舊密碼錯誤</p>
                             </div>
                         </li>
                         <li>
                             <div class="mbrl_title">Nhập mật khẩu mới</div>
                             <div class="mbrl_ipt">
-                                <input type="password" v-model="pwdData.new" required autocomplete="on">
-                                <div class="icon_pwdLook"></div>
+                                <input :type="lookPwd.newType" v-model="pwdData.new" required autocomplete="on">
+                                <div class="icon_pwdLook" :class="{'on' : lookPwd.new}" @click="onLook('new')" @mouseout="outLook('new')"></div>
                                 <p class="errorTxt" v-if="errorCode.new">新舊密碼不能相同</p>
                             </div>
                         </li>
                         <li>
-                            <div class="mbrl_title">Nhập  lại mật khẩu mới</div>
+                            <div class="mbrl_title">Nhập lại mật khẩu mới</div>
                             <div class="mbrl_ipt">
-                                <input type="password" v-model="pwdData.ckNew" required autocomplete="on">
-                                <div class="icon_pwdLook"></div>
+                                <input :type="lookPwd.ckNewType" v-model="pwdData.ckNew" required autocomplete="on">
+                                <div class="icon_pwdLook" :class="{'on' : lookPwd.ckNew}" @click="onLook('ckNew')" @mouseout="outLook('ckNew')"></div>
                                 <p class="errorTxt" v-if="errorCode.ckNew">請確認新密碼相同</p>
                             </div>
                         </li>
                     </ul>
                 </div>
-        
+
                 <div class="mbrbtn">
                     <div class="btn_linear_c1 btn">
                         <button class="btn_cnt">Gửi đi</button>
@@ -135,45 +135,53 @@
                     <div class="btn_linear_c2 btn">
                         <div class="btn_cnt">Hủy</div>
                     </div>
-                </div> 
+                </div>
             </form>
-            
+
         </div>
     </div>
 </div>
 
 <script>
-    var dialogVue =  Vue.createApp({
+    var dialogVue = Vue.createApp({
         data() {
             return {
-                mbrSelect:0,
-                pwdData:{
-                    former:'',
-                    new:'',
-                    ckNew:'',
+                mbrSelect: 0,
+                pwdData: {
+                    former: '',
+                    new: '',
+                    ckNew: '',
                 },
                 errorCode: {
                     former: false,
                     new: false,
                     ckNew: false,
                 },
+                lookPwd: {
+                    former: false,         
+                    new: false,     
+                    ckNew: false,
+                    newType: 'password',
+                    formerType: 'password',
+                    ckNewType: 'password',
+                },
             };
         },
         methods: {
-            ckPwd(){
+            ckPwd() {
                 let case_01 = this.pwdData.new != this.pwdData.ckNew;
-                let case_02 = this.pwdData.former == this.pwdData.new;  
+                let case_02 = this.pwdData.former == this.pwdData.new;
                 this.reError();
-                
-                if(case_01){
+
+                if (case_01) {
                     this.errorCode.ckNew = true;
-                }else if(case_02){
+                } else if (case_02) {
                     this.errorCode.new = true;
-                }else{
+                } else {
                     this.postChpwd();
                 }
             },
-            postChpwd(){
+            postChpwd() {
                 let account = {};
                 let self = this;
                 let token = JSON.parse(sessionStorage.getItem('session')).token
@@ -187,23 +195,23 @@
                 let data = JSON.stringify(account);
                 xhr.send(data);
                 xhr.onload = function() {
-                    switch(xhr.status){
-                        case 200: 
-                            indexVue.warn.warnTxt = ["密碼已變更","請重新登入"];
+                    switch (xhr.status) {
+                        case 200:
+                            indexVue.warn.warnTxt = ["密碼已變更", "請重新登入"];
                             indexVue.warn.success = true;
                             backHome();
                             break;
-                        case 403: 
+                        case 403:
                             self.errorCode.former = true;
                             break;
                         case 404:
-                            indexVue.warn.warnTxt = ["Token hết hiệu lực","vui lòng đăng nhập lại"];
+                            indexVue.warn.warnTxt = ["Token hết hiệu lực", "vui lòng đăng nhập lại"];
                             indexVue.warn.success = false;
                             backHome();
                             break;
                     }
 
-                    function backHome(){
+                    function backHome() {
                         indexVue.warn.warnSwitch = true;
                         sessionStorage.removeItem('session');
                         indexVue.ckLogin();
@@ -214,32 +222,57 @@
                     }
                 }
             },
-            reError(){
+            reError() {
                 this.errorCode.former = false;
                 this.errorCode.new = false;
                 this.errorCode.ckNew = false;
             },
-           
+
+            // 顯示密碼
+            onLook(data) {
+                switch (data) {
+                    case "former":
+                        this.lookPwd.formerType = 'text';
+                        this.lookPwd.former = true;
+                        break;
+                    case "new":
+                        this.lookPwd.newType = 'text';
+                        this.lookPwd.new = true;
+                        break;
+                    case "ckNew":
+                        this.lookPwd.ckNewType = 'text';
+                        this.lookPwd.ckNew = true;
+                        break;
+                }
+            },
+
+            // 隱藏密碼
+            outLook(data) {
+                switch (data) {
+                    case "former":
+                        this.lookPwd.formerType = 'password';
+                        this.lookPwd.former = false;
+                        break;
+                    case "new":
+                        this.lookPwd.newType = 'password';
+                        this.lookPwd.new = false;
+                        break;
+                    case "ckNew":
+                        this.lookPwd.ckNewType = 'password';
+                        this.lookPwd.ckNew = false;
+                        break;
+                }
+            },
+
         },
         mounted() {
             this.mbrSelect = sessionStorage.getItem("mbrSelect");
             indexVue.onLoad = true;
             this.$nextTick(function() {
-                setTimeout(function(){
+                setTimeout(function() {
                     indexVue.onLoad = false;
-                },300)  
+                }, 300)
             })
         },
     }).mount("#page");
-
-
-    // ================================================
-    $('.icon_pwdLook').click(function() {
-        $(this).toggleClass('on');
-        let lookState = $(this).hasClass('on');
-        $(this).siblings('input').attr('type', `${lookState==true? 'text':'password'}`)
-    }).mouseout(function(){
-        $(this).removeClass('on');
-        $(this).siblings('input').attr('type','password')
-    })
 </script>
