@@ -37,21 +37,21 @@
         <div class="videoBox">
             <div class="gameShow" id="gameShow">
                 <div class="main">
-                    <iframe :src="reMvsrc(ytShow)" frameborder="0" id="showMv"></iframe>
+                    <iframe :src="reYTmv(youtube.show)" frameborder="0" id="showMv"></iframe>
                 </div>
                 <div class="list">
                     <div class="arrow_l"></div>
                     <div class="arrow_r"></div>
                     <div class="listArray" id="listArray">
                         <ul>
-                            <template v-for="(item,index) in ytList">
-                                <li  @click="chYT(item)">
+                            <template v-for="(item,index) in youtube.list">
+                                <li  @click="chYT(item.id)">
                                     <div>
                                         <div class="listArray_img">
-                                            <img :src="item.imgUrl">
+                                            <img :src="item.img">
                                         </div>
                                         <div class="listArray_msg">
-                                            <span>{{item.time}}</span>
+                                            <!-- <span>{{item.time}}</span> -->
                                             <p>{{item.title}}</p>     
                                         </div>
                                     </div>
@@ -63,6 +63,7 @@
             </div>
 
             <div class="gameMsg" id="gameMsg">
+                <!-- 賽事比分 -->
                 <div>
                     <div class="mainMsg-title">BẢNG XẾP HẠNG</div>
                     <div class="gameChart">
@@ -95,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- 賽事結果 -->
                 <div>
                     <div class="mainMsg-title">Kết quả</div>
                     <div class="gameSchedule">
@@ -232,32 +233,40 @@
             return {
                 liveData: mvLive,
                 liveList: [],
-                ytShow: '',
-                ytList: [],
                 today: '',
                 weekList: [],
 
+                // youtube頻道影片
+                 youtube: {
+                    show:'',
+                    list:'',
+                },
+
+                // 賽事比分
                 selected: 'champions-league',
                 chartSel: '',
                 chartList: '',
+
+                // 賽事結果
                 schedule: '',
 
                 // 開關
                 chatSwitch: false,
                 dateSwitch: false,
                 // 準備load
-                chReady: [false,false,false,false],   
+                readyState: [false,false,false],   
             };
         },
         methods: {
-            ready() {
-                if (this.chReady[0] && this.chReady[1] && this.chReady[2] && this.chReady[3]) {
+            onReady() {
+                if (this.readyState[0] && this.readyState[1] && this.readyState[2]) {
                     indexVue.onLoad = false;
                 }
             },
             goTop() {
                 this.$refs.gameChart.scrollTop = 0;
             },
+
             reMvsrc(data) {
                 return `https://www.youtube.com/embed/${data}`
             },
@@ -269,29 +278,11 @@
                         self.liveList.push(data);
 
                         self.$nextTick(function() {
-                            self.chReady[0] = true;
-                            self.ready();
+                            self.readyState[0] = true;
+                            self.onReady();
                         })
                     });
                 })
-            },
-            getYt() {
-                let self = this;
-                docRef2.get().then((querySnapshot) => {
-                    querySnapshot.forEach((doc) => {
-                        let data = doc.data();
-                        self.ytList.push(data);
-                        self.ytShow = self.ytList[0].videoId;
-
-                        self.$nextTick(function() {
-                            self.chReady[1] = true;
-                            self.ready();
-                        })
-                    });
-                })
-            },
-            chYT(data) {
-                this.ytShow = data.videoId;
             },
             showDate() {
                 this.today = new Date();
@@ -324,38 +315,76 @@
                     })
                 }
             },
+
             formatDate(data) {
                 let d = new Date(data)
                 let formatd = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
                 return formatd;
             },
 
+
+            chYT(data) {
+                // 變更youtube影片ID值
+                this.youtube.show = data;
+            },
+            reYTmv(){
+                // 返回youtube完整影片位置
+                return `https://www.youtube.com/embed/${this.youtube.show}`
+            },
+           
             getData(){
                 let self = this;
+                let chReady = [false, false, false];
+                function ready() {
+                    if (chReady[0] && chReady[1] && chReady[2]) {
+                        self.readyState[1] = true;
+                        self.onReady();
+                    }
+                }
 
+                // yt頻道影片
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/video/list",
+                    dataType: "json",
+                    success: function(data) {
+                        self.youtube.list = data;
+                        self.youtube.show = data[0].id;
+                        self.$nextTick(function() {
+                            chReady[0] = true;
+                            ready();
+                        })    
+                    },
+                });
+
+                // 賽事比分選擇
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/match/score",
                     dataType: "json",
                     success: function(data) {
                         self.chartSel = data;
-
                         self.$nextTick(function() {
-                            self.chReady[2] = true;
+                            chReady[1] = true;
+                            ready();
                         })
                     },
                 });
 
+                // 賽事結果
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/match/results",
                     dataType: "json",
                     success: function(data) {
-                        self.schedule = data;
+                        self.schedule = data
+                        self.$nextTick(function() {
+                            chReady[2] = true;
+                            ready();
+                        })
                     },
                 });
 
             },
 
-
+            // 賽事比分列表
             chart_list() {
                 let self = this;
                 let setUrl = `https://vnc88.awgstudio.com/api/match/score/${self.selected}`
@@ -366,8 +395,8 @@
                         self.chartList = data;
 
                         self.$nextTick(function() {
-                            self.chReady[3] = true;
-                            self.ready();
+                            self.readyState[2] = true;
+                            self.onReady();
                         })
                     },
                 });
@@ -375,9 +404,7 @@
         },
         mounted() {
             this.getLive();
-            this.getYt();
             this.showDate();
-
             this.chart_list();
             this.getData();
 

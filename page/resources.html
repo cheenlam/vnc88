@@ -7,9 +7,9 @@
         <div class="bank-List">
             <div class="bank-tb">
                 <table>
-                    <template v-for="(item,index) in bank.main.slice(0,parseInt(bank.main.length/bankNum)+2)">
+                    <template v-for="(item,index) in bank.main.slice(0,parseInt(bank.main.length/linkNum.bank)+2)">
                         <tr v-if="index !== 0">
-                            <td v-for="(item,index) in bank.main.slice(0+(index-1)*bankNum,bankNum*index)">
+                            <td v-for="(item,index) in bank.main.slice(0+(index-1)*linkNum.bank,linkNum.bank*index)">
                                 <a :href="item.href" target="_blank">
                                     <div class="bankTb-img">
                                         <img :src="item.img">
@@ -22,9 +22,9 @@
             </div>
 
             <div class="resList-list">
-                <template v-for="(item,index) in bank.minor.slice(0,parseInt(bank.minor.length/listNum)+2)">
+                <template v-for="(item,index) in bank.minor.slice(0,parseInt(bank.minor.length/linkNum.list)+2)">
                     <ul v-if="index !== 0">
-                        <li v-for="(item,index) in bank.minor.slice(0+(index-1)*listNum,listNum*index)">
+                        <li v-for="(item,index) in bank.minor.slice(0+(index-1)*linkNum.list,linkNum.list*index)">
                             <a :href="item.href" target="_blank">
                                 <span>{{item.txt}}</span>
                             </a>
@@ -40,9 +40,9 @@
         <div class="lottory-list">
             <div class="lottory-tb">
                 <table>
-                    <template v-for="(item,index) in lottory.main.slice(0,parseInt(bank.main.length/lottoryNum)+2)">
+                    <template v-for="(item,index) in lottory.main.slice(0,parseInt(bank.main.length/linkNum.lottory)+2)">
                         <tr v-if="index !== 0">
-                            <td v-for="(item,index) in lottory.main.slice(0+(index-1)*lottoryNum,lottoryNum*index)">
+                            <td v-for="(item,index) in lottory.main.slice(0+(index-1)*linkNum.lottory,linkNum.lottory*index)">
                                 <a :href="item.href" target="_blank">
                                     <div class="lottoryTb_list">
                                         <div class="lottoryTb-img">
@@ -57,9 +57,9 @@
                 </table>
             </div>
             <div class="resList-list">
-                <template v-for="(item,index) in lottory.minor.slice(0,parseInt(lottory.minor.length/listNum)+2)">
+                <template v-for="(item,index) in lottory.minor.slice(0,parseInt(lottory.minor.length/linkNum.list)+2)">
                     <ul v-if="index !== 0">
-                        <li v-for="(item,index) in lottory.minor.slice(0+(index-1)*listNum,listNum*index)">
+                        <li v-for="(item,index) in lottory.minor.slice(0+(index-1)*linkNum.list,linkNum.list*index)">
                             <a :href="item.href" target="_blank">
                                 <span>{{item.txt}}</span>
                             </a>
@@ -125,14 +125,22 @@
     Vue.createApp({
         data() {
             return {
-                bank: bankLink,
-                lottory: lottoryLink,
-                adImg: flexEvent,
-                resNews:resNews,
-                resQa: resQa,
-                bankNum: 6,
-                lottoryNum: 3,
-                listNum: 6,
+                 
+                bank: bankLink,  // 銀行連結
+                lottory: lottoryLink,  // 彩票公司連結     
+
+                // 控制連結區塊排列(RWD)   
+                linkNum:{                
+                    bank:6,
+                    lottory:3,
+                    list:6
+                },
+                
+                adImg: flexEvent,  // 廣告
+                resNews:[],   // 新聞
+                resQa: resQa,      // Q&A
+
+                
             };
         },
         methods: {
@@ -140,29 +148,51 @@
                 return `background-image: url(${data})`;
             },
             reHref(index) {
-                return `#/resources?p=${index+1}`
+                return `#/resources/news?list=${index+1}`
             },
             myResize() {
                 let num = window.innerWidth;
                 if (num > 1200) {
-                    this.bankNum = 6
-                    this.listNum = 6
+                    this.linkNum.bank = 6
+                    this.linkNum.list = 6
                 } else if (num <= 1200) {
-                    this.bankNum = parseInt(num / 200)
-                    this.listNum = parseInt(num / 200)
+                    this.linkNum.bank = parseInt(num / 200)
+                    this.linkNum.list = parseInt(num / 200)
                 }
-                this.lottoryNum = num > 1200 ? 3 : 2;
+                this.linkNum.lottory = num > 1200 ? 3 : 2;
+            },
+            getData(){
+                let self = this;
+                let chReady = [false, false, false, false];
+
+                function ready() {
+                    if (chReady[0]) {
+                        indexVue.onLoad = false;
+                    }
+                }
+
+                // 新聞
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/resources/list",
+                    dataType: "json",
+                    success: function(data) {
+                        // 取前12筆
+                        for (let i = 0; i < 12; i++) {
+                            self.resNews.push(data[i])
+                        }
+                        self.$nextTick(function() {
+                            chReady[0] = true;
+                            ready();
+                        })
+                    },
+                });
             },
         },
         mounted() {
             window.addEventListener("resize", this.myResize);
-            this.myResize();
             indexVue.onLoad = true;
-            this.$nextTick(function() {
-                setTimeout(function() {
-                    indexVue.onLoad = false;
-                }, 300)
-            })
+            this.myResize();
+            this.getData();  
         },
     }).mount("#page");
 </script>

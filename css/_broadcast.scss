@@ -126,7 +126,7 @@
                 background-color: #fff;
                 border-radius: 50%;
                 position: absolute;
-                top: calc(100% / 1.775 / 3);
+                top: calc(33%);
                 opacity: 0.7;
                 z-index: 2;
                 cursor: pointer;
@@ -172,7 +172,7 @@
                 margin: auto;
                 overflow: hidden;
                 ul {
-                    width: calc(100% / 3 * 10);
+                    width: calc(100% * 6 / 3);
                     display: flex;
                     transition: 0.3s;
                 }

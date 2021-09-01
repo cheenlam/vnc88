@@ -359,10 +359,12 @@
         <div class="warnLog" v-show="warn.warnSwitch">
             <div class="warnbody">
                 <div class="warnIcon">
-                    <img src="images/icon/tick.svg" v-if="warn.success">
-                    <img src="./images/icon/cross.svg" v-else>
+                    <img src="images/icon/tick.png" v-if="warn.success">
+                    <img src="images/icon/cross.png" v-else>
                 </div>
-                <div class="warnTxt">{{warn.warnTxt}}</div>
+                <div class="warnTxt">
+                    <p v-for="(item,index) in warn.warnTxt">{{item}}</p>
+                </div>
             </div>
         </div>
 
@@ -625,7 +627,7 @@
                 warn: {
                     warnSwitch: false,
                     success: false,
-                    warnTxt: ''
+                    warnTxt: [],
                 },
 
                 // ==== 開關(暫時) ====
@@ -680,7 +682,7 @@
                 if (ckCode) {
                     this.postSignIn();
                 } else {
-                    this.warn.warnTxt = "Sai mã xác nhận";
+                    this.warn.warnTxt = ["Sai mã xác nhận"];
                     this.showErrorLog();
                 };
             },
@@ -724,7 +726,7 @@
                         self.mbrMsg.nickname = res.nickname;
                         self.mbrMsg.points = res.points;
 
-                        self.warn.warnTxt = "Đăng nhập thành công, lập tức chuyển đến trang chủ";
+                        self.warn.warnTxt = ["Đăng nhập thành công" ,"lập tức chuyển đến trang chủ"];
                         self.warn.warnSwitch = true;
                         self.warn.success = true;
                         setTimeout(function() {
@@ -737,12 +739,12 @@
                         break;
                     case 403:
                         self.errorCode.pwd = true;
-                        this.warn.warnTxt = "Sai mật khẩu";
+                        this.warn.warnTxt = ["Sai mật khẩu"];
                         self.showErrorLog();
                         break;
                     case 404:
                         self.errorCode.notEmail = true;
-                        this.warn.warnTxt = "Email không tồn tại";
+                        this.warn.warnTxt = ["Email không tồn tại"];
                         self.showErrorLog();
                         break;
                     case 409:

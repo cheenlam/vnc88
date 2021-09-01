@@ -15,6 +15,7 @@ Router.prototype.refresh = function() {
         routerList.push(`home/news?list=${i}`)
         routerList.push(`news/news?list=${i}`)
         routerList.push(`lottery/news?list=${i}`)
+        routerList.push(`resources/news?list=${i}`)
     }
 
     for (let i = 0; i < 99; i++) {
@@ -168,6 +169,19 @@ for (let i = 0; i < 99; i++) {
         chCrumb(data);
     });
 
+    // 博彩內頁新聞
+    Router.route(`/lottery/news?list=${i}`, function() {
+        mainInclude('page/newsCnt/news_lottery.html');
+        menuList_on(1);
+        sessionStorage.setItem('news_l', i);
+
+        let data = [
+            { href: "#/lottery", name: "Đề xuất cá cược" },
+            { name: "Tin quan trọng" }
+        ];
+        chCrumb(data);
+    });
+
     // 新聞內頁新聞
     Router.route(`/news/news?list=${i}`, function() {
         mainInclude('page/newsCnt/news_news.html');
@@ -176,36 +190,26 @@ for (let i = 0; i < 99; i++) {
 
         let data = [
             { href: "#/news", name: "Tin tức" },
+            { name: "Tin quan trọng" }
         ];
-
-        if (i < 7) {
-            data.push({ name: "Tin quan trọng" })
-        } else {
-            data.push({ name: "Tin hot" })
-        }
         chCrumb(data);
     });
 
-    // 博彩內頁新聞
-    Router.route(`/lottery/news?list=${i}`, function() {
-        mainInclude('page/newsCnt/news_lottery.html');
-        menuList_on(1);
-        sessionStorage.setItem('news_l', i);
-
+    
+    // 資源內頁新聞
+    Router.route(`/resources/news?list=${i}`, function() {
+        mainInclude('page/newsCnt/news_res.html');
+        menuList_on(4);
+        sessionStorage.setItem('news_r', i);
 
         let data = [
-            { href: "#/lottery", name: "Đề xuất cá cược" },
+            {href: "#/resources", name: "Thông tin" },
+            { name: "Tin quan trọng" }
         ];
 
-        if (i < 6) {
-            data.push({ name: "Tin quan trọng" })
-        } else {
-            data.push({ name: "Tin hot" })
-        }
         chCrumb(data);
     });
 }
-
 
 // ======================================================
 for (let i = 1; i < 99; i++) {

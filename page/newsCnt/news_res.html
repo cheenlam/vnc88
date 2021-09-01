@@ -1,13 +1,11 @@
 <div class="contBox-min">
-    <div class="newsCnt" id="newsCnt">   
+    <div class="newsCnt" id="newsCnt">
         <div class="newsCnt_main">
             <div class="newstitle">
                 <div class="txt">
                     <h2>VNC88.com</h2>
                     <p>{{newsMain.newsTitle}}</p>
                 </div>
-
-                <div class="time">{{newsMain.newsTime}}</div>
             </div>
             <div class="newsArticle" v-html="newsMain.newsContent">
             </div>
@@ -18,15 +16,8 @@
                 <div class="mainMsg-title">Tin quan trọng</div>
                 <div class="newsCnt_scroll">
                     <ul>
-                        <li v-if="localNum != 1">
-                            <a href="#/home/news?list=1">
-                                <div class="img" :style="getbgi(newsMenu.newsImp_t.img)"></div>
-                                <p>{{newsMenu.newsImp_t.title}}</p>
-                            </a>
-                        </li>
-
-                        <template v-for="(item,index) in newsMenu.newsImp_b">
-                            <li v-if="localNum != index+2">
+                        <template v-for="(item,index) in newsMenu.newsImp">
+                            <li v-if="localNum != index+1">
                                 <a :href="reHref(false,index)">
                                     <div class="img" :style="getbgi(item.img)"></div>
                                     <p>{{item.title}}</p>
@@ -41,7 +32,7 @@
                 <div class="newsCnt_scroll">
                     <ul>
                         <template v-for="(item,index) in newsMenu.newsHot">
-                            <li v-if="localNum != index+6">
+                            <li>
                                 <a :href="reHref(true,index)">
                                     <div class="img" :style="getbgi(item.img)"></div>
                                     <p>{{item.title}}</p>
@@ -52,7 +43,6 @@
                 </div>
             </div>
         </div>
-       
     </div>
 </div>
 
@@ -62,13 +52,11 @@
             return {
                 newsMain: {
                     newsTitle: '',
-                    newsTime: '',
                     newsContent: '',
                 },
                 newsMenu: {
                     newsHot: '',
-                    newsImp_t: '',
-                    newsImp_b: [],
+                    newsImp: [],
                 },
                 localNum: 1,
             };
@@ -81,59 +69,26 @@
                 if (hot) {
                     return `#/home/news?list=${index+6}`
                 } else {
-                    return `#/home/news?list=${index+2}`
+                    return `#/resources/news?list=${index+1}`
                 }
+
             },
             getData() {
                 let self = this;
                 let getUrl;
-                let getLocal_h = sessionStorage.getItem('news_h');
-                self.localNum = sessionStorage.getItem('news_h');
-
-                if (getLocal_h == 1) {
-                    getUrl = "https://vnc88.awgstudio.com/api/homenews/top";
-                } else if (getLocal_h > 1 && getLocal_h < 6) {
-                    getUrl = "https://vnc88.awgstudio.com/api/homenews/bottom";
-                } else {
-                    getUrl = "https://vnc88.awgstudio.com/api/homenews/list";
-                }
-
-                $.ajax({
-                    url: getUrl,
-                    dataType: "json",
-                    success: function(data) {
-                        if (getLocal_h == 1) {
-                            set(true)
-                        } else if (getLocal_h > 1 && getLocal_h < 6) {
-                            set(false, 2)
-                        } else {
-                            set(false, 6)
-                        }
-
-                        function set(set, num) {
-                            if (set) {
-                                self.newsMain.newsTitle = data.detail.title;
-                                self.newsMain.newsTime = data.detail.time;
-                                self.newsMain.newsContent = data.detail.content;
-                            } else {
-                                self.newsMain.newsTitle = data[getLocal_h - num].detail.title;
-                                self.newsMain.newsTime = data[getLocal_h - num].detail.time;
-                                self.newsMain.newsContent = data[getLocal_h - num].detail.content;
-                            }
-                        }
-                    },
-                });
+                let getLocal_r = sessionStorage.getItem('news_r');
+                self.localNum = sessionStorage.getItem('news_r');
             },
             getMenu() {
                 let self = this;
-                let chReady = [false, false, false];
+                let chReady = [false, false];
+                self.localNum = sessionStorage.getItem('news_r');
 
                 function ready() {
-                    if (chReady[0] && chReady[1] && chReady[2]) {
+                    if (chReady[0] && chReady[1]) {
                         indexVue.onLoad = false;
                     }
                 }
-
 
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/homenews/list",
@@ -148,26 +103,19 @@
                 });
 
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/top",
+                    url: "https://vnc88.awgstudio.com/api/resources/list",
                     dataType: "json",
                     success: function(data) {
-                        self.newsMenu.newsImp_t = data;
+                        // 取前12筆
+                        for (let i = 0; i < 12; i++) {
+                            self.newsMenu.newsImp.push(data[i])
+                        }
+
+                        self.newsMain.newsTitle = data[self.localNum].title;
+                        self.newsMain.newsContent = data[self.localNum].content;
+
                         self.$nextTick(function() {
                             chReady[1] = true;
-                            ready();
-                        })
-                    },
-                });
-
-                $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/bottom",
-                    dataType: "json",
-                    success: function(data) {
-                        for (let i = 0; i < 4; i++) {
-                            self.newsMenu.newsImp_b.push(data[i])
-                        }
-                        self.$nextTick(function() {
-                            chReady[2] = true;
                             ready();
                         })
                     },
@@ -177,7 +125,6 @@
         mounted() {
             this.getData();
             this.getMenu();
-
             indexVue.onLoad = true;
         },
     }).mount("#newsCnt");

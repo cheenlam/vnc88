@@ -106,6 +106,7 @@
                             <div class="mbrl_ipt">
                                 <input type="password" v-model="pwdData.former" required autocomplete="on">
                                 <div class="icon_pwdLook"></div>
+                                <p class="errorTxt" v-if="errorCode.former">舊密碼錯誤</p>
                             </div>
                         </li>
                         <li>
@@ -113,6 +114,7 @@
                             <div class="mbrl_ipt">
                                 <input type="password" v-model="pwdData.new" required autocomplete="on">
                                 <div class="icon_pwdLook"></div>
+                                <p class="errorTxt" v-if="errorCode.new">新舊密碼不能相同</p>
                             </div>
                         </li>
                         <li>
@@ -120,6 +122,7 @@
                             <div class="mbrl_ipt">
                                 <input type="password" v-model="pwdData.ckNew" required autocomplete="on">
                                 <div class="icon_pwdLook"></div>
+                                <p class="errorTxt" v-if="errorCode.ckNew">請確認新密碼相同</p>
                             </div>
                         </li>
                     </ul>
@@ -148,19 +151,27 @@
                     former:'',
                     new:'',
                     ckNew:'',
-                }
+                },
+                errorCode: {
+                    former: false,
+                    new: false,
+                    ckNew: false,
+                },
             };
         },
         methods: {
             ckPwd(){
-                let state = this.pwdData.new == this.pwdData.ckNew;
-                if(state){
-                    this.postChpwd();
+                let case_01 = this.pwdData.new != this.pwdData.ckNew;
+                let case_02 = this.pwdData.former == this.pwdData.new;  
+                this.reError();
+                
+                if(case_01){
+                    this.errorCode.ckNew = true;
+                }else if(case_02){
+                    this.errorCode.new = true;
                 }else{
-                    console.log("請確認新密碼相同") 
+                    this.postChpwd();
                 }
-
-                console.log(sessionStorage.getItem('session'))
             },
             postChpwd(){
                 let account = {};
@@ -169,7 +180,7 @@
                 account.token = String(token);
                 account.oldpassword = String(this.pwdData.former);
                 account.newpassword = String(this.pwdData.ckNew);
-                
+
                 let xhr = new XMLHttpRequest();
                 xhr.open("PUT", "https://vnc88.awgstudio.com/api/member/password");
                 xhr.setRequestHeader("Content-type", "application/json");
@@ -178,15 +189,35 @@
                 xhr.onload = function() {
                     switch(xhr.status){
                         case 200: 
-                            console.log("密碼已變更"); break;
+                            indexVue.warn.warnTxt = ["密碼已變更","請重新登入"];
+                            indexVue.warn.success = true;
+                            backHome();
+                            break;
                         case 403: 
-                            console.log("舊密碼錯誤");break;
-                        case 404: 
-                            console.log("token失效");break;
+                            self.errorCode.former = true;
+                            break;
+                        case 404:
+                            indexVue.warn.warnTxt = ["Token hết hiệu lực","vui lòng đăng nhập lại"];
+                            indexVue.warn.success = false;
+                            backHome();
+                            break;
                     }
 
-                    console.log("最後執行");
+                    function backHome(){
+                        indexVue.warn.warnSwitch = true;
+                        sessionStorage.removeItem('session');
+                        indexVue.ckLogin();
+                        setTimeout(function() {
+                            location.href = "#/home";
+                            indexVue.warn.warnSwitch = false
+                        }, 2000)
+                    }
                 }
+            },
+            reError(){
+                this.errorCode.former = false;
+                this.errorCode.new = false;
+                this.errorCode.ckNew = false;
             },
            
         },
