@@ -198,12 +198,14 @@ img {
   user-select: none;
 }
 
-.sw-next-prev:hover {
-  background-color: rgba(255, 255, 255, 0.74);
-}
-
 .sw-next-prev:active {
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+@media (any-hover: hover) {
+  .sw-next-prev:hover {
+    background-color: rgba(255, 255, 255, 0.74);
+  }
 }
 
 .sw-prev {

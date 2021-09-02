@@ -151,122 +151,8 @@ var lotteryDict = {
     ]
 }
 
-var lotteryNews = {
-    news_t: {
-        img: "images/newsRef/lottery1-01.jpg",
-        title: "Tiêu chí nhận định nhà cái uy tín tại Kèo Bóng Cỏ"
-    },
-    news_b: [{
-            img: "images/newsRef/lottery2-01.jpg",
-            title: "Kèo Nhà Cái nhận định trước trân Chung Kết : Anh vs Ý"
-        },
-        {
-            img: "images/newsRef/lottery3-01.jpg",
-            title: "Kèo nhà cái nhận định bóng đá Anh vs Đan Mạch"
-        },
-        {
-            img: "images/newsRef/lottery4-01.jpg",
-            title: "Kèo Nhà Cái nhận định trân đấu Ý vs Tây Ban Nha"
-        },
-        {
-            img: "images/newsRef/lottery5-01.jpg",
-            title: "Kèo Nhà Cái nhận định Ukraine vs Anh"
-        },
-    ],
-    news_r: [{
-            img: "images/newsRef/newsRef-01.jpg",
-            title: "CHÍNH THỨC: Man Utd công bố bom tấn thứ 2 sau Sancho"
-        },
-        {
-            img: "images/newsRef/newsRef2-01.jpg",
-            title: "Đội hình với 11 'bom xịt' của Arsenal trong thế kỷ XXI"
-        },
-        {
-            img: "images/newsRef/newsRef3-01.jpg",
-            title: "Ronaldo gieo rắc hy vọng về một thương vụ bom tấn hoàn hảo cho M.U"
-        },
-        {
-            img: "images/newsRef/newsRef4-01.jpg",
-            title: "Top 10 trung vệ được trả lương cao nhất EPL: Kỷ lục từ tân binh Man Utd"
-        },
-        {
-            img: "images/newsRef/newsRef5-01.jpg",
-            title: "5 điểm nhấn Bournemouth 1-2 Chelsea: Số 9 mới; 3 cái tên gây thất vọng."
-        },
-        {
-            img: "images/newsRef/newsRef6-01.jpg",
-            title: "Chelsea đề xuất các điều khoản cá nhân cho tiền đạo 74 triệu bảng"
-        },
-        {
-            img: "images/newsRef/newsRef7-01.jpg",
-            title: "Eric Bailly khiến Man Utd lo ngại về Varane"
-        },
-        {
-            img: "images/newsRef/newsRef8-01.jpg",
-            title: "Có Ben White, Arsenal lập tức chuyển hướng sang máy quét Bundesliga"
-        },
-        {
-            img: "images/newsRef/newsRef9-01.jpg",
-            title: "Arsenal vẫn theo đuổi mục tiêu số 1"
-        },
-        {
-            img: "images/newsRef/newsRef10-01.jpg",
-            title: "Xong 2 kế hoạch lớn, Man Utd tiếp tục xử lý kế hoạch 3 nan giải"
-        },
-        {
-            img: "images/newsRef/newsRef11-01.jpg",
-            title: 'Haaland: "Cậu phải kiến tạo cho tôi nhiều, nếu không tôi sẽ giận"'
-        },
-        {
-            img: "images/newsRef/newsRef12-01.jpg",
-            title: "Mohamed Salah tái mặt khi đối đầu với quái thú phòng ngự"
-        },
-        {
-            img: "images/newsRef/newsRef13-01.jpg",
-            title: "Varane đến Ngoại hạng Anh, chuyên gia lo ngại cho Chelsea"
-        },
-        {
-            img: "images/newsRef/newsRef14-01.jpg",
-            title: "Cập bến Chelsea, đá tảng 60 triệu mang áo số mấy?"
-        },
-    ],
-    resources_r: [{
-            img: "images/newsRef/resources1-01.jpg",
-            title: "Hội Nghị Đại Biểu Người Lao Động Công Ty TNHH Một Thành Viên Xổ Số Kiến Thiết Thành Phố Năm 2021"
-        },
-        {
-            img: "images/newsRef/resources2-01.jpg",
-            title: "Chi Đoàn Thanh Niên Xổ Số Kiến Thiết Trao Xe Đạp Cho Con Của Người Bán Vé Số Lẻ Hiếu Học Có Hoàn Cảnh Khó Khăn Và Đạt Thành Tích Trong Học Tập Năm 2020"
-        },
-        {
-            img: "images/newsRef/resources3-01.jpg",
-            title: "Đoàn Thanh Niên Công Ty XSKT Thành Phố Tổ Chức Nhiều Hoạt Động Ý Nghĩa Chào Mừng Tháng Thanh Niên 2021"
-        },
-        {
-            img: "images/newsRef/resources4-01.jpg",
-            title: "Công Ty Xskt Thành Phố Chào Mừng Ngày Quốc Tế Phụ Nữ 8-3"
-        },
-        {
-            img: "images/newsRef/resources5-01.jpg",
-            title: "Công Ty Xổ Số Kiến Thiết Hồ Chí Minh: Thương Hiệu Hàng Đầu Của Xổ Số Kiến Thiết Khu Vực Miền Nam"
-        },
-        {
-            img: "images/newsRef/resources6-01.jpg",
-            title: "Đoàn Công Tác Công Ty TNHH MTV XSKT Thành Phố Thăm Và Tặng Quà Cho Công Nhân Có Hoàn Cảnh Khó Khăn Tại Xí Nghiệp In Tài Chính"
-        },
-        {
-            img: "images/newsRef/resources7-01.jpg",
-            title: "Hội Nghị Xổ Số Kiến Thiết Khu Vực Miền Nam Lần Thứ 124"
-        },
-        {
-            img: "images/newsRef/resources8-01.jpg",
-            title: "Công ty TNHH MTV Xổ số Kiến thiết TPHCM: Nỗ lực vượt khó khăn, đoàn kết, ổn định và giữ vững vị thế dẫn đầu trong ngành xổ số truyền thống"
-        },
-    ],
-}
-
 // ======== news ========
-// 網站介紹
+// 消息新聞
 var news_selfNews = [{
         href: "#/news?p=7",
         img: "images/newsRef/newsList7-01.jpg",
@@ -324,7 +210,7 @@ var news_selfNews = [{
         time: "06-06 21:48"
     },
 ]
-
+// 網站介紹
 var newsDict = {
     title: "Nhà cái uy tín – Kèo Bóng Cỏ giới thiệu các nhà cái uy tín hàng đầu",
     msg: [{

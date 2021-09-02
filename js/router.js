@@ -18,6 +18,7 @@ Router.prototype.refresh = function() {
         routerList.push(`resources/news?list=${i}`)
     }
 
+    
     for (let i = 0; i < 99; i++) {
         routerList.push(`newsRef?p=${i}`)
         routerList.push(`lotteryRef?p=${i}`)
