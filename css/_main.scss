@@ -42,6 +42,7 @@ body {
         justify-content: space-between;
         @include rwd(1280) {
             width: 100%;
+            padding: 5px 20px 5px 28px;
             background-color: #0b2139;
             position: fixed;
             top: 0;
@@ -54,7 +55,7 @@ body {
             justify-content: center;
         }
         @include rwd(350) {
-            padding: 10px;
+            padding: 5px 10px;
         }
         .hd_logo {
             width: 478px;

@@ -19,7 +19,7 @@ $(window).resize(function() {
 
 function floatHd(){
     let winW = $(document).width();
-    let hdH = $('#hd_top').height()+10;
+    let hdH = $('#hd_top').height()+5;
     if (winW >= 1263) {
         $('#indexBox').css('padding-top','0px')
     }else{  
