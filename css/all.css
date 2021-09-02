@@ -1679,6 +1679,19 @@ body {
           justify-content: space-between;
 }
 
+@media screen and (max-width: 1280px) {
+  .header .hd_top {
+    width: 100%;
+    background-color: #0b2139;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    -webkit-box-shadow: 0 2px 5px #000;
+            box-shadow: 0 2px 5px #000;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .header .hd_top {
     -webkit-box-pack: center;

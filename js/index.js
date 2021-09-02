@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
     window.scrollTo({ top: 0 });
+    floatHd();
 })
 
 var scroll = $(window).scroll(function() {
@@ -10,17 +11,27 @@ var scroll = $(window).scroll(function() {
 
 $(window).resize(function() {
     floatEvent();
+    floatHd();
     window.scrollTo({ top: 0 });
-
     indexVue.menuOpen = false;
     indexVue.signInOpen = false;
 })
+
+function floatHd(){
+    let winW = $(document).width();
+    let hdH = $('#hd_top').height()+10;
+    if (winW >= 1263) {
+        $('#indexBox').css('padding-top','0px')
+    }else{  
+        $('#indexBox').css('padding-top',`${hdH}px`)
+    } 
+}
 
 // 上方menu浮動
 function floatMenu() {
     let topH = $('#hd_top').height();
     let winW = $(document).width();
-    if (winW > 1280) {
+    if (winW > 1263) {
         if (scroll.scrollTop() > topH) {
             indexVue.menuOpen = true;
         } else {
