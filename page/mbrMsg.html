@@ -106,7 +106,7 @@
                             <div class="mbrl_ipt">
                                 <input :type="lookPwd.formerType" v-model="pwdData.former" required autocomplete="on">
                                 <div class="icon_pwdLook" :class="{'on' : lookPwd.former}" @click="onLook('former')" @mouseout="outLook('former')"></div>
-                                <p class="errorTxt" v-if="errorCode.former">舊密碼錯誤</p>
+                                <p class="errorTxt" v-if="errorCode.former">Sai mật khẩu cũ</p>
                             </div>
                         </li>
                         <li>
@@ -114,7 +114,7 @@
                             <div class="mbrl_ipt">
                                 <input :type="lookPwd.newType" v-model="pwdData.new" required autocomplete="on">
                                 <div class="icon_pwdLook" :class="{'on' : lookPwd.new}" @click="onLook('new')" @mouseout="outLook('new')"></div>
-                                <p class="errorTxt" v-if="errorCode.new">新舊密碼不能相同</p>
+                                <p class="errorTxt" v-if="errorCode.new">Mật khẩu cũ và mới không được giống nhau</p>
                             </div>
                         </li>
                         <li>
@@ -122,7 +122,7 @@
                             <div class="mbrl_ipt">
                                 <input :type="lookPwd.ckNewType" v-model="pwdData.ckNew" required autocomplete="on">
                                 <div class="icon_pwdLook" :class="{'on' : lookPwd.ckNew}" @click="onLook('ckNew')" @mouseout="outLook('ckNew')"></div>
-                                <p class="errorTxt" v-if="errorCode.ckNew">請確認新密碼相同</p>
+                                <p class="errorTxt" v-if="errorCode.ckNew">Xác nhận mật khẩu mới tương đồng</p>
                             </div>
                         </li>
                     </ul>
@@ -197,7 +197,7 @@
                 xhr.onload = function() {
                     switch (xhr.status) {
                         case 200:
-                            indexVue.warn.warnTxt = ["密碼已變更", "請重新登入"];
+                            indexVue.warn.warnTxt = ["Mật khẩu đã được thay đổi", "hãy đăng nhập lại"];
                             indexVue.warn.success = true;
                             backHome();
                             break;
