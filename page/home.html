@@ -211,7 +211,7 @@
         <!-- flexEvent start -->
         <div class="flexEvent">
             <ul>
-                <li v-for="(item,index) in adImg">
+                <li v-for="(item,index) in EventImg">
                     <img :src="item.img">
                 </li>
             </ul>
@@ -268,27 +268,35 @@
 </div>
 
 
-<script src="js/index.js"></script>
 <script>
     Vue.createApp({
         data() {
             return {
+                // 博彩公司推薦
                 bet: betList,
-                adImg: flexEvent,
+                // 廣告
+                EventImg: flexEvent,
+                // 新聞
                 newsMenu: {
                     news_t: '',
                     news_b: [],
                     news_r: '',
                 },
+                // 輪播旁投注新聞
                 rec: homeRec,
+                // 輪播列表
                 carousel:'',
+                // 網站介紹
                 wsDict: homeWsDict,
             };
         },
         methods: {
+            // ==== 返回背景style ====
             getbgi(data) {
                 return `background-image: url(${data})`;
             },
+
+            // ==== 返回新聞連結 ====
             reHref(hot, index) {
                 if (hot) {
                     return `#/home/news?list=${index+6}`
@@ -296,11 +304,14 @@
                     return `#/home/news?list=${index+2}`
                 }
             },
+
+            // ==== 輪播返回連結 ====
             relotteryHref(index){
                 return `#/lottery/news?list=${index+2}`
             },
 
-            getMenu() {
+            // ==== 取得資料 ====
+            getData() {
                 let self = this;
                 let chReady = [false, false, false, false];
 
@@ -310,12 +321,13 @@
                         $('#mainCarousel').swipeslider(); // 啟動輪播外掛
                     }
                 }
-
+   
+                // 新聞大標題 (api = 首頁新聞資料_1)
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    url: "https://vnc88.awgstudio.com/api/homenews/top",
                     dataType: "json",
                     success: function(data) {
-                        self.newsMenu.news_r = data;
+                        self.newsMenu.news_t = data;
                         self.$nextTick(function() {
                             chReady[0] = true;
                             ready();
@@ -323,18 +335,7 @@
                     },
                 });
 
-                $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/top",
-                    dataType: "json",
-                    success: function(data) {
-                        self.newsMenu.news_t = data;
-                        self.$nextTick(function() {
-                            chReady[1] = true;
-                            ready();
-                        })
-                    },
-                });
-
+                // 新聞下方列表 (api = 首頁新聞資料_2)
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/homenews/bottom",
                     dataType: "json",
@@ -343,26 +344,42 @@
                             self.newsMenu.news_b.push(data[i])
                         }
                         self.$nextTick(function() {
+                            chReady[1] = true;
+                            ready();
+                        })
+                    },
+                });
+
+                 // 新聞menu (api = 首頁新聞資料_3)
+                 $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.news_r = data;
+                        self.$nextTick(function() {
                             chReady[2] = true;
                             ready();
                         })
                     },
                 });
 
+                // 輪播列表 (api = 首頁今日賽事)
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/match/news",
                     dataType: "json",
                     success: function(data) {
                         self.carousel = data;
-                        chReady[3] = true;
-                        ready();
+                        self.$nextTick(function() {
+                            chReady[3] = true;
+                            ready();
+                        })
                     },
                 });
             },
         },
         mounted() {
-            this.getMenu();
-            indexVue.onLoad = true;
+            this.getData();
+            indexVue.onLoad = true;  
         },
     }).mount("#page");
 </script>

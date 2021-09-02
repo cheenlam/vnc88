@@ -555,6 +555,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 
@@ -650,7 +651,6 @@
                     this.postRegd();
                 };
             },
-
             postRegd() {
                 let account = {};
                 let self = this
@@ -686,7 +686,6 @@
                     this.showErrorLog();
                 };
             },
-
             postSignIn() {
                 let account = {};
                 let self = this;
@@ -703,7 +702,6 @@
                     self.ckError(xhr.status, res);
                 }
             },
-
             showErrorLog(status) {
                 this.warn.success = false;
                 let w = document.body.clientWidth;
@@ -726,7 +724,7 @@
                         self.mbrMsg.nickname = res.nickname;
                         self.mbrMsg.points = res.points;
 
-                        self.warn.warnTxt = ["Đăng nhập thành công" ,"lập tức chuyển đến trang chủ"];
+                        self.warn.warnTxt = ["Đăng nhập thành công", "lập tức chuyển đến trang chủ"];
                         self.warn.warnSwitch = true;
                         self.warn.success = true;
                         setTimeout(function() {
@@ -785,6 +783,7 @@
                     this.mbrMsg.points = data.points;
                 }
             },
+
             onLogin(res) {
                 sessionStorage.setItem('session', JSON.stringify(res));
                 this.ckLogin();
@@ -803,15 +802,6 @@
                 setTimeout(function() {
                     self.onLoad = false;
                 }, 300)
-            },
-
-
-            // ==== 主頁面卷軸置頂 ====
-            goTop() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
             },
 
             // ==== 彈窗 ====
@@ -914,24 +904,32 @@
             // ==== qrCode ====
             qrHref(data) {
                 localStorage.setItem('qrCode', data)
-            }
+            },
+
+            // ==== 主頁面卷軸置頂 ====
+            goTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            },
         },
         mounted() {
             this.verify("mainVerify");
             this.verify("forgetVerify");
             this.verify("regdVerify");
             this.ckLogin()
+
+            // 啟動輪播&跑馬燈外掛
+            $('#full_feature').swipeslider();
+            $("#marquee").marquee({
+                pauseOnHover: true
+            });
         },
     }).mount("#indexBox");
 </script>
 
 <script>
-    // 啟動輪播&跑馬燈外掛
-    $('#full_feature').swipeslider();
-    $("#marquee").marquee({
-        pauseOnHover: true
-    });
-
     let firebaseConfig = {
         apiKey: "AIzaSyAgZwvI140YQ0w-nLzg2NMHGD7LT8xA0ig",
         authDomain: "login-a4c56.firebaseapp.com",

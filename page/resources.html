@@ -119,15 +119,15 @@
     </div>
 </div>
 
-<script src="js/index.js"></script>
 
 <script>
     Vue.createApp({
         data() {
-            return {
-                 
-                bank: bankLink,  // 銀行連結
-                lottory: lottoryLink,  // 彩票公司連結     
+            return {  
+                // 銀行連結
+                bank: bankLink,  
+                // 彩票公司連結   
+                lottory: lottoryLink,    
 
                 // 控制連結區塊排列(RWD)   
                 linkNum:{                
@@ -135,21 +135,27 @@
                     lottory:3,
                     list:6
                 },
-                
-                adImg: flexEvent,  // 廣告
-                resNews:[],   // 新聞
-                resQa: resQa,      // Q&A
 
-                
+                // 廣告
+                adImg: flexEvent,  
+                // 新聞
+                resNews:[],
+                // Q&A      
+                resQa: resQa,      
             };
         },
         methods: {
+            // ==== 返回背景style ====
             getbgi(data) {
                 return `background-image: url(${data})`;
             },
+
+            // ==== 返回連結 ====
             reHref(index) {
                 return `#/resources/news?list=${index+1}`
             },
+
+            // ==== 銀行/彩票公司link列表布局更動 ====
             myResize() {
                 let num = window.innerWidth;
                 if (num > 1200) {
@@ -161,10 +167,11 @@
                 }
                 this.linkNum.lottory = num > 1200 ? 3 : 2;
             },
+
+            // ==== 取得資料 ====
             getData(){
                 let self = this;
-                let chReady = [false, false, false, false];
-
+                let chReady = [false];
                 function ready() {
                     if (chReady[0]) {
                         indexVue.onLoad = false;

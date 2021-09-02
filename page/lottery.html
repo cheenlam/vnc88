@@ -117,24 +117,29 @@
     </div>
 </div>
 
-<script src="js/index.js"></script>
 <script>
     Vue.createApp({
         data() {
             return {
-                bet: betList,
-                wsDict: lotteryDict,
+                // 博彩公司推薦
+                bet: betList,            
+                // 新聞
                 newsMenu: {
                     news_r: '',
                     news_t: '',  
                     news_b: '',
                 },
+                 // 網站介紹
+                 wsDict: lotteryDict,
             };
         },
         methods: {
+            // ==== 返回背景style ====
             getbgi(data) {
                 return `background-image: url(${data})`;
             },
+
+             // ==== 返回新聞連結 ====
             reHref(hot, index) {
                 if (hot) {
                     return `#/home/news?list=${index+6}`
@@ -143,21 +148,23 @@
                 }
             },
             
+            // ==== 取得資料 ====
             getData() {
                 let self = this;
                 let chReady = [false,false,false];
 
                 function ready() {
-                    if (chReady[0]) {
+                    if (chReady[0] && chReady[1] && chReady[2]) {
                         indexVue.onLoad = false;
                     }
                 }
 
+                // 新聞大標題 (api = 博彩新聞_1)
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    url: "https://vnc88.awgstudio.com/api/recommend/top",
                     dataType: "json",
                     success: function(data) {
-                        self.newsMenu.news_r = data;
+                        self.newsMenu.news_t = data;
                         self.$nextTick(function() {
                             chReady[0] = true;
                             ready();
@@ -165,11 +172,12 @@
                     },
                 });
 
+                // 新聞下方列表 (api = 博彩新聞_2)
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/recommend/top",
+                    url: "https://vnc88.awgstudio.com/api/match/news",
                     dataType: "json",
                     success: function(data) {
-                        self.newsMenu.news_t = data;
+                        self.newsMenu.news_b = data;
                         self.$nextTick(function() {
                             chReady[1] = true;
                             ready();
@@ -177,11 +185,12 @@
                     },
                 });
 
+                // 新聞menu (api = 首頁今日賽事)
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/match/news",
+                    url: "https://vnc88.awgstudio.com/api/homenews/list",
                     dataType: "json",
                     success: function(data) {
-                        self.newsMenu.news_b = data;
+                        self.newsMenu.news_r = data;
                         self.$nextTick(function() {
                             chReady[2] = true;
                             ready();

@@ -9,11 +9,11 @@ var scroll = $(window).scroll(function() {
 });
 
 $(window).resize(function() {
-    floatEvent()
-    $('#hd_menu').removeClass('on');
+    floatEvent();
+    window.scrollTo({ top: 0 });
+
     indexVue.menuOpen = false;
     indexVue.signInOpen = false;
-    window.scrollTo({ top: 0 });
 })
 
 // 上方menu浮動
@@ -22,9 +22,9 @@ function floatMenu() {
     let winW = $(document).width();
     if (winW > 1280) {
         if (scroll.scrollTop() > topH) {
-            $('#hd_menu').addClass('on');
+            indexVue.menuOpen = true;
         } else {
-            $('#hd_menu').removeClass('on');
+            indexVue.menuOpen = false;
         }
     }
 }
@@ -49,9 +49,3 @@ function floatEvent() {
         $('.mainCnt .todayGame').css('display', 'block')
     }
 }
-
-
-// $('#hd_menu li').click(function() {
-//     $('#hd_menu').removeClass('on')
-//     window.scrollTo({ top: 0 });
-// })

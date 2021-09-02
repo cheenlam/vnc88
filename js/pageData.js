@@ -57,7 +57,7 @@ var indexAd = {
     ftEvent: [
         { img: "images/eventBanner/eventFooter_01.gif", switch: true },
         { img: "images/eventBanner/eventFooter_02.gif", switch: true },
-        { img: "images/eventBanner/eventFooter_3.gif", switch: true },
+        { img: "images/eventBanner/eventFooter_03.gif", switch: true },
     ]
 }
 

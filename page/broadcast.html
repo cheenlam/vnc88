@@ -37,7 +37,7 @@
         <div class="videoBox">
             <div class="gameShow" id="gameShow">
                 <div class="main">
-                    <iframe :src="reYTmv(youtube.show)" frameborder="0" id="showMv"></iframe>
+                    <iframe :src="reMvsrc(youtube.show)" frameborder="0" id="showMv"></iframe>
                 </div>
                 <div class="list">
                     <div class="arrow_l" @click="arrayMove('left')"></div>
@@ -226,16 +226,13 @@
     </div>
 </div>
 
-<script src="js/index.js"></script>
 <script>
     Vue.createApp({
         data() {
             return {
+                // 直播標題/清單
                 liveData: mvLive,
-                liveList: [],
-                today: '',
-                weekList: [],
-
+                liveList: [],          
                 // youtube頻道影片
                  youtube: {
                     show:'',
@@ -243,35 +240,41 @@
                     length: 0,
                     arrayNum:0
                 },
-
                 // 賽事比分
                 selected: 'champions-league',
                 chartSel: '',
                 chartList: '',
-
                 // 賽事結果
                 schedule: '',
-
+                // 日曆表
+                today: '',
+                weekList: [],       
+                // load狀態
+                readyState: [false,false,false],  
                 // 開關
                 chatSwitch: false,
-                dateSwitch: false,
-                // 準備load
-                readyState: [false,false,false],   
+                dateSwitch: false,      
             };
         },
         methods: {
+            // ==== 結束loading ====
             onReady() {
                 if (this.readyState[0] && this.readyState[1] && this.readyState[2]) {
                     indexVue.onLoad = false;
                 }
             },
+  
+            // ==== 返回youtube完整影片位置 ====
+             reMvsrc(data) {
+                return `https://www.youtube.com/embed/${data}`
+            },
+
+            // ==== 賽事比分卷軸置頂 ====
             goTop() {
                 this.$refs.gameChart.scrollTop = 0;
             },
 
-            reMvsrc(data) {
-                return `https://www.youtube.com/embed/${data}`
-            },
+            // ==== 取得live資料 ====
             getLive() {
                 let self = this;
                 docRef.get().then((querySnapshot) => {
@@ -286,7 +289,104 @@
                     });
                 })
             },
-            showDate() {
+
+
+            // ==== 變更youtube影片ID值 ====
+            chYT(data) {          
+                this.youtube.show = data;
+            },
+
+            
+            // ==== youtube清單移動 / 容器大小 ====
+            arrayMove(data){
+                if(data == "left"){
+                    this.youtube.arrayNum == 0 ? 0 : this.youtube.arrayNum--;
+                }else if(data == "right"){
+                    let num =  parseInt(this.youtube.length / 3)
+                    this.youtube.arrayNum == num ? num : this.youtube.arrayNum++;
+                }
+            },
+            
+            reArray(){
+                let allW = 100 * this.youtube.length / 3
+                let num = (100 - (100 / this.youtube.length *3)) / parseInt(this.youtube.length / 3)
+                return `width : ${allW}%; transform : translateX(-${this.youtube.arrayNum * num}%)`
+            },
+
+            // ==== 取得資料 ====
+            getData(){
+                let self = this;
+                let chReady = [false, false, false];
+                function ready() {
+                    if (chReady[0] && chReady[1] && chReady[2]) {
+                        self.readyState[1] = true;
+                        self.onReady();
+                    }
+                }
+
+                // youtube頻道影片
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/video/list",
+                    dataType: "json",
+                    success: function(data) {
+                        self.youtube.length = data.length;
+                        self.youtube.list = data;
+                        self.youtube.show = data[0].id;
+                        self.$nextTick(function() {
+                            chReady[0] = true;
+                            ready();
+                        })    
+                    },
+                });
+
+                // 賽事比分選擇 (api = 足球轉播-聯盟清單)
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/match/score",
+                    dataType: "json",
+                    success: function(data) {
+                        self.chartSel = data;
+                        self.$nextTick(function() {
+                            chReady[1] = true;
+                            ready();
+                        })
+                    },
+                });
+
+                // 賽事結果 (api = 足球轉播-賽事結果)
+                $.ajax({
+                    url: "https://vnc88.awgstudio.com/api/match/results",
+                    dataType: "json",
+                    success: function(data) {
+                        self.schedule = data
+                        self.$nextTick(function() {
+                            chReady[2] = true;
+                            ready();
+                        })
+                    },
+                });
+
+            },
+
+            // ==== 取得賽事比分列表 (api = 足球轉播-賽事比分) ====
+            chart_list() {
+                let self = this;
+                let setUrl = `https://vnc88.awgstudio.com/api/match/score/${self.selected}`
+                $.ajax({
+                    url: setUrl,
+                    dataType: "json",
+                    success: function(data) {
+                        self.chartList = data;
+
+                        self.$nextTick(function() {
+                            self.readyState[2] = true;
+                            self.onReady();
+                        })
+                    },
+                });
+            },
+
+            //  ==== 日曆表呈現  ====
+             showDate() {
                 this.today = new Date();
                 let today = new Date();
                 let scheduleWeek = []
@@ -323,128 +423,19 @@
                 let formatd = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
                 return formatd;
             },
-
-             // 變更youtube影片ID值
-            chYT(data) {          
-                this.youtube.show = data;
-            },
-
-             // 返回youtube完整影片位置
-            reYTmv(){
-                return `https://www.youtube.com/embed/${this.youtube.show}`
-            },
-
-            reArray(){
-                let allW = 100 * this.youtube.length / 3
-                let num = (100 - (100 / this.youtube.length *3)) / parseInt(this.youtube.length / 3)
-                return `width : ${allW}%; transform : translateX(-${this.youtube.arrayNum * num}%)`
-            },
-
-            arrayMove(data){
-                if(data == "left"){
-                    this.youtube.arrayNum == 0 ? 0 : this.youtube.arrayNum--;
-                }else if(data == "right"){
-                    let num =  parseInt(this.youtube.length / 3)
-                    this.youtube.arrayNum == num ? num : this.youtube.arrayNum++;
-                }
-            },
-
-            getData(){
-                let self = this;
-                let chReady = [false, false, false];
-                function ready() {
-                    if (chReady[0] && chReady[1] && chReady[2]) {
-                        self.readyState[1] = true;
-                        self.onReady();
-                    }
-                }
-
-                // yt頻道影片
-                $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/video/list",
-                    dataType: "json",
-                    success: function(data) {
-                        self.youtube.length = data.length;
-                        self.youtube.list = data;
-                        self.youtube.show = data[0].id;
-                        self.$nextTick(function() {
-                            chReady[0] = true;
-                            ready();
-                        })    
-                    },
-                });
-
-                // 賽事比分選擇
-                $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/match/score",
-                    dataType: "json",
-                    success: function(data) {
-                        self.chartSel = data;
-                        self.$nextTick(function() {
-                            chReady[1] = true;
-                            ready();
-                        })
-                    },
-                });
-
-                // 賽事結果
-                $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/match/results",
-                    dataType: "json",
-                    success: function(data) {
-                        self.schedule = data
-                        self.$nextTick(function() {
-                            chReady[2] = true;
-                            ready();
-                        })
-                    },
-                });
-
-            },
-
-            // 賽事比分列表
-            chart_list() {
-                let self = this;
-                let setUrl = `https://vnc88.awgstudio.com/api/match/score/${self.selected}`
-                $.ajax({
-                    url: setUrl,
-                    dataType: "json",
-                    success: function(data) {
-                        self.chartList = data;
-
-                        self.$nextTick(function() {
-                            self.readyState[2] = true;
-                            self.onReady();
-                        })
-                    },
-                });
-            }
         },
         mounted() {
             this.getLive();
-            this.showDate();
-            this.chart_list();
             this.getData();
-
+            this.chart_list();
+            this.showDate();
             indexVue.onLoad = true;
         },
     }).mount("#page");
+</script>
 
-    // ==========================================================
-    // yt影片清單控制
-    var arrayNum = 0;
-    var movieArray = []
-    $('#gameShow .arrow_l').click(function() {
-        arrayNum == 0 ? 0 : arrayNum--;
-        $('#listArray ul').css('transform', `translateX(-${arrayNum*23}%)`)
-    })
-
-    $('#gameShow .arrow_r').click(function() {
-        arrayNum == 3 ? 3 : arrayNum++;
-        $('#listArray ul').css('transform', `translateX(-${arrayNum*23}%)`)
-    })
-
-    // 聊天室
+<!-- 聊天室 -->
+<script>
     var databaseMs = new Date().getTime()
     database.on('value', function(snapshot) {
         var getData = snapshot.val()
