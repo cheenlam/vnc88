@@ -216,17 +216,17 @@
                 </li>
             </ul>
         </div>
-        
+
         <!-- mainRec start -->
         <div class="mainRec">
             <div id="mainCarousel" class="mainCarousel">
                 <ul class="sw-slides">
-                    <li class="sw-slide" v-for="(item,index) in carousel" >
+                    <li class="sw-slide" v-for="(item,index) in carousel">
                         <a :href="relotteryHref(index)" :style="getbgi(item.img)">
                             <div class="title">
-                                <span>{{item.title}}</span>    
+                                <span>{{item.title}}</span>
                             </div>
-                        </a> 
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -250,7 +250,7 @@
         </div>
 
         <!-- wsDict start -->
-        <div class="wsDict" >
+        <div class="wsDict">
             <div class="mainMsg-title">Giới thiệu trang wed</div>
             <div class="wsDict_msg">
                 <div>
@@ -285,7 +285,7 @@
                 // 輪播旁投注新聞
                 rec: homeRec,
                 // 輪播列表
-                carousel:'',
+                carousel: '',
                 // 網站介紹
                 wsDict: homeWsDict,
             };
@@ -306,7 +306,7 @@
             },
 
             // ==== 輪播返回連結 ====
-            relotteryHref(index){
+            relotteryHref(index) {
                 return `#/lottery/news?list=${index+2}`
             },
 
@@ -321,7 +321,7 @@
                         $('#mainCarousel').swipeslider(); // 啟動輪播外掛
                     }
                 }
-   
+
                 // 新聞大標題 (api = 首頁新聞資料_1)
                 $.ajax({
                     url: "https://vnc88.awgstudio.com/api/homenews/top",
@@ -350,8 +350,8 @@
                     },
                 });
 
-                 // 新聞menu (api = 首頁新聞資料_3)
-                 $.ajax({
+                // 新聞menu (api = 首頁新聞資料_3)
+                $.ajax({
                     url: "https://vnc88.awgstudio.com/api/homenews/list",
                     dataType: "json",
                     success: function(data) {
@@ -379,7 +379,7 @@
         },
         mounted() {
             this.getData();
-            indexVue.onLoad = true;  
+            indexVue.onLoad = true;
         },
     }).mount("#page");
 </script>

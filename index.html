@@ -16,18 +16,16 @@
     <script src="js/router.js"></script>
     <script src="js/verifyCode.js"></script>
     <!-- 自訂義js -->
-    <script src="js/index.js"></script>
     <script src="js/pageData.js"></script>
     <title>VNC88</title>
 </head>
 
 <body>
-
     <div id="indexBox">
         <!-- ===== header start ===== -->
         <div class="header" id="header">
             <!-- hd_top start -->
-            <div class="hd_top" id="hd_top">
+            <div class="hd_top" id="hd_top" ref="hdTop">
                 <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
                 <div class="hd_tool">
                     <div class="hd_link">
@@ -177,7 +175,7 @@
             </div>
 
             <!-- hd_menu start -->
-            <div class="hd_menu" id="hd_menu" :class="{'on' : menuOpen}">
+            <div class="hd_menu" id="hd_menu" :class="{'on' : menuOpen}" ref="hdMenu">
                 <div class="close" @click="menuOpen = false"></div>
                 <ul>
                     <template v-for="(item,index) in hdMenu.txtList">
@@ -230,8 +228,8 @@
                     </div>
                 </div>
 
-                <div class="contBox-min">
-                    <div class="leftTool" id="leftTool">
+                <div class="contBox-min" ref="contMin">
+                    <div class="leftTool" id="leftTool"  ref="leftTool" :class="{'on':eventFloat}">
                         <div class="floatEvent">
                             <template v-for="(item,index) in banner.left">
                             <img :src="item.img" v-if="item.switch">
@@ -242,7 +240,7 @@
                         </div>
                     </div>
 
-                    <div class="rightTool" id="rightTool">
+                    <div class="rightTool" id="rightTool" :class="{'on':eventFloat}">
                         <div class="floatEvent">
                             <template v-for="(item,index) in banner.right">
                             <img :src="item.img" v-if="item.switch">
@@ -252,7 +250,7 @@
                             <img src="images/icon/arrow-top.png">
                             <span>TOP</span>
                         </div>
-                        <div class="todayGame" id="todayGame" v-if="signSwitch" @click="todayGameLog()">
+                        <div class="todayGame" id="todayGame" v-if="todayGame" @click="todayGameLog()">
                             <div class="god">
                                 <img src="images/god.png">
                             </div>
@@ -280,7 +278,7 @@
                     </div>
 
                     <!-- content start -->
-                    <div class="content" id="content"></div>
+                    <div class="content" id="content" ref="content"></div>
                 </div>
             </div>
         </div>
@@ -336,7 +334,6 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
 
             <!-- ftEvent  -->
@@ -555,9 +552,7 @@
             </div>
         </div>
     </div>
-
 </body>
-
 
 <script>
     var indexVue = Vue.createApp({
@@ -571,6 +566,8 @@
                 menuOpen: false,
                 signInOpen: false,
                 mbrLogin: false,
+                eventFloat:false,
+                todayGame:true,
                 crumb: '',
 
                 // ==== 禮物轉盤 ====
@@ -913,12 +910,79 @@
                     behavior: "smooth"
                 });
             },
+
+            // ==== 視窗resize 及 卷軸事件 ====
+            winResize() {
+                window.scrollTo({
+                    top: 0
+                });
+                this.menuOpen = false;
+                this.signInOpen = false;
+
+                this.floatHd()
+            },
+
+            winScroll() {
+                this.floatMenu();
+                this.floatEvent();
+            },
+            // ==== 小畫面浮動hd_top時,修改indexBox的padding ====
+            floatHd() {
+                let winW = document.body.clientWidth;
+                let hdH = this.$refs.hdTop.clientHeight;
+                let indexBox = document.querySelector('#indexBox')
+
+                if (winW >= 1263) {
+                    indexBox.style.paddingTop = '0';
+                } else {
+                    indexBox.style.paddingTop = `${hdH}px 0 0`;
+                }
+            },
+
+            // ==== 上方menu浮動 ====
+            floatMenu() {
+                let winW = document.body.clientWidth;
+                let hdH = this.$refs.hdTop.clientHeight;
+                if (winW > 1263) {
+                    this.menuOpen = window.scrollY > hdH ? true : false;
+                }
+            },
+
+            // ==== 側邊浮動廣告 ====
+            floatEvent() {
+                let winW = document.body.clientWidth;
+                // 廣告頂到上方
+                let getH = $('.contBox-full .contBox-min').offset().top - this.$refs.hdMenu.clientHeight - 10;
+                // 碰到footer
+                let getH2 = $('.footer').offset().top - window.innerHeight + this.$refs.hdTop.clientHeight + 30;
+                if (window.scrollY > getH && window.scrollY < getH2) {
+                    this.eventFloat = true;
+                } else {
+                    this.eventFloat = false;
+                }
+
+                let getH3 = this.$refs.content.clientHeight - this.$refs.leftTool.clientHeight / 2;
+                let leftTool = document.querySelector('#leftTool');
+                let rightTool = document.querySelector('#rightTool')
+                if (window.scrollY >= getH2 & winW > 1473) {
+                    leftTool.style.top = `${getH3}px`
+                    rightTool.style.top =`${getH3}px`
+                    this.todayGame = false;
+                } else {
+                    leftTool.removeAttribute("style")
+                    rightTool.removeAttribute("style")
+                    this.todayGame = true;
+                }
+            }
         },
         mounted() {
             this.verify("mainVerify");
             this.verify("forgetVerify");
             this.verify("regdVerify");
             this.ckLogin()
+
+            window.addEventListener('resize', this.winResize);
+            window.addEventListener('scroll', this.winScroll);
 
             // 啟動輪播&跑馬燈外掛
             $('#full_feature').swipeslider();
