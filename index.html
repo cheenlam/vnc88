@@ -918,8 +918,8 @@
                 });
                 this.menuOpen = false;
                 this.signInOpen = false;
-
                 this.floatHd()
+                this.floatEvent();
             },
 
             winScroll() {
@@ -1013,5 +1013,6 @@
     let docRef2 = db.collection("ytMovie");
     var database = firebase.database().ref().limitToLast(50);
 </script>
+
 
 </html>
