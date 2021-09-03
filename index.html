@@ -933,7 +933,7 @@
                 let indexBox = document.querySelector('#indexBox')
 
                 if (winW >= 1263) {
-                    indexBox.style.paddingTop = '0';
+                    indexBox.removeAttribute('style')
                 } else {
                     indexBox.style.paddingTop = `${hdH}px`;
                 }
