@@ -132,7 +132,7 @@
                     <div class="btn_linear_c1 btn">
                         <button class="btn_cnt">Gửi đi</button>
                     </div>
-                    <div class="btn_linear_c2 btn">
+                    <div class="btn_linear_c2 btn" @click="clearChpwd()">
                         <div class="btn_cnt">Hủy</div>
                     </div>
                 </div>
@@ -216,8 +216,9 @@
                         sessionStorage.removeItem('session');
                         indexVue.ckLogin();
                         setTimeout(function() {
-                            location.href = "#/home";
-                            indexVue.warn.warnSwitch = false
+                            self.clearChpwd()        
+                            location.href = "#/home";    
+                            indexVue.warn.warnSwitch = false 
                         }, 2000)
                     }
                 }
@@ -226,6 +227,12 @@
                 this.errorCode.former = false;
                 this.errorCode.new = false;
                 this.errorCode.ckNew = false;
+            },
+
+            clearChpwd(){
+                this.pwdData.former = '';
+                this.pwdData.new = '';
+                this.pwdData.ckNew = '';
             },
 
             // 顯示密碼

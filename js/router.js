@@ -64,6 +64,7 @@ Router.route('/home', function() {
         { name: "TRANG CHỦ" }
     ];
     chCrumb(data);
+    indexVue.verify("mainVerify");
 });
 Router.route('/lottery', function() {
     mainInclude('page/lottery.html');
@@ -292,6 +293,13 @@ for (let i = 1; i < 99; i++) {
         location = location
         mainInclude(`betRef/betRef_${i}.html`);
         menuList_on(1);
+        sessionStorage.setItem('new_betRef', i);
+
+        let data = [
+            { href: "#/lottery", name: "Đề xuất cá cược" },
+            { name: "Tin quan trọng" }
+        ];
+        chCrumb(data);
     });
 }
 

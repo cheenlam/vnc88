@@ -61,8 +61,6 @@ var indexAd = {
     ]
 }
 
-
-
 // ======== home ========
 // 足球投注排行
 var betList = {
@@ -75,35 +73,40 @@ var betList = {
                 price: "3,800,000",
                 num: 5,
                 href_out: "https://fun213213.com/euxc",
-                href_self: "#/betRef?p=1"
+                href_self: "#/betRef?p=1",
+                menuImg:"images/logo/betImg-1.jpg"
             },
             {
                 betLogo: "images/logo/betLogo-2.png",
                 price: "3,800,000",
                 num: 4.5,
                 href_out: "https://8123b.com/?inviteCode:26011561",
-                href_self: "#/betRef?p=2"
+                href_self: "#/betRef?p=2",
+                menuImg:"images/logo/betImg-2.jpg"
             },
             {
                 betLogo: "images/logo/betLogo-3.png",
                 price: "3,800,000",
                 num: 4,
                 href_out: "https://www.q8vn.com/",
-                href_self: "#/betRef?p=3"
+                href_self: "#/betRef?p=3",
+                menuImg:"images/logo/betImg-3.jpg"
             },
             {
                 betLogo: "images/logo/betLogo-4.png",
                 price: "99,000",
                 num: 3.5,
                 href_out: "https://jinbo989898.com/hpmifr",
-                href_self: "#/betRef?p=4"
+                href_self: "#/betRef?p=4",
+                menuImg:"images/logo/betImg-4.jpg"
             },
             {
                 betLogo: "images/logo/betLogo-5.png",
                 price: "9,999",
                 num: 2.5,
                 href_out: "https://www.ae3888.com/?agt=amg668",
-                href_self: "#/betRef?p=5"
+                href_self: "#/betRef?p=5",
+                menuImg:"images/logo/betImg-5.jpg"
             },
         ]
     }
