@@ -177,8 +177,9 @@ input:-webkit-autofill:focus {
                 @include rwd(1280) {
                     width: 100%;
                     max-width: 779px;
-                    max-height: 95vh;
+                    max-height: 95%;
                     padding: 30px 20px;
+                    margin: auto;
                     position: relative;
                     background: linear-gradient(0deg, #091422, #0e263c);
                     box-shadow: 5px 5px 10px #000;

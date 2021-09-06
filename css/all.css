@@ -1893,8 +1893,9 @@ input:-webkit-autofill:focus {
   .header .hd_top .hd_signIn .hd_signInCnt {
     width: 100%;
     max-width: 779px;
-    max-height: 95vh;
+    max-height: 95%;
     padding: 30px 20px;
+    margin: auto;
     position: relative;
     background: -webkit-gradient(linear, left bottom, left top, from(#091422), to(#0e263c));
     background: linear-gradient(0deg, #091422, #0e263c);
