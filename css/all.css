@@ -1815,7 +1815,9 @@ input:-webkit-autofill:focus {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    display: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .header .hd_top .hd_signIn.on {
     display: -webkit-box;
