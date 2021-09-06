@@ -193,11 +193,14 @@ input:-webkit-autofill:focus {
                     align-items: center;
                     position: relative;
                     @include rwd(1280){
-                        width: 100%;
+                        width: 100%;    
+                        max-height: calc(100vh - 160px);           
                         flex-direction: column; 
-                        align-items: unset;              
+                        align-items: unset;     
+                        overflow: auto;      
                     }
                 }
+     
                
                 .signIn_close {
                     width: 38px;
@@ -291,12 +294,21 @@ input:-webkit-autofill:focus {
                     flex-direction: column;
                 }
             }
+
+            .signIn_on_inner{
+                @include rwd(1280) {
+                    height: calc(100vh - 180px);
+                    overflow: auto;
+                }
+            }
+
             .signIn_msg {
                 display: flex;
                 color: $clr_Txt;
                 font-size: 0.9rem;
                 @include rwd(1280) {
                     justify-content: center;
+                 
                 }
                 @include rwd(650) {
                     flex-direction: column;

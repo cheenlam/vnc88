@@ -81,6 +81,7 @@
                         <div class="hd_signInCnt" v-show="!mbrLogin">       
                             <div class="signIn_close" @click="signInOpen = false,reset()"></div>
                             <div class="title">Đăng nhập</div>
+
                             <form @submit.prevent="ckSignIn()">
                                 <div class="signIn_ipt">
                                     <!-- 用戶帳號 -->
@@ -144,30 +145,33 @@
                             <div class="signIn_close" @click="signInOpen = false"></div>
                             <div class="signIn_on">
                                 <div class="title">Thông tin tài khoản</div>
-                                <div class="signIn_msg">
-                                    <div>
-                                        <div class="signIn_icon member"></div>
-                                        <p>{{mbrMsg.nickname}}</p>
+                                <div class="signIn_on_inner">
+                                    <div class="signIn_msg">
+                                        <div>
+                                            <div class="signIn_icon member"></div>
+                                            <p>{{mbrMsg.nickname}}</p>
+                                        </div>
+                                        <div>
+                                            <div class="signIn_icon chip"></div>
+                                            <p>{{mbrMsg.points}}</p>
+                                        </div>
+                                        <div>
+                                            <div class="signIn_icon mail"></div>
+                                            <p>99+</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <div class="signIn_icon chip"></div>
-                                        <p>{{mbrMsg.points}}</p>
-                                    </div>
-                                    <div>
-                                        <div class="signIn_icon mail"></div>
-                                        <p>99+</p>
+                                    <div class="signIn_btn">
+                                        <div class="btn_linear_c2 btn" @click="offLogin()">
+                                            <div class="btn_cnt">Đăng xuất</div>
+                                        </div>
+                                        <div class="btn_linear_c3 btn" @click="signInOpen = false">
+                                            <a href="#/member">
+                                                <div class="btn_cnt">Thông tin tài khoản</div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="signIn_btn">
-                                    <div class="btn_linear_c2 btn" @click="offLogin()">
-                                        <div class="btn_cnt">Đăng xuất</div>
-                                    </div>
-                                    <div class="btn_linear_c3 btn" @click="signInOpen = false">
-                                        <a href="#/member">
-                                            <div class="btn_cnt">Thông tin tài khoản</div>
-                                        </a>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
