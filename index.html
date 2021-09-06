@@ -95,7 +95,7 @@
                                                 <p class="errorTxt" v-if="errorCode.notEmail">Email không tồn tại</p>
                                             </div>
                                         </div>
-    
+
                                         <!-- 密碼 / 忘記密碼 -->
                                         <div class="signIn_forget">
                                             <span class="signIn_minTitle">Mật khẩu</span>
@@ -119,7 +119,7 @@
                                                     <label>
                                                         <input type="text" placeholder="Xác minh"  minlength="4" maxlength="4" pattern="[0-9]{4,4}" v-model="signInMbr.code" required>
                                                     </label>
-    
+
                                                     <div class="nbCode" @click="verify('mainVerify')">
                                                         <canvas id='mainVerify'></canvas>
                                                     </div>
@@ -128,7 +128,7 @@
                                             </div>
                                         </div>
                                     </div>
-    
+
                                     <div class="signIn_btn">
                                         <div class="btn_linear_c2 btn">
                                             <button class="btn_cnt">Đăng nhập</button>
@@ -139,7 +139,7 @@
                                     </div>
                                 </form>
                             </div>
-                          
+
                         </div>
 
                         <!-- 會員訊息 / 登出 -->
@@ -378,7 +378,7 @@
         <!-- ===== dialogCnt start ===== -->
         <div class="dialogBox" id="dialogBox" :class="{'on':dialog.main}">
             <div class="close" @click="closeDialog()"></div>
-            
+
             <!-- 忘記密碼 -->
             <div class="dialog_cnt_01 forget" v-show="dialog.forget">
                 <div class="close" @click="closeDialog()"></div>
@@ -511,7 +511,7 @@
 
             <!-- 新註冊獎金 -->
             <div class="newGift" v-show="dialog.gift" :class="{on:giftLayout}">
-                <div class="roulette" >
+                <div class="roulette">
                     <div class="rou_body" id="rou_body" :style="ranRoulette(0)"></div>
                     <div class="rou_pointer" style="padding: 0%;">
                         <img src="images/roulette/rou_pointer.png">
@@ -525,7 +525,7 @@
                     </div>
 
                     <div>
-                        <input type="text" placeholder="Điền số SDT tài khoản" v-model="giftCode" @focus="reGift(),ranRoulette(1),giftLayout = true"  @blur="giftLayout = false" :disabled="giftDis">
+                        <input type="text" placeholder="Điền số SDT tài khoản" v-model="giftCode" @focus="reGift(),ranRoulette(1),giftLayout = true" @blur="giftLayout = false" :disabled="giftDis">
                         <div class="btn_linear_c1 btn" @click="ranGift()">
                             <button class="btn_cnt" :disabled="giftDis">Bắt đầu bốc thăm</button>
                         </div>
@@ -587,7 +587,7 @@
                 giftDis: false,
                 roulette: 0,
                 canRoulette: false,
-                giftLayout:false,
+                giftLayout: false,
 
                 // ==== 驗證碼 ====
                 verifyCode: {
@@ -670,7 +670,7 @@
                 account.phone = String(this.regdMbr.phone);
 
                 let xhr = new XMLHttpRequest();
-                xhr.open("post", "https://vnc88.awgstudio.com/api/member/register");
+                xhr.open("post", "https://www.vnc8888.com/api/member/register");
                 xhr.setRequestHeader("Content-type", "application/json");
                 let data = JSON.stringify(account);
                 xhr.send(data);
@@ -703,7 +703,7 @@
                 account.password = String(this.signInMbr.pwd);
 
                 let xhr = new XMLHttpRequest();
-                xhr.open("post", "https://vnc88.awgstudio.com/api/member/login");
+                xhr.open("post", "https://www.vnc8888.com/api/member/login");
                 xhr.setRequestHeader("Content-type", "application/json");
                 let data = JSON.stringify(account);
                 xhr.send(data);

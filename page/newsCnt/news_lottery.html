@@ -105,7 +105,7 @@
                 }
 
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    url: "https://www.vnc8888.com/api/homenews/list",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.newsHot = data;
@@ -117,7 +117,7 @@
                 });
 
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/recommend/top",
+                    url: "https://www.vnc8888.com/api/recommend/top",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.newsImp_t = data;
@@ -129,7 +129,7 @@
                 });
 
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/match/news",
+                    url: "https://www.vnc8888.com/api/match/news",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.newsImp_b = data;
@@ -149,9 +149,9 @@
                 let getLocal_l = sessionStorage.getItem('news_l');
 
                 if (getLocal_l == 1) {
-                    getUrl = "https://vnc88.awgstudio.com/api/recommend/top";
+                    getUrl = "https://www.vnc8888.com/api/recommend/top";
                 } else {
-                    getUrl = "https://vnc88.awgstudio.com/api/match/news";
+                    getUrl = "https://www.vnc8888.com/api/match/news";
                 }
 
                 $.ajax({
