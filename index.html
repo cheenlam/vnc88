@@ -353,7 +353,7 @@
         </div>
 
         <!-- ===== warnLog start ===== -->
-        <div class="warnLog" v-show="warn.warnSwitch">
+        <div class="warnLog"  :class="{'on' : warn.warnSwitch}">
             <div class="warnbody">
                 <div class="warnIcon">
                     <img src="images/icon/tick.png" v-if="warn.success">

@@ -701,13 +701,17 @@
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 20;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
 
+    &.on{
+        display: flex;
+    }
+    
     .warnbody {
         width: 100%;
         max-width: 350px;

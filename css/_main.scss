@@ -548,7 +548,7 @@ body {
             height: 100vh;
             position: fixed;
             @include pos(tl, 0);
-            z-index: 20;
+            z-index: 50;
             transform: translateX(-100%);
             &.on {
                 transform: translateX(0%);
@@ -559,7 +559,7 @@ body {
             background: rgba(0, 0, 0, 0.85);
             position: fixed;
             top: 0;
-            z-index: 20;
+            z-index: 50;
         }
         .close {
             @include rwd(1280) {
