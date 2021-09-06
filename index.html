@@ -60,25 +60,25 @@
                             </li>
                             <li class="btn_linear_c1 signinBar" @click="signInOpen = true,reset()" v-if="signSwitch">
                                 <div class="btn_cnt">
-                                   
+
                                     <img src="images/icon/icon-onSignin.png" v-if="mbrLogin">
                                     <span v-else style="padding: 0 5px 0;">ĐăngNhập</span>
                                 </div>
                             </li>
-                            
+
                             <li class="btn_linear_c3 menuBar" @click="menuOpen = true">
                                 <div class="btn_cnt">
                                     <img src="images/icon/menuBar.png">
                                 </div>
                             </li>
-                            
+
                         </ul>
                     </div>
                     <div class="hd_signIn" id="hd_signIn" :class="{'on' : signInOpen}" v-show="signSwitch">
                         <div class="close" @click="signInOpen = false,reset()"></div>
-                        
+
                         <!-- 會員登入 / 註冊按鈕 -->
-                        <div class="hd_signInCnt" v-show="!mbrLogin">       
+                        <div class="hd_signInCnt" v-show="!mbrLogin">
                             <div class="signIn_close" @click="signInOpen = false,reset()"></div>
                             <div class="title">Đăng nhập</div>
 
@@ -137,7 +137,7 @@
                                         <div class="btn_cnt">Đăng kí</div>
                                     </div>
                                 </div>
-                            </form>    
+                            </form>
                         </div>
 
                         <!-- 會員訊息 / 登出 -->
@@ -171,7 +171,7 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -233,7 +233,7 @@
                 </div>
 
                 <div class="contBox-min" ref="contMin">
-                    <div class="leftTool" id="leftTool"  ref="leftTool" :class="{'on':eventFloat}">
+                    <div class="leftTool" id="leftTool" ref="leftTool" :class="{'on':eventFloat}">
                         <div class="floatEvent">
                             <template v-for="(item,index) in banner.left">
                             <img :src="item.img" v-if="item.switch">
@@ -306,14 +306,18 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="ft_icon">
-                                    <img src="images/icon/icon-f-fb.png">
-                                </div>
+                                <a href="https://reurl.cc/4a23dj" target="_blank">
+                                    <div class="ft_icon">
+                                        <img src="images/icon/icon-f-fb.png">
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <div class="ft_icon">
-                                    <img src="images/icon/icon-f-yt.png">
-                                </div>
+                                <a href="https://reurl.cc/Q6nE6q" target="_blank">
+                                    <div class="ft_icon">
+                                        <img src="images/icon/icon-f-yt.png">
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -357,7 +361,7 @@
         </div>
 
         <!-- ===== warnLog start ===== -->
-        <div class="warnLog"  :class="{'on' : warn.warnSwitch}">
+        <div class="warnLog" :class="{'on' : warn.warnSwitch}">
             <div class="warnbody">
                 <div class="warnIcon">
                     <img src="images/icon/tick.png" v-if="warn.success">
@@ -570,8 +574,8 @@
                 menuOpen: false,
                 signInOpen: false,
                 mbrLogin: false,
-                eventFloat:false,
-                todayGame:true,
+                eventFloat: false,
+                todayGame: true,
                 crumb: '',
 
                 // ==== 禮物轉盤 ====
@@ -970,7 +974,7 @@
                 let rightTool = document.querySelector('#rightTool')
                 if (window.scrollY >= getH2 & winW > 1473) {
                     leftTool.style.top = `${getH3}px`
-                    rightTool.style.top =`${getH3}px`
+                    rightTool.style.top = `${getH3}px`
                     this.todayGame = false;
                 } else {
                     leftTool.removeAttribute("style")
