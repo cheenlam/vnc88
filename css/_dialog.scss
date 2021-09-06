@@ -1,13 +1,14 @@
 .dialogBox {
     width: 100%;
     height: 100vh;
-    padding: 0 10px;
+    padding: 20px 10px 0;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 991;
-    align-items: center;
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
     display: none;
     &.on {
         display: flex;
@@ -23,8 +24,7 @@
     @at-root .dialog_cnt_01 {
         width: 100%;
         max-width: 779px;
-        max-height: 95%;
-        margin: auto;
+        max-height: 85%;
         padding: 30px 20px;
         position: relative;
         z-index: 2;
@@ -104,7 +104,8 @@
         .innerBox {
             width: 100%;
             max-width: 485px;
-            max-height: calc(100vh - 200px);
+            padding-bottom: 20px;
+            max-height: calc(100vh - 300px);
             overflow-y: auto;
             margin: auto;
             &::-webkit-scrollbar {
@@ -303,8 +304,8 @@
     .newGift {
         width: 100%;
         max-width: 700px;
-        position: relative;
         margin: auto;
+        position: relative;
         background-color: #c43f40;
         box-shadow: 0 0 30px #cea7a2 inset;
         border: 2px solid #cd6e3e;
@@ -314,16 +315,28 @@
         @include rwd(710) {
             width: 100%;
             max-width: 370px;
-            max-height: calc(100vh - 10px);
+            margin: unset;
+            max-height: calc(100vh - 90px);
             flex-direction: column;
             border-radius: 175px 175px 10px 10px;
             padding-top: 5px;
+
+            &.on{
+                border-radius: 10px;
+                .roulette{
+                    display: none;
+                }
+                .newGift_cnt{
+                    height: 100%;
+                    padding-top: 45px;            
+                }
+            }
         }
 
         .close {
             width: 38px;
             height: 38px;
-            z-index: 1;
+            z-index: 5;
             position: absolute;
             @include pos(tr, 10px);
             cursor: pointer;
@@ -333,7 +346,6 @@
                 border: 1px solid #c43f40;
                 background-color: #000;
                 border-radius: 50%;
-
                 @include hover {
                     &:hover {
                         border: 1px solid #f8a959;
@@ -711,7 +723,7 @@
     &.on{
         display: flex;
     }
-    
+
     .warnbody {
         width: 100%;
         max-width: 350px;

@@ -6,7 +6,7 @@ Vue.createApp({
                 newsMain: lotteryRef_menu,
                 newsHot: '',
             },
-            resNews:resNews,
+            resNews: resNews,
 
             resourcesNum: 0,
             lotteryNum: 0,
@@ -14,7 +14,7 @@ Vue.createApp({
 
 
             newsSelfNum: 0,
-            lotteryRefNum:0,
+            lotteryRefNum: 0,
         };
     },
     methods: {
@@ -28,7 +28,7 @@ Vue.createApp({
                 return `#/lotteryRef?p=${index+2}`
             }
         },
-        
+
         reHref_l(index) {
             return `#/lotteryRef?p=${index+2}`
         },
@@ -41,10 +41,10 @@ Vue.createApp({
             this.newsRefNum = sessionStorage.getItem("new_newsRef");
             this.newsSelfNum = sessionStorage.getItem("new_selfNews");
 
-            
+
             this.lotteryRefNum = sessionStorage.getItem("new_lotteryRef");
         },
-        getMenu(){
+        getMenu() {
             let self = this;
             let chReady = [false];
 
@@ -55,7 +55,7 @@ Vue.createApp({
             }
 
             $.ajax({
-                url: "https://vnc88.awgstudio.com/api/homenews/list",
+                url: "https://www.vnc8888.com/api/homenews/list",
                 dataType: "json",
                 success: function(data) {
                     self.newsMenu.newsHot = data;

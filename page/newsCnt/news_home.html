@@ -1,5 +1,5 @@
 <div class="contBox-min">
-    <div class="newsCnt" id="newsCnt">   
+    <div class="newsCnt" id="newsCnt">
         <div class="newsCnt_main">
             <div class="newstitle">
                 <div class="txt">
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-       
+
     </div>
 </div>
 
@@ -91,11 +91,11 @@
                 self.localNum = sessionStorage.getItem('news_h');
 
                 if (getLocal_h == 1) {
-                    getUrl = "https://vnc88.awgstudio.com/api/homenews/top";
+                    getUrl = "https://www.vnc8888.com/api/homenews/top";
                 } else if (getLocal_h > 1 && getLocal_h < 6) {
-                    getUrl = "https://vnc88.awgstudio.com/api/homenews/bottom";
+                    getUrl = "https://www.vnc8888.com/api/homenews/bottom";
                 } else {
-                    getUrl = "https://vnc88.awgstudio.com/api/homenews/list";
+                    getUrl = "https://www.vnc8888.com/api/homenews/list";
                 }
 
                 $.ajax({
@@ -136,7 +136,7 @@
 
 
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    url: "https://www.vnc8888.com/api/homenews/list",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.newsHot = data;
@@ -148,7 +148,7 @@
                 });
 
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/top",
+                    url: "https://www.vnc8888.com/api/homenews/top",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.newsImp_t = data;
@@ -160,7 +160,7 @@
                 });
 
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/bottom",
+                    url: "https://www.vnc8888.com/api/homenews/bottom",
                     dataType: "json",
                     success: function(data) {
                         for (let i = 0; i < 4; i++) {
@@ -178,7 +178,7 @@
             this.getData();
             this.getMenu();
             indexVue.onLoad = true;
-           
+
         },
     }).mount("#newsCnt");
 </script>

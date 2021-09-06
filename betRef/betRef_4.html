@@ -169,7 +169,7 @@
 
 <script>
     Vue.createApp({
-        data() { 
+        data() {
             return {
                 newsMenu: {
                     newsHot: '',
@@ -195,13 +195,13 @@
                 self.localNum = sessionStorage.getItem('new_betRef');
 
                 function ready() {
-                    if (chReady[0] ) {
+                    if (chReady[0]) {
                         indexVue.onLoad = false;
                     }
                 }
 
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    url: "https://www.vnc8888.com/api/homenews/list",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.newsHot = data;

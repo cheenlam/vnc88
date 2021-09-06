@@ -91,12 +91,12 @@
                                 </a>
                                 <p>{{item.title}}</p>
                             </li>
-                        </template>   
+                        </template>
                     </ul>
                 </div>
             </div>
 
-        
+
             <!-- resQa start -->
             <div class="resQa">
                 <div class="mainMsg-title">Vấn đề thường gặp</div>
@@ -123,25 +123,25 @@
 <script>
     Vue.createApp({
         data() {
-            return {  
+            return {
                 // 銀行連結
-                bank: bankLink,  
+                bank: bankLink,
                 // 彩票公司連結   
-                lottory: lottoryLink,    
+                lottory: lottoryLink,
 
                 // 控制連結區塊排列(RWD)   
-                linkNum:{                
-                    bank:6,
-                    lottory:3,
-                    list:6
+                linkNum: {
+                    bank: 6,
+                    lottory: 3,
+                    list: 6
                 },
 
                 // 廣告
-                adImg: flexEvent,  
+                adImg: flexEvent,
                 // 新聞
-                resNews:[],
+                resNews: [],
                 // Q&A      
-                resQa: resQa,      
+                resQa: resQa,
             };
         },
         methods: {
@@ -169,9 +169,10 @@
             },
 
             // ==== 取得資料 ====
-            getData(){
+            getData() {
                 let self = this;
                 let chReady = [false];
+
                 function ready() {
                     if (chReady[0]) {
                         indexVue.onLoad = false;
@@ -180,7 +181,7 @@
 
                 // 新聞
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/resources/list",
+                    url: "https://www.vnc8888.com/api/resources/list",
                     dataType: "json",
                     success: function(data) {
                         // 取前12筆
@@ -199,7 +200,7 @@
             window.addEventListener("resize", this.myResize);
             indexVue.onLoad = true;
             this.myResize();
-            this.getData();  
+            this.getData();
         },
     }).mount("#page");
 </script>

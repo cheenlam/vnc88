@@ -101,7 +101,7 @@
             <form @submit.prevent="ckPwd()">
                 <div class="mbrMsg">
                     <ul>
-                        <li> 
+                        <li>
                             <div class="mbrl_title">Nhập mật khẩu cũ</div>
                             <div class="mbrl_ipt">
                                 <input :type="lookPwd.formerType" v-model="pwdData.former" required autocomplete="on">
@@ -158,8 +158,8 @@
                     ckNew: false,
                 },
                 lookPwd: {
-                    former: false,         
-                    new: false,     
+                    former: false,
+                    new: false,
                     ckNew: false,
                     newType: 'password',
                     formerType: 'password',
@@ -190,7 +190,7 @@
                 account.newpassword = String(this.pwdData.ckNew);
 
                 let xhr = new XMLHttpRequest();
-                xhr.open("PUT", "https://vnc88.awgstudio.com/api/member/password");
+                xhr.open("PUT", "https://www.vnc8888.com/api/member/password");
                 xhr.setRequestHeader("Content-type", "application/json");
                 let data = JSON.stringify(account);
                 xhr.send(data);
@@ -216,9 +216,9 @@
                         sessionStorage.removeItem('session');
                         indexVue.ckLogin();
                         setTimeout(function() {
-                            self.clearChpwd()        
-                            location.href = "#/home";    
-                            indexVue.warn.warnSwitch = false 
+                            self.clearChpwd()
+                            location.href = "#/home";
+                            indexVue.warn.warnSwitch = false
                         }, 2000)
                     }
                 }
@@ -229,7 +229,7 @@
                 this.errorCode.ckNew = false;
             },
 
-            clearChpwd(){
+            clearChpwd() {
                 this.pwdData.former = '';
                 this.pwdData.new = '';
                 this.pwdData.ckNew = '';

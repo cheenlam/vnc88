@@ -54,7 +54,7 @@ input:-webkit-autofill:focus {
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 10;
+            z-index: 20;
             box-shadow: 0 2px 5px #000;
         }
         @include rwd(900) {
@@ -117,15 +117,16 @@ input:-webkit-autofill:focus {
             @include rwd(1280) {
                 width: 100%;
                 height: 100vh;
-                padding: 10px;
+                padding: 30px 10px 0;
                 position: fixed;
                 top: 0;
                 left: 0;
                 z-index: 99;
-                align-items: center;
-                display: flex;
+                display: none;
                 &.on {
                     display: flex;
+                    align-items: flex-start;
+                    justify-content: center;
                     animation: dialogBox 0.5s forwards;
                 }
             }
@@ -177,14 +178,21 @@ input:-webkit-autofill:focus {
                 @include rwd(1280) {
                     width: 100%;
                     max-width: 779px;
-                    max-height: 95vh;
-                    margin: auto;
-                    padding: 30px 20px;
+                    max-height: 85%;
+                    padding: 30px 0;
                     position: relative;
                     background: linear-gradient(0deg, #091422, #0e263c);
                     box-shadow: 5px 5px 10px #000;
                     border: 1px solid #f6bf3d;
                     border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round;
+                }
+
+                .hd_signInCnt_inner{
+                    @include rwd(1280){
+                        max-height: calc(95vh - 195px); 
+                        overflow: auto;   
+                        padding: 0 20px 50px;  
+                    }
                 }
 
                 form{
@@ -194,10 +202,10 @@ input:-webkit-autofill:focus {
                     position: relative;
                     @include rwd(1280){
                         width: 100%;    
-                        max-height: calc(100vh - 160px);           
+                                 
                         flex-direction: column; 
                         align-items: unset;     
-                        overflow: auto;      
+                     
                     }
                 }
           
@@ -288,15 +296,14 @@ input:-webkit-autofill:focus {
             }
             .signIn_on {
                 width: 100%;
+            }
+            
+            .signIn_on_inner{
                 display: flex;
                 @include rwd(1280) {
+                    padding: 0 20px 50px;
+                    max-height: calc(100vh - 180px);
                     flex-direction: column;
-                }
-            }
-
-            .signIn_on_inner{
-                @include rwd(1280) {
-                    height: calc(100vh - 180px);
                     overflow: auto;
                 }
             }

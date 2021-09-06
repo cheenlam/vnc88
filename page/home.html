@@ -324,7 +324,7 @@
 
                 // 新聞大標題 (api = 首頁新聞資料_1)
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/top",
+                    url: "https://www.vnc8888.com/api/homenews/top",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.news_t = data;
@@ -337,7 +337,7 @@
 
                 // 新聞下方列表 (api = 首頁新聞資料_2)
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/bottom",
+                    url: "https://www.vnc8888.com/api/homenews/bottom",
                     dataType: "json",
                     success: function(data) {
                         for (let i = 0; i < 4; i++) {
@@ -352,7 +352,7 @@
 
                 // 新聞menu (api = 首頁新聞資料_3)
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    url: "https://www.vnc8888.com/api/homenews/list",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.news_r = data;
@@ -365,7 +365,7 @@
 
                 // 輪播列表 (api = 首頁今日賽事)
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/match/news",
+                    url: "https://www.vnc8888.com/api/match/news",
                     dataType: "json",
                     success: function(data) {
                         self.carousel = data;

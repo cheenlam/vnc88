@@ -103,14 +103,14 @@
                 newsMenu: {
                     news_r: '',
                     news_t: '',
-                    news_b: [],      
+                    news_b: [],
                 },
                 // 廣告
                 EventImg: flexEvent,
                 // 消息新聞列表
                 selfNews: news_selfNews,
                 // 網站介紹
-                wsDict: newsDict,        
+                wsDict: newsDict,
             };
         },
         methods: {
@@ -127,7 +127,7 @@
                     return `#/news/news?list=${index+2}`
                 }
             },
-            
+
             // ==== 取得資料 ====
             getData() {
                 let self = this;
@@ -139,9 +139,9 @@
                     }
                 }
 
-                 // 新聞大標題 (api = 越南足球_1)
+                // 新聞大標題 (api = 越南足球_1)
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/news/top",
+                    url: "https://www.vnc8888.com/api/news/top",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.news_t = data;
@@ -152,9 +152,9 @@
                     },
                 });
 
-                 // 新聞下方列表 (api = 越南足球_2)
+                // 新聞下方列表 (api = 越南足球_2)
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/news/bottom",
+                    url: "https://www.vnc8888.com/api/news/bottom",
                     dataType: "json",
                     success: function(data) {
                         for (let i = 0; i < 5; i++) {
@@ -167,9 +167,9 @@
                     },
                 });
 
-                 // 新聞menu (api = 首頁今日賽事)
+                // 新聞menu (api = 首頁今日賽事)
                 $.ajax({
-                    url: "https://vnc88.awgstudio.com/api/homenews/list",
+                    url: "https://www.vnc8888.com/api/homenews/list",
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.news_r = data;
@@ -178,7 +178,7 @@
                             ready();
                         })
                     },
-                });          
+                });
             },
         },
         mounted() {
