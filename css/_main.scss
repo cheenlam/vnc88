@@ -20,6 +20,13 @@ body {
     @include btn_linear(#fff, #fff, #3f67c0, #5e89e4);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    box-shadow: 0 0 0 30px #100f1f inset;
+    -webkit-text-fill-color: #d7e4f9;
+}
+
 // ===== header start =====
 .header {
     width: 100%;
@@ -108,7 +115,7 @@ body {
                     height: 34px;
                 }
             }
-            li+li {
+            li + li {
                 margin-left: 8px;
                 @include rwd(350) {
                     margin-left: 5px;
@@ -303,12 +310,12 @@ body {
                 @include rwd(650) {
                     flex-direction: column;
                 }
-                &>div {
+                & > div {
                     display: flex;
                     align-items: center;
                     margin-right: 10px;
                 }
-                &>div+div {
+                & > div + div {
                     @include rwd(650) {
                         margin-top: 15px;
                     }
@@ -524,7 +531,7 @@ body {
                         line-height: 45px;
                     }
                 }
-                .btn+.btn {
+                .btn + .btn {
                     margin-left: 5px;
                     @include rwd(12800) {
                         margin-left: 10px;
@@ -567,6 +574,7 @@ body {
                 height: 100%;
             }
         }
+
         ul {
             width: 100%;
             max-width: $count-minW;
@@ -650,7 +658,7 @@ body {
                     max-width: 1050px;
                     cursor: pointer;
                 }
-                &>div {
+                & > div {
                     max-width: 1050px;
                     height: 35px;
                     padding: 0 15px;
@@ -681,12 +689,12 @@ body {
                 }
             }
         }
-        &>.contBox-min {
+        & > .contBox-min {
             padding: 0;
             display: flex;
             flex-direction: column;
             position: relative;
-            &>.flexEvent {
+            & > .flexEvent {
                 padding: 0 20px;
                 margin-bottom: 0;
                 @include rwd(1280) {
@@ -709,10 +717,10 @@ body {
                     display: flex;
                     align-items: center;
                 }
-                li+li {
+                li + li {
                     margin-left: 25px;
                     &::before {
-                        content: '≫';
+                        content: "≫";
                         position: absolute;
                         left: -20px;
                         font-weight: bold;
@@ -798,7 +806,7 @@ body {
             }
         }
         .floatEvent {
-            &>img {
+            & > img {
                 display: block;
                 margin-bottom: 10px;
             }
@@ -891,7 +899,7 @@ body {
     // ft_top
     .ft_top {
         background-color: #313131;
-        &>div {
+        & > div {
             width: 100%;
             max-width: 1800px;
             min-height: 160px;
@@ -917,7 +925,7 @@ body {
             ul {
                 display: flex;
             }
-            li+li {
+            li + li {
                 margin-left: 20px;
             }
             .ft_icon {
@@ -929,7 +937,7 @@ body {
     // ft_bottom
     .ft_bottom {
         background-color: #121210;
-        &>div {
+        & > div {
             max-width: 1800px;
             min-height: calc(275px - 160px);
             margin: auto;
@@ -997,7 +1005,7 @@ body {
         @include rwd(550) {
             display: none;
         }
-        &>div {
+        & > div {
             margin: 10px;
             position: relative;
             pointer-events: auto;

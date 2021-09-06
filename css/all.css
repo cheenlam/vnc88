@@ -1653,6 +1653,14 @@ body {
   }
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px #100f1f inset;
+          box-shadow: 0 0 0 30px #100f1f inset;
+  -webkit-text-fill-color: #d7e4f9;
+}
+
 .header {
   width: 100%;
   margin: auto;
@@ -2779,7 +2787,7 @@ body {
 }
 
 .mainCnt .contBox-full > .contBox-min .crumb li + li::before {
-  content: '≫';
+  content: "≫";
   position: absolute;
   left: -20px;
   font-weight: bold;
