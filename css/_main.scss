@@ -177,7 +177,7 @@ input:-webkit-autofill:focus {
                 @include rwd(1280) {
                     width: 100%;
                     max-width: 779px;
-                    max-height: 95%;
+                    max-height: 90%;
                     margin: auto;
                     padding: 30px 20px;
                     position: relative;
@@ -194,14 +194,13 @@ input:-webkit-autofill:focus {
                     position: relative;
                     @include rwd(1280){
                         width: 100%;    
-                        max-height: calc(100vh - 160px);           
+                        max-height: calc(100vh - 180px);           
                         flex-direction: column; 
                         align-items: unset;     
                         overflow: auto;      
                     }
                 }
-     
-               
+          
                 .signIn_close {
                     width: 38px;
                     height: 38px;
