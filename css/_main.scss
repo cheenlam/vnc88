@@ -100,26 +100,8 @@ input:-webkit-autofill:focus {
                 display: flex;
                 justify-content: flex-end;
             }
-            .hd_service {
-                display: flex;
-                align-items: center;
-                padding: 0 15px 0 5px;
-                font-size: 1.1rem;
-                font-weight: bold;
-                p {
-                    margin-left: 5px;
-                    position: relative;
-                }
-                .btn_cnt {
-                    width: 34px;
-                    height: 34px;
-                }
-            }
             li + li {
-                margin-left: 8px;
-                @include rwd(350) {
-                    margin-left: 5px;
-                }
+                margin-left: 5px;
             }
             .menuBar,
             .signinBar {
@@ -191,10 +173,7 @@ input:-webkit-autofill:focus {
                     display: block;
                 }
             }
-            .hd_signInCnt {
-                display: flex;
-                justify-content: flex-end;
-                position: relative;
+            .hd_signInCnt {  
                 @include rwd(1280) {
                     width: 100%;
                     max-width: 779px;
@@ -202,12 +181,24 @@ input:-webkit-autofill:focus {
                     margin: auto;
                     padding: 30px 20px;
                     position: relative;
-                    flex-direction: column;
                     background: linear-gradient(0deg, #091422, #0e263c);
                     box-shadow: 5px 5px 10px #000;
                     border: 1px solid #f6bf3d;
                     border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round;
                 }
+
+                form{
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    position: relative;
+                    @include rwd(1280){
+                        width: 100%;
+                        flex-direction: column; 
+                        align-items: unset;              
+                    }
+                }
+               
                 .signIn_close {
                     width: 38px;
                     height: 38px;

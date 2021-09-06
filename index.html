@@ -30,12 +30,11 @@
                 <div class="hd_tool">
                     <div class="hd_link">
                         <ul>
-                            <li class="btn_linear_c1 hd_service">
+                            <li class="btn_linear_c1">
                                 <a href="mailto:topvnc88@gmail.com">
                                     <div class="btn_cnt">
                                         <img src="images/icon/icon-email.png">
                                     </div>
-                                    <p>EMAIL</p>
                                 </a>
                             </li>
                             <li class="btn_linear_c1">
@@ -59,28 +58,30 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="btn_linear_c1 menuBar" @click="menuOpen = true">
+                            <li class="btn_linear_c1 signinBar" @click="signInOpen = true,reset()" v-if="signSwitch">
+                                <div class="btn_cnt">
+                                   
+                                    <img src="images/icon/icon-onSignin.png" v-if="mbrLogin">
+                                    <span v-else style="padding: 0 5px 0;">ĐăngNhập</span>
+                                </div>
+                            </li>
+                            
+                            <li class="btn_linear_c3 menuBar" @click="menuOpen = true">
                                 <div class="btn_cnt">
                                     <img src="images/icon/menuBar.png">
                                 </div>
                             </li>
-                            <li class="btn_linear_c1 signinBar" @click="signInOpen = true,reset()" v-if="signSwitch">
-                                <div class="btn_cnt">
-                                    <img src="images/icon/icon-onSignin.png" v-if="mbrLogin">
-                                    <img src="images/icon/signinBar.png" v-else>
-                                </div>
-                            </li>
+                            
                         </ul>
                     </div>
-
-                    <form @submit.prevent="ckSignIn()">
-                        <div class="hd_signIn" id="hd_signIn" :class="{'on' : signInOpen}" v-show="signSwitch">
-                            <div class="close" @click="signInOpen = false,reset()"></div>
-
-                            <!-- 會員登入 / 註冊按鈕 -->
-                            <div class="hd_signInCnt" v-show="!mbrLogin">
-                                <div class="signIn_close" @click="signInOpen = false,reset()"></div>
-                                <div class="title">Đăng nhập</div>
+                    <div class="hd_signIn" id="hd_signIn" :class="{'on' : signInOpen}" v-show="signSwitch">
+                        <div class="close" @click="signInOpen = false,reset()"></div>
+                        
+                        <!-- 會員登入 / 註冊按鈕 -->
+                        <div class="hd_signInCnt" v-show="!mbrLogin">       
+                            <div class="signIn_close" @click="signInOpen = false,reset()"></div>
+                            <div class="title">Đăng nhập</div>
+                            <form @submit.prevent="ckSignIn()">
                                 <div class="signIn_ipt">
                                     <!-- 用戶帳號 -->
                                     <div class="signIn_account">
@@ -135,42 +136,41 @@
                                         <div class="btn_cnt">Đăng kí</div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>    
+                        </div>
 
-                            <!-- 會員訊息 / 登出 -->
-                            <div class="hd_signInCnt" v-show="mbrLogin">
-                                <div class="signIn_close" @click="signInOpen = false"></div>
-                                <div class="signIn_on">
-                                    <div class="title">Thông tin tài khoản</div>
-                                    <div class="signIn_msg">
-                                        <div>
-                                            <div class="signIn_icon member"></div>
-                                            <p>{{mbrMsg.nickname}}</p>
-                                        </div>
-                                        <div>
-                                            <div class="signIn_icon chip"></div>
-                                            <p>{{mbrMsg.points}}</p>
-                                        </div>
-                                        <div>
-                                            <div class="signIn_icon mail"></div>
-                                            <p>99+</p>
-                                        </div>
+                        <!-- 會員訊息 / 登出 -->
+                        <div class="hd_signInCnt" v-show="mbrLogin">
+                            <div class="signIn_close" @click="signInOpen = false"></div>
+                            <div class="signIn_on">
+                                <div class="title">Thông tin tài khoản</div>
+                                <div class="signIn_msg">
+                                    <div>
+                                        <div class="signIn_icon member"></div>
+                                        <p>{{mbrMsg.nickname}}</p>
                                     </div>
-                                    <div class="signIn_btn">
-                                        <div class="btn_linear_c2 btn" @click="offLogin()">
-                                            <div class="btn_cnt">Đăng xuất</div>
-                                        </div>
-                                        <div class="btn_linear_c3 btn" @click="signInOpen = false">
-                                            <a href="#/member">
-                                                <div class="btn_cnt">Thông tin tài khoản</div>
-                                            </a>
-                                        </div>
+                                    <div>
+                                        <div class="signIn_icon chip"></div>
+                                        <p>{{mbrMsg.points}}</p>
+                                    </div>
+                                    <div>
+                                        <div class="signIn_icon mail"></div>
+                                        <p>99+</p>
+                                    </div>
+                                </div>
+                                <div class="signIn_btn">
+                                    <div class="btn_linear_c2 btn" @click="offLogin()">
+                                        <div class="btn_cnt">Đăng xuất</div>
+                                    </div>
+                                    <div class="btn_linear_c3 btn" @click="signInOpen = false">
+                                        <a href="#/member">
+                                            <div class="btn_cnt">Thông tin tài khoản</div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
-
+                    </div>
                 </div>
             </div>
 
