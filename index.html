@@ -60,7 +60,6 @@
                             </li>
                             <li class="btn_linear_c1 signinBar" @click="signInOpen = true,reset()" v-if="signSwitch">
                                 <div class="btn_cnt">
-
                                     <img src="images/icon/icon-onSignin.png" v-if="mbrLogin">
                                     <span v-else style="padding: 0 5px 0;">ĐăngNhập</span>
                                 </div>
@@ -81,63 +80,66 @@
                         <div class="hd_signInCnt" v-show="!mbrLogin">
                             <div class="signIn_close" @click="signInOpen = false,reset()"></div>
                             <div class="title">Đăng nhập</div>
-
-                            <form >
-                                <div class="signIn_ipt">
-                                    <!-- 用戶帳號 -->
-                                    <div class="signIn_account">
-                                        <span class="signIn_minTitle">Tài khoản</span>
-                                        <div class="signIn_iptBox">
-                                            <div class="signIn_minCnt">
-                                                <label data-title="Tài khoản">  
-                                                    <input type="email" placeholder="Tài khoản" v-model="signInMbr.email" required>  
-                                                </label>
-                                            </div>
-                                            <p class="errorTxt" v-if="errorCode.notEmail">Email không tồn tại</p>
-                                        </div>
-                                    </div>
-
-                                    <!-- 密碼 / 忘記密碼 -->
-                                    <div class="signIn_forget">
-                                        <span class="signIn_minTitle">Mật khẩu</span>
-                                        <div class="signIn_iptBox">
-                                            <div class="signIn_minCnt">
-                                                <label>
-                                                    <input type="password" placeholder="Mật khẩu" v-model="signInMbr.pwd" required  autocomplete="on">
-                                                </label>
-                                                <div class="btn_linear hd_forget" @click="forgetLog()">
-                                                    <div class="btn_cnt"></div>
+                            <div class="hd_signInCnt_inner">
+                                <form @submit.prevent="ckSignIn()">
+                                    <div class="signIn_ipt">
+                                        <!-- 用戶帳號 -->
+                                        <div class="signIn_account">
+                                            <span class="signIn_minTitle">Tài khoản</span>
+                                            <div class="signIn_iptBox">
+                                                <div class="signIn_minCnt">
+                                                    <label data-title="Tài khoản">  
+                                                        <input type="email" placeholder="Tài khoản" v-model="signInMbr.email" required>  
+                                                    </label>
                                                 </div>
+                                                <p class="errorTxt" v-if="errorCode.notEmail">Email không tồn tại</p>
                                             </div>
-                                            <p class="errorTxt" v-if="errorCode.pwd">Sai mật khẩu</p>
                                         </div>
-                                    </div>
-                                    <!-- 驗證碼 -->
-                                    <div class="signIn_code">
-                                        <span class="signIn_minTitle">Mã xác minh</span>
-                                        <div class="signIn_codeBox">
-                                            <div class="signIn_minCnt">
-                                                <label>
-                                                    <input type="text" placeholder="Xác minh"  minlength="4" maxlength="4" pattern="[0-9]{4,4}" v-model="signInMbr.code" required>
-                                                </label>
-                                                <div class="nbCode" @click="verify('mainVerify')">
-                                                    <canvas id='mainVerify'></canvas>
+    
+                                        <!-- 密碼 / 忘記密碼 -->
+                                        <div class="signIn_forget">
+                                            <span class="signIn_minTitle">Mật khẩu</span>
+                                            <div class="signIn_iptBox">
+                                                <div class="signIn_minCnt">
+                                                    <label>
+                                                        <input type="password" placeholder="Mật khẩu" v-model="signInMbr.pwd" required  autocomplete="on">
+                                                    </label>
+                                                    <div class="btn_linear hd_forget" @click="forgetLog()">
+                                                        <div class="btn_cnt"></div>
+                                                    </div>
                                                 </div>
+                                                <p class="errorTxt" v-if="errorCode.pwd">Sai mật khẩu</p>
                                             </div>
-                                            <p class="errorTxt" v-if="errorCode.verify">Sai mã xác nhận</p>
+                                        </div>
+                                        <!-- 驗證碼 -->
+                                        <div class="signIn_code">
+                                            <span class="signIn_minTitle">Mã xác minh</span>
+                                            <div class="signIn_codeBox">
+                                                <div class="signIn_minCnt">
+                                                    <label>
+                                                        <input type="text" placeholder="Xác minh"  minlength="4" maxlength="4" pattern="[0-9]{4,4}" v-model="signInMbr.code" required>
+                                                    </label>
+    
+                                                    <div class="nbCode" @click="verify('mainVerify')">
+                                                        <canvas id='mainVerify'></canvas>
+                                                    </div>
+                                                </div>
+                                                <p class="errorTxt" v-if="errorCode.verify">Sai mã xác nhận</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="signIn_btn">
-                                    <div class="btn_linear_c2 btn">
-                                        <button class="btn_cnt">Đăng nhập</button>
+    
+                                    <div class="signIn_btn">
+                                        <div class="btn_linear_c2 btn">
+                                            <button class="btn_cnt">Đăng nhập</button>
+                                        </div>
+                                        <div class="btn_linear_c3 btn" @click="regdLog()">
+                                            <div class="btn_cnt">Đăng kí</div>
+                                        </div>
                                     </div>
-                                    <div class="btn_linear_c3 btn" @click="regdLog()">
-                                        <div class="btn_cnt">Đăng kí</div>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
+                          
                         </div>
 
                         <!-- 會員訊息 / 登出 -->
@@ -406,7 +408,7 @@
                         <div class="codeIpt">
                             <div>
                                 <div class="iptBox">
-                                    <input type="number" placeholder="Nhập mã xác minh">
+                                    <input type="text" pattern="[0-9]{4,4}" placeholder="Nhập mã xác minh" required>
                                 </div>
                                 <div class="codeBox" @click="verify('forgetVerify')">
                                     <canvas id="forgetVerify"></canvas>
@@ -508,8 +510,8 @@
             </div>
 
             <!-- 新註冊獎金 -->
-            <div class="newGift" v-show="dialog.gift">
-                <div class="roulette">
+            <div class="newGift" v-show="dialog.gift" :class="{on:giftLayout}">
+                <div class="roulette" >
                     <div class="rou_body" id="rou_body" :style="ranRoulette(0)"></div>
                     <div class="rou_pointer" style="padding: 0%;">
                         <img src="images/roulette/rou_pointer.png">
@@ -523,7 +525,7 @@
                     </div>
 
                     <div>
-                        <input type="text" placeholder="Điền số SDT tài khoản" v-model="giftCode" @focus="reGift(),ranRoulette(1)" :disabled="giftDis">
+                        <input type="text" placeholder="Điền số SDT tài khoản" v-model="giftCode" @focus="reGift(),ranRoulette(1),giftLayout = true"  @blur="giftLayout = false" :disabled="giftDis">
                         <div class="btn_linear_c1 btn" @click="ranGift()">
                             <button class="btn_cnt" :disabled="giftDis">Bắt đầu bốc thăm</button>
                         </div>
@@ -536,7 +538,7 @@
                     </div>
                 </div>
 
-                <div class="close" @click="closeDialog()"></div>
+                <div class="close" @click="closeDialog(),giftLayout = false"></div>
             </div>
 
             <!-- 今日遊戲 -->
@@ -585,6 +587,7 @@
                 giftDis: false,
                 roulette: 0,
                 canRoulette: false,
+                giftLayout:false,
 
                 // ==== 驗證碼 ====
                 verifyCode: {
@@ -927,7 +930,6 @@
                     top: 0
                 });
                 this.menuOpen = false;
-                this.signInOpen = false;
                 this.floatHd()
                 this.floatEvent();
             },
