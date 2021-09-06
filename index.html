@@ -25,7 +25,7 @@
         <!-- ===== header start ===== -->
         <div class="header" id="header">
             <!-- hd_top start -->
-            <div class="hd_top" id="hd_top" ref="hdTop">
+            <div class="hd_top" id="hd_top" ref="hdTop" :class="{'hideUp':topHide}">
                 <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
                 <div class="hd_tool">
                     <div class="hd_link">
@@ -204,7 +204,7 @@
         </div>
 
         <!-- ===== content start ===== -->
-        <div class="mainCnt">
+        <div class="mainCnt" id="mainCnt">
             <div class="contBox-full">
                 <!-- 首頁輪播 -->
                 <div id="full_feature" class="swipslider">
@@ -581,6 +581,8 @@
                 eventFloat: false,
                 todayGame: true,
                 crumb: '',
+                topHide: false,
+                lastScrollY:0,
 
                 // ==== 禮物轉盤 ====
                 giftCode: '',
@@ -937,12 +939,14 @@
             winScroll() {
                 this.floatMenu();
                 this.floatEvent();
+
             },
             // ==== 小畫面浮動hd_top時,修改indexBox的padding ====
             floatHd() {
                 let winW = document.body.clientWidth;
                 let hdH = this.$refs.hdTop.clientHeight;
-                let indexBox = document.querySelector('#indexBox')
+                let indexBox = document.querySelector('#indexBox');
+                $('#mainCnt')
 
                 if (winW >= 1263) {
                     indexBox.removeAttribute('style')
@@ -955,11 +959,22 @@
             floatMenu() {
                 let winW = document.body.clientWidth;
                 let hdH = this.$refs.hdTop.clientHeight;
+                let st = window.scrollY;
+               
                 if (winW > 1263) {
                     this.menuOpen = window.scrollY > hdH ? true : false;
+                } else {    
+                    if (st < this.lastScrollY) {
+                        this.topHide = false;
+                    } else if(st < hdH){
+                        this.topHide = false;
+                    }
+                    else {
+                        this.topHide = true;
+                    }
+                    this.lastScrollY = st;
                 }
             },
-
             // ==== 側邊浮動廣告 ====
             floatEvent() {
                 let winW = document.body.clientWidth;
@@ -1025,6 +1040,21 @@
     let docRef = db.collection("showLive");
     let docRef2 = db.collection("ytMovie");
     var database = firebase.database().ref().limitToLast(50);
+</script>
+
+<script>
+    // var bodyClass = document.querySelector('#hd_top'),lastScrollY = 0;
+    // window.addEventListener('scroll', function() {
+    //     var st = this.scrollY;
+    //     // 判斷是向上捲動，而且捲軸超過 200px
+    //     if (st < lastScrollY) {
+    //         $('#hd_top').removeClass('hideUp')
+    //     }  
+    //     else {
+    //         $('#hd_top').addClass('hideUp')
+    //     }
+    //     lastScrollY = st;
+    // });
 </script>
 
 
