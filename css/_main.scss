@@ -34,8 +34,23 @@ input:-webkit-autofill:focus {
     min-height: 188px;
     background-color: $mainBgc;
     position: relative;
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+        box-shadow: 0 0 0 30px #111 inset;
+        -webkit-text-fill-color: #d7e4f9;
+    }
+
     @include rwd(1280) {
         min-height: auto;
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            box-shadow: 0 0 0 30px #100f1f inset;
+            -webkit-text-fill-color: #d7e4f9;
+        }
     }
     // hd_top start
     .hd_top {
@@ -49,16 +64,16 @@ input:-webkit-autofill:focus {
         @include rwd(1280) {
             width: 100%;
             padding: 5px 20px 5px 28px;
-            background: linear-gradient(180deg,#234c77,#0b2139);
+            background: linear-gradient(180deg, #234c77, #0b2139);
             position: fixed;
             top: 0;
             left: 0;
             z-index: 20;
             box-shadow: 0 2px 6px #000;
-            transition: .5s;
-            &.hideUp{ 
+            transition: 0.5s;
+            &.hideUp {
                 top: -150px;
-            } 
+            }
         }
         @include rwd(860) {
             min-height: auto;
@@ -94,13 +109,13 @@ input:-webkit-autofill:focus {
                 align-self: flex-end;
                 padding-bottom: 0px;
             }
-            @include rwd(860){
+            @include rwd(860) {
                 align-self: unset;
             }
         }
         .hd_link {
             margin-bottom: 12px;
-            @include rwd(860){
+            @include rwd(860) {
                 margin-bottom: 0;
             }
 
@@ -186,7 +201,7 @@ input:-webkit-autofill:focus {
                     display: block;
                 }
             }
-            .hd_signInCnt {  
+            .hd_signInCnt {
                 @include rwd(1280) {
                     width: 100%;
                     max-width: 779px;
@@ -199,28 +214,27 @@ input:-webkit-autofill:focus {
                     border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round;
                 }
 
-                .hd_signInCnt_inner{
-                    @include rwd(1280){
-                        max-height: calc(95vh - 195px); 
-                        overflow: auto;   
-                        padding: 0 20px 50px;  
+                .hd_signInCnt_inner {
+                    @include rwd(1280) {
+                        max-height: calc(95vh - 195px);
+                        overflow: auto;
+                        padding: 0 20px 50px;
                     }
                 }
 
-                form{
+                form {
                     display: flex;
                     justify-content: flex-end;
                     align-items: center;
                     position: relative;
-                    @include rwd(1280){
-                        width: 100%;    
-                                 
-                        flex-direction: column; 
-                        align-items: unset;     
-                     
+                    @include rwd(1280) {
+                        width: 100%;
+
+                        flex-direction: column;
+                        align-items: unset;
                     }
                 }
-          
+
                 .signIn_close {
                     width: 38px;
                     height: 38px;
@@ -309,8 +323,8 @@ input:-webkit-autofill:focus {
             .signIn_on {
                 width: 100%;
             }
-            
-            .signIn_on_inner{
+
+            .signIn_on_inner {
                 display: flex;
                 @include rwd(1280) {
                     padding: 0 20px 50px;
@@ -326,7 +340,6 @@ input:-webkit-autofill:focus {
                 font-size: 0.9rem;
                 @include rwd(1280) {
                     justify-content: center;
-                 
                 }
                 @include rwd(650) {
                     flex-direction: column;

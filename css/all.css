@@ -1687,9 +1687,24 @@ input:-webkit-autofill:focus {
   position: relative;
 }
 
+.header input:-webkit-autofill,
+.header input:-webkit-autofill:hover,
+.header input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px #111 inset;
+          box-shadow: 0 0 0 30px #111 inset;
+  -webkit-text-fill-color: #d7e4f9;
+}
+
 @media screen and (max-width: 1280px) {
   .header {
     min-height: auto;
+  }
+  .header input:-webkit-autofill,
+  .header input:-webkit-autofill:hover,
+  .header input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 30px #100f1f inset;
+            box-shadow: 0 0 0 30px #100f1f inset;
+    -webkit-text-fill-color: #d7e4f9;
   }
 }
 
@@ -1721,8 +1736,8 @@ input:-webkit-autofill:focus {
     z-index: 20;
     -webkit-box-shadow: 0 2px 6px #000;
             box-shadow: 0 2px 6px #000;
-    -webkit-transition: .5s;
-    transition: .5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
   .header .hd_top.hideUp {
     top: -150px;
@@ -7246,6 +7261,14 @@ input:-webkit-autofill:focus {
   color: #333;
 }
 
+.mbrBox input:-webkit-autofill,
+.mbrBox input:-webkit-autofill:hover,
+.mbrBox input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px #fff inset;
+          box-shadow: 0 0 0 30px #fff inset;
+  -webkit-text-fill-color: #999;
+}
+
 .mbrSelect {
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -7356,6 +7379,8 @@ input:-webkit-autofill:focus {
 .mbrl_ipt, .mbrl_date {
   width: 100%;
   height: 40px;
+  padding-left: 5px;
+  line-height: 40px;
   border: 1px solid #cfcfcf;
   border-radius: 5px;
   -webkit-box-shadow: 2px 2px 4px silver inset;
@@ -7371,7 +7396,6 @@ input:-webkit-autofill:focus {
 
 .mbrl_ipt input, .mbrl_date input {
   width: 100%;
-  height: 100%;
   padding: 0 10px;
   background: transparent;
   outline: none;
