@@ -44,9 +44,8 @@ var mainCarousel = {
 
 // 主架構跑馬燈
 var marqueeData = [
-    { txt: "現在測試跑馬燈 (*´∀`)~ ♥", switch: true },
-    { txt: "電子遊戲已開放，歡迎玩家點擊「SLOT GAME」進入遊戲，祝您遊戲愉快 (๑ơ ₃ ơ)♥", switch: true },
-    { txt: "跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑，跑馬燈要乖乖不要亂跑 !!", switch: true },
+    { txt: "Hội tụ các giải đấu bóng đá lớn / Chuyên gia phân tích trận đấu   ", switch: true },
+    { txt: "Hội tụ các giải đấu bóng đá lớn / Chuyên gia phân tích trận đấu   ", switch: true },
 ]
 
 // 主架構廣告
