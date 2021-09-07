@@ -126,6 +126,10 @@ img {
   }
 }
 
+.swipslider.min {
+  height: calc(100vw*0.36);
+}
+
 .sw-slides {
   display: block;
   padding: 0;
@@ -1697,8 +1701,6 @@ input:-webkit-autofill:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -1711,7 +1713,8 @@ input:-webkit-autofill:focus {
   .header .hd_top {
     width: 100%;
     padding: 5px 20px 5px 28px;
-    background-color: #0b2139;
+    background: -webkit-gradient(linear, left top, left bottom, from(#234c77), to(#0b2139));
+    background: linear-gradient(180deg, #234c77, #0b2139);
     position: fixed;
     top: 0;
     left: 0;
@@ -1726,17 +1729,20 @@ input:-webkit-autofill:focus {
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 860px) {
   .header .hd_top {
+    min-height: auto;
+    padding: 10px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .header .hd_top {
-    padding: 5px 10px;
   }
 }
 
@@ -1752,10 +1758,11 @@ input:-webkit-autofill:focus {
   white-space: nowrap;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 860px) {
   .header .hd_top .hd_logo {
-    width: 280px;
+    width: 290px;
     height: 50px;
+    margin-left: 15px;
   }
 }
 
@@ -1779,8 +1786,22 @@ input:-webkit-autofill:focus {
   }
 }
 
+@media screen and (max-width: 860px) {
+  .header .hd_top .hd_tool {
+    -ms-flex-item-align: unset;
+        -ms-grid-row-align: unset;
+        align-self: unset;
+  }
+}
+
 .header .hd_top .hd_link {
   margin-bottom: 12px;
+}
+
+@media screen and (max-width: 860px) {
+  .header .hd_top .hd_link {
+    margin-bottom: 0;
+  }
 }
 
 .header .hd_top .hd_link a {

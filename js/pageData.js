@@ -15,19 +15,32 @@ var menuData = {
 }
 
 // 主架構輪播
-var indexSlides = [
-    { img: "images/carousel/topBanner-01.jpg", switch: true },
-    { img: "images/carousel/topBanner-02.jpg", switch: true },
-    { img: "images/carousel/topBanner-03.jpg", switch: true },
-    { img: "images/carousel/topBanner-04.jpg", switch: true },
-    { img: "images/carousel/topBanner-05.jpg", switch: true },
-    { img: "images/carousel/topBanner-06.jpg", switch: true },
-    { img: "images/carousel/topBanner-07.jpg", switch: true },
-    { img: "images/carousel/topBanner-08.jpg", switch: true },
-    { img: "images/carousel/topBanner-09.jpg", switch: true },
-    { img: "images/carousel/topBanner-10.jpg", switch: true },
-    { img: "images/carousel/topBanner-11.jpg", switch: true },
-]
+var mainCarousel = {
+    max: [
+        { img: "images/carousel/topBanner_01.jpg", switch: true },
+        { img: "images/carousel/topBanner_02.jpg", switch: true },
+        { img: "images/carousel/topBanner_03.jpg", switch: true },
+        { img: "images/carousel/topBanner_04.jpg", switch: true },
+        { img: "images/carousel/topBanner_05.jpg", switch: true },
+        { img: "images/carousel/topBanner_06.jpg", switch: true },
+        { img: "images/carousel/topBanner_07.jpg", switch: true },
+        { img: "images/carousel/topBanner_08.jpg", switch: true },
+        { img: "images/carousel/topBanner_09.jpg", switch: true },
+        { img: "images/carousel/topBanner_10.jpg", switch: true },
+        { img: "images/carousel/topBanner_11.jpg", switch: true },
+    ],
+    min: [
+        { img: "images/carousel/miblebanner_01.jpg", switch: true },
+        { img: "images/carousel/miblebanner_02.jpg", switch: true },
+        { img: "images/carousel/miblebanner_03.jpg", switch: true },
+        { img: "images/carousel/miblebanner_04.jpg", switch: true },
+        { img: "images/carousel/miblebanner_05.jpg", switch: true },
+        { img: "images/carousel/miblebanner_06.jpg", switch: true },
+        { img: "images/carousel/miblebanner_07.jpg", switch: true },
+        { img: "images/carousel/miblebanner_10.jpg", switch: true },
+        { img: "images/carousel/miblebanner_11.jpg", switch: true },
+    ]
+}
 
 // 主架構跑馬燈
 var marqueeData = [
@@ -74,7 +87,7 @@ var betList = {
                 num: 5,
                 href_out: "https://fun213213.com/euxc",
                 href_self: "#/betRef?p=1",
-                menuImg:"images/logo/betImg-1.jpg"
+                menuImg: "images/logo/betImg-1.jpg"
             },
             {
                 betLogo: "images/logo/betLogo-2.png",
@@ -82,7 +95,7 @@ var betList = {
                 num: 4.5,
                 href_out: "https://8123b.com/?inviteCode:26011561",
                 href_self: "#/betRef?p=2",
-                menuImg:"images/logo/betImg-2.jpg"
+                menuImg: "images/logo/betImg-2.jpg"
             },
             {
                 betLogo: "images/logo/betLogo-3.png",
@@ -90,7 +103,7 @@ var betList = {
                 num: 4,
                 href_out: "https://www.q8vn.com/",
                 href_self: "#/betRef?p=3",
-                menuImg:"images/logo/betImg-3.jpg"
+                menuImg: "images/logo/betImg-3.jpg"
             },
             {
                 betLogo: "images/logo/betLogo-4.png",
@@ -98,7 +111,7 @@ var betList = {
                 num: 3.5,
                 href_out: "https://jinbo989898.com/hpmifr",
                 href_self: "#/betRef?p=4",
-                menuImg:"images/logo/betImg-4.jpg"
+                menuImg: "images/logo/betImg-4.jpg"
             },
             {
                 betLogo: "images/logo/betLogo-5.png",
@@ -106,7 +119,7 @@ var betList = {
                 num: 2.5,
                 href_out: "https://www.ae3888.com/?agt=amg668",
                 href_self: "#/betRef?p=5",
-                menuImg:"images/logo/betImg-5.jpg"
+                menuImg: "images/logo/betImg-5.jpg"
             },
         ]
     }
@@ -157,63 +170,63 @@ var lotteryDict = {
 // ======== news ========
 // 消息新聞
 var news_selfNews = [{
-        href: "#/news?p=7",
-        img: "images/newsRef/newsList7-01.jpg",
-        title: "Cách chơi trò chơi",
-        msg: "Baccarat Baccarat là một trong các trò chơi trong Casino được nhiều chuyên gia cho rằng có nhiều khả năng thắng nhất đối với người chơi. Như các bạn cũng đ&",
-        time: "27-06 00:52"
-    },
-    {
-        href: "#/news?p=8",
-        img: "images/newsRef/newsList8-01.jpg",
-        title: "Xổ số- cờ bạc hay trò chơi giải trí?",
-        msg: "Xổ số là trò chơi không phải dành cho người nghèo và nếu Nhà nước biết cách quản lý thì sẽ phát huy được lợi ích của",
-        time: "24-06 19:53"
-    },
-    {
-        href: "#/news?p=9",
-        img: "images/newsRef/newsList9-01.jpg",
-        title: "Tình tiết mới vụ nhầm kết quả xổ số ở Hậu Giang: Giám đốc cty xổ số nói gì với quay phim?",
-        msg: "TPO - Khi em thiếu nhi rút nhầm thẻ số 7, một thành viên Hội đồng Giám sát (HĐGS) Xổ số kiến thiết (XSKT) tỉnh thắc mắc. Thư ký HĐGS đi xác minh, qu&aac",
-        time: "17-06 07:44"
-    },
-    {
-        href: "#/news?p=10",
-        img: "images/newsRef/newsList10-01.jpg",
-        title: "Phá đường dây ghi lô đề hơn 15 tỷ",
-        msg: "Giang, Sơn, Pháp cùng hơn 50 người thành lập đường dây đánh bạc bằng hình thức ghi lô đề. Trong 3 tháng, số tiền nhóm nghi phạm giao dịch l",
-        time: "11-06 18:09"
-    },
-    {
-        href: "#/news?p=11",
-        img: "images/newsRef/newsList11-01.jpg",
-        title: "Người trúng thưởng xổ số được yêu cầu giữ bí mật thông tin",
-        msg: "Đó là một trong những đề xuất mà Bộ Tài chính đưa ra để lấy ý kiến tại Dự thảo Thông tư hướng dẫn hoạt động kinh doanh xổ số tự chọn số điện toán",
-        time: "10-06 22:57"
-    },
-    {
-        href: "#/news?p=12",
-        img: "images/newsRef/newsList12-01.jpg",
-        title: "Mỹ tặng tiền, bia, mở xổ số 1 triệu USD cổ vũ dân tiêm vắc xin COVID-19",
-        msg: "TTO - Chính quyền các bang và doanh nghiệp Mỹ đang dùng đủ mọi cách từ tặng tiền, xổ số đến đăng quảng cáo... để khuyến khích người dân đi ti&eci",
-        time: "07-06 20:44"
-    },
-    {
-        href: "#/news?p=13",
-        img: "images/newsRef/newsList13-01.jpg",
-        title: "Thu ngân sách từ thuế vẫn tăng mạnh bất chấp dịch bệnh",
-        msg: "Trong tháng 5, tổng thu ngân sách Nhà nước do cơ quan Thuế quản lý ước đạt 73.000 tỷ đồng, tương đương 6,5% dự toán và tăng 20,1% so với cùng kỳ",
-        time: "07-06 18:39"
-    },
-    {
-        href: "#/news?p=14",
-        img: "images/newsRef/newsList14-01.jpg",
-        title: "Vứt nhầm 12 tờ vé số trị giá 180 triệu, cả xóm lục tung thùng rác tìm giữa đêm khuya",
-        msg: 'Được biết, chiếc vé cuối cùng cũng đã chịu "xuất đầu lộ diện" trong một thùng rác ở góc phố!Mới đây, một xóm nhỏ tại huyện Thạnh Hóa',
-        time: "06-06 21:48"
-    },
-]
-// 網站介紹
+            href: "#/news?p=7",
+            img: "images/newsRef/newsList7-01.jpg",
+            title: "Cách chơi trò chơi",
+            msg: "Baccarat Baccarat là một trong các trò chơi trong Casino được nhiều chuyên gia cho rằng có nhiều khả năng thắng nhất đối với người chơi. Như các bạn cũng đ&",
+            time: "27-06 00:52"
+        },
+        {
+            href: "#/news?p=8",
+            img: "images/newsRef/newsList8-01.jpg",
+            title: "Xổ số- cờ bạc hay trò chơi giải trí?",
+            msg: "Xổ số là trò chơi không phải dành cho người nghèo và nếu Nhà nước biết cách quản lý thì sẽ phát huy được lợi ích của",
+            time: "24-06 19:53"
+        },
+        {
+            href: "#/news?p=9",
+            img: "images/newsRef/newsList9-01.jpg",
+            title: "Tình tiết mới vụ nhầm kết quả xổ số ở Hậu Giang: Giám đốc cty xổ số nói gì với quay phim?",
+            msg: "TPO - Khi em thiếu nhi rút nhầm thẻ số 7, một thành viên Hội đồng Giám sát (HĐGS) Xổ số kiến thiết (XSKT) tỉnh thắc mắc. Thư ký HĐGS đi xác minh, qu&aac",
+            time: "17-06 07:44"
+        },
+        {
+            href: "#/news?p=10",
+            img: "images/newsRef/newsList10-01.jpg",
+            title: "Phá đường dây ghi lô đề hơn 15 tỷ",
+            msg: "Giang, Sơn, Pháp cùng hơn 50 người thành lập đường dây đánh bạc bằng hình thức ghi lô đề. Trong 3 tháng, số tiền nhóm nghi phạm giao dịch l",
+            time: "11-06 18:09"
+        },
+        {
+            href: "#/news?p=11",
+            img: "images/newsRef/newsList11-01.jpg",
+            title: "Người trúng thưởng xổ số được yêu cầu giữ bí mật thông tin",
+            msg: "Đó là một trong những đề xuất mà Bộ Tài chính đưa ra để lấy ý kiến tại Dự thảo Thông tư hướng dẫn hoạt động kinh doanh xổ số tự chọn số điện toán",
+            time: "10-06 22:57"
+        },
+        {
+            href: "#/news?p=12",
+            img: "images/newsRef/newsList12-01.jpg",
+            title: "Mỹ tặng tiền, bia, mở xổ số 1 triệu USD cổ vũ dân tiêm vắc xin COVID-19",
+            msg: "TTO - Chính quyền các bang và doanh nghiệp Mỹ đang dùng đủ mọi cách từ tặng tiền, xổ số đến đăng quảng cáo... để khuyến khích người dân đi ti&eci",
+            time: "07-06 20:44"
+        },
+        {
+            href: "#/news?p=13",
+            img: "images/newsRef/newsList13-01.jpg",
+            title: "Thu ngân sách từ thuế vẫn tăng mạnh bất chấp dịch bệnh",
+            msg: "Trong tháng 5, tổng thu ngân sách Nhà nước do cơ quan Thuế quản lý ước đạt 73.000 tỷ đồng, tương đương 6,5% dự toán và tăng 20,1% so với cùng kỳ",
+            time: "07-06 18:39"
+        },
+        {
+            href: "#/news?p=14",
+            img: "images/newsRef/newsList14-01.jpg",
+            title: "Vứt nhầm 12 tờ vé số trị giá 180 triệu, cả xóm lục tung thùng rác tìm giữa đêm khuya",
+            msg: 'Được biết, chiếc vé cuối cùng cũng đã chịu "xuất đầu lộ diện" trong một thùng rác ở góc phố!Mới đây, một xóm nhỏ tại huyện Thạnh Hóa',
+            time: "06-06 21:48"
+        },
+    ]
+    // 網站介紹
 var newsDict = {
     title: "Nhà cái uy tín – Kèo Bóng Cỏ giới thiệu các nhà cái uy tín hàng đầu",
     msg: [{

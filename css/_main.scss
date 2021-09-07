@@ -44,13 +44,12 @@ input:-webkit-autofill:focus {
         margin: auto;
         padding: 10px 20px 0px 28px;
         display: flex;
-        flex-wrap: wrap;
         align-items: flex-end;
         justify-content: space-between;
         @include rwd(1280) {
             width: 100%;
             padding: 5px 20px 5px 28px;
-            background-color: #0b2139;
+            background: linear-gradient(180deg,#234c77,#0b2139);
             position: fixed;
             top: 0;
             left: 0;
@@ -61,11 +60,12 @@ input:-webkit-autofill:focus {
                 top: -150px;
             } 
         }
-        @include rwd(900) {
+        @include rwd(860) {
+            min-height: auto;
+            padding: 10px;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-        }
-        @include rwd(350) {
-            padding: 5px 10px;
         }
         .hd_logo {
             width: 478px;
@@ -75,9 +75,10 @@ input:-webkit-autofill:focus {
             background: url(../images/logo/hd_logo.png) no-repeat center / cover;
             cursor: pointer;
             @include imgToTxt;
-            @include rwd(550) {
-                width: 280px;
+            @include rwd(860) {
+                width: 290px;
                 height: 50px;
+                margin-left: 15px;
             }
             a {
                 width: 100%;
@@ -93,9 +94,16 @@ input:-webkit-autofill:focus {
                 align-self: flex-end;
                 padding-bottom: 0px;
             }
+            @include rwd(860){
+                align-self: unset;
+            }
         }
         .hd_link {
             margin-bottom: 12px;
+            @include rwd(860){
+                margin-bottom: 0;
+            }
+
             a {
                 display: flex;
             }

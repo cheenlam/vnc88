@@ -73,7 +73,7 @@
 
                         </ul>
                     </div>
-                    <div class="hd_signIn" id="hd_signIn" :class="{'on' : signInOpen}" v-show="signSwitch">
+                    <div class="hd_signIn" id="  " :class="{'on' : signInOpen}" v-show="signSwitch">
                         <div class="close" @click="signInOpen = false,reset()"></div>
 
                         <!-- 會員登入 / 註冊按鈕 -->
@@ -207,13 +207,23 @@
         <div class="mainCnt" id="mainCnt">
             <div class="contBox-full">
                 <!-- 首頁輪播 -->
-                <div id="full_feature" class="swipslider">
+                <div id="full_feature" class="swipslider" v-show="!carousel.change">
                     <ul class="sw-slides">
-                        <template v-for="(item,index) in slides">
-                        <li class="sw-slide" v-if="item.switch">
-                            <img :src="item.img">
-                        </li>
-                    </template>
+                        <template v-for="(item,index) in carousel.list.max">
+                            <li class="sw-slide" v-if="item.switch">
+                                <img :src="item.img">
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+
+                <div id="min_feature" class="swipslider min" v-show="carousel.change">
+                    <ul class="sw-slides">
+                        <template v-for="(item,index) in carousel.list.min" >
+                            <li class="sw-slide" v-if="item.switch">
+                                <img :src="item.img">
+                            </li>
+                        </template>
                     </ul>
                 </div>
 
@@ -571,7 +581,10 @@
         data() {
             return {
                 hdMenu: menuData,
-                slides: indexSlides,
+                carousel:{
+                    list:  mainCarousel,
+                    change:false,
+                },
                 marquee: marqueeData,
                 banner: indexAd,
                 onLoad: false,
@@ -932,15 +945,22 @@
                     top: 0
                 });
                 this.menuOpen = false;
-                this.floatHd()
+                this.floatHd();
                 this.floatEvent();
+                this.chCarousel();          
             },
-
             winScroll() {
                 this.floatMenu();
                 this.floatEvent();
 
             },
+
+             // ==== 變更輪播顯示 ====
+            chCarousel(){
+                let winW = document.body.clientWidth;
+                this.carousel.change = winW < 842 ? true : false;
+            },
+
             // ==== 小畫面浮動hd_top時,修改indexBox的padding ====
             floatHd() {
                 let winW = document.body.clientWidth;
@@ -1008,12 +1028,14 @@
             this.verify("regdVerify");
             this.ckLogin();
             this.floatHd();
+            this.chCarousel();
 
             window.addEventListener('resize', this.winResize);
             window.addEventListener('scroll', this.winScroll);
 
             // 啟動輪播&跑馬燈外掛
             $('#full_feature').swipeslider();
+            $('#min_feature').swipeslider();
             $("#marquee").marquee({
                 pauseOnHover: true
             });
@@ -1041,21 +1063,4 @@
     let docRef2 = db.collection("ytMovie");
     var database = firebase.database().ref().limitToLast(50);
 </script>
-
-<script>
-    // var bodyClass = document.querySelector('#hd_top'),lastScrollY = 0;
-    // window.addEventListener('scroll', function() {
-    //     var st = this.scrollY;
-    //     // 判斷是向上捲動，而且捲軸超過 200px
-    //     if (st < lastScrollY) {
-    //         $('#hd_top').removeClass('hideUp')
-    //     }  
-    //     else {
-    //         $('#hd_top').addClass('hideUp')
-    //     }
-    //     lastScrollY = st;
-    // });
-</script>
-
-
 </html>
