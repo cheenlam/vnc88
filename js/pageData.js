@@ -77,8 +77,8 @@ var indexAd = {
 // 足球投注排行
 var betList = {
         title: {
-            title_01: "VNC88.com",
-            title_02: "Kèo nhà cái - kèo bóng đá trực tuyến tại VNC88.com",
+            title_01: "vnc88",
+            title_02: "Kèo nhà cái - kèo bóng đá trực tuyến tại vnc88",
         },
         list: [{
                 betLogo: "images/logo/betLogo-1.png",
@@ -148,8 +148,8 @@ var homeWsDict = {
     img: "images/wsDictImg.jpg",
     txtList: [
         "Được xếp vào một trong những trang web TOP nổi tiếng nhất tại Việt Nam, đặc biệt mang đến cho độc giả những tin thể thao hết sức hấp dẫn, đặc biệt là xoay quanh nội dung về các mùa giải bóng đá lớn trên Thế giới.",
-        "Có thể nhắc tới những chuyên mục nổi bật và được yêu thích nhất của VNC88.com như: Kèo nhà cái (cập nhật tỷ lệ kèo mới nhất), truyền hình trực tiếp bóng đá giải đấu Champions League, Ngoại Hạng Anh, Serie A, La liga, Bundesliga…hay các giải đấu của các đội tuyển quốc gia như World Cup Euro đã phục vụ cho những khán giả có niềm đam mê với thể thao.",
-        "VNC88.com thường xuyên nâng cấp cơ sở vất chất, đầu tư nhân lực để đảm bảo quá trình trực tiếp bóng đá các trận cầu đỉnh cao luôn cho chất lượng hình ảnh tốt nhất, âm thanh chân thực xuyên suốt qua trinh tường thuật luôn luôn có BLV tham gia bình luận các trận đấu để tạo thêm không khí sôi nổi cho người xem.",
+        "Có thể nhắc tới những chuyên mục nổi bật và được yêu thích nhất của vnc88 như: Kèo nhà cái (cập nhật tỷ lệ kèo mới nhất), truyền hình trực tiếp bóng đá giải đấu Champions League, Ngoại Hạng Anh, Serie A, La liga, Bundesliga…hay các giải đấu của các đội tuyển quốc gia như World Cup Euro đã phục vụ cho những khán giả có niềm đam mê với thể thao.",
+        "vnc88 thường xuyên nâng cấp cơ sở vất chất, đầu tư nhân lực để đảm bảo quá trình trực tiếp bóng đá các trận cầu đỉnh cao luôn cho chất lượng hình ảnh tốt nhất, âm thanh chân thực xuyên suốt qua trinh tường thuật luôn luôn có BLV tham gia bình luận các trận đấu để tạo thêm không khí sôi nổi cho người xem.",
         "Hiện nay thương hiệu VNC88 đang không ngừng phát triển lớn mạnh, và chúng tôi không ngừng cố gắng cho những mục tiêu lớn nhằm mang đến cho người xem những dịch vụ tốt nhất và hoàn toàn Miễn Phí",
     ]
 }
@@ -159,9 +159,9 @@ var homeWsDict = {
 var lotteryDict = {
     title: "Nhà cái uy tín – Kèo Bóng Cỏ giới thiệu các nhà cái uy tín hàng đầu",
     msg: [
-        { list: ["rang VNC88.com Được xếp vào một trong những trang web TOP nổi tiếng nhất tại Việt Nam, đặc biệt mang đến cho độc giả những tin thể thao hết sức hấp dẫn, đặc biệt là xoay quanh nội dung về các mùa giải bóng đá lớn trên Thế giới."] },
-        { list: ["Có thể nhắc tới những chuyên mục nổi bật và được yêu thích nhất của VNC88.com như: Kèo nhà cái (cập nhật tỷ lệ kèo mới nhất), truyền hình trực tiếp bóng đá giải đấu Champions League, Ngoại Hạng Anh, Serie A, La liga, Bundesliga…hay các giải đấu của các đội tuyển quốc gia như World Cup Euro đã phục vụ cho những khán giả có niềm đam mê với thể thao."] },
-        { list: ["VNC88.com thường xuyên nâng cấp cơ sở vất chất, đầu tư nhân lực để đảm bảo quá trình trực tiếp bóng đá các trận cầu đỉnh cao luôn cho chất lượng hình ảnh tốt nhất, âm thanh chân thực xuyên suốt qua trinh tường thuật luôn luôn có BLV tham gia bình luận các trận đấu để tạo thêm không khí sôi nổi cho người xem."] },
+        { list: ["rang vnc88 Được xếp vào một trong những trang web TOP nổi tiếng nhất tại Việt Nam, đặc biệt mang đến cho độc giả những tin thể thao hết sức hấp dẫn, đặc biệt là xoay quanh nội dung về các mùa giải bóng đá lớn trên Thế giới."] },
+        { list: ["Có thể nhắc tới những chuyên mục nổi bật và được yêu thích nhất của vnc88 như: Kèo nhà cái (cập nhật tỷ lệ kèo mới nhất), truyền hình trực tiếp bóng đá giải đấu Champions League, Ngoại Hạng Anh, Serie A, La liga, Bundesliga…hay các giải đấu của các đội tuyển quốc gia như World Cup Euro đã phục vụ cho những khán giả có niềm đam mê với thể thao."] },
+        { list: ["vnc88 thường xuyên nâng cấp cơ sở vất chất, đầu tư nhân lực để đảm bảo quá trình trực tiếp bóng đá các trận cầu đỉnh cao luôn cho chất lượng hình ảnh tốt nhất, âm thanh chân thực xuyên suốt qua trinh tường thuật luôn luôn có BLV tham gia bình luận các trận đấu để tạo thêm không khí sôi nổi cho người xem."] },
         { list: ["Hiện nay thương hiệu VNC88 đang không ngừng phát triển lớn mạnh, và chúng tôi không ngừng cố gắng cho những mục tiêu lớn nhằm mang đến cho người xem những dịch vụ tốt nhất và hoàn toàn Miễn Phí"] },
     ]
 }

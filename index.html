@@ -219,7 +219,7 @@
 
                 <div id="min_feature" class="swipslider min" v-show="carousel.change">
                     <ul class="sw-slides">
-                        <template v-for="(item,index) in carousel.list.min" >
+                        <template v-for="(item,index) in carousel.list.min">
                             <li class="sw-slide" v-if="item.switch">
                                 <img :src="item.img">
                             </li>
@@ -340,17 +340,13 @@
             <div class="ft_bottom">
                 <div>
                     <div class="copyright">
-                        <p>&copy; Copyright 2021 VNC88.com</p>
+                        <p>&copy; Copyright 2021 vnc88</p>
                     </div>
                     <div class="ft_menu">
                         <ul>
-                            <li><a href="#/home">TRANG CHỦ</a></li>
-                            <li><a href="#/lottery">Đề xuất cá cược </a></a>
-                            </li>
-                            <li><a href="#/news">Tin tức</a></li>
-                            <li><a href="#/broadcast">Video đá bóng</a></li>
-                            <li><a href="#/forum">Diễn đàn thảo luận</a></li>
-                            <li><a href="#/resources">Tin tức</a></li>
+                            <template v-for="(item,index) in hdMenu.txtList">
+                                <li v-if="item.switch"><a :href="item.href">{{item.txt}}</a></li>
+                            </template>
                         </ul>
                     </div>
                 </div>
@@ -581,9 +577,9 @@
         data() {
             return {
                 hdMenu: menuData,
-                carousel:{
-                    list:  mainCarousel,
-                    change:false,
+                carousel: {
+                    list: mainCarousel,
+                    change: false,
                 },
                 marquee: marqueeData,
                 banner: indexAd,
@@ -595,7 +591,7 @@
                 todayGame: true,
                 crumb: '',
                 topHide: false,
-                lastScrollY:0,
+                lastScrollY: 0,
 
                 // ==== 禮物轉盤 ====
                 giftCode: '',
@@ -947,7 +943,7 @@
                 this.menuOpen = false;
                 this.floatHd();
                 this.floatEvent();
-                this.chCarousel();          
+                this.chCarousel();
             },
             winScroll() {
                 this.floatMenu();
@@ -955,8 +951,8 @@
 
             },
 
-             // ==== 變更輪播顯示 ====
-            chCarousel(){
+            // ==== 變更輪播顯示 ====
+            chCarousel() {
                 let winW = document.body.clientWidth;
                 this.carousel.change = winW < 842 ? true : false;
             },
@@ -980,16 +976,15 @@
                 let winW = document.body.clientWidth;
                 let hdH = this.$refs.hdTop.clientHeight;
                 let st = window.scrollY;
-               
+
                 if (winW > 1263) {
                     this.menuOpen = window.scrollY > hdH ? true : false;
-                } else {    
+                } else {
                     if (st < this.lastScrollY) {
                         this.topHide = false;
-                    } else if(st < hdH){
+                    } else if (st < hdH) {
                         this.topHide = false;
-                    }
-                    else {
+                    } else {
                         this.topHide = true;
                     }
                     this.lastScrollY = st;
@@ -1062,6 +1057,6 @@
     let docRef = db.collection("showLive");
     let docRef2 = db.collection("ytMovie");
     var database = firebase.database().ref().limitToLast(50);
-
 </script>
+
 </html>
