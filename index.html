@@ -25,7 +25,7 @@
         <!-- ===== header start ===== -->
         <div class="header" id="header">
             <!-- hd_top start -->
-            <div class="hd_top" id="hd_top" ref="hdTop" :class="{'hideUp':topHide}">
+            <div class="hd_top" id="hd_top" ref="hdTop" :class="{'hideUp':topHide.switch}">
                 <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
                 <div class="hd_tool">
                     <div class="hd_link">
@@ -58,7 +58,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="btn_linear_c1 signinBar" @click="signInOpen = true,reset()" v-if="signSwitch">
+                            <li class="btn_linear_c1 signinBar" @click="signInOpen = true,reset()" v-show="!temporary">
                                 <div class="btn_cnt">
                                     <img src="images/icon/icon-onSignin.png" v-if="mbrLogin">
                                     <span v-else style="padding: 0 5px 0;">ĐăngNhập</span>
@@ -73,7 +73,7 @@
 
                         </ul>
                     </div>
-                    <div class="hd_signIn" id="  " :class="{'on' : signInOpen}" v-show="signSwitch">
+                    <div class="hd_signIn" :class="{'on' : signInOpen}" v-show="!temporary">
                         <div class="close" @click="signInOpen = false,reset()"></div>
 
                         <!-- 會員登入 / 註冊按鈕 -->
@@ -251,7 +251,7 @@
                             <img :src="item.img" v-if="item.switch">
                         </template>
                         </div>
-                        <div class="getGift" id="getGift" v-if="signSwitch" @click="giftLog()">
+                        <div class="getGift" id="getGift"  @click="giftLog()">
                             <img src="images/gift.png">
                         </div>
                     </div>
@@ -266,7 +266,7 @@
                             <img src="images/icon/arrow-top.png">
                             <span>TOP</span>
                         </div>
-                        <div class="todayGame" id="todayGame" v-if="todayGame" @click="todayGameLog()">
+                        <div class="todayGame" id="todayGame" v-show="todayGame" @click="todayGameLog()">
                             <div class="god">
                                 <img src="images/god.png">
                             </div>
@@ -576,22 +576,32 @@
     var indexVue = Vue.createApp({
         data() {
             return {
+                // ==== 判斷會員是否為登入狀態 ====
+                 mbrLogin: false,
+
+                // ==== 網站menu ====
                 hdMenu: menuData,
+
+                 // ==== hd_top向上隱藏(小尺寸) ====
+                 topHide:{
+                    switch:false,
+                    lastScrollY: 0,
+                },
+
+                // ==== 輪播 (切換尺寸) ====
                 carousel: {
                     list: mainCarousel,
                     change: false,
                 },
+
+                // ==== 跑馬燈 ====
                 marquee: marqueeData,
-                banner: indexAd,
-                onLoad: false,
-                menuOpen: false,
-                signInOpen: false,
-                mbrLogin: false,
-                eventFloat: false,
-                todayGame: true,
+
+                // ==== 廣告資料(左,右,中) ====
+                banner: indexAd, 
+
+                // ==== 麵包削 ====
                 crumb: '',
-                topHide: false,
-                lastScrollY: 0,
 
                 // ==== 禮物轉盤 ====
                 giftCode: '',
@@ -645,16 +655,27 @@
                     todayGame: false,
                 },
 
-                // 成功 / 失敗警示
+                // ==== 成功 / 失敗警示 ====
                 warn: {
                     warnSwitch: false,
                     success: false,
                     warnTxt: [],
                 },
 
-                // ==== 開關(暫時) ====
-                signSwitch: true,
+                // ==== 開關列表 ====
+                // loading開關
+                onLoad: false,
+                // 網站menu視窗開關(小尺寸)
+                menuOpen: false,
+                // 會員登入視窗開關(小尺寸)
+                signInOpen: false,
+                // 浮動廣告開關
+                eventFloat: false,
+                // 今日遊戲按鈕顯示開關
+                todayGame: true,
 
+                // ==== 暫時關閉 (hd_signIn,signinBar)====
+                temporary:true,
             };
         },
         methods: {
@@ -980,14 +1001,14 @@
                 if (winW > 1263) {
                     this.menuOpen = window.scrollY > hdH ? true : false;
                 } else {
-                    if (st < this.lastScrollY) {
-                        this.topHide = false;
+                    if (st < this.topHide.lastScrollY) {
+                        this.topHide.switch = false;
                     } else if (st < hdH) {
-                        this.topHide = false;
+                        this.topHide.switch = false;
                     } else {
-                        this.topHide = true;
+                        this.topHide.switch = true;
                     }
-                    this.lastScrollY = st;
+                    this.topHide.lastScrollY = st;
                 }
             },
             // ==== 側邊浮動廣告 ====
