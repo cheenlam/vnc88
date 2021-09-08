@@ -768,23 +768,24 @@ input:-webkit-autofill:focus {
             position: absolute;
             top: 0;
             z-index: 10;
+
+            @include rwd(1490) {
+                width: 60px;
+            }
         }
         .leftTool {
             left: -90px;
             &.on {
-                position: fixed;
-                top: 60px;
-                right: 1273px;
                 margin: auto;
+                position: fixed;
+                @include pos(tr, 60px, 1273px);
             }
             @include rwd(1490) {
                 &,
                 &.on {
+                    width: 60px;
                     position: fixed;
-                    right: 10px;
-                    left: unset;
-                    top: unset;
-                    bottom: 300px;
+                    @include pos(tlrb, unset, unset, 10px, 325px);
                 }
             }
             @include rwd(800) {
@@ -800,18 +801,15 @@ input:-webkit-autofill:focus {
             right: -90px;
             &.on {
                 position: fixed;
-                top: 60px;
-                left: 1273px;
+                @include pos(tl, 60px, 1273px);
                 margin: auto;
             }
             @include rwd(1490) {
                 &,
                 &.on {
                     position: fixed;
-                    right: 10px;
-                    left: unset;
-                    top: unset;
-                    bottom: 260px;
+
+                    @include pos(tlbr, unset, unset, 260px, 10px);
                 }
             }
             @include rwd(800) {
@@ -827,14 +825,17 @@ input:-webkit-autofill:focus {
                 position: absolute;
                 .god {
                     width: 160px;
-                    left: -30px;
-                    top: 5px;
                     cursor: pointer;
                     position: relative;
+                    @include pos(tl, 20px, -30px);
                     animation: pudding 1s infinite linear;
+                    @include rwd(1490) {
+                        width: 100px;
+                        @include pos(tl, 8px, -20px);
+                    }
                     @include rwd(800) {
                         width: 80px;
-                        left: -13px;
+                        @include pos(tl, 8px, -13px);
                     }
                 }
             }
@@ -856,6 +857,11 @@ input:-webkit-autofill:focus {
             background-color: #282828;
             border-radius: 50%;
             cursor: pointer;
+            @include rwd(1490) {
+                width: 60px;
+                height: 60px;
+                padding: 15px;
+            }
             @include rwd(800) {
                 width: 50px;
                 height: 50px;
@@ -872,21 +878,40 @@ input:-webkit-autofill:focus {
             font-size: 1.2rem;
             font-weight: 300;
             cursor: pointer;
+            @include rwd(1490) {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                flex-direction: column;
+            }
+            @include rwd(800) {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+
             img {
                 width: 20px;
                 height: 20px;
                 margin-right: 5px;
+                @include rwd(1490) {
+                    width: 25px;
+                    height: 25px;
+                    margin-right: 0;
+                }
                 @include rwd(800) {
                     width: 32px;
                     height: 32px;
                     margin: 0;
                 }
             }
-            @include rwd(800) {
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                span {
+
+            span {
+                @include rwd(1490) {
+                    margin-top: 3px;
+                    font-size: 0.8rem;
+                }
+                @include rwd(800) {
                     display: none;
                 }
             }
