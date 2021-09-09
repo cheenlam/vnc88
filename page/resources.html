@@ -12,7 +12,7 @@
                             <td v-for="(item,index) in bank.main.slice(0+(index-1)*linkNum.bank,linkNum.bank*index)">
                                 <a :href="item.href" target="_blank">
                                     <div class="bankTb-img">
-                                        <img :src="item.img">
+                                        <img :src="item.img" alt="bank logo">
                                     </div>
                                 </a>
                             </td>
@@ -46,7 +46,7 @@
                                 <a :href="item.href" target="_blank">
                                     <div class="lottoryTb_list">
                                         <div class="lottoryTb-img">
-                                            <img :src="item.img">
+                                            <img :src="item.img" alt="lottory logo">
                                         </div>
                                         <span>{{item.txt}}</span>
                                     </div>
@@ -74,7 +74,7 @@
             <div class="flexEvent">
                 <ul>
                     <li v-for="(item,index) in adImg">
-                        <img :src="item.img">
+                        <img :src="item.img" alt="Information about partners.">
                     </li>
                 </ul>
             </div>

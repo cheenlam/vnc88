@@ -48,7 +48,7 @@
                                 <li  @click="chYT(item.id)">
                                     <div>
                                         <div class="listArray_img">
-                                            <img :src="item.img">
+                                            <img :src="item.img" alt="Video preview image">
                                         </div>
                                         <div class="listArray_msg">
                                             <!-- <span>{{item.time}}</span> -->
@@ -84,7 +84,7 @@
                                     <td>{{index+1}}</td>
                                     <td>
                                         <div class="flag">
-                                            <img :src="item.img">
+                                            <img :src="item.img" alt="alliance logo">
                                         </div>
                                         <span>{{item.Team}}</span>
                                     </td>
@@ -111,7 +111,7 @@
                                             <div class="club_1">
                                                 <span>{{item.leftTeam}}</span>
                                                 <div class="badge">
-                                                    <img :src="item.leftImg">
+                                                    <img :src="item.leftImg" alt="alliance logo">
                                                 </div>
                                             </div>
                                         </td>
@@ -121,7 +121,7 @@
                                         <td>
                                             <div class="club_2">
                                                 <div class="badge">
-                                                    <img  :src="item.rightImg">
+                                                    <img  :src="item.rightImg" alt="alliance logo">
                                                 </div>
                                                 <span>{{item.rightTeam}}</span>
                                             </div>

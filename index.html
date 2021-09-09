@@ -34,41 +34,47 @@
                             <li class="btn_linear_c1">
                                 <a href="mailto:topvnc88@gmail.com">
                                     <div class="btn_cnt">
-                                        <img src="images/icon/icon-email.png">
+                                        <img src="images/icon/icon-email.png" 
+                                        alt="Link to the official mailbox.">
                                     </div>
                                 </a>
                             </li>
                             <li class="btn_linear_c1">
                                 <a href="https://reurl.cc/4a23dj" target="_blank">
                                     <div class="btn_cnt">
-                                        <img src="images/icon/icon-fb.png">
+                                        <img src="images/icon/icon-fb.png" 
+                                        alt="Link to official facebock.">
                                     </div>
                                 </a>
                             </li>
                             <li class="btn_linear_c1" @click="qrHref('zalo')">
                                 <a href="page/qrcode.html" target="_blank">
                                     <div class="btn_cnt">
-                                        <img src="images/icon/icon-zalo.png">
+                                        <img src="images/icon/icon-zalo.png" 
+                                        alt="Link to the official Zalo QrCode page.">
                                     </div>
                                 </a>
                             </li>
                             <li class="btn_linear_c1" @click="qrHref('tg')">
                                 <a href="page/qrcode.html" target="_blank">
                                     <div class="btn_cnt">
-                                        <img src="images/icon/icon-tg.png">
+                                        <img src="images/icon/icon-tg.png" 
+                                        alt="Link to the official Telegram QrCode page.">
                                     </div>
                                 </a>
                             </li>
                             <li class="btn_linear_c1 signinBar" @click="signInOpen = true,reset()" v-show="!temporary">
                                 <div class="btn_cnt">
-                                    <img src="images/icon/icon-onSignin.png" v-if="mbrLogin">
+                                    <img src="images/icon/icon-onSignin.png" v-if="mbrLogin" 
+                                    alt="Member login">
                                     <span v-else style="padding: 0 5px 0;">ĐăngNhập</span>
                                 </div>
                             </li>
 
                             <li class="btn_linear_c3 menuBar" @click="menuOpen = true">
                                 <div class="btn_cnt">
-                                    <img src="images/icon/menuBar.png">
+                                    <img src="images/icon/menuBar.png" 
+                                    alt="Menu button for small screen.">
                                 </div>
                             </li>
 
@@ -212,7 +218,7 @@
                     <ul class="sw-slides">
                         <template v-for="(item,index) in carousel.maxSize">
                             <li class="sw-slide">
-                                <img :src="item.img">
+                                <img :src="item.img" alt="Home carousel">
                             </li>
                         </template>
                     </ul>
@@ -222,7 +228,7 @@
                     <ul class="sw-slides">
                         <template v-for="(item,index) in carousel.minSize">
                             <li class="sw-slide">
-                                <img :src="item.img">
+                                <img :src="item.img" alt="Small screen homepage carousel.">
                             </li>
                         </template>
                     </ul>
@@ -249,18 +255,18 @@
                     <div class="leftTool" id="leftTool" ref="leftTool" :class="{'on':eventFloat}">
                         <div class="floatEvent">
                             <template v-for="(item,index) in eventBanner.left">
-                                <img :src="item.img">
+                                <img :src="item.img" alt="Partner related information.">
                             </template>
                         </div>
                         <div class="getGift" id="getGift" @click="giftLog()">
-                            <img src="images/gift.png">
+                            <img src="images/gift.png" alt="Gift for new members">
                         </div>
                     </div> 
 
                     <div class="rightTool" id="rightTool" :class="{'on':eventFloat}">
                         <div class="floatEvent">
                             <template v-for="(item,index) in eventBanner.right">
-                                <img :src="item.img">
+                                <img :src="item.img"  alt="Partner related information.">
                             </template>
                         </div>
 
@@ -270,7 +276,7 @@
                         </div>
                         <div class="todayGame" id="todayGame" v-show="todayGame" @click="todayGameLog()" >
                             <div class="god">
-                                <img src="images/god.png">
+                                <img src="images/god.png" alt="Recommended games of the day.">
                             </div>
                         </div>
                     </div>
@@ -280,7 +286,7 @@
                         <ul>
                             <template v-for="(item,index) in eventBanner.top">
                                 <li>
-                                    <img :src="item.img">
+                                    <img :src="item.img" alt="Partner related information.">
                                 </li>
                             </template>
                         </ul>
@@ -316,20 +322,23 @@
                         <ul>
                             <li>
                                 <div class="ft_icon">
-                                    <img src="images/icon/icon-18up.png">
+                                    <img src="images/icon/icon-18up.png" 
+                                    alt="This site is recommended to watch over 18 years old.">
                                 </div>
                             </li>
                             <li>
                                 <a href="https://reurl.cc/4a23dj" target="_blank">
                                     <div class="ft_icon">
-                                        <img src="images/icon/icon-f-fb.png">
+                                        <img src="images/icon/icon-f-fb.png" 
+                                        alt=" alt="Link to official facebock.">
                                     </div>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://reurl.cc/Q6nE6q" target="_blank">
                                     <div class="ft_icon">
-                                        <img src="images/icon/icon-f-yt.png">
+                                        <img src="images/icon/icon-f-yt.png" 
+                                        alt="Link to official youtube.">
                                     </div>
                                 </a>
                             </li>
@@ -359,7 +368,7 @@
                 <template v-for="(item,index) in eventBanner.bottom">
                     <div :class="{'on' : !item.switch}">
                         <div class="ftEvent_close" @click="item.switch = false" ></div>
-                        <img :src="item.img">
+                        <img :src="item.img" alt="Partner related information.">
                     </div>
                 </template>
             </div>
@@ -374,8 +383,8 @@
         <div class="warnLog" :class="{'on' : warn.warnSwitch}">
             <div class="warnbody">
                 <div class="warnIcon">
-                    <img src="images/icon/tick.png" v-if="warn.success">
-                    <img src="images/icon/cross.png" v-else>
+                    <img src="images/icon/tick.png" v-if="warn.success" alt="Correct prompt">
+                    <img src="images/icon/cross.png" v-else alt="Error warning">
                 </div>
                 <div class="warnTxt">
                     <p v-for="(item,index) in warn.warnTxt">{{item}}</p>
@@ -522,7 +531,7 @@
                 <div class="roulette">
                     <div class="rou_body" id="rou_body" :style="ranRoulette(0)"></div>
                     <div class="rou_pointer" style="padding: 0%;">
-                        <img src="images/roulette/rou_pointer.png">
+                        <img src="images/roulette/rou_pointer.png" alt="Turntable pointer">
                     </div>
                 </div>
 
@@ -553,10 +562,10 @@
             <div class="todayGame" v-show="dialog.todayGame">
                 <div class="close" @click="closeDialog()"></div>
                 <div class="todayGame_actor">
-                    <img src="./images/god.gif">
+                    <img src="images/god.gif" alt="Fortuna Animation.">
                 </div>
                 <div class="firework">
-                    <img src="images//todayGame/firework.png">
+                    <img src="images//todayGame/firework.png" alt="Shredded paper flower">
                 </div>
                 <div class="todayGame_cnt">
                     <div class="todayGame_msg">
