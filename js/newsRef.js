@@ -7,14 +7,15 @@ Vue.createApp({
                 newsHot: '',
             },
             resNews: resNews,
-
             resourcesNum: 0,
             lotteryNum: 0,
             newsRefNum: 0,
-
-
             newsSelfNum: 0,
             lotteryRefNum: 0,
+            menuList:{
+                listNum:0,
+                switch:false
+            },
         };
     },
     methods: {
@@ -34,6 +35,15 @@ Vue.createApp({
         },
         reHref_r(index) {
             return `#/resources?p=${index+1}`
+        },
+
+         // ==== 卷軸置頂 ====
+         goTop() {
+            this.$refs.cntScroll_1.scrollTop = 0;
+            this.$refs.cntScroll_2.scrollTop = 0;
+        },
+        winResize(){
+            this.menuList.switch = false;
         },
         getLocal() {
             this.resourcesNum = sessionStorage.getItem("new_resources");
@@ -76,6 +86,7 @@ Vue.createApp({
             setTimeout(function() {
                 indexVue.onLoad = false;
             }, 300)
-        })
+        });
+        window.addEventListener('resize', this.winResize);
     },
 }).mount("#page");

@@ -14,65 +14,6 @@ var menuData = {
     ]
 }
 
-// 主架構輪播
-var mainCarousel = {
-    max: [
-        { img: "images/carousel/topBanner_01.jpg", switch: true },
-        { img: "images/carousel/topBanner_02.jpg", switch: true },
-        { img: "images/carousel/topBanner_03.jpg", switch: true },
-        { img: "images/carousel/topBanner_04.jpg", switch: true },
-        { img: "images/carousel/topBanner_05.jpg", switch: true },
-        { img: "images/carousel/topBanner_06.jpg", switch: true },
-        { img: "images/carousel/topBanner_07.jpg", switch: true },
-        { img: "images/carousel/topBanner_08.jpg", switch: true },
-        { img: "images/carousel/topBanner_09.jpg", switch: true },
-        { img: "images/carousel/topBanner_10.jpg", switch: true },
-        { img: "images/carousel/topBanner_11.jpg", switch: true },
-    ],
-    min: [
-        { img: "images/carousel/miblebanner_01.jpg", switch: true },
-        { img: "images/carousel/miblebanner_02.jpg", switch: true },
-        { img: "images/carousel/miblebanner_03.jpg", switch: true },
-        { img: "images/carousel/miblebanner_04.jpg", switch: true },
-        { img: "images/carousel/miblebanner_05.jpg", switch: true },
-        { img: "images/carousel/miblebanner_06.jpg", switch: true },
-        { img: "images/carousel/miblebanner_07.jpg", switch: true },
-        { img: "images/carousel/miblebanner_10.jpg", switch: true },
-        { img: "images/carousel/miblebanner_11.jpg", switch: true },
-    ]
-}
-
-// 主架構跑馬燈
-var marqueeData = [
-    { txt: "Hội tụ các giải đấu bóng đá lớn / Chuyên gia phân tích trận đấu   ", switch: true },
-    { txt: "Hội tụ các giải đấu bóng đá lớn / Chuyên gia phân tích trận đấu   ", switch: true },
-]
-
-// 主架構廣告
-var indexAd = {
-    left: [
-        { img: "images/eventBanner/eventL_01.gif", switch: true },
-        { img: "images/eventBanner/eventL_02.gif", switch: true },
-    ],
-    right: [
-        { img: "images/eventBanner/eventR_01.gif", switch: true },
-        { img: "images/eventBanner/eventR_02.gif", switch: true },
-    ],
-    center: [
-        { img: "images/eventBanner/event01.gif", switch: true },
-        { img: "images/eventBanner/event02.gif", switch: true },
-        { img: "images/eventBanner/event03.gif", switch: true },
-        { img: "images/eventBanner/event04.gif", switch: true },
-        { img: "images/eventBanner/event05.gif", switch: true },
-        { img: "images/eventBanner/event06.gif", switch: true },
-    ],
-    ftEvent: [
-        { img: "images/eventBanner/eventFooter_01.gif", switch: true },
-        { img: "images/eventBanner/eventFooter_02.gif", switch: true },
-        { img: "images/eventBanner/eventFooter_03.gif", switch: true },
-    ]
-}
-
 // ======== home ========
 // 足球投注排行
 var betList = {
@@ -122,13 +63,6 @@ var betList = {
             },
         ]
     }
-    // 內頁廣告
-var flexEvent = [
-    { img: "images/eventBanner/event07.gif" },
-    { img: "images/eventBanner/event08.gif" },
-    { img: "images/eventBanner/event09.gif" },
-    { img: "images/eventBanner/event10.gif" },
-]
 
 // 投注連結(小輪播右側)
 var homeRec = [{
@@ -146,23 +80,12 @@ var homeRec = [{
 // 網站介紹
 var homeWsDict = {
     img: "images/wsDictImg.jpg",
+    title:'Trang vnc88',
     txtList: [
         "Được xếp vào một trong những trang web TOP nổi tiếng nhất tại Việt Nam, đặc biệt mang đến cho độc giả những tin thể thao hết sức hấp dẫn, đặc biệt là xoay quanh nội dung về các mùa giải bóng đá lớn trên Thế giới.",
         "Có thể nhắc tới những chuyên mục nổi bật và được yêu thích nhất của vnc88 như: Kèo nhà cái (cập nhật tỷ lệ kèo mới nhất), truyền hình trực tiếp bóng đá giải đấu Champions League, Ngoại Hạng Anh, Serie A, La liga, Bundesliga…hay các giải đấu của các đội tuyển quốc gia như World Cup Euro đã phục vụ cho những khán giả có niềm đam mê với thể thao.",
         "vnc88 thường xuyên nâng cấp cơ sở vất chất, đầu tư nhân lực để đảm bảo quá trình trực tiếp bóng đá các trận cầu đỉnh cao luôn cho chất lượng hình ảnh tốt nhất, âm thanh chân thực xuyên suốt qua trinh tường thuật luôn luôn có BLV tham gia bình luận các trận đấu để tạo thêm không khí sôi nổi cho người xem.",
         "Hiện nay thương hiệu VNC88 đang không ngừng phát triển lớn mạnh, và chúng tôi không ngừng cố gắng cho những mục tiêu lớn nhằm mang đến cho người xem những dịch vụ tốt nhất và hoàn toàn Miễn Phí",
-    ]
-}
-
-// ======== lottery ========
-// 網站介紹
-var lotteryDict = {
-    title: "Nhà cái uy tín – Kèo Bóng Cỏ giới thiệu các nhà cái uy tín hàng đầu",
-    msg: [
-        { list: ["rang vnc88 Được xếp vào một trong những trang web TOP nổi tiếng nhất tại Việt Nam, đặc biệt mang đến cho độc giả những tin thể thao hết sức hấp dẫn, đặc biệt là xoay quanh nội dung về các mùa giải bóng đá lớn trên Thế giới."] },
-        { list: ["Có thể nhắc tới những chuyên mục nổi bật và được yêu thích nhất của vnc88 như: Kèo nhà cái (cập nhật tỷ lệ kèo mới nhất), truyền hình trực tiếp bóng đá giải đấu Champions League, Ngoại Hạng Anh, Serie A, La liga, Bundesliga…hay các giải đấu của các đội tuyển quốc gia như World Cup Euro đã phục vụ cho những khán giả có niềm đam mê với thể thao."] },
-        { list: ["vnc88 thường xuyên nâng cấp cơ sở vất chất, đầu tư nhân lực để đảm bảo quá trình trực tiếp bóng đá các trận cầu đỉnh cao luôn cho chất lượng hình ảnh tốt nhất, âm thanh chân thực xuyên suốt qua trinh tường thuật luôn luôn có BLV tham gia bình luận các trận đấu để tạo thêm không khí sôi nổi cho người xem."] },
-        { list: ["Hiện nay thương hiệu VNC88 đang không ngừng phát triển lớn mạnh, và chúng tôi không ngừng cố gắng cho những mục tiêu lớn nhằm mang đến cho người xem những dịch vụ tốt nhất và hoàn toàn Miễn Phí"] },
     ]
 }
 
@@ -225,18 +148,6 @@ var news_selfNews = [{
             time: "06-06 21:48"
         },
     ]
-    // 網站介紹
-var newsDict = {
-    title: "Nhà cái uy tín – Kèo Bóng Cỏ giới thiệu các nhà cái uy tín hàng đầu",
-    msg: [{
-            list: ["Với những người chơi cá cược việc tìm lựa trọn cho mình một nhà cái uy tín để đặt cược luôn là việc quan trọng nhất cần làm.Với việc lựa trọn đúng nhà cái uy tín người chơi có thể hoàn toàn yên tâm về số tiền mà mình đã đầu tư sẽ không bị biến mất, từ đó có thể chú tâm hoàn toàn vào việc đặt cược.",
-                "Những nhà cái uy tín lâu năm luôn đảm bảo cho khách hàng khả năng thanh khoản tiền thưởng thắng cược của người chơi luôn nhanh, đấy đủ, chính xác số tiền mà người chơi muốn rút.Trong thời gia gần đây số lượng nhà cái mới ra đời nhiều như nấm mọc sau mưa, đã có rất nhiều người chơi không tìm hiểu nên đã lựa trọn đúng các nhà cái không uy tín dẫn đến tình trạng không rút được tiền thưởng thắng cược hoặc thậm chí bị nhà cái giam tiền, nhuốt tiề."
-            ]
-        },
-        { list: ["Với nhu cầu ngày càng cao hiện nay Kèo Bóng Cỏ xin được giới thiệu đến người chơi các nhà cái lớn hoạt động lâu năm trên thị trường, mức độ uy tín lớn để người chơi có thể tin tưởng tuyệt đối nạp tiền vào chơi cho dù số tiền đó lớn hay nhỏ. Các nhà cái uy tín được Kèo Bóng Cỏ giới thiệu đã được chính thành viên của Kèo Bóng Cỏ tham ra đăng ký chơi để kiểm tra chính xác mức độ uy tín mà nhà cái có được, đồng thời cũng được rất nhiều các thành viên của các diễn đàn lớn về cá cược khác đánh giá tốt."] },
-        { list: ["Kèo Bóng Cỏ xin chúc người chơi lựa chọn được nhà cái uy tín để trọn mặt gửi vàng. Xin chân thành cảm ơn!"] },
-    ]
-}
 
 // ======== broadcast ========
 // live標題,廣告,聊天室icons

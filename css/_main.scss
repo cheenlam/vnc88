@@ -785,7 +785,7 @@ input:-webkit-autofill:focus {
                 &.on {
                     width: 60px;
                     position: fixed;
-                    @include pos(tlrb, unset, unset, 10px, 325px);
+                    @include pos(tlrb, unset, unset, 5px, 265px);
                 }
             }
             @include rwd(800) {
@@ -808,8 +808,7 @@ input:-webkit-autofill:focus {
                 &,
                 &.on {
                     position: fixed;
-
-                    @include pos(tlbr, unset, unset, 260px, 10px);
+                    @include pos(tlbr, unset, unset, 200px, 5px);
                 }
             }
             @include rwd(800) {
@@ -861,11 +860,15 @@ input:-webkit-autofill:focus {
                 width: 60px;
                 height: 60px;
                 padding: 15px;
+                background: linear-gradient(0deg, #aa0714, #c75c3c);  
+                box-shadow: 2px 3px 2px #740909 inset;
             }
             @include rwd(800) {
                 width: 50px;
                 height: 50px;
                 padding: 10px;
+                background: #282828;
+                box-shadow: unset;
             }
         }
         .goTop {
@@ -883,11 +886,14 @@ input:-webkit-autofill:focus {
                 height: 60px;
                 border-radius: 50%;
                 flex-direction: column;
+                background: linear-gradient(0deg, #000, #555);  
+                box-shadow: 2px 3px 2px #000 inset;
             }
             @include rwd(800) {
                 width: 50px;
                 height: 50px;
-                border-radius: 50%;
+                background: #000;  
+                box-shadow: unset;
             }
 
             img {

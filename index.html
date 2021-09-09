@@ -209,8 +209,8 @@
                 <!-- 首頁輪播 -->
                 <div id="full_feature" class="swipslider" v-show="!carousel.change">
                     <ul class="sw-slides">
-                        <template v-for="(item,index) in carousel.list.max">
-                            <li class="sw-slide" v-if="item.switch">
+                        <template v-for="(item,index) in carousel.maxSize">
+                            <li class="sw-slide">
                                 <img :src="item.img">
                             </li>
                         </template>
@@ -219,8 +219,8 @@
 
                 <div id="min_feature" class="swipslider min" v-show="carousel.change">
                     <ul class="sw-slides">
-                        <template v-for="(item,index) in carousel.list.min">
-                            <li class="sw-slide" v-if="item.switch">
+                        <template v-for="(item,index) in carousel.minSize">
+                            <li class="sw-slide">
                                 <img :src="item.img">
                             </li>
                         </template>
@@ -234,8 +234,8 @@
                             <span>Tin mới nhất：</span>
                             <ul id="marquee" class="marquee_body">
                                 <template v-for="(item,index) in marquee">
-                                <li v-if="item.switch">{{item.txt}}</li>
-                            </template>
+                                    <li>{{item.txt}}</li>
+                                </template>
                             </ul>
                             <div class="btn_linear_c1 btn">
                                 <div class="btn_cnt">Chi tiết</div>
@@ -247,26 +247,27 @@
                 <div class="contBox-min" ref="contMin">
                     <div class="leftTool" id="leftTool" ref="leftTool" :class="{'on':eventFloat}">
                         <div class="floatEvent">
-                            <template v-for="(item,index) in banner.left">
-                            <img :src="item.img" v-if="item.switch">
-                        </template>
+                            <template v-for="(item,index) in eventBanner.left">
+                                <img :src="item.img">
+                            </template>
                         </div>
-                        <div class="getGift" id="getGift"  @click="giftLog()">
+                        <div class="getGift" id="getGift" @click="giftLog()">
                             <img src="images/gift.png">
                         </div>
-                    </div>
+                    </div> 
 
                     <div class="rightTool" id="rightTool" :class="{'on':eventFloat}">
                         <div class="floatEvent">
-                            <template v-for="(item,index) in banner.right">
-                            <img :src="item.img" v-if="item.switch">
-                        </template>
+                            <template v-for="(item,index) in eventBanner.right">
+                                <img :src="item.img">
+                            </template>
                         </div>
+
                         <div class="goTop" @click="goTop()">
                             <img src="images/icon/arrow-top.svg">
                             <span>TOP</span>
                         </div>
-                        <div class="todayGame" id="todayGame" v-show="todayGame" @click="todayGameLog()">
+                        <div class="todayGame" id="todayGame" v-show="todayGame" @click="todayGameLog()" >
                             <div class="god">
                                 <img src="images/god.png">
                             </div>
@@ -276,11 +277,11 @@
                     <!-- flexEvent start -->
                     <div class="flexEvent">
                         <ul>
-                            <template v-for="(item,index) in banner.center">
-                            <li v-if="item.switch">
-                                <img :src="item.img">
-                            </li>
-                        </template>
+                            <template v-for="(item,index) in eventBanner.top">
+                                <li>
+                                    <img :src="item.img">
+                                </li>
+                            </template>
                         </ul>
                     </div>
 
@@ -354,9 +355,9 @@
 
             <!-- ftEvent  -->
             <div class="ftEvent">
-                <template v-for="(item,index) in banner.ftEvent">
+                <template v-for="(item,index) in eventBanner.bottom">
                     <div :class="{'on' : !item.switch}">
-                        <div class="ftEvent_close" @click="item.switch = false"></div>
+                        <div class="ftEvent_close" @click="item.switch = false" ></div>
                         <img :src="item.img">
                     </div>
                 </template>
@@ -577,28 +578,35 @@
         data() {
             return {
                 // ==== 判斷會員是否為登入狀態 ====
-                 mbrLogin: false,
+                mbrLogin: false,
 
                 // ==== 網站menu ====
                 hdMenu: menuData,
 
-                 // ==== hd_top向上隱藏(小尺寸) ====
-                 topHide:{
-                    switch:false,
+                // ==== hd_top向上隱藏(小尺寸) ====
+                topHide: {
+                    switch: false,
                     lastScrollY: 0,
                 },
 
                 // ==== 輪播 (切換尺寸) ====
                 carousel: {
-                    list: mainCarousel,
+                    maxSize: '',
+                    minSize: '',
                     change: false,
                 },
 
                 // ==== 跑馬燈 ====
-                marquee: marqueeData,
+                marquee: '',
 
-                // ==== 廣告資料(左,右,中) ====
-                banner: indexAd, 
+                // ==== 廣告資料(左,右,中,頁尾,內文) ====
+                eventBanner: {
+                    top: '',
+                    left: '',
+                    right: '',
+                    bottom: '',
+                    center:''
+                },
 
                 // ==== 麵包削 ====
                 crumb: '',
@@ -675,7 +683,7 @@
                 todayGame: true,
 
                 // ==== 暫時關閉 (hd_signIn,signinBar)====
-                temporary:true,
+                temporary: true,
             };
         },
         methods: {
@@ -1036,9 +1044,54 @@
                     rightTool.removeAttribute("style")
                     this.todayGame = true;
                 }
-            }
+            },
+            getData() {
+                let self = this;
+                // 跑馬燈 (api = 廣告與跑馬燈)
+                $.ajax({
+                    url: "https://www.vnc8888.com/api/marquee/list",
+                    dataType: "json",
+                    success: function(data) {
+                        self.marquee = data;
+                        self.$nextTick(function() {
+                            // 啟動跑馬燈外掛
+                            $("#marquee").marquee({
+                                pauseOnHover: true
+                            });
+                        })
+                    },
+                });
+
+                // 廣告 (api = 廣告與跑馬燈)
+                $.ajax({
+                    url: "https://www.vnc8888.com/api/banner/list",
+                    dataType: "json",
+                    success: function(data) {
+                        self.eventBanner.top = data.top;
+                        self.eventBanner.left = data.left;
+                        self.eventBanner.right = data.right;
+                        self.eventBanner.center = data.center;
+                        self.eventBanner.bottom = data.bottom;
+                        for (let i = 0; i < self.eventBanner.bottom.length; i++) {
+                            self.eventBanner.bottom[i].switch = true;
+                        }
+                        
+
+                        self.carousel.maxSize = data.carousel;
+                        self.carousel.minSize = data.scarousel;
+
+                        self.$nextTick(function() {
+                            // 啟動輪播外掛
+                            $('#full_feature').swipeslider();
+                            $('#min_feature').swipeslider();
+                        })
+                    },
+                });
+
+            },
         },
         mounted() {
+            this.getData();
             this.verify("mainVerify");
             this.verify("forgetVerify");
             this.verify("regdVerify");
@@ -1048,13 +1101,6 @@
 
             window.addEventListener('resize', this.winResize);
             window.addEventListener('scroll', this.winScroll);
-
-            // 啟動輪播&跑馬燈外掛
-            $('#full_feature').swipeslider();
-            $('#min_feature').swipeslider();
-            $("#marquee").marquee({
-                pauseOnHover: true
-            });
         },
     }).mount("#indexBox");
 </script>

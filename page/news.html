@@ -82,11 +82,9 @@
                 <div class="wsDict_msg">
                     <div class="title">{{wsDict.title}}</div>
                     <ul class="lotteryList">
-                        <li v-for="(item,index) in wsDict.msg">
+                        <li v-for="(item,index) in wsDict.txtList">
                             <div class="icon"></div>
-                            <ul class="lotteryMsg">
-                                <li v-for="(item,index) in item.list">{{item}}</li>
-                            </ul>
+                            <p>{{item}}</p>
                         </li>
                     </ul>
                 </div>
@@ -106,11 +104,11 @@
                     news_b: [],
                 },
                 // 廣告
-                EventImg: flexEvent,
+                EventImg: indexVue.eventBanner.center,
                 // 消息新聞列表
                 selfNews: news_selfNews,
                 // 網站介紹
-                wsDict: newsDict,
+                wsDict: homeWsDict,
             };
         },
         methods: {

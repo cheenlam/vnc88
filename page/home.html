@@ -254,7 +254,7 @@
             <div class="mainMsg-title">Giới thiệu trang wed</div>
             <div class="wsDict_msg">
                 <div>
-                    <div class="title">Trang vnc88</div>
+                    <div class="title">{{wsDict.title}}</div>
                     <div class="wsDictImg">
                         <img :src="wsDict.img">
                     </div>
@@ -275,7 +275,7 @@
                 // 博彩公司推薦
                 bet: betList,
                 // 廣告
-                EventImg: flexEvent,
+                EventImg: indexVue.eventBanner.center,
                 // 新聞
                 newsMenu: {
                     news_t: '',
@@ -318,7 +318,6 @@
                 function ready() {
                     if (chReady[0] && chReady[1] && chReady[2] && chReady[3]) {
                         indexVue.onLoad = false;
-                        $('#mainCarousel').swipeslider(); // 啟動輪播外掛
                     }
                 }
 
@@ -371,7 +370,8 @@
                         self.carousel = data;
                         self.$nextTick(function() {
                             chReady[3] = true;
-                            ready();
+                            $('#mainCarousel').swipeslider(); // 啟動輪播外掛
+                            ready();  
                         })
                     },
                 });

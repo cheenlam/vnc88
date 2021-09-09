@@ -118,13 +118,15 @@
             </div>
         </div>
 
-        <div class="newsCnt_menu">
-            <div>
+        <div class="newsCnt_menu" :class="{'on' : menuList.switch}">
+            <div class="close" @click="menuList.switch = false"></div>
+            <div class="newsCnt_list" :class="{'on':menuList.listNum == 0}">
+                <div class="chList major" @click="menuList.listNum = 0,goTop()">Tin quan trọng</div>
                 <div class="mainMsg-title">Tin quan trọng</div>
-                <div class="newsCnt_scroll">
+                <div class="newsCnt_scroll" ref="cntScroll_1">
                     <ul>
                         <template v-for="(item,index) in newsMenu.newsMain">
-                            <li v-if="lotteryRefNum != index+2">
+                            <li>
                                 <a :href="reHref(false,index)">
                                     <div class="img" :style="getbgi(item.img)"></div>
                                     <p>{{item.title}}</p>
@@ -134,9 +136,10 @@
                     </ul>
                 </div>    
             </div>
-            <div>   
+            <div class="newsCnt_list" :class="{'on':menuList.listNum == 1}">   
+                <div class="chList hot" @click="menuList.listNum = 1,goTop()">Tin hot</div> 
                 <div class="mainMsg-title">Tin hot</div>
-                <div class="newsCnt_scroll">
+                <div class="newsCnt_scroll" ref="cntScroll_2">
                     <ul>
                         <template v-for="(item,index) in newsMenu.newsHot">
                             <li>
@@ -150,9 +153,12 @@
                 </div>  
             </div>
         </div>
+
+        <div class="listBar" @click="menuList.switch = true">
+            <img src="images/icon/listBar.svg">
+        </div>
     </div>
 </div>
 
 <!-- ========================================= -->
-<script src="js/index.js"></script>
 <script src="js/newsRef.js"></script>

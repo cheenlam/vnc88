@@ -11,10 +11,12 @@
             </div>
         </div>
 
-        <div class="newsCnt_menu">
-            <div>
+        <div class="newsCnt_menu" :class="{'on' : menuList.switch}">
+            <div class="close" @click="menuList.switch = false"></div>
+            <div class="newsCnt_list" :class="{'on':menuList.listNum == 0}">
+                <div class="chList major" @click="menuList.listNum = 0,goTop()">Tin quan trọng</div>
                 <div class="mainMsg-title">Tin quan trọng</div>
-                <div class="newsCnt_scroll">
+                <div class="newsCnt_scroll" ref="cntScroll_1">
                     <ul>
                         <template v-for="(item,index) in newsMenu.newsImp">
                             <li v-if="localNum != index+1">
@@ -27,9 +29,10 @@
                     </ul>
                 </div>
             </div>
-            <div>
+            <div class="newsCnt_list" :class="{'on':menuList.listNum == 1}">
+                <div class="chList hot" @click="menuList.listNum = 1,goTop()">Tin hot</div> 
                 <div class="mainMsg-title">Tin hot</div>
-                <div class="newsCnt_scroll">
+                <div class="newsCnt_scroll" ref="cntScroll_2">
                     <ul>
                         <template v-for="(item,index) in newsMenu.newsHot">
                             <li>
@@ -42,6 +45,10 @@
                     </ul>
                 </div>
             </div>
+        </div>
+
+        <div class="listBar" @click="menuList.switch = true">
+            <img src="images/icon/listBar.svg">
         </div>
     </div>
 </div>
@@ -59,6 +66,10 @@
                     newsImp: [],
                 },
                 localNum: 1,
+                menuList:{
+                    listNum:0,
+                    switch:false
+                },
             };
         },
         methods: {
@@ -73,6 +84,14 @@
                 }
 
             },
+             // ==== 卷軸置頂 ====
+             goTop() {
+                this.$refs.cntScroll_1.scrollTop = 0;
+                this.$refs.cntScroll_2.scrollTop = 0;
+            },
+            winResize(){
+                this.menuList.switch = false;
+            },
             getData() {
                 let self = this;
                 let getUrl;
@@ -82,7 +101,6 @@
             getMenu() {
                 let self = this;
                 let chReady = [false, false];
-                self.localNum = sessionStorage.getItem('news_r');
 
                 function ready() {
                     if (chReady[0] && chReady[1]) {
@@ -111,8 +129,8 @@
                             self.newsMenu.newsImp.push(data[i])
                         }
 
-                        self.newsMain.newsTitle = data[self.localNum].title;
-                        self.newsMain.newsContent = data[self.localNum].content;
+                        self.newsMain.newsTitle = data[self.localNum-1].title;
+                        self.newsMain.newsContent = data[self.localNum-1].content;
 
                         self.$nextTick(function() {
                             chReady[1] = true;
@@ -126,6 +144,7 @@
             this.getData();
             this.getMenu();
             indexVue.onLoad = true;
+            window.addEventListener('resize', this.winResize);
         },
     }).mount("#newsCnt");
 </script>

@@ -13,10 +13,12 @@
             </div>
         </div>
 
-        <div class="newsCnt_menu">
-            <div>
+        <div class="newsCnt_menu" :class="{'on' : menuList.switch}">
+            <div class="close" @click="menuList.switch = false"></div>
+            <div class="newsCnt_list" :class="{'on':menuList.listNum == 0}">
+                <div class="chList major" @click="menuList.listNum = 0,goTop()">Tin quan trọng</div>
                 <div class="mainMsg-title">Tin quan trọng</div>
-                <div class="newsCnt_scroll">
+                <div class="newsCnt_scroll" ref="cntScroll_1">
                     <ul>
                         <li v-if="localNum != 1">
                             <a href="#/home/news?list=1">
@@ -36,9 +38,10 @@
                     </ul>
                 </div>
             </div>
-            <div>
+            <div class="newsCnt_list" :class="{'on': menuList.listNum == 1}">
+                <div class="chList hot" @click="menuList.listNum = 1,goTop()">Tin hot</div> 
                 <div class="mainMsg-title">Tin hot</div>
-                <div class="newsCnt_scroll">
+                <div class="newsCnt_scroll" ref="cntScroll_2">
                     <ul>
                         <template v-for="(item,index) in newsMenu.newsHot">
                             <li v-if="localNum != index+6">
@@ -53,6 +56,9 @@
             </div>
         </div>
 
+        <div class="listBar" @click="menuList.switch = true">
+            <img src="images/icon/listBar.svg">
+        </div>
     </div>
 </div>
 
@@ -71,6 +77,11 @@
                     newsImp_b: [],
                 },
                 localNum: 1,
+                menuList:{
+                    listNum:0,
+                    switch:false
+                },
+                
             };
         },
         methods: {
@@ -83,6 +94,14 @@
                 } else {
                     return `#/home/news?list=${index+2}`
                 }
+            },
+            // ==== 卷軸置頂 ====
+            goTop() {
+                this.$refs.cntScroll_1.scrollTop = 0;
+                this.$refs.cntScroll_2.scrollTop = 0;
+            },
+            winResize(){
+                this.menuList.switch = false;
             },
             getData() {
                 let self = this;
@@ -178,7 +197,7 @@
             this.getData();
             this.getMenu();
             indexVue.onLoad = true;
-
+            window.addEventListener('resize', this.winResize);
         },
     }).mount("#newsCnt");
 </script>

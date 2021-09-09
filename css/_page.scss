@@ -728,13 +728,10 @@
     @include rwd(1280) {
         width: calc(100% - 20px);
     }
-    @include rwd(900) {
-        flex-direction: column;
-    }
     @at-root .newsCnt_main {
         width: calc(100% - 300px);
         margin-right: 20px;
-        @include rwd(900) {
+        @include rwd(1000) {
             width: 100%;
             margin: 0;
         }
@@ -900,36 +897,102 @@
     }
     @at-root .newsCnt_menu {
         width: 300px;
-        @include rwd(900) {
+        @include rwd(1000){
             width: 100%;
-            padding-top: 50px;
-            display: flex;
-        }
-        @include rwd(550) {
-            flex-direction: column;
-        }
-        & > div {
-            @include rwd(900) {
-                width: 50%;
+            height: 100vh;
+            position: fixed;
+            @include pos(tl,0);
+            z-index: 999;
+            transform: translateX(-100%);
+
+            &.on{
+                transform: translateX(0%);
+                transition: 0.3s;
             }
-            @include rwd(550) {
+        }
+
+        .close{
+            @include rwd(1000){
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        }
+
+        .newsCnt_list{
+            @include rwd(1000){
+                width: 80%;
+                max-width: 350px;
+                min-width: 250px;
+                height: 100vh;
+                padding: 15px 10px;
+                padding-bottom: 60px;
+                background: #0b2139 url(../images/bodyBg.jpg) no-repeat;
+                border-right: 1px solid #ebba48;
+                position: absolute;
+                @include pos(tl,0);         
+            }
+
+            &.on {
+                z-index: 2;
+            }
+
+            &.on .newsCnt_scroll{
+                transform: rotateY(0deg);
+            }
+
+            &.on .chList{
+                height: 50px;
+                line-height: 50px;
+                transform-origin: 101px 99px;
+                
+            }
+        }
+
+        .chList{
+            display: none;
+            @include rwd(1000){
+                width: 150px;
+                height: 40px;
+                line-height: 40px;
+                margin: auto;
+                text-align: center;
+                border-radius: 3px 3px 0 0;
+                background-color: #0B2D53;
+                color: #fff;
+                font-weight: bold;
+                border: 1px solid #ebba48;
+                border-bottom: none;         
+                transform: rotate(90deg);
+                transform-origin: 96px 94px;
+                display: block;
+                position: absolute;       
+                right: 0;
+                cursor: pointer;
+                z-index: 3;
+                &.major{
+                    top: 1px;
+                }
+                &.hot{
+                    top: 158px;
+                }
+            }
+        }
+
+        .mainMsg-title{
+            @include rwd(1000){
                 width: 100%;
             }
         }
-        & > div + div {
-            margin-top: 50px;
-            @include rwd(900) {
-                margin-top: 0;
-                margin-left: 10px;
-            }
-            @include rwd(550) {
-                margin-left: 0;
-                margin-top: 50px;
-            }
-        }
+
         li {
+            padding-bottom: 10px;
+            @include rwd(1000){
+                background-color: #fff;
+                box-shadow: 2px 2px 4px #000;
+            }
             p {
-                padding-top: 10px;
+                padding: 10px 5px 0;
                 @include txtChip(2);
             }
             .img {
@@ -941,14 +1004,57 @@
             }
         }
         li + li {
-            margin-top: 20px;
+            margin-top: 10px;
         }
         .newsCnt_scroll {
             height: 700px;
             overflow-y: scroll;
             &::-webkit-scrollbar {
-                width: 10px;
+                width: 8px;
             }
+
+            @include rwd(1000){
+                height: 100%;
+                padding: 10px 15px;
+                padding-bottom: 120px;
+                transition: .5s;
+                transform: rotateY(90deg);
+                transform-origin: right center;
+                &::-webkit-scrollbar {
+                    width: 0;
+                }
+            }
+        }
+    }
+
+    @at-root .listBar{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(0deg, #aa0714, #c75c3c);  
+        box-shadow: 2px 3px 2px #740909 inset;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: fixed;
+        z-index: 20;
+        @include pos(br,335px,5px);
+        display: none;
+
+        @include rwd(1000){
+            display: flex;
+        }
+
+        @include rwd(800){
+            width: 50px;
+            height: 50px;
+            bottom: 210px;
+            background: #aa0714;  
+            opacity: 0.7;
+        }
+
+        img{
+            width: 45%;
         }
     }
 }
