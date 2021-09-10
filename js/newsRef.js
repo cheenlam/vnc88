@@ -12,9 +12,9 @@ Vue.createApp({
             newsRefNum: 0,
             newsSelfNum: 0,
             lotteryRefNum: 0,
-            menuList:{
-                listNum:0,
-                switch:false
+            menuList: {
+                listNum: 0,
+                switch: false
             },
         };
     },
@@ -37,12 +37,12 @@ Vue.createApp({
             return `#/resources?p=${index+1}`
         },
 
-         // ==== 卷軸置頂 ====
-         goTop() {
+        // ==== 卷軸置頂 ====
+        goTop() {
             this.$refs.cntScroll_1.scrollTop = 0;
             this.$refs.cntScroll_2.scrollTop = 0;
         },
-        winResize(){
+        winResize() {
             this.menuList.switch = false;
         },
         getLocal() {
@@ -51,8 +51,8 @@ Vue.createApp({
             this.newsRefNum = sessionStorage.getItem("new_newsRef");
             this.newsSelfNum = sessionStorage.getItem("new_selfNews");
 
-
             this.lotteryRefNum = sessionStorage.getItem("new_lotteryRef");
+            console.log( this.lotteryRefNum)
         },
         getMenu() {
             let self = this;

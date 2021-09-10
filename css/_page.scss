@@ -944,7 +944,7 @@
             &.on .chList{
                 height: 50px;
                 line-height: 50px;
-                transform-origin: 101px 99px;
+                transform-origin: 102px 99px;
                 
             }
         }
@@ -964,7 +964,7 @@
                 border: 1px solid #ebba48;
                 border-bottom: none;         
                 transform: rotate(90deg);
-                transform-origin: 96px 94px;
+                transform-origin: 97px 94px;
                 display: block;
                 position: absolute;       
                 right: 0;
@@ -974,7 +974,7 @@
                     top: 1px;
                 }
                 &.hot{
-                    top: 158px;
+                    top: 155px;
                 }
             }
         }
@@ -982,6 +982,24 @@
         .mainMsg-title{
             @include rwd(1000){
                 width: 100%;
+                height: 45px;
+                font-size: 1.5rem;
+                color: #dfb869;
+                background: unset;
+                box-shadow: unset;
+                border-radius: 0;
+                position: relative;
+                &::before{
+                    content: '';
+                    width: 100%;
+                    height: 1px;
+                    
+                    background-color: #000;
+                    transform: scaleY(0.5);
+                    box-shadow: 0 2px 1px rgba(204, 204, 204, 0.5);
+                    position: absolute;
+                    @include pos(bl,0);
+                }
             }
         }
 
@@ -1017,9 +1035,9 @@
                 height: 100%;
                 padding: 10px 15px;
                 padding-bottom: 120px;
-                transition: .5s;
+                transition: .3s;
                 transform: rotateY(90deg);
-                transform-origin: right center;
+                transform-origin: left center;
                 &::-webkit-scrollbar {
                     width: 0;
                 }

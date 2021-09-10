@@ -106,7 +106,7 @@
                 <div class="newsCnt_scroll" ref="cntScroll_1">
                     <ul>
                         <template v-for="(item,index) in newsMenu.newsMain">
-                            <li>
+                            <li v-if="lotteryRefNum != index+2">
                                 <a :href="reHref(false,index)">
                                     <div class="img" :style="getbgi(item.img)"></div>
                                     <p>{{item.title}}</p>

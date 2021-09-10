@@ -741,6 +741,9 @@ input:-webkit-autofill:focus {
                 margin: 0 auto 50px;
                 background: linear-gradient(90deg, transparent, #000, transparent);
                 color: #f7e6be;
+                @include rwd(500){
+                    display: none;
+                }
                 ul {
                     display: flex;
                     flex-wrap: wrap;
