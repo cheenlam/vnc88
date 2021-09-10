@@ -7,11 +7,32 @@
     align-items: center;
     justify-content: center;
 
+    @at-root .qrLink{
+        width: 100%;
+        max-width: 1000px;
+        margin: auto;
+        position: fixed;
+       @include pos(trl,10px,0,0);
+        ul{
+            padding-right: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        li{
+            width: 35px;
+            filter: drop-shadow(2px 2px 2px #2e485f);
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        li+li{
+            margin-left: 4px;
+        }
+    }
+
     @at-root .qrCnt{
         width: 100%;
         max-width: 350px;
         color: #0164f3;
-
         @at-root .qrTitle{
             text-align: center;
             font-size: 0.8rem;

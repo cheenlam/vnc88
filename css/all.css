@@ -7769,6 +7769,38 @@ input:-webkit-autofill:focus {
           justify-content: center;
 }
 
+.qrLink {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  position: fixed;
+  top: 10px;
+  right: 0;
+  left: 0;
+}
+
+.qrLink ul {
+  padding-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.qrLink li {
+  width: 35px;
+  -webkit-filter: drop-shadow(2px 2px 2px #2e485f);
+          filter: drop-shadow(2px 2px 2px #2e485f);
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.qrLink li + li {
+  margin-left: 4px;
+}
+
 .qrCnt {
   width: 100%;
   max-width: 350px;
