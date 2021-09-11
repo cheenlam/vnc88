@@ -17,10 +17,10 @@ var menuData = {
 // ======== home ========
 // 足球投注排行
 var betList = {
-        title: {
-            title_01: "vnc88",
-            title_02: "Kèo nhà cái - kèo bóng đá trực tuyến tại vnc88",
-        },
+        title:[
+            "vnc88",
+            // "Kèo nhà cái - kèo bóng đá trực tuyến tại vnc88"
+        ],
         list: [{
                 betLogo: "images/logo/betLogo-1.png",
                 price: "3,800,000",

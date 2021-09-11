@@ -2,10 +2,10 @@
     <!-- betList start -->
     <div class="betList">
         <div class="betTitle">
-            <div class="icon"></div>
-            <span>{{bet.title.title_01}}</span>
-            <div class="icon"></div>
-            <span>{{bet.title.title_02}}</span>
+            <template v-for="(item,index) in bet.title">
+                <div class="icon"></div>
+                <span>{{item}}</span>
+            </template>
         </div>
         <table>
             <tr v-for="(item,index) in bet.list">
