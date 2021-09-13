@@ -64,6 +64,7 @@ Router.route('/home', function() {
         { name: "TRANG CHỦ" }
     ];
     chCrumb(data);
+    chTitle('VNC88');
     indexVue.verify("mainVerify");
 });
 Router.route('/lottery', function() {
@@ -74,7 +75,7 @@ Router.route('/lottery', function() {
         { name: "Đề xuất cá cược" }
     ];
     chCrumb(data);
-
+    chTitle('VNC88 (lottery)');
 });
 Router.route('/news', function() {
     mainInclude('page/news.html');
@@ -84,6 +85,7 @@ Router.route('/news', function() {
         { name: "Tin tức" }
     ];
     chCrumb(data);
+    chTitle('VNC88 (news)');
 });
 Router.route('/broadcast', function() {
     mainInclude('page/broadcast.html');
@@ -93,6 +95,7 @@ Router.route('/broadcast', function() {
         { name: "Video đá bóng" }
     ];
     chCrumb(data);
+    chTitle('VNC88 (movie)');
 });
 Router.route('/forum', function() {
     mainInclude('page/forum.html');
@@ -102,6 +105,7 @@ Router.route('/forum', function() {
         { name: "Diễn đàn thảo luận" }
     ];
     chCrumb(data);
+    chTitle('VNC88 (forum)');
 });
 Router.route('/resources', function() {
     mainInclude('page/resources.html');
@@ -111,6 +115,7 @@ Router.route('/resources', function() {
         { name: "Thông tin" }
     ];
     chCrumb(data);
+    chTitle('VNC88 (resources)');
 });
 Router.route('/game', function() {
     mainInclude('page/game.html');
@@ -120,14 +125,17 @@ Router.route('/game', function() {
         { name: "trò chơi" }
     ];
     chCrumb(data);
+    chTitle('VNC88 (game)');
 });
 
 Router.route('/member', function() {
     mbrPage()
+    chTitle('VNC88 (member/message)');
 });
 
 Router.route('/member/message', function() {
     mbrPage()
+    chTitle('VNC88 (member/message)');
 });
 function mbrPage(){
     mainInclude('page/mbrMsg.html');
@@ -149,6 +157,7 @@ Router.route('/member/changePwd', function() {
         { name: "Cập nhật mật khẩu" }
     ];
     chCrumb(data);
+    chTitle('VNC88 (member/changePwd)');
 });
 
 
@@ -170,6 +179,7 @@ for (let i = 0; i < 99; i++) {
             data.push({ name: "Tin hot" })
         }
         chCrumb(data);
+        chTitle('VNC88 (home/news)');
     });
 
     // 博彩內頁新聞
@@ -183,6 +193,7 @@ for (let i = 0; i < 99; i++) {
             { name: "Tin quan trọng" }
         ];
         chCrumb(data);
+        chTitle('VNC88 (lottery/news)');
     });
 
     // 新聞內頁新聞
@@ -196,6 +207,7 @@ for (let i = 0; i < 99; i++) {
             { name: "Tin quan trọng" }
         ];
         chCrumb(data);
+        chTitle('VNC88 (news/news)');
     });
 
     
@@ -211,6 +223,7 @@ for (let i = 0; i < 99; i++) {
         ];
 
         chCrumb(data);
+        chTitle('VNC88 (resources/news)');
     });
 }
 
@@ -228,6 +241,7 @@ for (let i = 1; i < 99; i++) {
             { name: "Tin hot" }
         ];
         chCrumb(data);
+        chTitle('VNC88 (newsRef)');
     });
 
     Router.route(`/lotteryRef?p=${i}`, function() {
@@ -247,6 +261,7 @@ for (let i = 1; i < 99; i++) {
             data.push({ name: "Tin quan trọng" })
         }
         chCrumb(data);
+        chTitle('VNC88 (lotteryRef)');
     });
 
     Router.route(`/news?p=${i}`, function() {
@@ -301,6 +316,7 @@ for (let i = 1; i < 99; i++) {
             { name: "Tin quan trọng" }
         ];
         chCrumb(data);
+        chTitle('VNC88 (betRef)');
     });
 }
 
@@ -323,6 +339,10 @@ function mainInclude(src) {
 function chCrumb(data) {
     indexVue.crumb = data;
     window.scrollTo({ top: 0 });
+}
+
+function chTitle(data) {
+    document.title = data;
 }
 
 function menuList_on(index) {
