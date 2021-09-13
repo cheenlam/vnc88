@@ -64,7 +64,7 @@ Router.route('/home', function() {
         { name: "TRANG CHỦ" }
     ];
     chCrumb(data);
-    chTitle('VNC88');
+    chTitle('VNC88 (home)');
     indexVue.verify("mainVerify");
 });
 Router.route('/lottery', function() {
