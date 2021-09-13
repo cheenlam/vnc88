@@ -342,9 +342,7 @@ function chCrumb(data) {
 }
 
 function chTitle(data) {
-    setTimeout(function(){
-        document.title = data;
-    },500) 
+    document.title = data;
 }
 
 function menuList_on(index) {
