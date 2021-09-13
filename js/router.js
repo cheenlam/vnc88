@@ -125,6 +125,7 @@ Router.route('/game', function() {
 Router.route('/member', function() {
     mbrPage()
 });
+
 Router.route('/member/message', function() {
     mbrPage()
 });

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,17 @@
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../css/all.css?v1.0.0">
     <script src="https://unpkg.com/vue@next"></script>
+    <!-- google插件 -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YGE5MC1VR5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-YGE5MC1VR5');
+    </script>
     <title>VNC88 QrCode</title>
 </head>
 
@@ -24,7 +36,7 @@
                 <li>
                     <a href="https://www.facebook.com/VNC88-Th%E1%BB%83-thao-102908078549412">
                         <img src="../images/icon/logo-fb.png">
-                    </a>  
+                    </a>
                 </li>
                 <li>
                     <a href="https://www.youtube.com/channel/UCHd5lBfg77k5IRpf6NfxAog/">
@@ -43,7 +55,7 @@
         <div class="qrCnt">
             <div class="qrTitle">
                 <span>{{data.title}}</span>
-                <p  v-for="(item,index) in data.secondary">{{item}}</p>
+                <p v-for="(item,index) in data.secondary">{{item}}</p>
             </div>
             <div class="qrImg">
                 <img :src="data.img" alt="qrcode">
@@ -51,7 +63,7 @@
             <div class="qrAccount">{{data.account}}</div>
         </div>
     </div>
-    
+
 </body>
 
 </html>
@@ -80,8 +92,8 @@
             };
         },
         methods: {
-            chQrCode(data){
-                localStorage.setItem('qrCode',`${data}`);
+            chQrCode(data) {
+                localStorage.setItem('qrCode', `${data}`);
                 this.getData();
             },
             getData() {
@@ -89,19 +101,19 @@
                 switch (codeSort) {
                     case "zalo":
                         this.data = zaloData;
-                        document.title= 'VNC88 (Zalo)';
+                        document.title = 'VNC88 (Zalo)';
                         break;
                     case "tg":
                         this.data = tgData;
-                        document.title= 'VNC88 (Telegram)';
+                        document.title = 'VNC88 (Telegram)';
                         break;
                 }
             }
         },
         mounted() {
             let getlocal = localStorage.getItem('qrCode');
-            if(getlocal == null){
-                localStorage.setItem('qrCode','zalo')
+            if (getlocal == null) {
+                localStorage.setItem('qrCode', 'zalo')
             }
 
             this.getData();
