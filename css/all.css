@@ -7789,12 +7789,29 @@ input:-webkit-autofill:focus {
           justify-content: flex-end;
 }
 
+@media screen and (max-width: 500px) {
+  .qrLink ul {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 .qrLink li {
-  width: 35px;
+  width: 40px;
   -webkit-filter: drop-shadow(2px 2px 2px #2e485f);
           filter: drop-shadow(2px 2px 2px #2e485f);
   opacity: 0.8;
   cursor: pointer;
+}
+
+@media (any-hover: hover) {
+  .qrLink li:hover {
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+    -webkit-filter: unset;
+            filter: unset;
+  }
 }
 
 .qrLink li + li {

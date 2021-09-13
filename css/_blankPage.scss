@@ -13,16 +13,27 @@
         margin: auto;
         position: fixed;
        @include pos(trl,10px,0,0);
+     
         ul{
             padding-right: 10px;
             display: flex;
             justify-content: flex-end;
+            @include rwd(500){
+                justify-content: center;
+            }
         }
         li{
-            width: 35px;
+            width: 40px;
             filter: drop-shadow(2px 2px 2px #2e485f);
             opacity: 0.8;
             cursor: pointer;
+           
+            @include hover{
+                &:hover{
+                    transform: translateY(2px);
+                    filter: unset;
+                }
+            }
         }
         li+li{
             margin-left: 4px;
