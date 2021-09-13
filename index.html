@@ -21,7 +21,15 @@
     <!-- google插件 -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-30FY56KDHN"></script>
-    <title>VNC88</title>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-30FY56KDHN');
+    </script>
+     <title>VNC88</title>
 </head>
 
 <body>
@@ -30,7 +38,7 @@
         <div class="header" id="header">
             <!-- hd_top start -->
             <div class="hd_top" id="hd_top" ref="hdTop" :class="{'hideUp':topHide.switch}">
-                <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
+                <h1 class="hd_logo" @click="pageTitle('home')"><a href="#/home">vnc88</a></h1>
                 <div class="hd_tool">
                     <div class="hd_link">
                         <ul>
@@ -189,7 +197,7 @@
                 <div class="close" @click="menuOpen = false"></div>
                 <ul>
                     <template v-for="(item,index) in hdMenu.txtList">
-                        <li v-show="item.switch" @click="menuOpen = false">
+                        <li v-show="item.switch" @click="menuOpen = false,pageTitle(item.txt)">
                             <a :href="item.href">{{item.txt}}</a>
                         </li>
                     </template>
@@ -691,6 +699,10 @@
             };
         },
         methods: {
+            pageTitle(data){
+                document.title = `VNC88 (${data})`;
+            },
+            
             // ==== 會員註冊 ====
             ckRegd() {
                 let ckCode = this.regdMbr.code == this.verifyCode.regd;
