@@ -326,8 +326,6 @@ function chCrumb(data) {
 
 function chTitle(data) {
     document.title = data;
-    console.log(data)
-   
 }
 
 function menuList_on(index) {

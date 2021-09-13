@@ -268,7 +268,7 @@
                         self.$nextTick(function() {
                             chReady[3] = true;
                             $('#mainCarousel').swipeslider(); // 啟動輪播外掛
-                            ready();  
+                            ready();
                         })
                     },
                 });
@@ -277,7 +277,13 @@
         mounted() {
             this.getData();
             indexVue.onLoad = true;
-            chTitle('VNC88 (home)')
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-30FY56KDHN');
         },
     }).mount("#page");
 </script>
