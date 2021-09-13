@@ -19,6 +19,19 @@
     <!-- 自訂義js -->
     <script src="js/pageData.js?v1.0.0"></script>
     <title>VNC88</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196588204-1">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-196588204-1');
+    </script>
 </head>
 
 <body>
@@ -34,47 +47,41 @@
                             <li class="btn_linear_c1">
                                 <a href="mailto:topvnc88@gmail.com">
                                     <div class="btn_cnt">
-                                        <img src="images/icon/icon-email.png" 
-                                        alt="Link to the vnc88 mailbox.">
+                                        <img src="images/icon/icon-email.png" alt="Link to the vnc88 mailbox.">
                                     </div>
                                 </a>
                             </li>
                             <li class="btn_linear_c1">
                                 <a href="https://reurl.cc/4a23dj" target="_blank">
                                     <div class="btn_cnt">
-                                        <img src="images/icon/icon-fb.png" 
-                                        alt="Link to vnc88 facebock.">
+                                        <img src="images/icon/icon-fb.png" alt="Link to vnc88 facebock.">
                                     </div>
                                 </a>
                             </li>
                             <li class="btn_linear_c1" @click="qrHref('zalo')">
                                 <a href="page/qrcode.html" target="_blank">
                                     <div class="btn_cnt">
-                                        <img src="images/icon/icon-zalo.png" 
-                                        alt="Link to the vnc88 Zalo QrCode page.">
+                                        <img src="images/icon/icon-zalo.png" alt="Link to the vnc88 Zalo QrCode page.">
                                     </div>
                                 </a>
                             </li>
                             <li class="btn_linear_c1" @click="qrHref('tg')">
                                 <a href="page/qrcode.html" target="_blank">
                                     <div class="btn_cnt">
-                                        <img src="images/icon/icon-tg.png" 
-                                        alt="Link to the vnc88 Telegram QrCode page.">
+                                        <img src="images/icon/icon-tg.png" alt="Link to the vnc88 Telegram QrCode page.">
                                     </div>
                                 </a>
                             </li>
                             <li class="btn_linear_c1 signinBar" @click="signInOpen = true,reset()" v-show="!temporary">
                                 <div class="btn_cnt">
-                                    <img src="images/icon/icon-onSignin.png" v-if="mbrLogin" 
-                                    alt="Member login">
+                                    <img src="images/icon/icon-onSignin.png" v-if="mbrLogin" alt="Member login">
                                     <span v-else style="padding: 0 5px 0;">ĐăngNhập</span>
                                 </div>
                             </li>
 
                             <li class="btn_linear_c3 menuBar" @click="menuOpen = true">
                                 <div class="btn_cnt">
-                                    <img src="images/icon/menuBar.png" 
-                                    alt="Menu button for small screen.">
+                                    <img src="images/icon/menuBar.png" alt="Menu button for small screen.">
                                 </div>
                             </li>
 
@@ -261,7 +268,7 @@
                         <div class="getGift" id="getGift" @click="giftLog()">
                             <img src="images/gift.png" alt="Gift for new members">
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="rightTool" id="rightTool" :class="{'on':eventFloat}">
                         <div class="floatEvent">
@@ -274,7 +281,7 @@
                             <img src="images/icon/arrow-top.svg">
                             <span>TOP</span>
                         </div>
-                        <div class="todayGame" id="todayGame" v-show="todayGame" @click="todayGameLog()" >
+                        <div class="todayGame" id="todayGame" v-show="todayGame" @click="todayGameLog()">
                             <div class="god">
                                 <img src="images/god.png" alt="Recommended games of the day.">
                             </div>
@@ -322,23 +329,20 @@
                         <ul>
                             <li>
                                 <div class="ft_icon">
-                                    <img src="images/icon/icon-18up.png" 
-                                    alt="This site is recommended to watch over 18 years old.">
+                                    <img src="images/icon/icon-18up.png" alt="This site is recommended to watch over 18 years old.">
                                 </div>
                             </li>
                             <li>
                                 <a href="https://reurl.cc/4a23dj" target="_blank">
                                     <div class="ft_icon">
-                                        <img src="images/icon/icon-f-fb.png" 
-                                        alt="Link to vnc88 facebock.">
+                                        <img src="images/icon/icon-f-fb.png" alt="Link to vnc88 facebock.">
                                     </div>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://reurl.cc/Q6nE6q" target="_blank">
                                     <div class="ft_icon">
-                                        <img src="images/icon/icon-f-yt.png" 
-                                        alt="Link to vnc88 youtube.">
+                                        <img src="images/icon/icon-f-yt.png" alt="Link to vnc88 youtube.">
                                     </div>
                                 </a>
                             </li>
@@ -615,7 +619,7 @@
                     left: '',
                     right: '',
                     bottom: '',
-                    center:''
+                    center: ''
                 },
 
                 // ==== 麵包削 ====
@@ -1085,7 +1089,7 @@
                         for (let i = 0; i < self.eventBanner.bottom.length; i++) {
                             self.eventBanner.bottom[i].switch = true;
                         }
-                        
+
 
                         self.carousel.maxSize = data.carousel;
                         self.carousel.minSize = data.scarousel;
