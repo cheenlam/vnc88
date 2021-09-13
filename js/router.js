@@ -65,7 +65,7 @@ Router.route('/home', function() {
     ];
     indexVue.verify("mainVerify");
     chCrumb(data);
-    chTitle('home');
+    chTitle('VNC88 (home)');
 });
 Router.route('/lottery', function() {
     mainInclude('page/lottery.html');
@@ -75,7 +75,7 @@ Router.route('/lottery', function() {
         { name: "Đề xuất cá cược" }
     ];
     chCrumb(data);
-    chTitle('lottery');
+    chTitle('VNC88 (lottery)');
 });
 Router.route('/news', function() {
     mainInclude('page/news.html');
@@ -85,7 +85,7 @@ Router.route('/news', function() {
         { name: "Tin tức" }
     ];
     chCrumb(data);
-    chTitle('news');
+    chTitle('VNC88 (news)');
 });
 Router.route('/broadcast', function() {
     mainInclude('page/broadcast.html');
@@ -95,7 +95,7 @@ Router.route('/broadcast', function() {
         { name: "Video đá bóng" }
     ];
     chCrumb(data);
-    chTitle('movie');
+    chTitle('VNC88 (movie)');
 });
 Router.route('/forum', function() {
     mainInclude('page/forum.html');
@@ -105,7 +105,7 @@ Router.route('/forum', function() {
         { name: "Diễn đàn thảo luận" }
     ];
     chCrumb(data);
-    chTitle('forum');
+    chTitle('VNC88 (forum)');
 });
 Router.route('/resources', function() {
     mainInclude('page/resources.html');
@@ -115,7 +115,7 @@ Router.route('/resources', function() {
         { name: "Thông tin" }
     ];
     chCrumb(data);
-    chTitle('resources');
+    chTitle('VNC88 (resources)');
 });
 Router.route('/game', function() {
     mainInclude('page/game.html');
@@ -125,7 +125,7 @@ Router.route('/game', function() {
         { name: "trò chơi" }
     ];
     chCrumb(data);
-    chTitle('game');
+    chTitle('VNC88 (game)');
 });
 
 Router.route('/member', function() {
