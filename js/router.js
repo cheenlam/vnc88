@@ -74,7 +74,6 @@ Router.route('/lottery', function() {
         { name: "Đề xuất cá cược" }
     ];
     chCrumb(data);
-    chTitle('VNC88 (lottery)');
 });
 Router.route('/news', function() {
     mainInclude('page/news.html');
