@@ -154,7 +154,7 @@
                 <div>
                     <div class="title">{{wsDict.title}}</div>
                     <div class="wsDictImg">
-                        <img :src="wsDict.img" alt="football icon">
+                        <img  :src="wsDict.img" alt="wsDict icon">
                     </div>
                     <div class="wsDict_txt">
                         <p v-for="(item,index) in wsDict.txtList">{{item}}</p>
@@ -269,7 +269,7 @@
                         self.$nextTick(function() {
                             chReady[3] = true;
                             $('#mainCarousel').swipeslider(); // 啟動輪播外掛
-                            ready();
+                            ready();  
                         })
                     },
                 });
@@ -280,7 +280,6 @@
             indexVue.onLoad = true;
 
             window.dataLayer = window.dataLayer || [];
-
             function gtag() {
                 dataLayer.push(arguments);
             }
@@ -289,3 +288,9 @@
         },
     }).mount("#page");
 </script>
+
+<script>
+
+
+</script>
+

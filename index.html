@@ -22,6 +22,7 @@
     <!-- google插件 -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-30FY56KDHN"></script>
+
 </head>
 
 <body>
@@ -362,7 +363,7 @@
                 <template v-for="(item,index) in eventBanner.bottom">
                     <div :class="{'on' : !item.switch}">
                         <div class="ftEvent_close" @click="item.switch = false" ></div>
-                        <img :src="item.img" alt="Partner related information.">
+                        <img  alt="Partner related information."  :src="item.img">
                     </div>
                 </template>
             </div>
@@ -981,7 +982,6 @@
             winScroll() {
                 this.floatMenu();
                 this.floatEvent();
-
             },
 
             // ==== 變更輪播顯示 ====
