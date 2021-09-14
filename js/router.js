@@ -324,10 +324,6 @@ function chCrumb(data) {
     window.scrollTo({ top: 0 });
 }
 
-function chTitle(data) {
-    document.title = data;
-}
-
 function menuList_on(index) {
     $('#hd_menu li').removeClass('on')
     $(`#hd_menu li:eq(${index})`).addClass('on')

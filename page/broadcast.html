@@ -1,3 +1,4 @@
+<title>VNC88 | Video đá bóng</title>
 <div class="contBox-min broadcast" id="page">
     <!-- liveBox start -->
     <div class="liveBox">
@@ -434,6 +435,13 @@
             this.showDate();
             indexVue.onLoad = true;
             this.time = setInterval(this.chart_list, 1000 * 30);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-30FY56KDHN');
         },
     }).mount("#page");
 </script>
