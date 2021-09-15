@@ -2695,6 +2695,10 @@ input:-webkit-autofill:focus {
   }
 }
 
+.header .hd_menu li h2 {
+  font-weight: bold;
+}
+
 .header .hd_menu .menu_game {
   width: 171px;
   opacity: 0.8;
@@ -5111,6 +5115,10 @@ input:-webkit-autofill:focus {
   line-height: 24px;
 }
 
+.newsCnt_main .newsArticle img {
+  max-width: 900px;
+}
+
 .newsCnt_main .newsArticle #adbro,
 .newsCnt_main .newsArticle .dugout-video,
 .newsCnt_main .newsArticle .dk-post-share,
@@ -5118,6 +5126,11 @@ input:-webkit-autofill:focus {
 .newsCnt_main .newsArticle .dk-widgetw-author,
 .newsCnt_main .newsArticle .adbro-autotester-satellite {
   display: none !important;
+}
+
+.newsCnt_main .newsArticle .article__image {
+  width: unset !important;
+  height: unset !important;
 }
 
 .newsCnt_main .newsArticle.home .expNoEdit {

@@ -22,7 +22,7 @@
     <!-- google插件 -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-30FY56KDHN"></script>
-    <meta name="google-site-verification" content="9rxDOoRfZpMOU6PNbZ_F2oIYifgyOBeCbJKhWFE-BgE" />
+    
 </head>
 
 <body>
@@ -191,7 +191,7 @@
                 <ul>
                     <template v-for="(item,index) in hdMenu.txtList">
                         <li v-show="item.switch" @click="menuOpen = false">
-                            <a :href="item.href">{{item.txt}}</a>
+                            <a :href="item.href"><h2>{{item.txt}}</h2></a>
                         </li>
                     </template>
 
@@ -363,7 +363,7 @@
                 <template v-for="(item,index) in eventBanner.bottom">
                     <div :class="{'on' : !item.switch}">
                         <div class="ftEvent_close" @click="item.switch = false" ></div>
-                        <img  alt="Partner related information."  :src="item.img">
+                        <img  alt="Partner related information." :src="item.img">
                     </div>
                 </template>
             </div>
@@ -1128,6 +1128,6 @@
     let docRef = db.collection("showLive");
     let docRef2 = db.collection("ytMovie");
     var database = firebase.database().ref().limitToLast(50);
-</script>
 
+</script>
 </html>
