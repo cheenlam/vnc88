@@ -34,17 +34,14 @@ input:-webkit-autofill:focus {
     min-height: 188px;
     background-color: $mainBgc;
     position: relative;
-
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
     input:-webkit-autofill:focus {
         box-shadow: 0 0 0 30px #111 inset;
         -webkit-text-fill-color: #d7e4f9;
     }
-
     @include rwd(1280) {
         min-height: auto;
-
         input:-webkit-autofill,
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus {
@@ -118,7 +115,6 @@ input:-webkit-autofill:focus {
             @include rwd(860) {
                 margin-bottom: 0;
             }
-
             a {
                 display: flex;
             }
@@ -127,7 +123,7 @@ input:-webkit-autofill:focus {
                 display: flex;
                 justify-content: flex-end;
             }
-            li + li {
+            li+li {
                 margin-left: 5px;
             }
             .menuBar,
@@ -213,7 +209,6 @@ input:-webkit-autofill:focus {
                     border: 1px solid #f6bf3d;
                     border-image: linear-gradient(0deg, #f6bf3d, #7a5d17, #f6bf3d) 1 1 round;
                 }
-
                 .hd_signInCnt_inner {
                     @include rwd(1280) {
                         max-height: calc(95vh - 195px);
@@ -221,7 +216,6 @@ input:-webkit-autofill:focus {
                         padding: 0 20px 50px;
                     }
                 }
-
                 form {
                     display: flex;
                     justify-content: flex-end;
@@ -229,12 +223,10 @@ input:-webkit-autofill:focus {
                     position: relative;
                     @include rwd(1280) {
                         width: 100%;
-
                         flex-direction: column;
                         align-items: unset;
                     }
                 }
-
                 .signIn_close {
                     width: 38px;
                     height: 38px;
@@ -323,7 +315,6 @@ input:-webkit-autofill:focus {
             .signIn_on {
                 width: 100%;
             }
-
             .signIn_on_inner {
                 display: flex;
                 @include rwd(1280) {
@@ -333,7 +324,6 @@ input:-webkit-autofill:focus {
                     overflow: auto;
                 }
             }
-
             .signIn_msg {
                 display: flex;
                 color: $clr_Txt;
@@ -344,12 +334,12 @@ input:-webkit-autofill:focus {
                 @include rwd(650) {
                     flex-direction: column;
                 }
-                & > div {
+                &>div {
                     display: flex;
                     align-items: center;
                     margin-right: 10px;
                 }
-                & > div + div {
+                &>div+div {
                     @include rwd(650) {
                         margin-top: 15px;
                     }
@@ -565,7 +555,7 @@ input:-webkit-autofill:focus {
                         line-height: 45px;
                     }
                 }
-                .btn + .btn {
+                .btn+.btn {
                     margin-left: 5px;
                     @include rwd(12800) {
                         margin-left: 10px;
@@ -608,7 +598,6 @@ input:-webkit-autofill:focus {
                 height: 100%;
             }
         }
-
         ul {
             width: 100%;
             max-width: $count-minW;
@@ -654,7 +643,7 @@ input:-webkit-autofill:focus {
                     color: $color_02;
                 }
             }
-            h2{
+            h2 {
                 font-weight: bold;
             }
         }
@@ -695,7 +684,7 @@ input:-webkit-autofill:focus {
                     max-width: 1050px;
                     cursor: pointer;
                 }
-                & > div {
+                &>div {
                     max-width: 1050px;
                     height: 35px;
                     padding: 0 15px;
@@ -726,12 +715,12 @@ input:-webkit-autofill:focus {
                 }
             }
         }
-        & > .contBox-min {
+        &>.contBox-min {
             padding: 0;
             display: flex;
             flex-direction: column;
             position: relative;
-            & > .flexEvent {
+            &>.flexEvent {
                 padding: 0 20px;
                 margin-bottom: 0;
                 @include rwd(1280) {
@@ -744,7 +733,7 @@ input:-webkit-autofill:focus {
                 margin: 0 auto 50px;
                 background: linear-gradient(90deg, transparent, #000, transparent);
                 color: #f7e6be;
-                @include rwd(500){
+                @include rwd(500) {
                     display: none;
                 }
                 ul {
@@ -757,7 +746,7 @@ input:-webkit-autofill:focus {
                     display: flex;
                     align-items: center;
                 }
-                li + li {
+                li+li {
                     margin-left: 25px;
                     &::before {
                         content: "≫";
@@ -774,7 +763,6 @@ input:-webkit-autofill:focus {
             position: absolute;
             top: 0;
             z-index: 10;
-
             @include rwd(1490) {
                 width: 60px;
             }
@@ -846,7 +834,7 @@ input:-webkit-autofill:focus {
             }
         }
         .floatEvent {
-            & > img {
+            &>img {
                 display: block;
                 margin-bottom: 10px;
             }
@@ -866,14 +854,12 @@ input:-webkit-autofill:focus {
                 width: 60px;
                 height: 60px;
                 padding: 15px;
-                background: linear-gradient(0deg, #aa0714, #c75c3c);  
-                box-shadow: 2px 3px 2px #740909 inset;
+                background: #484848;
             }
             @include rwd(800) {
                 width: 50px;
                 height: 50px;
-                padding: 10px;
-                background: #282828;
+                padding: 10px;   
                 box-shadow: unset;
             }
         }
@@ -892,16 +878,13 @@ input:-webkit-autofill:focus {
                 height: 60px;
                 border-radius: 50%;
                 flex-direction: column;
-                background: linear-gradient(0deg, #000, #555);  
-                box-shadow: 2px 3px 2px #000 inset;
             }
             @include rwd(800) {
                 width: 50px;
                 height: 50px;
-                background: #000;  
+                background: #000;
                 box-shadow: unset;
             }
-
             img {
                 width: 20px;
                 height: 20px;
@@ -917,7 +900,6 @@ input:-webkit-autofill:focus {
                     margin: 0;
                 }
             }
-
             span {
                 @include rwd(1490) {
                     margin-top: 3px;
@@ -940,8 +922,25 @@ input:-webkit-autofill:focus {
         z-index: -1;
         opacity: 0.5;
     }
+    // &::after{
+    //     content: '';
+    //     width: 100%;
+    //     height: 19.5%;
+    //     background: url(../images/rain.png);
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 0;
+    //     animation: rain 2s linear infinite;
+    //     opacity: 0.4;
+    //     border-radius: 17% 17% 0 0;
+    //     z-index: -1;
+    // }
 }
 
+// @keyframes rain{
+//     0%{background-position: 0 0;}
+//     100%{background-position: 500px 1000px;}
+// }
 .contBox-min {
     width: 100%;
     max-width: $count-minW;
@@ -970,7 +969,7 @@ input:-webkit-autofill:focus {
     // ft_top
     .ft_top {
         background-color: #313131;
-        & > div {
+        &>div {
             width: 100%;
             max-width: 1800px;
             min-height: 160px;
@@ -996,7 +995,7 @@ input:-webkit-autofill:focus {
             ul {
                 display: flex;
             }
-            li + li {
+            li+li {
                 margin-left: 20px;
             }
             .ft_icon {
@@ -1007,7 +1006,7 @@ input:-webkit-autofill:focus {
     // ft_bottom
     .ft_bottom {
         background-color: #121210;
-        & > div {
+        &>div {
             max-width: 1800px;
             min-height: calc(275px - 160px);
             margin: auto;
@@ -1075,7 +1074,7 @@ input:-webkit-autofill:focus {
         @include rwd(550) {
             display: none;
         }
-        & > div {
+        &>div {
             margin: 10px;
             position: relative;
             pointer-events: auto;

@@ -2989,10 +2989,7 @@ input:-webkit-autofill:focus {
     width: 60px;
     height: 60px;
     padding: 15px;
-    background: -webkit-gradient(linear, left bottom, left top, from(#aa0714), to(#c75c3c));
-    background: linear-gradient(0deg, #aa0714, #c75c3c);
-    -webkit-box-shadow: 2px 3px 2px #740909 inset;
-            box-shadow: 2px 3px 2px #740909 inset;
+    background: #484848;
   }
 }
 
@@ -3001,7 +2998,6 @@ input:-webkit-autofill:focus {
     width: 50px;
     height: 50px;
     padding: 10px;
-    background: #282828;
     -webkit-box-shadow: unset;
             box-shadow: unset;
   }
@@ -3034,10 +3030,6 @@ input:-webkit-autofill:focus {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    background: -webkit-gradient(linear, left bottom, left top, from(#000), to(#555));
-    background: linear-gradient(0deg, #000, #555);
-    -webkit-box-shadow: 2px 3px 2px #000 inset;
-            box-shadow: 2px 3px 2px #000 inset;
   }
 }
 
@@ -5412,10 +5404,7 @@ input:-webkit-autofill:focus {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: -webkit-gradient(linear, left bottom, left top, from(#aa0714), to(#c75c3c));
-  background: linear-gradient(0deg, #aa0714, #c75c3c);
-  -webkit-box-shadow: 2px 3px 2px #740909 inset;
-          box-shadow: 2px 3px 2px #740909 inset;
+  background-color: #484848;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -5443,7 +5432,6 @@ input:-webkit-autofill:focus {
     width: 50px;
     height: 50px;
     bottom: 210px;
-    background: #aa0714;
     opacity: 0.7;
   }
 }
