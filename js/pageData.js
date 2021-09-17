@@ -339,27 +339,32 @@ var lottoryLink = {
     main: [{
             href: "https://www.awin77g.com",
             img: "images/bank/tuDienXoSo.png",
-            txt: "Từ điển xổ số"
+            txt: "Từ điển xổ số",
+            hot:true
         },
         {
             href: "https://www.awin77g.com",
             img: "images/bank/hoChiMinh.png",
-            txt: "CÔNG TY TNHH MTV SỔ XỐ KIẾN THIẾT TP.HỒ CHÍ MINH"
+            txt: "CÔNG TY TNHH MTV SỔ XỐ KIẾN THIẾT TP.HỒ CHÍ MINH",
+            hot:false
         },
         {
             href: "http://xsktmiennam.vn",
             img: "images/bank/ichNuocLoiNha.png",
-            txt: "XỐ SỔ KIẾN THIẾT KHU VỰC MIỀN NAM ÍCH NƯỚC-LỢI NHÀ"
+            txt: "XỐ SỔ KIẾN THIẾT KHU VỰC MIỀN NAM ÍCH NƯỚC-LỢI NHÀ",
+            hot:false
         },
         {
             href: "http://xosophutho.vn",
             img: "images/bank/xoSoKienThiet.png",
-            txt: "ỦY BAN NHÂN DÂN TỈNH PHÚ THỌ CÔNG TY TNHH MTV XỔ SỐ KIẾN THIẾT PHÚ THỌ"
+            txt: "ỦY BAN NHÂN DÂN TỈNH PHÚ THỌ CÔNG TY TNHH MTV XỔ SỐ KIẾN THIẾT PHÚ THỌ",
+            hot:false
         },
         {
             href: "https://xsktdongthap.vn",
             img: "images/bank/dongThap.png",
-            txt: "CÔNG TY TNHH MỘT THÀNH VIÊN XỔ SỐ KIẾN THIẾT TỈNH ĐỒNG"
+            txt: "CÔNG TY TNHH MỘT THÀNH VIÊN XỔ SỐ KIẾN THIẾT TỈNH ĐỒNG",
+            hot:false
         },
     ],
     minor: [{
