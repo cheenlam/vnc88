@@ -6091,7 +6091,7 @@ input:-webkit-autofill:focus {
 }
 
 .broadcast .gameMsg .gameSchedule .gameSchedule_tb td {
-  padding: 10px 5px;
+  padding: 10px 0;
 }
 
 .broadcast .gameMsg .gameSchedule .gameSchedule_tb td:nth-child(1), .broadcast .gameMsg .gameSchedule .gameSchedule_tb td:nth-child(3) {
