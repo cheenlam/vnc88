@@ -8,7 +8,7 @@
     <meta name="description" content="VNC88｜tỷ số bóng đá｜kết quả trực tuyến｜lịch thi đấu" />
     <meta name="keywords" content="VNC88｜tỷ số bóng đá｜kết quả trực tuyến｜lịch thi đấu">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="css/all.css?v1.0.3">
+    <link rel="stylesheet" href="css/all.css?v1.1.0">
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
@@ -30,12 +30,31 @@
         <div class="header" id="header">
             <!-- hd_top start -->
             <div class="hd_top" id="hd_top" ref="hdTop" :class="{'hideUp':topHide.switch}">
-                <h1 class="hd_logo"><a href="#/home">vnc88</a></h1>
+                <div class="hd_main">
+                    <h1 class="hd_logo">
+                        <a href="#/home">vnc88</a>
+                    </h1>
+
+                    <div class="hd_minBtn">
+                        <div class="signinBar" @click="signInOpen = true,reset()" v-show="!temporary">
+                            <div class="cnt">
+                                <img src="images/icon/icon-onSignin.png" v-if="mbrLogin" alt="Member login">
+                                <span v-else style="padding: 0 5px 0;">ĐăngNhập</span>
+                            </div>
+                        </div>
+    
+                        <div class="menuBar" @click="menuOpen = true">
+                            <img src="images/icon/menuBar.svg" alt="Menu button for small screen.">
+                        </div>
+                    </div>
+                    
+                </div>
+
                 <div class="hd_tool">
                     <div class="hd_link">
                         <ul>
-                            <li class="btn_linear_c1">
-                                <a href="mailto:topvnc88@gmail.com">
+                            <li class="btn_linear_c1" @click="dialog.main = true,dialog.suggest = true">
+                                <a>
                                     <div class="btn_cnt">
                                         <img src="images/icon/icon-email.png" alt="Link to the vnc88 mailbox.">
                                     </div>
@@ -62,19 +81,6 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="btn_linear_c1 signinBar" @click="signInOpen = true,reset()" v-show="!temporary">
-                                <div class="btn_cnt">
-                                    <img src="images/icon/icon-onSignin.png" v-if="mbrLogin" alt="Member login">
-                                    <span v-else style="padding: 0 5px 0;">ĐăngNhập</span>
-                                </div>
-                            </li>
-
-                            <li class="btn_linear_c3 menuBar" @click="menuOpen = true">
-                                <div class="btn_cnt">
-                                    <img src="images/icon/menuBar.png" alt="Menu button for small screen.">
-                                </div>
-                            </li>
-
                         </ul>
                     </div>
                     <div class="hd_signIn" :class="{'on' : signInOpen}" v-show="!temporary">
@@ -573,6 +579,24 @@
                     </div>
                 </div>
             </div>
+            <!-- 意見反饋 -->
+            <div class="dialog_cnt_01 suggest" v-show="dialog.suggest">
+                <div class="close" @click="closeDialog()"></div>
+                <div class="title">Kiến nghị phản ánh</div>
+                <div class="innerBox">
+                    <form @submit.prevent="ckSuggest">
+                        <div>
+                            <p>Kiến nghị phản ánh</p>
+                            <div class="textBox">
+                                <textarea placeholder="Hãy điền 10 từ trở lên để thuận tiện cung cấp chi tiết giúp đỡ,hãy điền vào phương thức liên lạc" minlength="10" v-model="suggest.msg" required></textarea>
+                            </div>
+                        </div>
+                        <div class="btn_linear_c1 btn">
+                            <button class="btn_cnt">Gửi đi</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>
@@ -665,6 +689,7 @@
                     regd: false,
                     gift: false,
                     todayGame: false,
+                    suggest: false,
                 },
 
                 // ==== 成功 / 失敗警示 ====
@@ -672,6 +697,11 @@
                     warnSwitch: false,
                     success: false,
                     warnTxt: [],
+                },
+
+                // ==== 意見反饋 ====
+                suggest: {
+                    msg: '',
                 },
 
                 // ==== 開關列表 ====
@@ -697,7 +727,6 @@
                 let ckAgree = this.regdMbr.agree;
                 this.errorCode.pwd = false;
                 this.errorCode.reEmail = false;
-
 
                 // 驗證碼錯誤提醒
                 this.errorCode.verify = ckCode ? false : true
@@ -768,6 +797,62 @@
                 }
             },
 
+            // ==== 意見反饋 ====
+            ckSuggest() {
+                let session = sessionStorage.getItem('session');
+                let self = this;
+                if (session == null) {
+                    self.dialog.suggest = false;
+                    self.dialog.main = false;
+                    self.warn.warnTxt = ["Đăng nhập hội viên"];
+                    self.warn.warnSwitch = true;
+                    self.warn.success = false;
+                    setTimeout(function() {
+                        self.suggest.msg = '';
+                        self.warn.warnSwitch = false;
+                        let w = document.body.clientWidth;
+                        if (w < 1264) {
+                            self.signInOpen = true;
+                        }
+                    }, 2000)
+                } else {
+                    self.postSuggest();
+                }
+            },
+
+            postSuggest() {
+                let session = JSON.parse(sessionStorage.getItem('session'));
+                let account = {};
+                let self = this;
+                account.token = String(session.token);
+                account.mseeage = String(this.suggest.msg);
+                account.ctype = 'email';
+
+                console.log(session.token)
+                let xhr = new XMLHttpRequest();
+                xhr.open("post", "https://www.vnc8888.com/api/feedback");
+                xhr.setRequestHeader("Content-type", "application/json");
+                let data = JSON.stringify(account);
+                xhr.send(data);
+                xhr.onload = function() {
+                    let response = xhr.status;
+                    self.dialog.suggest = false;
+                    self.dialog.main = false;
+                    self.suggest.msg = '';
+
+                    switch (response) {
+                        case 200:
+                            self.warn.warnTxt = ["Cảm ơn sự kiến nghị của bạn", "chúng tôi sẽ xử lý nhanh chóng"];
+                            self.warn.warnSwitch = true;
+                            self.warn.success = true;
+                            setTimeout(function() {
+                                self.warn.warnSwitch = false
+                            }, 2000)
+                            break;
+                    }
+                }
+            },
+
             // ==== 確認狀態碼 ====
             ckError(status, res) {
                 let self = this;
@@ -822,6 +907,8 @@
                 this.signInMbr.email = '';
                 this.signInMbr.pwd = '';
                 this.signInMbr.code = '';
+
+                this.suggest.msg = '';
             },
 
             ckLogin() {
@@ -889,6 +976,7 @@
                 this.dialog.regd = false;
                 this.dialog.gift = false;
                 this.dialog.todayGame = false;
+                this.dialog.suggest = false;
                 this.signInOpen = false;
 
                 this.reset();
@@ -1127,6 +1215,6 @@
     let docRef = db.collection("showLive");
     let docRef2 = db.collection("ytMovie");
     var database = firebase.database().ref().limitToLast(50);
-
 </script>
+
 </html>
