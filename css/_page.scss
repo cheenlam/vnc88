@@ -631,12 +631,20 @@
                 flex-direction: column;
             }
         }
+        .hotNews{
+            width: 70px;
+            position: absolute;
+            @include pos(tl,-20px,-15px);
+            filter: drop-shadow(2px 2px 4px rgb(92, 5, 5))
+        }
+
         .fullList_img {
             width: 260px;
             height: 0;
             padding-bottom: 155px;
             background: no-repeat center / cover;
             flex-shrink: 0;
+            position: relative;
             @include rwd(800) {
                 width: 100%;
                 padding-bottom: 50%;

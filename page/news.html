@@ -54,6 +54,33 @@
         <div class="fullList">
             <div class="mainMsg-title">Tin tức</div>
             <ul>
+                <template v-for="(item,index) in newsMenu.selfNews">
+                    <li>
+                        <a style="display: flex;">
+                           
+                            <div class="fullList_img" :style="getbgi(item.img)">
+                                <div class="hotNews">
+                                    <img src="images/icon/hotNews.png">
+                                </div>
+                            </div>
+                            <div class="fullList_msg">
+                                <div>
+                                    <div class="title">{{item.intro}}</div>
+                                    <p>{{item.content}}</p>
+                                </div>
+                                <div class="fullList_tool">
+                                    <div class="more"></div>
+                                    <p>
+                                        <span>Tử điển xổ số</span>
+                                        <span>{{item.time}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </template>
+            </ul>
+            <ul>
                 <template v-for="(item,index) in selfNews">
                     <li>
                         <a :href="item.href" style="display: flex;">
@@ -103,6 +130,7 @@
                     news_r: '',
                     news_t: '',
                     news_b: [],
+                    selfNews:''
                 },
                 // 廣告
                 EventImg: indexVue.eventBanner.center,
@@ -130,10 +158,10 @@
             // ==== 取得資料 ====
             getData() {
                 let self = this;
-                let chReady = [false, false, false];
+                let chReady = [false, false, false,false];
 
                 function ready() {
-                    if (chReady[0] && chReady[1] && chReady[2]) {
+                    if (chReady[0] && chReady[1] && chReady[2],chReady[3]) {
                         indexVue.onLoad = false;
                     }
                 }
@@ -174,6 +202,19 @@
                         self.newsMenu.news_r = data;
                         self.$nextTick(function() {
                             chReady[2] = true;
+                            ready();
+                        })
+                    },
+                });
+
+                 // 後台新聞資訊
+                $.ajax({
+                    url: "https://www.vnc8888.com/api/news/list",
+                    dataType: "json",
+                    success: function(data) {
+                        self.newsMenu.selfNews = data;
+                        self.$nextTick(function() {
+                            chReady[3] = true;
                             ready();
                         })
                     },

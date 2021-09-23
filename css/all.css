@@ -5033,6 +5033,15 @@ input:-webkit-autofill:focus {
   }
 }
 
+.fullList li .hotNews {
+  width: 70px;
+  position: absolute;
+  top: -20px;
+  left: -15px;
+  -webkit-filter: drop-shadow(2px 2px 4px #5c0505);
+          filter: drop-shadow(2px 2px 4px #5c0505);
+}
+
 .fullList li .fullList_img {
   width: 260px;
   height: 0;
@@ -5040,6 +5049,7 @@ input:-webkit-autofill:focus {
   background: no-repeat center / cover;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+  position: relative;
 }
 
 @media screen and (max-width: 800px) {
