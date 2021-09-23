@@ -6038,6 +6038,10 @@ input:-webkit-autofill:focus {
   text-align: left;
 }
 
+.broadcast .gameMsg .gameChart .gameChart_tb td span {
+  display: inline-block;
+}
+
 .broadcast .gameMsg .gameChart .gameChart_tb td span:first-letter {
   text-transform: uppercase;
 }
@@ -6091,15 +6095,16 @@ input:-webkit-autofill:focus {
 }
 
 .broadcast .gameMsg .gameSchedule .gameSchedule_tb td {
-  padding: 10px 0;
+  padding: 10px 2px;
 }
 
 .broadcast .gameMsg .gameSchedule .gameSchedule_tb td:nth-child(1), .broadcast .gameMsg .gameSchedule .gameSchedule_tb td:nth-child(3) {
-  width: 40%;
+  width: calc(50% - 40px);
 }
 
 .broadcast .gameMsg .gameSchedule .gameSchedule_tb td:nth-child(2) {
-  width: 20%;
+  padding: 10px 0;
+  min-width: 40px;
   text-align: center;
 }
 

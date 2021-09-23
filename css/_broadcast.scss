@@ -298,6 +298,10 @@
                     &:nth-child(2) {
                         text-align: left;
                     }
+                    span{
+                        display: inline-block;
+                    }
+
                     span:first-letter {
                         text-transform: uppercase;
                     }
@@ -345,13 +349,14 @@
                     font-size: 0.95rem;
                 }
                 td {
-                    padding: 10px 0;
+                    padding: 10px 2px;
                     &:nth-child(1),
                     &:nth-child(3) {
-                        width: 40%;
+                        width: calc(50% - 40px);
                     }
                     &:nth-child(2) {
-                        width: 20%;
+                        padding: 10px 0;
+                        min-width: 40px;
                         text-align: center;
                     }
                     & > div {
