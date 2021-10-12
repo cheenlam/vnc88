@@ -150,10 +150,10 @@
             // ==== 取得資料 ====
             getData() {
                 let self = this;
-                let chReady = [false, false, false];
+                let chReady = [false, false];
 
                 function ready() {
-                    if (chReady[0] && chReady[1] && chReady[2]) {
+                    if (chReady[0] && chReady[1]) {
                         indexVue.onLoad = false;
                     }
                 }
@@ -177,10 +177,6 @@
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.news_b = data;
-                        self.$nextTick(function() {
-                            chReady[1] = true;
-                            ready();
-                        })
                     },
                 });
 
@@ -191,7 +187,7 @@
                     success: function(data) {
                         self.newsMenu.news_r = data;
                         self.$nextTick(function() {
-                            chReady[2] = true;
+                            chReady[1] = true;
                             ready();
                         })
                     },

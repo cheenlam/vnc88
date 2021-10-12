@@ -5,7 +5,7 @@ var menuData = {
         { href: "#/home", txt: "TRANG CHỦ", switch: true },
         { href: "#/lottery", txt: "Đề xuất cá cược", switch: true },
         { href: "#/news", txt: "Tin tức", switch: true },
-        { href: "#/broadcast", txt: "Video đá bóng", switch: true },
+        { href: "#/broadcast", txt: "Video đá bóng", switch: false },
         { href: "#/forum", txt: "Diễn đàn thảo luận", switch: false },
         { href: "#/resources", txt: "Thông tin", switch: true },
     ],

@@ -56,8 +56,7 @@
             <ul>
                 <template v-for="(item,index) in newsMenu.selfNews">
                     <li>
-                        <a style="display: flex;">
-                           
+                        <a style="display: flex;">    
                             <div class="fullList_img" :style="getbgi(item.img)">
                                 <div class="hotNews">
                                     <img src="images/icon/hotNews.png">
@@ -158,10 +157,10 @@
             // ==== 取得資料 ====
             getData() {
                 let self = this;
-                let chReady = [false, false, false,false];
+                let chReady = [false, false];
 
                 function ready() {
-                    if (chReady[0] && chReady[1] && chReady[2],chReady[3]) {
+                    if (chReady[0] && chReady[1]) {
                         indexVue.onLoad = false;
                     }
                 }
@@ -186,10 +185,6 @@
                     success: function(data) {
                         for (let i = 0; i < 5; i++) {
                             self.newsMenu.news_b.push(data[i])
-                            self.$nextTick(function() {
-                                chReady[1] = true;
-                                ready();
-                            })
                         }
                     },
                 });
@@ -201,7 +196,7 @@
                     success: function(data) {
                         self.newsMenu.news_r = data;
                         self.$nextTick(function() {
-                            chReady[2] = true;
+                            chReady[1] = true;
                             ready();
                         })
                     },
@@ -213,10 +208,6 @@
                     dataType: "json",
                     success: function(data) {
                         self.newsMenu.selfNews = data;
-                        self.$nextTick(function() {
-                            chReady[3] = true;
-                            ready();
-                        })
                     },
                 });
             },
