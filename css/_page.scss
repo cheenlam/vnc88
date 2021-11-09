@@ -911,6 +911,15 @@
                 }
             }
         }
+        .wp-caption.aligncenter,
+        .size-full.aligncenter{
+            width: 100% !important;
+            height: auto !important;
+            img{
+                height: auto !important;
+            }
+           
+        }
     }
     @at-root .newsCnt_menu {
         width: 300px;
@@ -1063,7 +1072,6 @@
             }
         }
     }
-
     @at-root .listBar{
         width: 60px;
         height: 60px;

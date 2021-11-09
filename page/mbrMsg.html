@@ -17,81 +17,84 @@
             <div class="mbrMsg">
                 <ul>
                     <li>
-                        <div class="mbrl_title">登入識別</div>
-                        <div class="mbrl_txt">google</div>
-                    </li>
-                    <li>
                         <div class="mbrl_title">會員等級</div>
-                        <div class="mbrl_txt">普通</div>
+                        <div class="mbrl_txt">普通會員</div>
                     </li>
                     <li>
-                        <div class="mbrl_title">性別</div>
+                        <div class="mbrl_title">Tài khoản</div>
+                        <div class="mbrl_txt">{{mbrData.username}}</div>
+                    </li>
+                    <li>
+                        <div class="mbrl_title">Tên Nick</div>
+                        <div class="mbrl_ipt">
+                            <input type="text" placeholder="Hãy nhập tên nick" v-model="mbrData.nickname" required>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mbrl_title">Thư điện tử</div>
+                        <div class="mbrl_ipt">
+                            <input type="email" placeholder="Điền hộp thư điện tử" v-model="mbrData.email" required>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="mbrl_title">Số di động</div>
+                        <div class="mbrl_ipt">
+                            <input type="tel" v-model="mbrData.phone" placeholder="Điền số điện thoại" required>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="mbrl_title">Giới tính</div>
                         <div class="mbrl_radio">
                             <label>
-                                <input type="radio" name="gender" checked>
-                                <span>男</span>
+                                <input type="radio" name="gender"
+                                value="Male" v-model="mbrData.gender">
+                                <span>Nam</span>
                             </label>
                             <label>
-                                <input type="radio" name="gender">
-                                <span>女</span>
+                                <input type="radio" name="gender" 
+                                value="Female" v-model="mbrData.gender">
+                                <span>Nữ</span>
                             </label>
                         </div>
                     </li>
                     <li>
-                        <div class="mbrl_title">真實姓名</div>
-                        <div class="mbrl_ipt">
-                            <input type="text">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mbrl_title">國籍</div>
-                        <div class="mbrl_ipt">
-                            <input type="text">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mbrl_title">會員暱稱</div>
-                        <div class="mbrl_ipt">
-                            <input type="text">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="mbrl_title">生日</div>
+                        <div class="mbrl_title">Birthday</div>
                         <div class="mbrl_date">
-                            <input type="date">
+                            <input type="text" 
+                                v-model ="mbrData.birthday"
+                                placeholder="YYYY-MM-DD"
+                                id="date-group"
+                                required >
                         </div>
                     </li>
                     <li>
-                        <div class="mbrl_title">E-MAIL</div>
+                        <div class="mbrl_title">Facebook</div>
                         <div class="mbrl_ipt">
                             <input type="text">
                         </div>
                     </li>
                     <li>
-                        <div class="mbrl_title">ZALO</div>
+                        <div class="mbrl_title">Telegram</div>
                         <div class="mbrl_ipt">
                             <input type="text">
                         </div>
                     </li>
+
                     <li>
-                        <div class="mbrl_title">最後登陸時間</div>
-                        <div class="mbrl_txt">2021-08-04</div>
-                    </li>
-                    <li>
-                        <div class="mbrl_title">我的錢包</div>
-                        <div class="mbrl_txt">
-                            <span>9527</span>
-                            <div class="icon_refresh"></div>
+                        <div class="mbrl_title">Zalo</div>
+                        <div class="mbrl_ipt">
+                            <input type="text">
                         </div>
                     </li>
                 </ul>
             </div>
 
             <div class="mbrbtn">
-                <div class="btn_linear_c1 btn">
+                <div class="btn_linear_c1 btn" @click="chInfor()">
                     <div class="btn_cnt">Gửi đi</div>
                 </div>
-                <div class="btn_linear_c2 btn">
+                <div class="btn_linear_c2 btn"  @click="goHome()">
                     <div class="btn_cnt">Hủy</div>
                 </div>
             </div>
@@ -101,10 +104,11 @@
             <form @submit.prevent="ckPwd()">
                 <div class="mbrMsg">
                     <ul>
+                        <li></li>
                         <li>
                             <div class="mbrl_title">Nhập mật khẩu cũ</div>
                             <div class="mbrl_ipt">
-                                <input :type="lookPwd.formerType" v-model="pwdData.former" required autocomplete="on">
+                                <input :type="lookPwd.formerType" v-model="pwdData.former" required>
                                 <div class="icon_pwdLook" :class="{'on' : lookPwd.former}" @click="onLook('former')" @mouseout="outLook('former')"></div>
                                 <p class="errorTxt" v-if="errorCode.former">Sai mật khẩu cũ</p>
                             </div>
@@ -112,7 +116,7 @@
                         <li>
                             <div class="mbrl_title">Nhập mật khẩu mới</div>
                             <div class="mbrl_ipt">
-                                <input :type="lookPwd.newType" v-model="pwdData.new" required autocomplete="on">
+                                <input :type="lookPwd.newType" v-model="pwdData.new" required>
                                 <div class="icon_pwdLook" :class="{'on' : lookPwd.new}" @click="onLook('new')" @mouseout="outLook('new')"></div>
                                 <p class="errorTxt" v-if="errorCode.new">Mật khẩu cũ và mới không được giống nhau</p>
                             </div>
@@ -120,7 +124,7 @@
                         <li>
                             <div class="mbrl_title">Nhập lại mật khẩu mới</div>
                             <div class="mbrl_ipt">
-                                <input :type="lookPwd.ckNewType" v-model="pwdData.ckNew" required autocomplete="on">
+                                <input :type="lookPwd.ckNewType" v-model="pwdData.ckNew" required>
                                 <div class="icon_pwdLook" :class="{'on' : lookPwd.ckNew}" @click="onLook('ckNew')" @mouseout="outLook('ckNew')"></div>
                                 <p class="errorTxt" v-if="errorCode.ckNew">Xác nhận mật khẩu mới tương đồng</p>
                             </div>
@@ -156,6 +160,7 @@
                     former: false,
                     new: false,
                     ckNew: false,
+                    birthday: false
                 },
                 lookPwd: {
                     former: false,
@@ -165,9 +170,122 @@
                     formerType: 'password',
                     ckNewType: 'password',
                 },
+                mbrData: {
+                    username: '',
+                    nickname: '',
+                    email: '',
+                    phone: '',
+                    gender: 'Other',
+                    birthday: '',
+                    fb: '',
+                    tg: '',
+                    zalo: '',
+                },
+                oneIpt: false,
             };
         },
         methods: {
+            // ===== 帳戶資料 ====
+            getMbr() {
+                let tk = JSON.parse(sessionStorage.getItem('session')).token;
+                let self = this;
+                $.ajax({
+                    type: "GET",
+                    url: "https://www.vnc8888.com/api/member",
+                    data: {
+                        token: tk
+                    },
+                    dataType: "text",
+                    success: function(data) {
+                        let mbr = JSON.parse(data)
+                        self.mbrData.username = mbr.username;
+                        self.mbrData.nickname = mbr.nickname;
+                        self.mbrData.email = mbr.email;
+                        self.mbrData.phone = mbr.phone;
+                        self.mbrData.gender = mbr.gender;
+                        self.mbrData.birthday = mbr.birthday;
+                        self.mbrData.fb = mbr.fb;
+                        self.mbrData.tg = mbr.tg;
+                        self.mbrData.zalo = mbr.zalo;
+
+                        if (self.mbrData.birthday == "") {
+                            self.setDate();
+                        }else{
+                            document.querySelector('#date-group').setAttribute('disabled',true)
+                        }
+                    }
+                })
+            },
+
+            chInfor() {
+                let tk = JSON.parse(sessionStorage.getItem('session')).token;
+                let self = this;
+                let mbrMsg = {};
+                mbrMsg.token = String(tk);
+                mbrMsg.nickname = String(self.mbrData.nickname);
+                mbrMsg.email = String(self.mbrData.email);
+                mbrMsg.phone = String(self.mbrData.phone);
+                mbrMsg.gender = String(self.mbrData.gender);
+                mbrMsg.birthday = String(self.mbrData.birthday);
+                mbrMsg.fb = String(self.mbrData.fb);
+                mbrMsg.tg = String(self.mbrData.tg);
+                mbrMsg.zalo = String(self.mbrData.zalo);
+
+                let xhr = new XMLHttpRequest();
+                xhr.open("put", "https://www.vnc8888.com/api/member");
+                xhr.setRequestHeader("Content-type", "application/json");
+                let data = JSON.stringify(mbrMsg);
+                xhr.send(data);
+                xhr.onload = function() {
+                    if (xhr.status == 200) {
+                        location.href = "#/home";
+                    } 
+                    else if (self.mbrMsg.birthday == ''){
+                        self.errorCode.birthday = true;
+                    }
+                    else {
+                        sessionStorage.removeItem('session');
+                        location.href = "#/home";
+                        location.reload();
+                    }
+                }
+            },
+
+            setDate() {
+                let self = this;
+                new Rolldate({
+                    el: '#date-group',
+                    format: 'YYYY-MM-DD',
+                    beginYear: 1500,
+                    endYear: 2100,
+                    lang: {
+                        title: 'Chọn ngày tháng',
+                        cancel: 'Hủy',
+                        confirm: 'Gửi đi',
+                        year: '',
+                        month: '',
+                        day: ''
+                    },
+                    init: function() {
+                        // 插件开始触发
+                    },
+                    moveEnd: function(scroll) {
+                        // 選擇區間到末端滚动结束
+                    },
+                    confirm: function(data) {
+                        // 确定按钮触发
+                        self.mbrData.birthday = data
+                    },
+                    cancel: function() {
+                        // 插件运行取消
+                    }
+                })
+            },
+
+            goHome() {
+                location.href = "#/home";
+            },
+            // ===== 修改密碼 ====
             ckPwd() {
                 let case_01 = this.pwdData.new != this.pwdData.ckNew;
                 let case_02 = this.pwdData.former == this.pwdData.new;
@@ -273,6 +391,7 @@
 
         },
         mounted() {
+            this.getMbr()
             this.mbrSelect = sessionStorage.getItem("mbrSelect");
             indexVue.onLoad = true;
             this.$nextTick(function() {

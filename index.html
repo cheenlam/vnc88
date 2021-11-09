@@ -17,6 +17,7 @@
     <script src="js/marquee.js?v1.0.0"></script>
     <script src="js/router.js?v1.0.5"></script>
     <script src="js/verifyCode.js?v1.0.0"></script>
+    <script src="js/rolldate.js"></script>
     <!-- 自訂義js -->
     <script src="js/pageData.js?v1.0.1"></script>
     <!-- google插件 -->
@@ -99,7 +100,7 @@
                                             <div class="signIn_iptBox">
                                                 <div class="signIn_minCnt">
                                                     <label data-title="Tài khoản">  
-                                                        <input type="email" placeholder="Tài khoản" v-model="signInMbr.email" required>  
+                                                        <input type="text" placeholder="Tài khoản" v-model="signInMbr.username" required>  
                                                     </label>
                                                 </div>
                                                 <p class="errorTxt" v-if="errorCode.notEmail">Email không tồn tại</p>
@@ -451,7 +452,7 @@
                             <span>Tài khoản</span>
                             <div class="innerList">
                                 <div class="iptBox">
-                                    <input type="email" placeholder="Điền hộp thư điện tử" v-model="regdMbr.email" required>
+                                    <input type="text" placeholder="Điền hộp thư điện tử" v-model="regdMbr.username" required>
                                 </div>
                                 <p class="errorTxt" v-if="errorCode.reEmail">Email này đã tồn tại</p>
                             </div>
@@ -462,16 +463,6 @@
                             <div class="innerList">
                                 <div class="iptBox">
                                     <input type="password" minlength="6" maxlength="12" placeholder="Điền 6-12 kí tự bao hồm chữ/ số" v-model="regdMbr.pwd" required autocomplete="on">
-                                </div>
-                                <p class="errorTxt" v-if="false"></p>
-                            </div>
-                        </div>
-
-                        <div>
-                            <span>Số di động</span>
-                            <div class="innerList">
-                                <div class="iptBox">
-                                    <input type="number" placeholder="Điền số điện thoại" v-model="regdMbr.phone" required>
                                 </div>
                                 <p class="errorTxt" v-if="false"></p>
                             </div>
@@ -565,7 +556,7 @@
                     <img src="images/god.gif" alt="Fortuna Animation.">
                 </div>
                 <div class="firework">
-                    <img src="images//todayGame/firework.png" alt="Shredded paper flower">
+                    <img src="images/todayGame/firework.png" alt="Shredded paper flower">
                 </div>
                 <div class="todayGame_cnt">
                     <div class="todayGame_msg">
@@ -575,7 +566,7 @@
                         <p>đồng tiền vàng</p>
                     </div>
                     <div class="btn">
-                        <img src="images//todayGame/todayGame_btn.png">
+                        <img src="images/todayGame/todayGame_btn.png">
                     </div>
                 </div>
             </div>
@@ -585,13 +576,18 @@
                 <div class="title">Kiến nghị phản ánh</div>
                 <div class="innerBox">
                     <form @submit.prevent="ckSuggest">
-                        <div>
-                            <p>Kiến nghị phản ánh</p>
-                            <div class="textBox">
-                                <textarea placeholder="Hãy điền 10 từ trở lên để thuận tiện cung cấp chi tiết giúp đỡ,hãy điền vào phương thức liên lạc" minlength="10" v-model="suggest.msg" required></textarea>
-                            </div>
+                        <div class="suggestSel" >
+                            <select v-model="suggest.sel">
+                                <option value="Tin nhắn">Tin nhắn</option>
+                                <option value="Kiến nghị">Kiến nghị</option>
+                                <option value="Phản ánh">Phản ánh</option>
+                            </select>
                         </div>
-                        <div class="btn_linear_c1 btn">
+                        <div class="suggestMsg">
+                            <p>Tóm tắt vấn đề/kiến nghị khác</p>
+                            <textarea placeholder="Hãy điền 10 từ trở lên để thuận tiện cung cấp chi tiết giúp đỡ,hãy điền vào phương thức liên lạc" minlength="10" v-model="suggest.msg" required></textarea>
+                        </div>
+                        <div class="btn_linear_c3 btn">
                             <button class="btn_cnt">Gửi đi</button>
                         </div>
                     </form>
@@ -668,16 +664,15 @@
 
                 // ==== 註冊會員 ====
                 regdMbr: {
-                    email: '',
+                    username: '',
                     pwd: '',
-                    phone: '',
                     code: '',
                     agree: false,
                 },
 
                 // ==== 登陸會員 ====
                 signInMbr: {
-                    email: '',
+                    username: '',
                     pwd: '',
                     code: '',
                 },
@@ -701,6 +696,7 @@
 
                 // ==== 意見反饋 ====
                 suggest: {
+                    sel:'Tin nhắn',
                     msg: '',
                 },
 
@@ -717,7 +713,7 @@
                 todayGame: true,
 
                 // ==== 暫時關閉 (hd_signIn,signinBar)====
-                temporary: true,
+                temporary: false,
             };
         },
         methods: {
@@ -738,9 +734,8 @@
                 let account = {};
                 let self = this
                 self.onLoad = true;
-                account.email = String(this.regdMbr.email);
+                account.username = String(this.regdMbr.username);
                 account.password = String(this.regdMbr.pwd);
-                account.phone = String(this.regdMbr.phone);
 
                 let xhr = new XMLHttpRequest();
                 xhr.open("post", "https://www.vnc8888.com/api/member/register");
@@ -772,7 +767,7 @@
             postSignIn() {
                 let account = {};
                 let self = this;
-                account.email = String(this.signInMbr.email);
+                account.username = String(this.signInMbr.username);
                 account.password = String(this.signInMbr.pwd);
 
                 let xhr = new XMLHttpRequest();
@@ -823,11 +818,10 @@
                 let session = JSON.parse(sessionStorage.getItem('session'));
                 let account = {};
                 let self = this;
-                account.token = String(session.token);
-                account.mseeage = String(this.suggest.msg);
-                account.ctype = 'email';
 
-                console.log(session.token)
+                account.token = String(session.token);
+                account.message = String(`[${this.suggest.sel}]${this.suggest.msg}`);
+
                 let xhr = new XMLHttpRequest();
                 xhr.open("post", "https://www.vnc8888.com/api/feedback");
                 xhr.setRequestHeader("Content-type", "application/json");

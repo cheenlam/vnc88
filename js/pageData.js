@@ -5,7 +5,7 @@ var menuData = {
         { href: "#/home", txt: "TRANG CHỦ", switch: true },
         { href: "#/lottery", txt: "Đề xuất cá cược", switch: true },
         { href: "#/news", txt: "Tin tức", switch: true },
-        { href: "#/broadcast", txt: "Video đá bóng", switch: false },
+        { href: "#/broadcast", txt: "Video đá bóng", switch: true },
         { href: "#/forum", txt: "Diễn đàn thảo luận", switch: false },
         { href: "#/resources", txt: "Thông tin", switch: true },
     ],
@@ -368,151 +368,151 @@ var lottoryLink = {
         },
     ],
     minor: [{
-            herf: "http://www.xosodalat.com.vn/",
+            href: "http://www.xosodalat.com.vn/",
             txt: "ĐÀ LẠT"
         },
         {
-            herf: "https://www.xskthcm.com/",
+            href: "https://www.xskthcm.com/",
             txt: "(TP)Hồ Chí Minh"
         },
         {
-            herf: "http://www.xosocamau.com/",
+            href: "http://www.xosocamau.com/",
             txt: "Cà Mau"
         },
         {
-            herf: "http://xosobariavungtau.com.vn/",
+            href: "http://xosobariavungtau.com.vn/",
             txt: "Vũng Tàu"
         },
         {
-            herf: "https://xosobentre.com.vn/",
+            href: "https://xosobentre.com.vn/",
             txt: "Bạc Liêu"
         },
         {
-            herf: "http://xosodongnai.com.vn/",
+            href: "http://xosodongnai.com.vn/",
             txt: "Đồng Nai"
         },
         {
-            herf: "http://xsktcantho.com.vn/",
+            href: "http://xsktcantho.com.vn/",
             txt: "Cần Thơ"
         },
         {
-            herf: "http://xsktsoctrang.vn/",
+            href: "http://xsktsoctrang.vn/",
             txt: "Sóc Trăng"
         },
         {
-            herf: "https://xosotayninh.com.vn/trang-chu",
+            href: "https://xosotayninh.com.vn/trang-chu",
             txt: "Tây Ninh"
         },
         {
-            herf: "http://www.xsktangiang.com.vn/",
+            href: "http://www.xsktangiang.com.vn/",
             txt: "An Giang"
         },
         {
-            herf: "https://www.xosobinhthuan.com.vn/",
+            href: "https://www.xosobinhthuan.com.vn/",
             txt: "Bình Thuận"
         },
         {
-            herf: "https://xosovinhlong.com.vn/",
+            href: "https://xosovinhlong.com.vn/",
             txt: "Vĩnh Long"
         },
         {
-            herf: "https://www.xosobinhduong.com.vn/",
+            href: "https://www.xosobinhduong.com.vn/",
             txt: "Bình Dương"
         },
         {
-            herf: "http://xosotravinh.vn/trang-chu",
+            href: "http://xosotravinh.vn/trang-chu",
             txt: "Trà Vinh"
         },
         {
-            herf: "http://xosolongan.vn/trang-chu",
+            href: "http://xosolongan.vn/trang-chu",
             txt: "Quốc Dân"
         },
         {
-            herf: "https://lienvietpostbank.com.vn/",
+            href: "https://lienvietpostbank.com.vn/",
             txt: "Long An"
         },
         {
-            herf: "https://xosobinhphuoc.vn/",
+            href: "https://xosobinhphuoc.vn/",
             txt: "Bình Phước"
         },
         {
-            herf: "https://xskthaugiang.vn/",
+            href: "https://xskthaugiang.vn/",
             txt: "Hậu Giang"
         },
         {
-            herf: "http://www.xskttg.com.vn/",
+            href: "http://www.xskttg.com.vn/",
             txt: "Tiền Giang"
         },
         {
-            herf: "http://xosokiengiang.vn/",
+            href: "http://xosokiengiang.vn/",
             txt: "Kiên Giang"
         },
         {
-            herf: "https://xsktdongthap.vn/",
+            href: "https://xsktdongthap.vn/",
             txt: "Đồng Tháp"
         },
         {
-            herf: "http://xosogialai.com.vn/",
+            href: "http://xosogialai.com.vn/",
             txt: "Gia Lai"
         },
         {
-            herf: "http://xosogialai.com.vn/",
+            href: "http://xosogialai.com.vn/",
             txt: "Gia Lai"
         },
         {
-            herf: "http://xsktquangnam.vn/",
+            href: "http://xsktquangnam.vn/",
             txt: "Quảng Nam"
         },
         {
-            herf: "http://xosophuyen.vn/",
+            href: "http://xosophuyen.vn/",
             txt: "Phú Yên"
         },
         {
-            herf: "http://xosoquangngai.com.vn/",
+            href: "http://xosoquangngai.com.vn/",
             txt: "Quảng Ngãi"
         },
         {
-            herf: "http://www.xosoquangtri.com.vn/",
+            href: "http://www.xosoquangtri.com.vn/",
             txt: "Quảng Trị"
         },
         {
-            herf: "http://www.xosokhanhhoa.com.vn/",
+            href: "http://www.xosokhanhhoa.com.vn/",
             txt: "Khánh Hòa"
         },
         {
-            herf: "http://xsktdaklak.vn/",
+            href: "http://xsktdaklak.vn/",
             txt: "Đắc Lắc"
         },
         {
-            herf: "http://xosohue.com.vn/",
+            href: "http://xosohue.com.vn/",
             txt: "Thừa Thiên Huế"
         },
         {
-            herf: "http://xosobinhdinh.com.vn/",
+            href: "http://xosobinhdinh.com.vn/",
             txt: "Bình Định"
         },
         {
-            herf: "http://xosoquangbinh.vn/",
+            href: "http://xosoquangbinh.vn/",
             txt: "Quảng Bình"
         },
         {
-            herf: "http://xosoninhthuan.com.vn/",
+            href: "http://xosoninhthuan.com.vn/",
             txt: "Ninh Thuận"
         },
         {
-            herf: "http://www.xosokontum.vn/",
+            href: "http://www.xosokontum.vn/",
             txt: "Kon Tum"
         },
         {
-            herf: "http://www.xsktdanang.com/",
+            href: "http://www.xsktdanang.com/",
             txt: "Đà Nẵng"
         },
         {
-            herf: "http://xskt.daknong.gov.vn/",
+            href: "http://xskt.daknong.gov.vn/",
             txt: "Đắk Nông"
         },
         {
-            herf: "http://xosomb.com.vn/",
+            href: "http://xosomb.com.vn/",
             txt: "Hà Nội"
         },
     ]
