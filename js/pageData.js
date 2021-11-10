@@ -628,3 +628,4 @@ var lotteryRef_menu = [{
         msg: "THƯỞNG 50% NẠP LẦN HAI Thưởng 50% khi nạp tiền lần 2 lên tới 2,888,000 VND ☆Thời gian ..."
     },
 ]
+
